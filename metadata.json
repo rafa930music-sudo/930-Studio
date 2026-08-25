@@ -1,0 +1,6 @@
+{
+  "name": "930 Studio",
+  "description": "Plataforma profesional 100% gratuita para crear, personalizar y exportar sitios web modernos con plantillas de alto impacto y modo claro/oscuro impecable.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
