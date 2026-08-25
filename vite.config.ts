@@ -8,7 +8,7 @@ export default defineConfig(() => {
     // 👇 IMPORTANTE: Define la subruta donde se aloja el proyecto en GitHub Pages.
     // Si usas un repositorio con nombre "930-Studio", la ruta base debe ser '/930-Studio/'.
     // Si prefieres una ruta relativa (funciona en cualquier subdirectorio), usa './'.
-    base: '/930-Studio/',
+    base: './',
     // base: './', // alternativa más flexible
 
     plugins: [react(), tailwindcss()],
