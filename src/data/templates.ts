@@ -7,16 +7,22 @@ import { WELLNESS_TEMPLATES } from './templates/wellness';
 import { SERVICES_TEMPLATES } from './templates/services';
 import { HOSPITALITY_TEMPLATES } from './templates/hospitality';
 import { EDUCATION_TEMPLATES } from './templates/education';
+import { ECOMMERCE_TEMPLATES } from './templates/ecommerce';
+import { PORTFOLIO_TEMPLATES } from './templates/portfolio';
+import { COMMUNITY_TEMPLATES } from './templates/community';
 
 export const APPLE_TEMPLATES: TemplateDefinition[] = [
   ...SAAS_TEMPLATES,
-  ...HARDWARE_TEMPLATES,
-  ...AGENCIES_TEMPLATES,
-  ...LUXURY_TEMPLATES,
+  ...ECOMMERCE_TEMPLATES,
+  ...PORTFOLIO_TEMPLATES,
+  ...COMMUNITY_TEMPLATES,
+  ...HOSPITALITY_TEMPLATES,
   ...WELLNESS_TEMPLATES,
   ...SERVICES_TEMPLATES,
-  ...HOSPITALITY_TEMPLATES,
-  ...EDUCATION_TEMPLATES
+  ...EDUCATION_TEMPLATES,
+  ...HARDWARE_TEMPLATES,
+  ...AGENCIES_TEMPLATES,
+  ...LUXURY_TEMPLATES
 ];
 
 export const TEMPLATES = APPLE_TEMPLATES;

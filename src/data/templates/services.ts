@@ -625,5 +625,342 @@ export const SERVICES_TEMPLATES: TemplateDefinition[] = [
         }
       }
     }
+  },
+
+  // 20. CORE — Consultoría Estratégica, M&A & Transformación Empresarial
+  {
+    id: 'core-consulting',
+    name: 'Core',
+    tagline: 'Firma de consultoría de dirección estratégica especializada en fusiones y adquisiciones (M&A), optimización de operaciones y transformación digital para multinacionales',
+    category: 'services',
+    thumbnail: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    description: 'Azul marino corporativo #0A2540 y acento azul acero #0066CC, tipografía ejecutiva con carácter, marcas globales asesoradas, bento de casos de éxito y valor generado, itinerario de asesoramiento en fases, estadísticas auditadas y solicitud confidencial.',
+    accentColor: '#0A2540',
+    theme: 'light',
+    defaultConfig: {
+      templateId: 'core-consulting',
+      name: 'Core Strategy Partners',
+      slug: 'core-strategy',
+      domain: 'corestrategy.partners',
+      theme: 'light',
+      accentColor: '#0A2540',
+      fontFamily: 'Inter, -apple-system, sans-serif',
+      borderRadius: 14,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'tabs',
+        'timeline',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Core Strategy Partners — Consultoría Estratégica de Dirección & M&A',
+        description: 'Asesoramiento de confianza para comités de dirección, fondos de capital privado y empresas del IBEX 35 en momentos críticos de crecimiento y transformación.',
+        keywords: 'consultoria estrategica, mergers acquisitions, private equity advisory, transformacion digital ibex 35, valor empresarial'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Core',
+          logoText: 'CORE STRATEGY',
+          ctaText: 'Consulta Confidencial',
+          ctaLink: '#contact',
+          links: [
+            { label: 'Servicios', href: '#tabs' },
+            { label: 'Impacto', href: '#features' },
+            { label: 'Metodología', href: '#timeline' },
+            { label: 'Casos de Éxito', href: '#stats' },
+            { label: 'Contacto', href: '#contact' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Asesores Estratégicos de Empresas Fortune 500 & Capital Privado',
+          kicker: 'Liderazgo & Creación de Valor',
+          title: 'Decisiones determinantes respaldadas por',
+          highlightTitle: 'rigor analítico.',
+          subtitle: 'Acompañamos a presidentes ejecutivos y consejos de administración en procesos de adquisiciones complejas, reestructuración operativa e integración tecnológica a escala.',
+          primaryCta: { text: 'Agendar Consulta Estratégica', link: '#contact' },
+          secondaryCta: { text: 'Descargar Informe de Tendencias 2026', link: '#report' },
+          imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+          style: 'split'
+        },
+        logos: {
+          enabled: true,
+          title: 'CONFIADO POR FONDOS DE INVERSIÓN Y LÍDERES GLOBALES DE LA INDUSTRIA',
+          items: [
+            { id: 'cl1', name: 'Blackstone Group', tagline: 'Private Equity' },
+            { id: 'cl2', name: 'Santander CIB', tagline: 'Banking & Advisory' },
+            { id: 'cl3', name: 'Telefónica Tech', tagline: 'Digital Strategy' },
+            { id: 'cl4', name: 'Ferrovial Infra', tagline: 'Infrastructure' },
+            { id: 'cl5', name: 'Repsol Energy', tagline: 'Energy Transition' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Propuesta de Valor',
+          title: 'Resultados medibles en el balance de situación.',
+          subtitle: 'No entregamos diagnósticos teóricos de biblioteca; ejecutamos planes de acción directos junto al equipo directivo.',
+          items: [
+            {
+              id: 'cf1',
+              title: 'Due Diligence Comercial & Asesoramiento M&A',
+              description: 'Evaluación exhaustiva de sinergias, posición competitiva en el mercado y planes de integración post-adquisición (PMI) en transacciones superiores a 50M€.',
+              icon: 'TrendingUp',
+              tag: 'M&A Advisory',
+              colSpan: 2,
+              statNumber: '4.8B €',
+              statLabel: 'En transacciones corporativas asesoradas en los últimos 5 años'
+            },
+            {
+              id: 'cf2',
+              title: 'Optimización de EBITDA & Estructura de Costes',
+              description: 'Rediseño de procesos críticos de cadena de suministro y reducción de gasto no operativo.',
+              icon: 'Percent',
+              tag: 'Operaciones',
+              colSpan: 1
+            },
+            {
+              id: 'cf3',
+              title: 'Adopción de IA & Modernización Tecnológica',
+              description: 'Modelos predictivos aplicados a la fijación dinámica de precios y automatización de procesos internos.',
+              icon: 'Cpu',
+              tag: 'Tech Transformation',
+              colSpan: 1
+            },
+            {
+              id: 'cf4',
+              title: 'Estrategia de Entrada en Nuevos Mercados',
+              description: 'Análisis regulatorio, planes de expansión internacional go-to-market y formación de alianzas estratégicas globales.',
+              icon: 'Globe2',
+              tag: 'Expansión Global',
+              colSpan: 2,
+              statNumber: '32 Países',
+              statLabel: 'Mercados analizados e implementados para nuestros clientes'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          kicker: 'Estudio de Caso Destacado',
+          title: 'Transformación de un conglomerado industrial de 1,200M€.',
+          subtitle: 'Cómo incrementamos el margen operativo un 380 bps en 18 meses manteniendo el 100% de la plantilla.',
+          description: 'Alineamos el modelo operativo con una nueva división de servicios digitales recurrentes y desinvertimos en activos no estratégicos con múltiplos récord.',
+          imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
+          layout: 'image-right',
+          ctaText: 'Ver Estudio de Caso Completo',
+          ctaLink: '#contact',
+          specs: [
+            { label: 'Incremento de Valoración', value: '+42%', detail: 'Medido en múltiplos de salida' },
+            { label: 'Ahorro Operativo Anual', value: '46M €', detail: 'Consolidadas en EBITDA recurrente' },
+            { label: 'Tiempo de Ejecución', value: '18 Meses', detail: 'Con hitos trimestrales cumplidos' }
+          ]
+        },
+        tabs: {
+          enabled: true,
+          kicker: 'Áreas de Práctica',
+          title: 'Servicios de consultoría de alta dirección.',
+          subtitle: 'Especialización sectorial profunda para responder a los desafíos más complejos.',
+          tabs: [
+            {
+              id: 'tab_ma',
+              label: 'Fusiones, Adquisiciones & Capital Privado',
+              icon: 'Briefcase',
+              title: 'Maximización del valor del capital antes, durante y después del deal',
+              description: 'Apoyamos a fondos de inversión y directores de desarrollo corporativo en la identificación de targets, due diligence comercial e integración acelerada.',
+              imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+              points: [
+                'Valoración independiente de sinergias de ingresos y costes',
+                'Plan de 100 días para la toma de control e integración',
+                'Estrategias de salida y optimización del equity story'
+              ]
+            },
+            {
+              id: 'tab_ops',
+              label: 'Rendimiento Operativo & Rediseño Organizativo',
+              icon: 'Settings2',
+              title: 'Eficiencia y agilidad organizativa para el nuevo ciclo económico',
+              description: 'Rediseñamos la estructura jerárquica, los incentivos del equipo directivo y la cadena de suministro para ganar competitividad.',
+              imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+              points: [
+                'Revisión zero-based budgeting (presupuesto base cero)',
+                'Automatización robótica de procesos y gobierno del dato',
+                'Alineamiento del plan de incentivos a largo plazo (LTIP)'
+              ]
+            }
+          ]
+        },
+        timeline: {
+          enabled: true,
+          kicker: 'El Método Core',
+          title: 'De la formulación analítica al impacto real en cuenta.',
+          subtitle: 'Una hoja de ruta clara dividida en cuatro etapas secuenciales.',
+          milestones: [
+            {
+              id: 'm1',
+              phase: 'Fase 01',
+              dateOrQuarter: 'Semanas 1 a 4',
+              title: 'Diagnóstico Cuantitativo & Benchmark de Mercado',
+              description: 'Inmersión en los datos de la compañía, entrevistas con los principales líderes de división y análisis comparativo con competidores internacionales.',
+              status: 'completed',
+              points: ['Auditoría de márgenes unitarios', 'Mapeo de fugas de valor', 'Validación de hipótesis directivas']
+            },
+            {
+              id: 'm2',
+              phase: 'Fase 02',
+              dateOrQuarter: 'Semanas 5 a 8',
+              title: 'Diseño de Iniciativas Estratégicas & Business Case',
+              description: 'Modelización financiera detallada de cada palanca de valor con priorización por impacto esperado y complejidad de implantación.',
+              status: 'in_progress',
+              points: ['Cuantificación de ROI por palanca', 'Asignación de responsables ejecutivos', 'Aprobación en Comité de Dirección']
+            },
+            {
+              id: 'm3',
+              phase: 'Fase 03',
+              dateOrQuarter: 'Meses 3 a 12',
+              title: 'Oficina de Transformación (PMO) & Ejecución',
+              description: 'Despliegue operativo de las iniciativas con seguimiento semanal riguroso y resolución ágil de bloqueos organizativos.',
+              status: 'upcoming',
+              points: ['Tablero de control ejecutivo en tiempo real', 'Gestión del cambio y cultura', 'Captura progresiva de ahorros en P&L']
+            }
+          ]
+        },
+        stats: {
+          enabled: true,
+          kicker: 'Historial Auditado',
+          title: 'Cifras contrastadas de nuestros proyectos de consultoría.',
+          subtitle: 'Impacto medible en rentabilidad y valor para el accionista.',
+          items: [
+            { id: 'cs1', value: '4.8B €', label: 'Volumen de M&A Asesorado', description: 'En más de 60 transacciones cerradas' },
+            { id: 'cs2', value: '+32%', label: 'Mejora Media de EBITDA', description: 'En programas de transformación a 24 meses' },
+            { id: 'cs3', value: '92%', label: 'Tasa de Clientes Recurrentes', description: 'Fondos de capital y multinacionales líderes' },
+            { id: 'cs4', value: '25+', label: 'Socios Seniors', description: 'Con experiencia previa en McKinsey, BCG y Bain' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que opinan los directores generales que confían en Core.',
+          subtitle: 'Relaciones de confianza y confidencialidad mantenidas durante años.',
+          items: [
+            {
+              id: 'ct1',
+              name: 'Ignacio de la Serna',
+              role: 'Managing Director en Iberia Private Equity',
+              company: 'Fondo de Inversión',
+              quote: 'El equipo de Core aportó un nivel de claridad analítica y pragmatismo que fue determinante para cerrar la adquisición de nuestro mayor activo industrial. Su equipo sénior estuvo presente en cada negociación clave.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            },
+            {
+              id: 'ct2',
+              name: 'Beatriz Alarcón',
+              role: 'CEO en Grupo Logístico Peninsular',
+              company: 'Empresa IBEX Small Cap',
+              quote: 'Reestructuramos toda la operativa de última milla con el acompañamiento de Core. Cumplieron con el 100% de los ahorros presupuestados en el calendario previsto sin desviar el foco del negocio diario.',
+              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Modelos de Colaboración & Honorarios',
+          subtitle: 'Estructuras alineadas con la consecución de objetivos tangibles de negocio.',
+          billingCycle: 'monthly',
+          discountNote: 'Estructuras híbridas con honorarios fijos y comisiones por éxito (success fees) en M&A',
+          plans: [
+            {
+              id: 'core_diagnostic',
+              name: 'Strategic Health Check',
+              tag: 'Diagnóstico Rápido',
+              priceMonthly: '18,000€',
+              priceAnnual: '18,000€',
+              description: 'Auditoría integral de 4 semanas sobre márgenes, posición competitiva y oportunidades inmediatas de valor.',
+              features: [
+                'Análisis financiero de cuentas de resultados de los últimos 3 años',
+                'Benchmark cuantitativo con los 5 principales rivales del sector',
+                'Entrevistas con el comité de dirección y mandos intermedios',
+                'Informe ejecutivo con 10 palancas de valor cuantificadas',
+                'Presentación presencial en Consejo de Administración'
+              ],
+              ctaText: 'Solicitar Health Check',
+              ctaLink: '#contact-healthcheck',
+              highlighted: false
+            },
+            {
+              id: 'core_transformation',
+              name: 'Programa de Transformación Integral',
+              tag: 'Mayor Impacto',
+              priceMonthly: '45,000€',
+              priceAnnual: '45,000€',
+              description: 'Acompañamiento directivo continuo con equipo dedicado de socios y directores de proyecto en la sede del cliente.',
+              features: [
+                'Equipo sénior dedicado a tiempo completo in situ',
+                'Oficina de Transformación (PMO) y cuadros de mando semanales',
+                'Rediseño operativo y renegociación de contratos estratégicos',
+                'Garantía de impacto en EBITDA ligada a honorarios variables',
+                'Soporte directo ilimitado para el Presidente y Consejero Delegado'
+              ],
+              ctaText: 'Agendar Sesión con Socios',
+              ctaLink: '#contact-transformation',
+              highlighted: true
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre Core',
+          subtitle: 'Aspectos relativos a la confidencialidad, equipo y régimen de honorarios.',
+          items: [
+            {
+              id: 'cfq_1',
+              question: '¿Cómo garantizáis la estricta confidencialidad de la información?',
+              answer: 'Firmamos acuerdos de confidencialidad reforzados (NDA) antes de cualquier intercambio de datos. Todos los análisis se realizan en entornos cifrados aislados y los socios firman compromisos de no competencia en el mismo sector.'
+            },
+            {
+              id: 'cfq_2',
+              question: '¿Quién compone el equipo que trabajará en nuestro proyecto?',
+              answer: 'A diferencia de firmas tradicionales, en Core el proyecto es liderado de principio a fin por socios con más de 15 años de experiencia ejecutiva, sin delegar la responsabilidad en consultores junior.'
+            },
+            {
+              id: 'cfq_3',
+              question: '¿Trabajáis con esquemas de honorarios ligados a resultados (Success Fees)?',
+              answer: 'Sí. En proyectos de M&A y programas de optimización de EBITDA estructuramos una parte significativa de nuestros honorarios ligada a la consecución efectiva de los objetivos pactados con el cliente.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          kicker: 'Máxima Confidencialidad',
+          title: 'Lideremos la próxima etapa de tu compañía.',
+          subtitle: 'Solicita una reunión privada con uno de nuestros socios directores para explorar vías de colaboración.',
+          primaryCta: { text: 'Solicitar Reunión Confidencial', link: '#contact' },
+          secondaryCta: { text: 'Conocer a Nuestros Socios', link: '#team' },
+          backgroundStyle: 'glow'
+        },
+        footer: {
+          copyright: '© 2026 Core Strategy Partners S.L. Madrid • Barcelona • Londres • Zúrich.',
+          legalLinks: [
+            { label: 'Aviso Legal & Registro Mercantil', href: '#legal' },
+            { label: 'Compromiso de Confidencialidad', href: '#confidentiality' },
+            { label: 'Política de Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'LinkedIn', url: 'https://linkedin.com' },
+            { platform: 'Twitter / X', url: 'https://twitter.com' }
+          ]
+        }
+      }
+    }
   }
 ];

@@ -818,5 +818,321 @@ export const AGENCIES_TEMPLATES: TemplateDefinition[] = [
         }
       }
     }
+  },
+
+  // 18. ECLIPSE — Portafolio de Fotografía Fine Art, Moda & Cinematografía
+  {
+    id: 'eclipse-photo',
+    name: 'Eclipse',
+    tagline: 'Portafolio de fotografía fine art, arquitectura y campañas de moda de alto impacto con galería a pantalla completa',
+    category: 'agencies',
+    thumbnail: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1200&q=80',
+    description: 'Fondo negro azabache #0A0A0C, acento blanco puro y ámbar suave #F59E0B, tipografía editorial minimalista, hero cinematográfico a pantalla completa, galería fotográfica masonry, biografía, galardones internacionales y formulario de contratación.',
+    accentColor: '#F59E0B',
+    theme: 'dark',
+    defaultConfig: {
+      templateId: 'eclipse-photo',
+      name: 'Eclipse Visuals',
+      slug: 'eclipse-visuals',
+      domain: 'eclipsevisuals.art',
+      theme: 'dark',
+      accentColor: '#F59E0B',
+      fontFamily: 'Inter, -apple-system, sans-serif',
+      borderRadius: 12,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'marquee',
+        'gallery',
+        'productHighlight',
+        'bentoFeatures',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Eclipse — Fotografía de Moda, Arquitectura & Dirección Visual',
+        description: 'Estudio de fotografía fine art galardonado internacionalmente. Campañas globales para marcas de lujo, editoriales y particulares.',
+        keywords: 'fotografo de moda, fotografia arquitectonica, fine art photography, direccion cinematografica, portfolio fotografo'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Eclipse',
+          logoText: 'ECLIPSE STUDIO',
+          ctaText: 'Solicitar Shooting',
+          ctaLink: '#contact',
+          links: [
+            { label: 'Obras', href: '#gallery' },
+            { label: 'Enfoque', href: '#features' },
+            { label: 'Exposiciones', href: '#stats' },
+            { label: 'Servicios', href: '#pricing' },
+            { label: 'Contacto', href: '#contact' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'World Press Photo & Sony World Photography Awards Winner',
+          kicker: 'Luz, Sombra y Tiempo',
+          title: 'La belleza de lo efímero,',
+          highlightTitle: 'inmortalizada en cada encuadre.',
+          subtitle: 'Dirección de fotografía y cinematografía analógica y digital de formato medio. Capturando la esencia de personas, espacios icónicos y colecciones exclusivas en todo el mundo.',
+          primaryCta: { text: 'Explorar Galería de Proyectos', link: '#gallery' },
+          secondaryCta: { text: 'Agendar Producción / Sesión →', link: '#pricing' },
+          imageUrl: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=1600&q=80',
+          style: 'fullscreen'
+        },
+        logos: {
+          enabled: true,
+          title: 'PUBLICACIONES & CLIENTES EDITORIALES',
+          items: [
+            { id: 'el1', name: 'Vogue Magazine', tagline: 'Editorial & Covers' },
+            { id: 'el2', name: 'Architectural Digest', tagline: 'Interior Design' },
+            { id: 'el3', name: 'Harper\'s Bazaar', tagline: 'Fashion Campaigns' },
+            { id: 'el4', name: 'National Geographic', tagline: 'Expedition Visuals' },
+            { id: 'el5', name: 'GQ International', tagline: 'Portraits' }
+          ]
+        },
+        marquee: {
+          enabled: true,
+          speed: 'slow',
+          direction: 'left',
+          items: [
+            { id: 'em1', text: 'FORMATO MEDIO HASSELBLAD 100MP & 35MM LEICA', highlight: true, icon: 'Camera' },
+            { id: 'em2', text: 'PRODUCCIONES GLOBALES EN LONDRES, TOKIO & NUEVA YORK', highlight: false, icon: 'Globe2' },
+            { id: 'em3', text: 'ETALONAJE Y RETOQUE DE COLOR CINEMATOGRÁFICO', highlight: true, icon: 'Sparkles' },
+            { id: 'em4', text: 'TIRADAS LIMITADAS IMPRESAS EN PAPEL HAHNEMÜHLE', highlight: false, icon: 'Award' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          kicker: 'Archivo Seleccionado',
+          title: 'Obras Recientes & Series Fotográficas',
+          subtitle: 'Una selección de encargos comerciales y proyectos artísticos personales.',
+          items: [
+            {
+              id: 'eg1',
+              title: 'Monolith — Arquitectura Brutalista en Copenhague',
+              category: 'Arquitectura',
+              imageUrl: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+              aspectRatio: 'tall'
+            },
+            {
+              id: 'eg2',
+              title: 'Aura Nocturna — Campaña Otoño/Invierno Milán',
+              category: 'Alta Moda',
+              imageUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
+              aspectRatio: 'square'
+            },
+            {
+              id: 'eg3',
+              title: 'Silencio Ártico — Expedición Svalbard',
+              category: 'Fine Art & Paisaje',
+              imageUrl: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80',
+              aspectRatio: 'wide'
+            },
+            {
+              id: 'eg4',
+              title: 'Retratos de Vanguardia — Maestros Artesanos',
+              category: 'Retrato Editorial',
+              imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80',
+              aspectRatio: 'tall'
+            }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Dirección Artística',
+          title: 'Una mirada singular para proyectos irrepetibles.',
+          subtitle: 'Desde el concepto inicial de moodboard hasta la postproducción de colorimetría en sala de etalonaje.',
+          items: [
+            {
+              id: 'ef1',
+              title: 'Equipos de Formato Medio & Ópticas Prime',
+              description: 'Trabajamos con sensores de 100 megapíxeles y lentes fijas de apertura ultraluminosa para lograr una profundidad de campo y textura inalcanzables con equipos estándar.',
+              icon: 'Camera',
+              tag: 'Calidad de Museo',
+              colSpan: 2,
+              statNumber: '100 MP',
+              statLabel: 'Resolución nativa en sensor Hasselblad H6D'
+            },
+            {
+              id: 'ef2',
+              title: 'Dirección de Localizaciones Globales',
+              description: 'Scouting de espacios arquitectónicos y parajes naturales exclusivos con gestión completa de permisos.',
+              icon: 'Compass',
+              tag: 'Global Scouting',
+              colSpan: 1
+            },
+            {
+              id: 'ef3',
+              title: 'Iluminación Escénica de Cine',
+              description: 'Dominio de luz natural y esquemas de tungsteno/HMI continuo para atmósferas sugerentes y pictóricas.',
+              icon: 'Sun',
+              tag: 'Light Design',
+              colSpan: 1
+            },
+            {
+              id: 'ef4',
+              title: 'Impresión Fine Art de Grado Colección',
+              description: 'Tiradas numeradas y certificadas con tintas pigmentadas minerales sobre papeles de algodón 100% libres de ácido con durabilidad garantizada +100 años.',
+              icon: 'Printer',
+              tag: 'Galería & Subastas',
+              colSpan: 2,
+              statNumber: '100+ Años',
+              statLabel: 'Garantía de permanencia cromática en copia museo'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          kicker: 'Monografía Impresa',
+          title: 'El libro de edición limitada: "Sombras en el Horizonte".',
+          subtitle: 'Un volumen de gran formato encuadernado en lino japonés con 180 fotografías inéditas.',
+          description: 'Impreso en cuatricromía estocástica con barniz de sobreimpresión por una de las prensas de mayor prestigio en Europa.',
+          imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1600&q=80',
+          layout: 'image-left',
+          ctaText: 'Adquirir Copia Numerada',
+          ctaLink: '#pricing',
+          specs: [
+            { label: 'Tirada Limitada', value: '500 Ejemplares', detail: 'Firmados y sellados por el autor' },
+            { label: 'Papel Interior', value: 'Fedrigoni 200g', detail: 'Acabado mate sedoso táctil' },
+            { label: 'Dimensiones', value: '30 x 40 cm', detail: 'Estuche protector rígido incluido' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          kicker: 'Trayectoria & Reconocimientos',
+          title: 'Cifras que respaldan una década tras el visor.',
+          subtitle: 'Presencia en bienales, museos de arte contemporáneo y ferias internacionales.',
+          items: [
+            { id: 'es1', value: '14', label: 'Premios Internacionales', description: 'Incluyendo World Photography Awards' },
+            { id: 'es2', value: '45+', label: 'Portadas Editoriales', description: 'En publicaciones de Europa y EE.UU.' },
+            { id: 'es3', value: '28', label: 'Exposiciones Individuales', description: 'En galerías de París, Tokio y Madrid' },
+            { id: 'es4', value: '100%', label: 'Satisfacción de Clientes', description: 'Con marcas del grupo LVMH y Kering' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que opinan directores creativos y curadores.',
+          subtitle: 'Colaboraciones con las principales casas de moda y editoriales internacionales.',
+          items: [
+            {
+              id: 'et1',
+              name: 'Guillaume Laurent',
+              role: 'Director Creativo en Maison de Luxe',
+              company: 'París',
+              quote: 'Trabajar con el equipo de Eclipse elevó por completo la narrativa visual de nuestra campaña. Su dominio de la luz natural y la conexión que consiguen con los modelos es pura magia.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            },
+            {
+              id: 'et2',
+              name: 'Clara Van Der Bilt',
+              role: 'Curadora Principal en Contemporary Art Space',
+              company: 'Ámsterdam',
+              quote: 'La serie de arquitectura nórdica expuesta en nuestra galería cautivó a coleccionistas de todo el mundo. Su sentido de la proporción y el rigor estético son excepcionales.',
+              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Servicios de Producción & Tarifas',
+          subtitle: 'Propuestas a medida según la envergadura y los derechos de uso requeridos.',
+          billingCycle: 'monthly',
+          discountNote: 'Cotizaciones personalizadas para campañas globales multiformato',
+          plans: [
+            {
+              id: 'eclipse_editorial',
+              name: 'Sesión Editorial / Retrato',
+              tag: 'Para Publicaciones & Creadores',
+              priceMonthly: '1,800€',
+              priceAnnual: '1,800€',
+              description: 'Jornada completa de shooting en estudio o localización seleccionada con equipo de iluminación.',
+              features: [
+                '1 Jornada completa de producción (8 horas)',
+                'Equipo de iluminación y formato medio incluido',
+                '25 Fotografías con revelado digital en alta resolución',
+                'Licencia de publicación editorial y medios digitales',
+                'Entrega en galería privada cifrada en 5 días hábiles'
+              ],
+              ctaText: 'Reservar Fecha de Sesión',
+              ctaLink: '#book-editorial',
+              highlighted: false
+            },
+            {
+              id: 'eclipse_campaign',
+              name: 'Campaña Comercial Completa',
+              tag: 'Más Solicitado',
+              priceMonthly: '5,500€',
+              priceAnnual: '5,500€',
+              description: 'Dirección de arte, scouting de localizaciones, equipo técnico completo y postproducción de color de cine.',
+              features: [
+                'Preproducción completa: moodboard, casting y scouting',
+                '2 Días de shooting en exteriores o plató de gran formato',
+                '60 Obras seleccionadas con retoque de alta gama',
+                'Tomas complementarias en vídeo 4K ProRes para redes',
+                'Cesión de derechos comerciales mundiales para publicidad'
+              ],
+              ctaText: 'Solicitar Propuesta de Campaña',
+              ctaLink: '#book-campaign',
+              highlighted: true
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes',
+          subtitle: 'Detalles sobre desplazamientos, plazos de entrega y derechos de autor.',
+          items: [
+            {
+              id: 'efq_1',
+              question: '¿Realizáis producciones fuera de vuestra ciudad base?',
+              answer: 'Sí. Viajamos con frecuencia para producciones en cualquier parte del mundo. Los gastos de logística, vuelos y dietas se presupuestan de forma transparente y sin sobrecostes.'
+            },
+            {
+              id: 'efq_2',
+              question: '¿Cuál es el plazo habitual de entrega de las imágenes finales?',
+              answer: 'Para sesiones editoriales el plazo estándar es de 5 a 7 días hábiles tras la selección del cliente. Para grandes campañas comerciales con retoque complejo el plazo es de 10 a 14 días.'
+            },
+            {
+              id: 'efq_3',
+              question: '¿Cómo se gestionan los derechos de uso de las fotografías?',
+              answer: 'Todas las producciones incluyen un contrato claro de cesión de derechos adaptado al alcance pactado (redes sociales, prensa escrita, cartelería exterior o campañas globales de televisión e internet).'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          kicker: 'Calendario 2026/2027 Abierto',
+          title: 'Hagamos realidad tu visión visual.',
+          subtitle: 'Cuéntanos la idea de tu próximo proyecto o campaña y diseñaremos una propuesta creativa a medida.',
+          primaryCta: { text: 'Iniciar Conversación Creativa', link: '#contact' },
+          secondaryCta: { text: 'Descargar Portfolio en PDF', link: '#download-pdf' },
+          backgroundStyle: 'glow'
+        },
+        footer: {
+          copyright: '© 2026 Eclipse Visuals Studio. Todos los derechos reservados. Madrid • París • Nueva York.',
+          legalLinks: [
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Política de Privacidad', href: '#privacy' },
+            { label: 'Condiciones de Contratación', href: '#terms' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Behance', url: 'https://behance.net' },
+            { platform: 'Vimeo', url: 'https://vimeo.com' }
+          ]
+        }
+      }
+    }
   }
 ];

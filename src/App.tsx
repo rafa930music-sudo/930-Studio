@@ -6,6 +6,7 @@ import { VisualEditor } from './components/VisualEditor';
 import { WebsiteRenderer } from './components/WebsiteRenderer';
 import { DonationModal } from './components/DonationModal';
 import { ExportModal } from './components/ExportModal';
+import { SplashScreen } from './components/SplashScreen';
 import { ArrowLeft, Monitor, Tablet, Smartphone, Sparkles, Heart } from 'lucide-react';
 
 const STORAGE_KEY = '930studio_sites';
@@ -18,17 +19,9 @@ export default function App() {
   const [sites, setSites] = useState<SiteConfig[]>([]);
   const [selectedSite, setSelectedSite] = useState<SiteConfig | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [isDark, setIsDark] = useState<boolean>(() => {
+  const [showSplash, setShowSplash] = useState<boolean>(() => {
     try {
-      const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-      if (savedTheme !== null) {
-        return savedTheme === 'dark';
-      }
-      const legacyTheme = localStorage.getItem(LEGACY_THEME_STORAGE_KEY);
-      if (legacyTheme !== null) {
-        return legacyTheme === 'true';
-      }
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return localStorage.getItem('splashSeen') !== 'true';
     } catch {
       return false;
     }
@@ -42,19 +35,15 @@ export default function App() {
   // Preview viewport state
   const [previewViewport, setPreviewViewport] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
-  // Sync dark mode class and storage
+  // Always force dark mode on document element
   useEffect(() => {
+    document.documentElement.classList.add('dark');
     try {
-      localStorage.setItem(THEME_STORAGE_KEY, isDark ? 'dark' : 'light');
+      localStorage.setItem(THEME_STORAGE_KEY, 'dark');
     } catch (e) {
       console.warn('Could not save theme to localStorage:', e);
     }
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
+  }, []);
 
   // Load sites from localStorage on mount
   useEffect(() => {
@@ -177,6 +166,13 @@ export default function App() {
     setView('editor');
   };
 
+  const handleCreateSiteFromConfig = (newSite: SiteConfig) => {
+    const updated = [newSite, ...sites];
+    persistSites(updated);
+    setSelectedSite(newSite);
+    setView('editor');
+  };
+
   const handleResetAllData = () => {
     try {
       localStorage.removeItem(STORAGE_KEY);
@@ -191,7 +187,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen font-sans selection:bg-[#00E5FF] selection:text-black transition-colors duration-300 ${isDark ? 'dark bg-[#0A0A0F] text-white' : 'bg-[#FAFAFC] text-[#0F172A]'}`}>
+    <div className="min-h-screen font-sans selection:bg-[#00E5FF] selection:text-black dark bg-[#0A0A0F] text-white">
       {/* 1. DASHBOARD VIEW */}
       {view === 'dashboard' && (
         <Dashboard
@@ -201,6 +197,7 @@ export default function App() {
             setView('editor');
           }}
           onCreateSiteFromTemplate={handleCreateSiteFromTemplate}
+          onCreateSiteFromConfig={handleCreateSiteFromConfig}
           onDeleteSite={handleDeleteSite}
           onDuplicateSite={handleDuplicateSite}
           onOpenDonation={() => setIsDonationOpen(true)}
@@ -212,8 +209,6 @@ export default function App() {
             setSelectedSite(site);
             setView('preview');
           }}
-          isDark={isDark}
-          onToggleTheme={() => setIsDark(!isDark)}
           onResetAllData={handleResetAllData}
         />
       )}
@@ -226,7 +221,6 @@ export default function App() {
           onBackToDashboard={() => setView('dashboard')}
           onTogglePublish={handleTogglePublish}
           onOpenDonation={() => setIsDonationOpen(true)}
-          isDark={isDark}
         />
       )}
 
@@ -248,7 +242,7 @@ export default function App() {
               <button
                 onClick={() => setPreviewViewport('desktop')}
                 className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  previewViewport === 'desktop' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'
+                  previewViewport === 'desktop' ? 'bg-[#00E5FF] text-black font-semibold shadow-[0_0_10px_rgba(0,229,255,0.4)]' : 'text-neutral-400 hover:text-white'
                 }`}
                 title="Escritorio"
               >
@@ -257,7 +251,7 @@ export default function App() {
               <button
                 onClick={() => setPreviewViewport('tablet')}
                 className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  previewViewport === 'tablet' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'
+                  previewViewport === 'tablet' ? 'bg-[#00E5FF] text-black font-semibold shadow-[0_0_10px_rgba(0,229,255,0.4)]' : 'text-neutral-400 hover:text-white'
                 }`}
                 title="Tableta"
               >
@@ -266,7 +260,7 @@ export default function App() {
               <button
                 onClick={() => setPreviewViewport('mobile')}
                 className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                  previewViewport === 'mobile' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white'
+                  previewViewport === 'mobile' ? 'bg-[#00E5FF] text-black font-semibold shadow-[0_0_10px_rgba(0,229,255,0.4)]' : 'text-neutral-400 hover:text-white'
                 }`}
                 title="Móvil"
               >
@@ -293,10 +287,10 @@ export default function App() {
             </div>
           </div>
 
-          {/* Render frame */}
-          <div className="flex-1 overflow-y-auto flex items-start justify-center p-4 bg-[#09090F]">
+          {/* Render frame with dark canvas */}
+          <div className="flex-1 overflow-y-auto flex items-start justify-center p-4 bg-[#0A0A0F]">
             <div
-              className={`transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden border border-white/10 bg-white min-h-screen ${
+              className={`transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden border border-white/10 bg-[#12121A] min-h-screen ${
                 previewViewport === 'desktop'
                   ? 'w-full max-w-6xl'
                   : previewViewport === 'tablet'
@@ -310,11 +304,15 @@ export default function App() {
         </div>
       )}
 
+      {/* SPLASH SCREEN */}
+      {showSplash && (
+        <SplashScreen onFinish={() => setShowSplash(false)} />
+      )}
+
       {/* GLOBAL MODALS */}
       <DonationModal
         isOpen={isDonationOpen}
         onClose={() => setIsDonationOpen(false)}
-        isDark={isDark}
       />
 
       {activeModalSite && modalType === 'export' && (
@@ -325,7 +323,6 @@ export default function App() {
             setModalType(null);
           }}
           site={activeModalSite}
-          isDark={isDark}
           onOpenDonation={() => setIsDonationOpen(true)}
         />
       )}

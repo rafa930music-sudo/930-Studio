@@ -1014,5 +1014,619 @@ export const SAAS_TEMPLATES: TemplateDefinition[] = [
         }
       }
     }
+  },
+
+  // 17. NIMBUS — SaaS Landing con Fondo Degradado & Glassmorphism
+  {
+    id: 'nimbus-saas',
+    name: 'Nimbus',
+    tagline: 'SaaS moderno de analítica y automatización con fondo degradado etéreo, tarjetas glassmorphism e integraciones nativas',
+    category: 'saas',
+    thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
+    description: 'Gradiente suave azul-violeta #6366F1 con efecto cristal translúcido, tipografía Inter, dashboard de analítica en tiempo real, catálogo de 50+ integraciones, métricas de retención, planes flexibles y soporte prioritario.',
+    accentColor: '#6366F1',
+    theme: 'dark',
+    defaultConfig: {
+      templateId: 'nimbus-saas',
+      name: 'Nimbus Analytics',
+      slug: 'nimbus-analytics',
+      domain: 'nimbuscloud.io',
+      theme: 'dark',
+      accentColor: '#6366F1',
+      fontFamily: 'Inter, -apple-system, sans-serif',
+      borderRadius: 20,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'marquee',
+        'bentoFeatures',
+        'productHighlight',
+        'tabs',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Nimbus — Plataforma de Inteligencia de Datos & Automatización en Tiempo Real',
+        description: 'Conecta todas tus fuentes de datos, automatiza flujos de trabajo complejos y obtén predicciones precisas con IA.',
+        keywords: 'saas, analítica de datos, automatización de workflows, inteligencia artificial, dashboard en tiempo real'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Nimbus',
+          logoText: 'NIMBUS',
+          ctaText: 'Empezar Gratis',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Plataforma', href: '#features' },
+            { label: 'Integraciones', href: '#tabs' },
+            { label: 'Rendimiento', href: '#stats' },
+            { label: 'Planes', href: '#pricing' },
+            { label: 'Preguntas', href: '#faq' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Nimbus 4.0 con Motores de Predicción en Vivo',
+          kicker: 'Inteligencia Operativa en Tiempo Real',
+          title: 'Convierte tus datos caóticos en',
+          highlightTitle: 'decisiones automáticas.',
+          subtitle: 'Una sola plataforma con arquitectura serverless que ingiere millones de eventos por segundo, detecta anomalías y sincroniza tus herramientas favoritas sin latencia.',
+          primaryCta: { text: 'Iniciar Prueba de 14 Días', link: '#pricing' },
+          secondaryCta: { text: 'Explorar Sandbox Interactivo', link: '#product' },
+          imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'CONFIADO POR EQUIPOS DE INGENIERÍA Y PRODUCTO EN TODO EL MUNDO',
+          items: [
+            { id: 'nl1', name: 'Supabase', tagline: 'Database Partner' },
+            { id: 'nl2', name: 'Datadog', tagline: 'Observability' },
+            { id: 'nl3', name: 'Snowflake', tagline: 'Data Cloud' },
+            { id: 'nl4', name: 'Postman', tagline: 'API Network' },
+            { id: 'nl5', name: 'Linear', tagline: 'Issue Tracking' }
+          ]
+        },
+        marquee: {
+          enabled: true,
+          speed: 'normal',
+          direction: 'left',
+          items: [
+            { id: 'nm1', text: 'INGESTA DE 10M+ EVENTOS / SEGUNDO', highlight: true, icon: 'Zap' },
+            { id: 'nm2', text: 'CONECTORES NATIVOS CON POSTGRESQL & BIGQUERY', highlight: false, icon: 'Database' },
+            { id: 'nm3', text: 'ALERTAS INTELIGENTES MEDIANTE IA GENERATIVA', highlight: true, icon: 'Sparkles' },
+            { id: 'nm4', text: 'CUMPLIMIENTO SOC2 TIPO II & RGPD EUROPEO', highlight: false, icon: 'ShieldCheck' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Arquitectura de Datos Nimbus',
+          title: 'Potencia sin fricción, desde el primer evento.',
+          subtitle: 'Elimina silos y pipelines frágiles con nuestro motor unificado de streaming y procesamiento en memoria.',
+          items: [
+            {
+              id: 'nf1',
+              title: 'Canales de Procesamiento en Tiempo Real',
+              description: 'Transforma y limpia registros de datos al vuelo con funciones WebAssembly sin tocar servidores dedicados.',
+              icon: 'Activity',
+              tag: 'Sub-5ms Latency',
+              colSpan: 2,
+              statNumber: '99.99%',
+              statLabel: 'Disponibilidad histórica de la infraestructura global'
+            },
+            {
+              id: 'nf2',
+              title: 'Constructor Visual de Automatizaciones',
+              description: 'Orquesta flujos multi-paso con disparadores condicionales y reintentos inteligentes.',
+              icon: 'GitBranch',
+              tag: 'No-Code & SDK',
+              colSpan: 1
+            },
+            {
+              id: 'nf3',
+              title: 'Gobernanza & Cifrado Granular',
+              description: 'Políticas de control de acceso por rol (RBAC) y enmascaramiento dinámico de datos sensibles.',
+              icon: 'Lock',
+              tag: 'Seguridad Empresarial',
+              colSpan: 1
+            },
+            {
+              id: 'nf4',
+              title: 'Predicciones con Modelos de Lenguaje y Machine Learning',
+              description: 'Anticípate a la pérdida de clientes (churn), detecta picos anómalos de tráfico y proyecta ingresos recurrentes.',
+              icon: 'BrainCircuit',
+              tag: 'IA Integrada',
+              colSpan: 2,
+              statNumber: '4.2x',
+              statLabel: 'Retorno de inversión promedio reportado por nuestros clientes'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          kicker: 'Visualización Unificada',
+          title: 'El centro de control que tu equipo siempre quiso.',
+          subtitle: 'Cuadros de mando reactivos que se actualizan sin recargar la página, con filtros multidimensionales y exportación en 1 clic.',
+          description: 'Diseñado tanto para analistas de datos que requieren consultas SQL avanzadas como para directores que necesitan resúmenes ejecutivos listos para presentar.',
+          imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80',
+          layout: 'image-right',
+          ctaText: 'Ver Demostración en Directo',
+          ctaLink: '#pricing',
+          specs: [
+            { label: 'Tiempo de Despliegue', value: '< 3 minutos', detail: 'Conexión con 1 línea de código' },
+            { label: 'Integraciones Nativas', value: '50+ Conectores', detail: 'Stripe, Segment, Slack, BigQuery' },
+            { label: 'SLA Empresarial', value: '99.99% Garantizado', detail: 'Soporte 24/7 con ingenieros dedicados' }
+          ]
+        },
+        tabs: {
+          enabled: true,
+          kicker: 'Ecosistema Conectado',
+          title: 'Se integra con tu pila tecnológica actual.',
+          subtitle: 'Conecta tus aplicaciones en minutos sin necesidad de desarrollar APIs desde cero.',
+          tabs: [
+            {
+              id: 'tab_db',
+              label: 'Bases de Datos & Almacenes',
+              icon: 'Database',
+              title: 'Sincronización bidireccional con tus bases de datos',
+              description: 'Conecta PostgreSQL, MySQL, MongoDB, Snowflake o BigQuery con replicación incremental en tiempo real.',
+              imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+              points: [
+                'Change Data Capture (CDC) de ultra baja sobrecarga',
+                'Consultas SQL federadas entre múltiples motores',
+                'Copia de seguridad y snapshots automatizados cada hora'
+              ]
+            },
+            {
+              id: 'tab_apps',
+              label: 'SaaS & Herramientas de Negocio',
+              icon: 'Layers',
+              title: 'Unifica tus herramientas de marketing y finanzas',
+              description: 'Recibe eventos desde Stripe, Salesforce, HubSpot, Zendesk y envía alertas a Slack o Microsoft Teams al instante.',
+              imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+              points: [
+                'Webhooks salientes con lógica de reintentos exponenciales',
+                'Mapeo de esquemas JSON con transformaciones visuales',
+                'Historial completo de ejecuciones y logs de auditoría'
+              ]
+            }
+          ]
+        },
+        stats: {
+          enabled: true,
+          kicker: 'Métricas de Rendimiento',
+          title: 'Escalabilidad comprobada a escala global.',
+          subtitle: 'Infraestructura robusta construida para resistir los mayores picos de tráfico.',
+          items: [
+            { id: 'ns1', value: '18B+', label: 'Eventos Procesados / Mes', description: 'Con latencia media < 4.2ms' },
+            { id: 'ns2', value: '99.99%', label: 'Disponibilidad de Servicio', description: 'Garantizada por contrato SLA' },
+            { id: 'ns3', value: '45,000+', label: 'Equipos Activos', description: 'En más de 120 países' },
+            { id: 'ns4', value: '4.9/5', label: 'Satisfacción de Clientes', description: 'Basado en 2,400+ reseñas G2' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que dicen los líderes tecnológicos.',
+          subtitle: 'Empresas de alto crecimiento confían en Nimbus para su infraestructura analítica.',
+          items: [
+            {
+              id: 'nt1',
+              name: 'Laura Méndez',
+              role: 'VP of Engineering en DataFlow',
+              company: 'Unicornio FinTech',
+              quote: 'Nimbus reemplazó tres herramientas distintas y redujo nuestros costes de infraestructura en un 45%. La velocidad con la que podemos crear cuadros de mando en tiempo real es insuperable.',
+              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            },
+            {
+              id: 'nt2',
+              name: 'Andrés Collado',
+              role: 'Head of Product en HyperScale',
+              company: 'E-commerce Global',
+              quote: 'El constructor visual de automatizaciones nos permitió conectar nuestras alertas de Stripe y Shopify con nuestro equipo de atención al cliente en una sola tarde.',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Planes Transparentes para Cada Etapa',
+          subtitle: 'Comienza gratis y escala a medida que aumente tu volumen de datos.',
+          billingCycle: 'monthly',
+          discountNote: 'Ahorra un 20% en facturación anual',
+          plans: [
+            {
+              id: 'nimbus_starter',
+              name: 'Starter',
+              tag: 'Para Proyectos en Crecimiento',
+              priceMonthly: '29€',
+              priceAnnual: '24€',
+              description: 'Ideal para startups y equipos pequeños que necesitan analítica fiable y hasta 1M de eventos mensuales.',
+              features: [
+                'Hasta 1,000,000 eventos mensuales incluidos',
+                'Retención de datos en caliente durante 30 días',
+                '3 Conexiones de base de datos activas',
+                'Alertas por Slack y correo electrónico',
+                'Soporte estándar por chat con respuesta < 4h'
+              ],
+              ctaText: 'Probar Starter Gratis',
+              ctaLink: '#start-starter',
+              highlighted: false
+            },
+            {
+              id: 'nimbus_growth',
+              name: 'Growth Pro',
+              tag: 'Más Popular',
+              priceMonthly: '89€',
+              priceAnnual: '69€',
+              description: 'Para empresas en rápida expansión que requieren pipelines avanzados, modelos de IA y soporte prioritario.',
+              features: [
+                'Hasta 10,000,000 eventos mensuales incluidos',
+                'Retención de datos en caliente durante 1 año',
+                'Conectores ilimitados y funciones WebAssembly',
+                'Modelos de predicción y detección de anomalías IA',
+                'SLA del 99.9% y soporte prioritario 24/7'
+              ],
+              ctaText: 'Comenzar con Growth Pro',
+              ctaLink: '#start-growth',
+              highlighted: true
+            },
+            {
+              id: 'nimbus_enterprise',
+              name: 'Enterprise Dedicado',
+              tag: 'Máxima Potencia',
+              priceMonthly: '299€',
+              priceAnnual: '249€',
+              description: 'Para corporaciones con requerimientos de despliegue dedicado en su propia VPC y cumplimiento normativo estricto.',
+              features: [
+                'Volumen masivo de eventos personalizado',
+                'Despliegue On-Premise o VPC dedicada (AWS/GCP/Azure)',
+                'Single Sign-On (SSO / SAML) y logs de auditoría SIEM',
+                'Gerente de cuenta técnico asignado y SLA 99.99%',
+                'Acuerdos de confidencialidad BAA / HIPAA disponibles'
+              ],
+              ctaText: 'Contactar a Ventas',
+              ctaLink: '#contact-sales',
+              highlighted: false
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre Nimbus',
+          subtitle: 'Todo lo que necesitas saber sobre nuestra arquitectura y seguridad.',
+          items: [
+            {
+              id: 'nfq_1',
+              question: '¿Cómo se conecta Nimbus a mis fuentes de datos?',
+              answer: 'Ofrecemos conectores con un solo clic para los principales motores de bases de datos y servicios SaaS, así como SDKs ligeros para Node.js, Python, Go, Rust y navegadores web.'
+            },
+            {
+              id: 'nfq_2',
+              question: '¿Qué ocurre si supero el límite de eventos de mi plan?',
+              answer: 'Tu servicio nunca se interrumpirá. Te notificaremos al alcanzar el 80% y 100% de tu cuota, y los eventos adicionales se tarificarán a un coste marginal muy reducido por millar.'
+            },
+            {
+              id: 'nfq_3',
+              question: '¿Están mis datos protegidos frente a accesos no autorizados?',
+              answer: 'Sí. Todos los datos en tránsito se protegen con TLS 1.3 y en reposo mediante cifrado AES-256 con claves gestionadas por HSM. Contamos con auditorías anuales SOC2 Tipo II.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          kicker: 'Despliegue Inmediato',
+          title: 'Lleva la analítica de tu empresa al siguiente nivel.',
+          subtitle: 'Crea tu cuenta en menos de dos minutos. Sin tarjeta de crédito requerida.',
+          primaryCta: { text: 'Crear Cuenta Gratuita', link: '#pricing' },
+          secondaryCta: { text: 'Ver Documentación Técnica', link: '#docs' },
+          backgroundStyle: 'glow'
+        },
+        footer: {
+          copyright: '© 2026 Nimbus Analytics Inc. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Políticas de Privacidad', href: '#privacy' },
+            { label: 'Condiciones del Servicio', href: '#terms' },
+            { label: 'Seguridad & Cumplimiento', href: '#security' },
+            { label: 'Estado de la Red', href: '#status' }
+          ],
+          socialLinks: [
+            { platform: 'GitHub', url: 'https://github.com' },
+            { platform: 'Twitter / X', url: 'https://twitter.com' },
+            { platform: 'LinkedIn', url: 'https://linkedin.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 19. FUSION — App Móvil con Mockups de Smartphone & Badges de Descarga
+  {
+    id: 'fusion-mobile-app',
+    name: 'Fusion',
+    tagline: 'Landing moderna para aplicaciones móviles iOS & Android con capturas interactivas, badges de descarga y reseñas de usuarios',
+    category: 'saas',
+    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
+    description: 'Fondo claro impecable con acento azul cobalto #2563EB, mockups de teléfonos inteligentes de última generación, enlaces a App Store y Google Play, bento de características táctiles, calificaciones 5 estrellas y suscripciones in-app.',
+    accentColor: '#2563EB',
+    theme: 'light',
+    defaultConfig: {
+      templateId: 'fusion-mobile-app',
+      name: 'Fusion App',
+      slug: 'fusion-app',
+      domain: 'fusionapp.mobile',
+      theme: 'light',
+      accentColor: '#2563EB',
+      fontFamily: 'Inter, -apple-system, sans-serif',
+      borderRadius: 22,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'marquee',
+        'bentoFeatures',
+        'productHighlight',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Fusion — La App Móvil Definitiva para Productividad & Finanzas Personales',
+        description: 'Disponible en App Store y Google Play. Controla tus gastos, ahorra automáticamente y gestiona tus metas financieras.',
+        keywords: 'app movil, ios app, android app, finanzas personales, productividad, descargar app'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Fusion',
+          logoText: 'FUSION APP',
+          ctaText: 'Descargar App',
+          ctaLink: '#download',
+          links: [
+            { label: 'Funciones', href: '#features' },
+            { label: 'Interfaz', href: '#product' },
+            { label: 'Opiniones', href: '#testimonials' },
+            { label: 'Planes Plus', href: '#pricing' },
+            { label: 'Ayuda', href: '#faq' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Nº 1 en Finanzas & Productividad • Más de 500,000 Descargas',
+          kicker: 'Tu Vida Financiera Simplificada',
+          title: 'El dinero en su estado más',
+          highlightTitle: 'inteligente y fluido.',
+          subtitle: 'Fusion reúne todas tus cuentas bancarias, categoriza tus gastos con inteligencia artificial y automatiza tus ahorros con una experiencia táctil intuitiva y segura.',
+          primaryCta: { text: 'Descargar en App Store ', link: '#appstore' },
+          secondaryCta: { text: 'Disponible en Google Play ▶', link: '#googleplay' },
+          imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80',
+          style: 'split'
+        },
+        logos: {
+          enabled: true,
+          title: 'RECONOCIDA POR LOS PRINCIPALES MEDIOS TECNOLÓGICOS',
+          items: [
+            { id: 'fl1', name: 'TechCrunch', tagline: 'App of the Week' },
+            { id: 'fl2', name: 'The Verge', tagline: 'Best Design 2026' },
+            { id: 'fl3', name: 'Wired', tagline: 'Editor\'s Choice' },
+            { id: 'fl4', name: 'Product Hunt', tagline: '#1 Product of the Day' },
+            { id: 'fl5', name: 'Forbes', tagline: 'Fintech 50' }
+          ]
+        },
+        marquee: {
+          enabled: true,
+          speed: 'normal',
+          direction: 'left',
+          items: [
+            { id: 'fm1', text: 'NOTIFICACIONES INSTANTÁNEAS DE GASTOS', highlight: true, icon: 'Bell' },
+            { id: 'fm2', text: 'SEGURIDAD BIOMÉTRICA CON FACE ID & TOUCH ID', highlight: false, icon: 'ShieldCheck' },
+            { id: 'fm3', text: 'REDONDEO AUTOMÁTICO DE COMPRAS PARA INVERSIÓN', highlight: true, icon: 'TrendingUp' },
+            { id: 'fm4', text: 'SIN COMISIONES OCULTAS NI LETRA PEQUEÑA', highlight: false, icon: 'CheckCircle2' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Diseñada al Detalle',
+          title: 'Todo lo que necesitas para dominar tu economía.',
+          subtitle: 'Diseño nativo para iOS y Android con animaciones fluidas a 120 FPS y soporte offline.',
+          items: [
+            {
+              id: 'ff1',
+              title: 'Presupuestos Inteligentes con IA',
+              description: 'Nuestra inteligencia artificial analiza tus patrones de consumo mensuales y te avisa antes de que sobrepases tus límites previstos.',
+              icon: 'PieChart',
+              tag: 'Algoritmo Predictivo',
+              colSpan: 2,
+              statNumber: '320€',
+              statLabel: 'Ahorro promedio mensual registrado por usuario activo'
+            },
+            {
+              id: 'ff2',
+              title: 'Bóvedas de Ahorro con Rendimiento',
+              description: 'Crea metas para viajes, emergencias o proyectos y haz crecer tu dinero día a día sin penalizaciones por retirada.',
+              icon: 'Vault',
+              tag: '3.5% TAE',
+              colSpan: 1
+            },
+            {
+              id: 'ff3',
+              title: 'Tarjetas Virtuales de Uso Único',
+              description: 'Genera tarjetas desechables instantáneas para comprar en internet con total tranquilidad y protección antifraude.',
+              icon: 'CreditCard',
+              tag: 'Seguridad Total',
+              colSpan: 1
+            },
+            {
+              id: 'ff4',
+              title: 'Sincronización Bancaria Europea e Internacional',
+              description: 'Conéctate de forma segura con más de 2,500 bancos mediante protocolos Open Banking regulados por el Banco Central Europeo.',
+              icon: 'Building2',
+              tag: 'Open Banking PSD2',
+              colSpan: 2,
+              statNumber: '2,500+',
+              statLabel: 'Entidades financieras compatibles en Europa y América'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          kicker: 'Experiencia Táctil',
+          title: 'Una interfaz rápida, limpia y sin anuncios.',
+          subtitle: 'Desliza para transferir, visualiza gráficos interactivos y gestiona tus suscripciones recurrentes con un solo toque.',
+          description: 'Desarrollada íntegramente en código nativo para garantizar el menor consumo de batería, carga instantánea y soporte completo para widgets de pantalla de inicio.',
+          imageUrl: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1600&q=80',
+          layout: 'image-left',
+          ctaText: 'Descargar Gratis',
+          ctaLink: '#download',
+          specs: [
+            { label: 'Valoración en App Store', value: '4.9 ★★★★★', detail: 'Más de 38,000 reseñas' },
+            { label: 'Tiempo de Carga', value: '< 0.2 segundos', detail: 'Arquitectura nativa ultra ligera' },
+            { label: 'Privacidad', value: 'Cero Publicidad', detail: 'Tus datos financieros nunca se venden' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          kicker: 'Comunidad Fusion',
+          title: 'Números que demuestran la confianza de nuestros usuarios.',
+          subtitle: 'Una de las apps financieras de mayor crecimiento en el continente.',
+          items: [
+            { id: 'fs1', value: '500,000+', label: 'Usuarios Activos', description: 'Creciendo un 25% cada mes' },
+            { id: 'fs2', value: '1.2B €', label: 'Transacciones Gestionadas', description: 'Con cero incidencias de seguridad' },
+            { id: 'fs3', value: '4.9/5', label: 'Puntuación en App Store', description: 'Top 5 en la categoría de Finanzas' },
+            { id: 'fs4', value: '100%', label: 'Cifrado de Extremo a Extremo', description: 'Estándar bancario AES-256' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que opinan los usuarios que usan Fusion cada día.',
+          subtitle: 'Historias reales de personas que han tomado el control de sus finanzas.',
+          items: [
+            {
+              id: 'ft1',
+              name: 'Pablo Herrero',
+              role: 'Diseñador de Producto en Madrid',
+              company: 'Usuario Fusion Pro',
+              quote: 'Es la app bancaria mejor diseñada que he probado en mi vida. El redondeo automático me ha permitido ahorrar casi 2,000 euros para mis vacaciones de verano casi sin darme cuenta.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            },
+            {
+              id: 'ft2',
+              name: 'Marina Segovia',
+              role: 'Emprendedora Digital',
+              company: 'Usuaria Fusion desde 2024',
+              quote: 'Poder ver mis cuentas personales y las de mi negocio en una sola pantalla con categorización automática me ahorra horas todos los fines de mes.',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Planes Simples y Sin Compromiso',
+          subtitle: 'Disfruta de Fusion de forma gratuita o desbloquea funciones premium con Fusion Plus.',
+          billingCycle: 'monthly',
+          discountNote: '2 meses gratis en el plan anual',
+          plans: [
+            {
+              id: 'fusion_free',
+              name: 'Fusion Estándar',
+              tag: 'Para Siempre Gratis',
+              priceMonthly: '0€',
+              priceAnnual: '0€',
+              description: 'Ideal para quienes quieren empezar a organizar sus gastos diarios y sincronizar hasta 2 cuentas bancarias.',
+              features: [
+                'Hasta 2 cuentas bancarias conectadas',
+                'Categorización básica de gastos automáticos',
+                '1 Bóveda de ahorro con redondeo',
+                'Tarjetas virtuales estándares',
+                'Soporte dentro de la app'
+              ],
+              ctaText: 'Descargar Gratis',
+              ctaLink: '#download-free',
+              highlighted: false
+            },
+            {
+              id: 'fusion_plus',
+              name: 'Fusion Plus',
+              tag: 'Más Popular',
+              priceMonthly: '4.99€',
+              priceAnnual: '3.99€',
+              description: 'Para personas que quieren maximizar su ahorro, desbloquear IA predictiva y cuentas internacionales multimoneda.',
+              features: [
+                'Cuentas bancarias ilimitadas y cuentas de inversión',
+                'IA predictiva con avisos de gastos recurrentes',
+                'Bóvedas ilimitadas con 3.5% TAE de rendimiento',
+                'Tarjetas virtuales desechables ilimitadas',
+                'Cuentas multimoneda sin comisiones de cambio',
+                'Soporte prioritario VIP 24/7'
+              ],
+              ctaText: 'Probar 30 Días Gratis',
+              ctaLink: '#start-plus',
+              highlighted: true
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre Fusion',
+          subtitle: 'Todo sobre seguridad, compatibilidad bancaria y protección de fondos.',
+          items: [
+            {
+              id: 'ffq_1',
+              question: '¿Es seguro conectar mis cuentas bancarias a Fusion?',
+              answer: 'Totalmente. Fusion opera bajo la directiva europea PSD2 con permisos de solo lectura. Nadie puede realizar transferencias ni mover fondos desde Fusion sin tu consentimiento biométrico explícito.'
+            },
+            {
+              id: 'ffq_2',
+              question: '¿Está Fusion disponible para dispositivos iOS y Android?',
+              answer: 'Sí. Fusion es totalmente compatible con iOS 16+ en iPhone y con Android 11+ en smartphones y tablets, con modo oscuro y widgets de pantalla de inicio.'
+            },
+            {
+              id: 'ffq_3',
+              question: '¿Cómo puedo cancelar mi suscripción a Fusion Plus?',
+              answer: 'Puedes cancelar en cualquier momento directamente desde los ajustes de la App Store de Apple o Google Play Store con un solo toque.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          kicker: 'Disponible Hoy',
+          title: 'Únete a más de 500,000 personas que ya disfrutan de Fusion.',
+          subtitle: 'Descarga la app en tu teléfono y experimenta una nueva forma de entender tus finanzas.',
+          primaryCta: { text: 'Descargar en App Store ', link: '#appstore' },
+          secondaryCta: { text: 'Conseguir en Google Play ▶', link: '#googleplay' },
+          backgroundStyle: 'glow'
+        },
+        footer: {
+          copyright: '© 2026 Fusion Mobile Technologies S.L. Entidad regulada bajo normativa PSD2.',
+          legalLinks: [
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Política de Privacidad', href: '#privacy' },
+            { label: 'Seguridad Bancaria', href: '#security' },
+            { label: 'Términos de Uso', href: '#terms' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Twitter / X', url: 'https://twitter.com' },
+            { platform: 'TikTok', url: 'https://tiktok.com' }
+          ]
+        }
+      }
+    }
   }
 ];

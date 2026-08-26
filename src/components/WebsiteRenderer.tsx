@@ -52,6 +52,10 @@ interface WebsiteRendererProps {
   isEditable?: boolean;
   onEditSection?: (sectionKey: SectionType) => void;
   onUpdateText?: (path: string, value: string) => void;
+  selectedSection?: SectionType | null;
+  onSelectSection?: (sectionKey: SectionType) => void;
+  onContextMenu?: (e: React.MouseEvent, sectionKey: SectionType) => void;
+  onImageDoubleClick?: (path: string, currentUrl: string) => void;
 }
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -92,7 +96,11 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
   site,
   isEditable = false,
   onEditSection,
-  onUpdateText
+  onUpdateText,
+  selectedSection,
+  onSelectSection,
+  onContextMenu,
+  onImageDoubleClick
 }) => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual');
   const [openFaq, setOpenFaq] = useState<Record<string, boolean>>({ f_1: true, f_0: true });
@@ -1943,7 +1951,101 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
       )}
 
       {/* Render sections according to dynamic sectionOrder */}
-      {order.map((sectionType) => renderSection(sectionType))}
+      {order.map((sectionType) => {
+        const rendered = renderSection(sectionType);
+        if (!rendered) return null;
+
+        const isSelected = selectedSection === sectionType;
+        const customStyle = site.customSectionStyles?.[sectionType] || {};
+        const elementSettings = site.elementSettings?.[sectionType] || {};
+
+        // Calculate dynamic style overrides
+        const wrapperStyle: React.CSSProperties = {
+          backgroundColor: customStyle.backgroundColor || undefined,
+          backgroundImage: customStyle.backgroundGradient || undefined,
+          color: customStyle.textColor || undefined,
+          paddingTop: customStyle.paddingTop || undefined,
+          paddingBottom: customStyle.paddingBottom || undefined,
+          paddingLeft: customStyle.paddingLeft || undefined,
+          paddingRight: customStyle.paddingRight || undefined,
+          marginTop: customStyle.marginTop || undefined,
+          marginBottom: customStyle.marginBottom || undefined,
+          marginLeft: customStyle.marginLeft || undefined,
+          marginRight: customStyle.marginRight || undefined,
+          borderRadius: customStyle.borderRadius !== undefined ? `${customStyle.borderRadius}px` : undefined,
+          borderTopLeftRadius: customStyle.borderTopLeftRadius !== undefined ? `${customStyle.borderTopLeftRadius}px` : undefined,
+          borderTopRightRadius: customStyle.borderTopRightRadius !== undefined ? `${customStyle.borderTopRightRadius}px` : undefined,
+          borderBottomRightRadius: customStyle.borderBottomRightRadius !== undefined ? `${customStyle.borderBottomRightRadius}px` : undefined,
+          borderBottomLeftRadius: customStyle.borderBottomLeftRadius !== undefined ? `${customStyle.borderBottomLeftRadius}px` : undefined,
+          opacity: customStyle.opacity !== undefined ? customStyle.opacity / 100 : undefined,
+          filter: customStyle.blur ? `blur(${customStyle.blur}px)` : undefined,
+          textAlign: customStyle.textAlign || undefined
+        };
+
+        // Visibility classes
+        const visibilityClasses = [
+          elementSettings.visibility?.hideOnMobile ? 'max-sm:hidden' : '',
+          elementSettings.visibility?.hideOnTablet ? 'sm:max-lg:hidden' : '',
+          elementSettings.visibility?.hideOnDesktop ? 'lg:hidden' : ''
+        ].filter(Boolean).join(' ');
+
+        if (!isEditable) {
+          return (
+            <div
+              key={sectionType}
+              id={elementSettings.customId || `section-${sectionType}`}
+              className={`relative transition-all ${visibilityClasses} ${elementSettings.customClasses || ''}`}
+              style={wrapperStyle}
+            >
+              {customStyle.customCss && (
+                <style dangerouslySetInnerHTML={{ __html: `#section-${sectionType} { ${customStyle.customCss} }` }} />
+              )}
+              {rendered}
+            </div>
+          );
+        }
+
+        return (
+          <div
+            key={sectionType}
+            id={`wrapper-${sectionType}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onSelectSection) onSelectSection(sectionType);
+              if (onEditSection) onEditSection(sectionType);
+            }}
+            onContextMenu={(e) => {
+              if (onContextMenu) {
+                e.preventDefault();
+                e.stopPropagation();
+                onContextMenu(e, sectionType);
+              }
+            }}
+            style={wrapperStyle}
+            className={`relative transition-all group/sec cursor-pointer ${visibilityClasses} ${elementSettings.customClasses || ''} ${
+              isSelected
+                ? 'ring-2 ring-[#00E5FF] ring-inset shadow-[0_0_20px_rgba(0,229,255,0.2)]'
+                : 'hover:ring-1 hover:ring-[#00E5FF]/40 hover:ring-inset'
+            }`}
+          >
+            {/* Active section floating badge */}
+            <div
+              className={`absolute top-2 left-2 z-40 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider transition-opacity flex items-center gap-1.5 shadow-md pointer-events-none ${
+                isSelected
+                  ? 'bg-[#00E5FF] text-black opacity-100'
+                  : 'bg-black/70 text-white/80 opacity-0 group-hover/sec:opacity-100 border border-white/10'
+              }`}
+            >
+              <span>✦</span>
+              <span>{customStyle.customName || sectionType}</span>
+            </div>
+            {customStyle.customCss && (
+              <style dangerouslySetInnerHTML={{ __html: `#wrapper-${sectionType} { ${customStyle.customCss} }` }} />
+            )}
+            {rendered}
+          </div>
+        );
+      })}
 
       {/* Lightbox Modal for Gallery */}
       {lightboxImg && (

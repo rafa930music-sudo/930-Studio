@@ -28,8 +28,11 @@ export const TemplateGalleryModal: React.FC<TemplateGalleryModalProps> = ({
   const categories = [
     { id: 'all', label: 'Todas las Plantillas' },
     { id: 'saas', label: 'SaaS & Software' },
+    { id: 'ecommerce', label: 'E-commerce & Tiendas' },
+    { id: 'portfolio', label: 'Portafolios Creativos' },
+    { id: 'community', label: 'Comunidad & ONG' },
     { id: 'hardware', label: 'Hardware & Tech' },
-    { id: 'agencies', label: 'Agencias & Portafolio' },
+    { id: 'agencies', label: 'Agencias & Creatividad' },
     { id: 'luxury', label: 'Lujo & Moda' },
     { id: 'wellness', label: 'Salud & Bienestar' },
     { id: 'services', label: 'Inmobiliaria & Legal' },

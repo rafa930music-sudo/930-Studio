@@ -1,4 +1,4 @@
-export type PlanType = 'FREE' | 'PRO' | 'BUSINESS';
+export type PlanType = 'FREE' | 'PRO' | 'BUSINESS' | 'AGENCY' | 'free' | 'pro' | 'business' | 'agency';
 
 export interface UserProfile {
   id: string;
@@ -334,14 +334,14 @@ export type SectionType =
 export interface SiteSections {
   navbar: NavbarSection;
   hero: HeroSection;
-  logos: LogosSection;
-  bentoFeatures: BentoFeaturesSection;
-  productHighlight: ProductHighlightSection;
-  stats: StatsSection;
-  testimonials: TestimonialsSection;
-  pricing: PricingSection;
-  faq: FaqSection;
-  ctaFinal: CtaFinalSection;
+  logos?: LogosSection;
+  bentoFeatures?: BentoFeaturesSection;
+  productHighlight?: ProductHighlightSection;
+  stats?: StatsSection;
+  testimonials?: TestimonialsSection;
+  pricing?: PricingSection;
+  faq?: FaqSection;
+  ctaFinal?: CtaFinalSection;
   footer: FooterSection;
   map?: MapSection;
   slider?: SliderSection;
@@ -361,6 +361,152 @@ export interface SiteAnalytics {
   history: { date: string; views: number; clicks: number }[];
 }
 
+export interface ElementStyleConfig {
+  // Background & Colors
+  backgroundColor?: string;
+  backgroundGradient?: string;
+  textColor?: string;
+
+  // Typography
+  fontFamily?: string;
+  fontWeight?: '300' | '400' | '500' | '600' | '700' | '800' | '900' | string;
+  fontSize?: number; // in px
+  fontSizeUnit?: 'px' | 'rem';
+  lineHeight?: number; // e.g. 1.2, 1.5, 1.7
+  letterSpacing?: number; // in px
+  textAlign?: 'left' | 'center' | 'right' | 'justify';
+  textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
+  textDecoration?: 'none' | 'underline' | 'line-through';
+
+  // Box Model: Padding (T, R, B, L)
+  paddingTop?: number | string;
+  paddingRight?: number | string;
+  paddingBottom?: number | string;
+  paddingLeft?: number | string;
+  isPaddingLinked?: boolean;
+
+  // Box Model: Margin (T, R, B, L)
+  marginTop?: number | string;
+  marginRight?: number | string;
+  marginBottom?: number | string;
+  marginLeft?: number | string;
+  isMarginLinked?: boolean;
+
+  // Sizing
+  width?: string;
+  maxWidth?: string;
+  height?: string;
+  minHeight?: string;
+
+  // Layout: Flexbox / Grid
+  display?: 'block' | 'flex' | 'grid' | 'inline-block';
+  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  alignItems?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+  gap?: number; // in px
+  gridCols?: number;
+
+  // Positioning
+  position?: 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
+  top?: string;
+  left?: string;
+  zIndex?: number;
+
+  // Borders & Corners
+  borderRadius?: number;
+  borderTopLeftRadius?: number;
+  borderTopRightRadius?: number;
+  borderBottomRightRadius?: number;
+  borderBottomLeftRadius?: number;
+  isRadiusLinked?: boolean;
+  borderWidth?: number;
+  borderStyle?: 'solid' | 'dashed' | 'dotted' | 'none';
+  borderColor?: string;
+
+  // Shadows & Glows
+  shadowPreset?: 'none' | 'soft' | 'medium' | 'deep' | 'glow-cyan' | 'glow-magenta' | 'glow-green';
+  shadowOffsetX?: number;
+  shadowOffsetY?: number;
+  shadowBlur?: number;
+  shadowSpread?: number;
+  shadowColor?: string;
+
+  // Effects & Filters
+  opacity?: number; // 0 to 100
+  blur?: number; // 0 to 20px
+  brightness?: number; // 50 to 150%
+  contrast?: number; // 50 to 150%
+  scale?: number; // 0.5 to 1.5
+  rotate?: number; // -180 to 180 deg
+  transitionDuration?: number; // in ms
+
+  // Custom CSS Code
+  customCss?: string;
+}
+
+export interface ElementSettingsConfig {
+  // Animation
+  animation?: {
+    type?: 'none' | 'fadeIn' | 'slideUp' | 'slideDown' | 'slideLeft' | 'slideRight' | 'zoomIn' | 'bounce' | string;
+    duration?: number;
+    delay?: number;
+  } | 'none' | 'fade-in' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'zoom-in' | 'pulse';
+  animationDuration?: number; // in ms
+  animationDelay?: number; // in ms
+
+  // Device Visibility
+  visibility?: {
+    hideOnMobile?: boolean;
+    hideOnTablet?: boolean;
+    hideOnDesktop?: boolean;
+  };
+  hideOnMobile?: boolean;
+  hideOnTablet?: boolean;
+  hideOnDesktop?: boolean;
+
+  // Custom Classes & Semantic
+  customId?: string;
+  customClasses?: string;
+  customClassName?: string;
+  semanticTag?: 'section' | 'article' | 'div' | 'header' | 'footer' | 'nav' | 'aside';
+
+  // Accessibility
+  ariaLabel?: string;
+  role?: string;
+  altText?: string;
+}
+
+export interface SectionCustomStyle extends ElementStyleConfig {
+  style?: ElementStyleConfig;
+  settings?: ElementSettingsConfig;
+  isLocked?: boolean;
+  customName?: string;
+}
+
+export interface SavedComponent {
+  id: string;
+  name: string;
+  category: string;
+  thumbnail?: string;
+  sectionType: SectionType;
+  data: any;
+  customStyle?: SectionCustomStyle;
+  createdAt: string;
+}
+
+export interface HierarchyNode {
+  id: string;
+  name: string;
+  type: 'section' | 'container' | 'row' | 'column' | 'element';
+  sectionKey?: SectionType;
+  children?: HierarchyNode[];
+  isLocked?: boolean;
+  isVisible?: boolean;
+  icon?: string;
+}
+
+export type BreakpointType = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+
 export interface SiteConfig {
   id: string;
   userId: string;
@@ -377,11 +523,18 @@ export interface SiteConfig {
   createdAt: string;
   updatedAt: string;
   sectionOrder: SectionType[];
+  sectionStyles?: Partial<Record<SectionType, SectionCustomStyle>>;
+  customSectionStyles?: Partial<Record<SectionType, SectionCustomStyle>>;
+  elementSettings?: Partial<Record<SectionType, ElementSettingsConfig>>;
+  savedComponents?: SavedComponent[];
   seo: {
     title: string;
     description: string;
     keywords?: string;
     ogImage?: string;
+    canonicalUrl?: string;
+    author?: string;
+    robots?: string;
   };
   analytics: SiteAnalytics;
   sections: SiteSections;
