@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { APPLE_TEMPLATES } from '../data/templates';
 import { TemplateDefinition } from '../types';
-import { X, Sparkles, Check, ArrowRight, Eye, LayoutTemplate } from 'lucide-react';
+import { X, Sparkles, Check, ArrowRight, Eye, LayoutTemplate, Loader2 } from 'lucide-react';
 
 interface TemplateGalleryModalProps {
   isOpen: boolean;
@@ -18,12 +18,17 @@ export const TemplateGalleryModal: React.FC<TemplateGalleryModalProps> = ({
   currentTemplateId,
   onSelectTemplate,
   onGenerateWithTemplate,
-  isDark = false
+  isDark = true
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [previewTemplate, setPreviewTemplate] = useState<TemplateDefinition | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(12);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
 
-  if (!isOpen) return null;
+  // Reset pagination when category changes
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [selectedCategory]);
 
   const categories = [
     { id: 'all', label: 'Todas las Plantillas' },
@@ -45,10 +50,37 @@ export const TemplateGalleryModal: React.FC<TemplateGalleryModalProps> = ({
     return tpl.category === selectedCategory;
   });
 
+  const visibleTemplates = filteredTemplates.slice(0, visibleCount);
+
+  // Lazy loading observer
+  useEffect(() => {
+    if (!isOpen) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleCount < filteredTemplates.length) {
+          setIsLoadingMore(true);
+          setTimeout(() => {
+            setVisibleCount((prev) => Math.min(prev + 6, filteredTemplates.length));
+            setIsLoadingMore(false);
+          }, 200);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isOpen, visibleCount, filteredTemplates.length]);
+
+  if (!isOpen) return null;
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fade-in">
       <div
-        className={`border rounded-2xl w-full max-w-5xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] transition-all ${
+        className={`border rounded-3xl w-full max-w-5xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col max-h-[90vh] transition-all ${
           isDark
             ? 'bg-[#12121A] border-white/10 text-white'
             : 'bg-white border-[#E5E7EB] text-[#0F172A]'
@@ -57,31 +89,31 @@ export const TemplateGalleryModal: React.FC<TemplateGalleryModalProps> = ({
         {/* Header */}
         <div className="p-6 md:p-8 border-b border-inherit flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/30 flex items-center justify-center shadow-[0_0_12px_rgba(0,229,255,0.2)]">
+            <div className="w-10 h-10 rounded-2xl bg-[#00E5FF]/15 text-[#00E5FF] border border-[#00E5FF]/30 flex items-center justify-center shadow-[0_0_15px_rgba(0,229,255,0.25)]">
               <LayoutTemplate className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-bold tracking-tight">Galería de Plantillas — 930 Studio</h2>
+              <h2 className="text-xl md:text-2xl font-black tracking-tight">Galería de Plantillas — 930 Studio</h2>
               <p className="text-xs text-[#64748B] dark:text-neutral-400">Arquitecturas base con tipografía cuidada, bento grids y espaciado proporcional riguroso</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-[#64748B] hover:text-[#0F172A] dark:hover:text-white rounded-lg hover:bg-[#F0F0F3] dark:hover:bg-white/5 transition-colors cursor-pointer"
+            className="p-2 text-[#64748B] hover:text-[#0F172A] dark:hover:text-white rounded-xl hover:bg-[#F0F0F3] dark:hover:bg-white/5 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Categories */}
-        <div className="px-6 md:px-8 py-3.5 border-b border-inherit flex items-center gap-2 overflow-x-auto shrink-0 bg-[#FAFAFC] dark:bg-white/[0.02]">
+        <div className="px-6 md:px-8 py-3.5 border-b border-inherit flex items-center gap-2 overflow-x-auto shrink-0 bg-[#FAFAFC] dark:bg-white/[0.02] scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 selectedCategory === cat.id
-                  ? 'bg-[#0F172A] text-white shadow-xs dark:bg-white dark:text-[#0F172A]'
+                  ? 'bg-[#00E5FF] text-black font-extrabold shadow-[0_0_12px_rgba(0,229,255,0.4)]'
                   : 'bg-white dark:bg-white/5 text-[#64748B] dark:text-neutral-400 border border-[#E5E7EB] dark:border-transparent hover:text-[#0F172A] dark:hover:text-white'
               }`}
             >
@@ -90,83 +122,94 @@ export const TemplateGalleryModal: React.FC<TemplateGalleryModalProps> = ({
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="p-6 md:p-8 overflow-y-auto flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#FAFAFC] dark:bg-transparent">
-          {filteredTemplates.map((tpl) => {
-            const isSelected = currentTemplateId === tpl.id;
-            return (
-              <div
-                key={tpl.id}
-                className={`rounded-xl border overflow-hidden flex flex-col justify-between transition-all group ${
-                  isDark
-                    ? 'bg-[#181824] border-white/10 hover:border-white/20'
-                    : 'bg-white border-[#E5E7EB] hover:border-[#D1D5DB] shadow-xs'
-                } ${isSelected ? 'ring-2 ring-[#00E5FF]' : ''}`}
-              >
-                <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black/10 dark:bg-black/40">
-                    <img
-                      src={tpl.thumbnail}
-                      alt={tpl.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-white/10">
-                      {tpl.category}
-                    </div>
-                    {isSelected && (
-                      <div className="absolute top-3 right-3 bg-[#00E5FF] text-black p-1 rounded-full shadow-md font-bold">
-                        <Check className="w-3.5 h-3.5" />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div
-                        className="w-3 h-3 rounded-full"
-                        style={{ backgroundColor: tpl.accentColor }}
+        {/* Grid with Lazy Loading */}
+        <div className="p-6 md:p-8 overflow-y-auto flex-1 bg-[#FAFAFC] dark:bg-transparent">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {visibleTemplates.map((tpl) => {
+              const isSelected = currentTemplateId === tpl.id;
+              return (
+                <div
+                  key={tpl.id}
+                  className={`rounded-2xl border overflow-hidden flex flex-col justify-between transition-all group ${
+                    isDark
+                      ? 'bg-[#181824] border-white/10 hover:border-white/20'
+                      : 'bg-white border-[#E5E7EB] hover:border-[#D1D5DB] shadow-xs'
+                  } ${isSelected ? 'ring-2 ring-[#00E5FF]' : ''}`}
+                >
+                  <div>
+                    <div className="relative aspect-[16/10] overflow-hidden bg-black/10 dark:bg-black/40">
+                      <img
+                        src={tpl.thumbnail}
+                        alt={tpl.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <h3 className="font-bold text-base text-[#0F172A] dark:text-white">{tpl.name}</h3>
+                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-white/10">
+                        {tpl.category}
+                      </div>
+                      {isSelected && (
+                        <div className="absolute top-3 right-3 bg-[#00E5FF] text-black p-1 rounded-full shadow-md font-bold">
+                          <Check className="w-3.5 h-3.5" />
+                        </div>
+                      )}
                     </div>
 
-                    <p className="text-xs text-[#00B8D4] dark:text-[#00E5FF] font-semibold mb-2">{tpl.tagline}</p>
-                    <p className="text-xs text-[#64748B] dark:text-neutral-400 line-clamp-2 leading-relaxed font-medium">
-                      {tpl.description}
-                    </p>
+                    <div className="p-5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div
+                          className="w-3 h-3 rounded-full"
+                          style={{ backgroundColor: tpl.accentColor }}
+                        />
+                        <h3 className="font-bold text-base text-[#0F172A] dark:text-white">{tpl.name}</h3>
+                      </div>
+
+                      <p className="text-xs text-[#00B8D4] dark:text-[#00E5FF] font-semibold mb-2">{tpl.tagline}</p>
+                      <p className="text-xs text-[#64748B] dark:text-neutral-400 line-clamp-2 leading-relaxed font-medium">
+                        {tpl.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="p-5 pt-0 flex gap-2">
-                  <button
-                    onClick={() => {
-                      onSelectTemplate(tpl);
-                      onClose();
-                    }}
-                    className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                      isSelected
-                        ? 'bg-[#0F172A] text-white dark:bg-white dark:text-[#0F172A]'
-                        : 'bg-[#FAFAFC] hover:bg-[#F0F0F3] text-[#0F172A] border border-[#E5E7EB] dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-transparent'
-                    }`}
-                  >
-                    {isSelected ? 'Plantilla Activa' : 'Aplicar Estilo'}
-                  </button>
-
-                  {onGenerateWithTemplate && (
+                  <div className="p-5 pt-0 flex gap-2">
                     <button
                       onClick={() => {
-                        onGenerateWithTemplate(tpl);
+                        onSelectTemplate(tpl);
                         onClose();
                       }}
-                      className="px-3.5 bg-[#00E5FF] hover:bg-[#00cce6] text-black py-2.5 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-xs"
-                      title="Generar nuevo sitio con IA usando esta plantilla"
+                      className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                        isSelected
+                          ? 'bg-[#0F172A] text-white dark:bg-[#00E5FF] dark:text-black font-extrabold'
+                          : 'bg-[#FAFAFC] hover:bg-[#F0F0F3] text-[#0F172A] border border-[#E5E7EB] dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-transparent'
+                      }`}
                     >
-                      <Sparkles className="w-3.5 h-3.5" />
+                      {isSelected ? 'Plantilla Activa' : 'Aplicar Estilo'}
                     </button>
-                  )}
+
+                    {onGenerateWithTemplate && (
+                      <button
+                        onClick={() => {
+                          onGenerateWithTemplate(tpl);
+                          onClose();
+                        }}
+                        className="px-3.5 bg-gradient-to-r from-[#00E5FF] to-[#FF00E5] text-black py-2.5 rounded-xl text-xs font-bold transition-transform hover:scale-105 flex items-center justify-center gap-1 cursor-pointer shadow-xs"
+                        title="Generar nuevo sitio con esta plantilla"
+                      >
+                        <Sparkles className="w-3.5 h-3.5 text-white" />
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
+          {/* Lazy Loading Sentinel */}
+          {visibleCount < filteredTemplates.length && (
+            <div ref={loadMoreRef} className="py-8 flex justify-center items-center gap-2 text-neutral-400 text-xs font-bold">
+              <Loader2 className="w-4 h-4 animate-spin text-[#00E5FF]" />
+              <span>Cargando más plantillas ({visibleCount} de {filteredTemplates.length})...</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

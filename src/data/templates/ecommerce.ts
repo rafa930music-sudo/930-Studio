@@ -1,15 +1,14 @@
 import { TemplateDefinition } from '../../types';
 
 export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
-  // 1. AURA WATCHES — Relojería Suiza Minimalista
+  // 1. AURA WATCHES — Alta Relojería Suiza de Titanio
   {
     id: 'aura-watches',
     name: 'Aura Watches',
-    tagline: 'Relojes automáticos de titanio aeroespacial y cristal de zafiro ensamblados a mano en Ginebra',
+    tagline: 'Relojes automáticos de titanio aeroespacial Grado 5 y cristal de zafiro ensamblados a mano en Ginebra',
     category: 'ecommerce',
-    style: 'minimalista',
     thumbnail: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética monocromática de lujo discreto, acento cian glacial #00E5FF, tipografía Playfair Display & Inter, visor 360 de caja, especificaciones de calibre automático y reservas exclusivas.',
+    description: 'Estética monocromática en negro obsidiana #0A0A0F, acento cian glacial #00E5FF, tipografía Plus Jakarta Sans, especificaciones de calibre mecánico, galería macro y pasarela de pedido directo.',
     accentColor: '#00E5FF',
     theme: 'dark',
     defaultConfig: {
@@ -40,7 +39,7 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
       seo: {
         title: 'Aura Watches — Alta Relojería Automática de Titanio',
         description: 'Descubre piezas de relojería suiza atemporales diseñadas para perdurar generaciones con calibres de máxima precisión.',
-        keywords: 'relojes suizos, titanio, zafiro, reloj automático, lujo silencioso'
+        keywords: 'relojes suizos, titanio, zafiro, reloj automatico, lujo silencioso, cronografo de precision'
       },
       sections: {
         navbar: {
@@ -50,9 +49,9 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
           ctaLink: '#pricing',
           links: [
             { label: 'Colección', href: '#pricing' },
-            { label: 'Calibre', href: '#productHighlight' },
-            { label: 'Artesanía', href: '#bentoFeatures' },
-            { label: 'Galería', href: '#gallery' },
+            { label: 'Calibre', href: '#product' },
+            { label: 'Artesanía', href: '#features' },
+            { label: 'Galería Macro', href: '#gallery' },
             { label: 'Garantía', href: '#faq' }
           ],
           glassBlur: true,
@@ -60,769 +59,202 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
         },
         hero: {
           enabled: true,
-          badge: 'Edición Limitada 2026',
-          kicker: 'Calibre Automático Suizo',
+          badge: 'Serie Limitada a 500 Unidades Numeradas',
+          kicker: 'Calibre Automático Manufactura',
           title: 'Precisión eterna en titanio macizo.',
           highlightTitle: 'Ingeniería suiza pura.',
-          subtitle: 'Diseñado sin ornamentos innecesarios. Cada componente del Aura Chrono I ha sido esculpido a partir de un bloque sólido de titanio Grado 5 con 70 horas de reserva de marcha.',
+          subtitle: 'Esculpido a partir de un bloque macizo de titanio Grado 5 con 70 horas de reserva de marcha y bisel cerámico inalterable al paso del tiempo.',
           primaryCta: { text: 'Adquirir Aura Chrono I', link: '#pricing' },
-          secondaryCta: { text: 'Explorar Galería', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80',
+          secondaryCta: { text: 'Explorar Galería Macro →', link: '#gallery' },
+          imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
         logos: {
           enabled: true,
-          title: 'Reconocido en la prensa internacional de alta relojería',
+          title: 'CERTIFICACIONES OFICIALES DE CRONOMETRÍA Y RESISTENCIA',
           items: [
-            { id: 'l1', name: 'Hodinkee', tagline: 'Premio al Diseño 2025' },
-            { id: 'l2', name: 'GQ Magazine', tagline: 'Reloj del Año' },
-            { id: 'l3', name: 'Monocle', tagline: 'Excelencia en Titanio' },
-            { id: 'l4', name: 'Financial Times', tagline: 'Nueva Era Suiza' },
-            { id: 'l5', name: 'Wired UK', tagline: 'Precisión Absoluta' }
+            { id: 'l1', name: 'COSC Certified', tagline: 'Official Chronometer' },
+            { id: 'l2', name: 'Swiss Made', tagline: 'Geneva Quality Seal' },
+            { id: 'l3', name: 'Titanium Grade 5', tagline: 'Aerospace Alloy' }
           ]
         },
         marquee: {
           enabled: true,
-          speed: 'normal',
-          direction: 'left',
+          title: 'Puntos Destacados',
           items: [
-            { id: 'm1', text: 'TITANIO GRADO 5', highlight: true },
-            { id: 'm2', text: 'CRISTAL ZAFIRO ANTIRREFLEJOS' },
-            { id: 'm3', text: 'RESERVA DE MARCHA 70H', highlight: true },
-            { id: 'm4', text: 'SUMERGIBLE 200M' },
-            { id: 'm5', text: 'GARANTÍA INTERNACIONAL 10 AÑOS', highlight: true }
+            { id: 'm1', text: 'TITANIO GRADO 5 PULIDO A MANO' },
+            { id: 'm2', text: 'CRISTAL DE ZAFIRO ANTIRREFLEJOS DOBLE' },
+            { id: 'm3', text: 'RESERVA DE MARCHA DE 70 HORAS' },
+            { id: 'm4', text: 'SUMERGIBLE HASTA 200 METROS (20 ATM)' },
+            { id: 'm5', text: 'GARANTÍA INTERNACIONAL DE 5 AÑOS' }
           ]
         },
         productHighlight: {
           enabled: true,
-          kicker: 'Mecanismo de Manufactura Propia',
-          title: 'El Calibre A-930: 28.800 alternancias por hora.',
-          subtitle: 'Desarrollado y calibrado durante 4 años en el valle de Joux.',
-          description: 'Con escape de silicio antimagnético y rotor esqueletizado de tungsteno, el calibre ofrece una desviación cronométrica inferior a ±2 segundos diarios bajo cualquier condición climática o altitud.',
-          imageUrl: 'https://images.unsplash.com/photo-1547996160-71dfabb18b5b?auto=format&fit=crop&w=1200&q=80',
-          layout: 'image-left',
-          ctaText: 'Ver Especificaciones Completas',
-          ctaLink: '#faq',
+          badge: 'El Calibre Manufactura',
+          kicker: 'Mecánica de Precisión',
+          title: 'Calibre Automático Suizo AUR-801.',
+          subtitle: '28.800 alternancias por hora (4 Hz) con volante de inercia variable.',
+          description: 'Desarrollado íntegramente en nuestro taller de Ginebra con 29 rubíes sintéticos, espiral de silicio antimagnética y masa oscilante de tungsteno calada con grabado Côtes de Genève.',
+          imageUrl: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Caja', value: '40mm', detail: 'Titanio Grado 5 cepillado a mano' },
-            { label: 'Grosor', value: '9.8mm', detail: 'Perfil ultra delgado con cristal curvado' },
-            { label: 'Resistencia', value: '20 ATM', detail: '200 metros con corona roscada' },
-            { label: 'Correa', value: 'FKM / Titanio', detail: 'Sistema de cambio rápido sin herramientas' }
+            { label: 'Precisión Diaria', value: '-2 / +4 segundos por día (Norma COSC)' },
+            { label: 'Reserva de Marcha', value: '70 Horas de autonomía continua' },
+            { label: 'Hermeticidad', value: '200 metros / 20 Bar con corona roscada' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          kicker: 'Detalles que definen la excelencia',
-          title: 'Obsesión por cada micrómetro.',
-          subtitle: 'Innovación en materiales aeroespaciales combinada con la tradición relojera.',
+          kicker: 'Materiales & Acabados',
+          title: 'La obsesión por el detalle en cada milímetro.',
+          subtitle: 'Diseñado para soportar presiones extremas sin perder su elegancia refinada.',
           items: [
             {
-              id: 'b1',
-              title: 'Titanio Grado 5 Pulido',
-              description: 'Un 45% más ligero que el acero inoxidable y 3 veces más resistente a la corrosión y el agua salada.',
+              id: 'f1',
+              title: 'Caja de Titanio Grado 5 Ultraligera',
+              description: '45% más ligero que el acero inoxidable y el doble de resistente a la corrosión salina y los arañazos diarios.',
               icon: 'Shield',
-              tag: 'Material Aeroespacial',
+              tag: 'Titanio Grado 5',
               colSpan: 2,
-              statNumber: '45%',
-              statLabel: 'más ligero que el acero'
+              statNumber: '68g',
+              statLabel: 'Peso total de la caja sin correa'
             },
             {
-              id: 'b2',
-              title: 'Super-LumiNova BGW9',
-              description: 'Luminiscencia nocturna azul glaciar de máxima visibilidad durante más de 8 horas ininterrumpidas.',
+              id: 'f2',
+              title: 'Cristal de Zafiro con Tratamiento de 7 Capas',
+              description: 'Doble curvatura con tratamiento antirreflejos en ambas caras para una legibilidad perfecta bajo luz solar directa.',
               icon: 'Eye',
-              tag: 'Visión Nocturna',
+              tag: 'Dureza 9 Mohs',
               colSpan: 1
             },
             {
-              id: 'b3',
-              title: 'Cristal Zafiro Doble',
-              description: 'Tratamiento antirreflejante de 7 capas en cara interna y externa con dureza 9 en la escala Mohs.',
+              id: 'f3',
+              title: 'Luminiscencia Super-LumiNova BGW9',
+              description: 'Emisión de luz azul hielo de alta intensidad en agujas e índices con visibilidad garantizada durante 10 horas en oscuridad.',
               icon: 'Sparkles',
-              tag: 'Inrayable',
+              tag: 'Brillo Azul',
               colSpan: 1
             },
             {
-              id: 'b4',
-              title: 'Producción Numerada',
-              description: 'Solo 500 unidades fabricadas al año. Cada reloj lleva su número de serie grabado al láser en el fondo visto.',
-              icon: 'Award',
-              tag: 'Exclusividad',
+              id: 'f4',
+              title: 'Correas Intercambiables de Liberación Rápida',
+              description: 'Alterna en segundos entre el brazalete macizo de titanio y la correa de caucho FKM resistente a rayos UV y agua salada.',
+              icon: 'Repeat',
+              tag: 'Quick-Release',
               colSpan: 2,
-              statNumber: '500',
-              statLabel: 'piezas al año en todo el mundo'
+              statNumber: '2',
+              statLabel: 'Correas incluidas en el estuche de viaje'
             }
           ]
         },
         gallery: {
           enabled: true,
-          kicker: 'Fotografía de Detalle',
-          title: 'Estética en cada ángulo.',
-          subtitle: 'Imágenes reales tomadas en nuestro taller de manufactura en Ginebra.',
-          items: [
-            {
-              id: 'g1',
-              title: 'Dial Titanio Mate & Agujas Esqueletizadas',
-              category: 'Dial',
-              imageUrl: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80',
-              aspectRatio: 'wide'
-            },
-            {
-              id: 'g2',
-              title: 'Corona con Doble Junta Tórica',
-              category: 'Caja',
-              imageUrl: 'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=800&q=80',
-              aspectRatio: 'square'
-            },
-            {
-              id: 'g3',
-              title: 'Rotor Esqueletizado de Masa Oscilante',
-              category: 'Calibre',
-              imageUrl: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80',
-              aspectRatio: 'tall'
-            }
+          title: 'Detalles de la Colección Aura',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80', caption: 'Esfera negro mate con textura cepillada circular' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80', caption: 'Fondo de caja de zafiro con rotor calado de tungsteno' },
+            { id: 'g3', url: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80', caption: 'Brazalete articulado de titanio con cierre desplegable' }
           ]
         },
         stats: {
           enabled: true,
-          kicker: 'Métricas de Calidad',
-          title: 'Rigor suizo certificado.',
           items: [
-            { id: 's1', value: '±2s/día', label: 'Precisión Cronómetro', description: 'Testado en 5 posiciones térmicas' },
-            { id: 's2', value: '70 Horas', label: 'Reserva de Marcha', description: 'Fin de semana sin necesidad de cuerda' },
-            { id: 's3', value: '200 Metros', label: 'Resistencia al Agua', description: 'Válvula y corona estanca certificada' },
-            { id: 's4', value: '10 Años', label: 'Garantía Total', description: 'Mantenimiento gratuito en año 5' }
+            { id: 's1', value: '70h', label: 'Reserva de Marcha Continua' },
+            { id: 's2', value: '200m', label: 'Hermeticidad Profesional' },
+            { id: 's3', value: '5 Años', label: 'Garantía Internacional Completa' },
+            { id: 's4', value: '500', label: 'Unidades Numeradas por Serie' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'La voz de los coleccionistas.',
-          subtitle: 'Opiniones verificadas de propietarios de piezas Aura.',
+          title: 'Reseñas de coleccionistas y entusiastas de la relojería.',
           items: [
             {
               id: 't1',
-              name: 'Guillermo Aranda',
-              role: 'Arquitecto y Coleccionista',
-              company: 'Madrid',
-              quote: 'Llevo 6 meses con el Chrono I en la muñeca a diario. La ligereza del titanio y la ausencia de reflejos en el zafiro hacen que olvides que lo llevas, hasta que lo miras y aprecias la pureza de sus líneas.',
-              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            },
-            {
-              id: 't2',
-              name: 'Clara Van Der Bilt',
-              role: 'Directora de Diseño',
-              company: 'Zúrich',
-              quote: 'Un ejercicio magistral de minimalismo industrial. La legibilidad nocturna es impresionante y el tacto del bisel es el más satisfactorio que he probado en años.',
-              avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
+              author: 'Marc Van Der Berg',
+              name: 'Marc Van Der Berg',
+              role: 'Coleccionista & Editor en WatchJournal',
+              company: 'WatchJournal Zurich',
+              quote: 'El acabado del titanio y la suavidad del rotor son comparables a piezas de manufacturas suizas del triple de precio. Un reloj para llevar puesto toda la vida.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Configura tu modelo Aura.',
-          subtitle: 'Envío asegurado a todo el mundo y 30 días de prueba sin compromiso.',
-          billingCycle: 'annual',
+          title: 'Selecciona tu Configuración de Guardatiempo',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'chrono_steel_strap',
+              id: 'p1',
               name: 'Aura Chrono I — Titanio Puro',
-              tag: 'Más Demandado',
-              priceMonthly: '1.450 €',
-              priceAnnual: '1.450 €',
-              description: 'Incluye brazalete integral de titanio Grado 5 articulado con microajuste y estuche de madera maciza.',
-              features: [
-                'Calibre Automático Suizo A-930 (70h)',
-                'Caja y brazalete de Titanio Grado 5',
-                'Cristal zafiro doble con 7 capas antirreflejo',
-                'Estuche de viaje en piel italiana curtida',
-                'Garantía internacional de 10 años',
-                'Envío exprés asegurado por DHL Express'
-              ],
-              ctaText: 'Comprar Titanio Puro',
-              ctaLink: '#checkout-titanium',
-              highlighted: true
+              priceMonthly: '1.450€',
+              priceAnnual: 'Envío asegurado incluido',
+              description: 'Caja de titanio de 40mm con esfera negro obsidiana, brazalete de titanio y correa de caucho FKM.',
+              features: ['Calibre automático AUR-801', 'Certificado COSC oficial numerado', 'Estuche de madera de nogal y piel', 'Herramienta de ajuste de eslabones'],
+              highlighted: true,
+              ctaText: 'Comprar Guardatiempo'
             },
             {
-              id: 'chrono_rubber_strap',
-              name: 'Aura Chrono I — Sport Edition',
-              priceMonthly: '1.250 €',
-              priceAnnual: '1.250 €',
-              description: 'Equipado con correa de caucho vulcanizado FKM de alta resistencia para uso deportivo y acuático.',
-              features: [
-                'Calibre Automático Suizo A-930 (70h)',
-                'Caja de Titanio Grado 5 satinada',
-                'Correa de caucho FKM hipoalergénico',
-                'Sumergible hasta 200 metros (20 ATM)',
-                'Garantía internacional de 10 años',
-                'Envío gratuito con seguro a todo riesgo'
-              ],
-              ctaText: 'Comprar Sport Edition',
-              ctaLink: '#checkout-sport',
-              highlighted: false
+              id: 'p2',
+              name: 'Aura Chrono I — Edición Cerámica Stealth',
+              priceMonthly: '1.750€',
+              priceAnnual: 'Serie limitada a 150 piezas',
+              description: 'Bisel de cerámica de circonio pulida al diamante y caja con recubrimiento DLC negro profundo.',
+              features: ['Recubrimiento DLC ultra resistente', 'Esfera esqueletada con rubíes vistos', 'Doble cristal de zafiro ahumado', 'Grabado personalizado en el lateral'],
+              highlighted: false,
+              ctaText: 'Reservar Edición Stealth'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
-          subtitle: 'Todo sobre envíos, mantenimiento y garantías.',
+          title: 'Preguntas Frecuentes sobre Compra y Envío',
           items: [
             {
-              id: 'f1',
-              question: '¿Cómo funciona la garantía de 10 años?',
-              answer: 'Cubre cualquier defecto de manufactura o desviación cronométrica. Además, incluye una revisión técnica gratuita y cambio de juntas de estanqueidad a los 5 años en nuestro taller oficial.'
+              id: 'q1',
+              question: '¿Qué cubre la garantía oficial de 5 años de Aura?',
+              answer: 'Nuestra garantía internacional cubre cualquier anomalía en el funcionamiento del calibre mecánico, hermeticidad de la caja y defectos en materiales, con servicio técnico oficial gratuito en Europa y América.'
             },
             {
-              id: 'f2',
-              question: '¿Qué método de envío utilizan para envíos internacionales?',
-              answer: 'Enviamos todos nuestros pedidos mediante DHL Express asegurado al 100% del valor. El plazo habitual de entrega es de 24 a 48 horas en Europa y 72 horas en el resto del mundo.'
+              id: 'q2',
+              question: '¿Cómo se gestiona el envío de piezas de alto valor?',
+              answer: 'Todos los envíos se realizan a través de transporte blindado urgente asegurado al 100% con entrega en mano y firma requerida en un plazo de 24-48 horas laborables.'
             },
             {
-              id: 'f3',
-              question: '¿Puedo devolver el reloj si no cumple mis expectativas?',
-              answer: 'Sí. Dispones de 30 días desde la recepción para probar el reloj en casa. Si decides devolverlo en su estado original sin marcas de uso, gestionamos la recogida y el reembolso íntegro.'
+              id: 'q3',
+              question: '¿Cuál es la política de devoluciones si no quedo satisfecho?',
+              answer: 'Dispones de 30 días naturales desde la recepción de la pieza para examinarla en tu domicilio y solicitar una devolución íntegra con recogida gratuita siempre que el reloj conserve sus precintos originales.'
+            },
+            {
+              id: 'q4',
+              question: '¿Puedo solicitar un grabado personalizado en la tapa trasera?',
+              answer: 'Sí. Ofrecemos grabado láser de iniciales, fechas o números de serie personalizados en la corona o el borde del cristal trasero sin coste añadido durante el proceso de compra.'
+            },
+            {
+              id: 'q5',
+              question: '¿Cada cuánto tiempo se recomienda realizar el mantenimiento del calibre?',
+              answer: 'Gracias a nuestros lubricantes sintéticos de última generación y componentes de silicio, el intervalo de revisión completo recomendado es de 5 a 7 años.'
+            },
+            {
+              id: 'q6',
+              question: '¿Qué métodos de pago seguros aceptan en la tienda online?',
+              answer: 'Aceptamos tarjetas de crédito/débito principales, transferencias bancarias directas con descuento del 2%, y pago financiado en 3 o 6 plazos sin intereses.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          kicker: 'Piezas Limitadas',
-          title: 'Lleva la ingeniería suiza más pura a tu muñeca.',
-          subtitle: 'Reserva hoy tu unidad de la serie numerada con envío gratuito y seguro a todo riesgo.',
-          primaryCta: { text: 'Adquirir Aura Chrono I — 1.450 €', link: '#pricing' },
-          secondaryCta: { text: 'Contactar con Asesor', link: '#contact' },
-          backgroundStyle: 'glow'
+          title: 'La elegancia del titanio en tu muñeca.',
+          subtitle: 'Piezas numeradas con envío asegurado y garantía internacional de 5 años.',
+          primaryCta: { text: 'Adquirir Aura Chrono I Ahora', link: '#pricing' }
         },
         footer: {
           copyright: '© 2026 Aura Horlogerie Genève S.A. Todos los derechos reservados.',
           legalLinks: [
-            { label: 'Garantía Oficial', href: '#warranty' },
-            { label: 'Envíos y Devoluciones', href: '#shipping' },
-            { label: 'Política de Privacidad', href: '#privacy' },
-            { label: 'Aviso Legal', href: '#legal' }
-          ],
-          socialLinks: [
-            { platform: 'Instagram', url: 'https://instagram.com' },
-            { platform: 'YouTube', url: 'https://youtube.com' },
-            { platform: 'Twitter', url: 'https://twitter.com' }
-          ]
-        }
-      }
-    }
-  },
-
-  // 2. LÚMINA HOME — Mobiliario Nórdico e Iluminación Escultórica
-  {
-    id: 'lumina-home',
-    name: 'Lúmina Home',
-    tagline: 'Mobiliario nórdico de roble macizo e iluminación escultórica para hogares conscientes y serenos',
-    category: 'ecommerce',
-    style: 'natural',
-    thumbnail: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética escandinava cálida en madera natural y tonos arena, acento dorado #FFD700, tipografía Outfit, catálogo interactivo con filtros, detalles de sostenibilidad y compras seguras.',
-    accentColor: '#FFD700',
-    theme: 'dark',
-    defaultConfig: {
-      templateId: 'lumina-home',
-      name: 'Lúmina Home Studio',
-      slug: 'lumina-home-studio',
-      domain: 'luminahome.es',
-      theme: 'dark',
-      accentColor: '#FFD700',
-      fontFamily: "'Outfit', sans-serif",
-      borderRadius: 18,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'logos',
-        'marquee',
-        'bentoFeatures',
-        'gallery',
-        'productHighlight',
-        'stats',
-        'testimonials',
-        'pricing',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Lúmina Home — Mobiliario Nórdico & Lámparas Escultóricas',
-        description: 'Muebles de madera noble sostenible certificada FSC e iluminación de diseño pensada para crear atmósferas acogedoras.',
-        keywords: 'muebles nordicos, iluminacion diseño, roble macizo, diseño escandinavo, decoracion'
-      },
-      sections: {
-        navbar: {
-          brandName: 'LÚMINA',
-          logoText: 'LÚMINA HOME',
-          ctaText: 'Ver Catálogo',
-          ctaLink: '#pricing',
-          links: [
-            { label: 'Muebles', href: '#pricing' },
-            { label: 'Lámparas', href: '#gallery' },
-            { label: 'Sostenibilidad', href: '#bentoFeatures' },
-            { label: 'Colección', href: '#productHighlight' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Colección Otoño 2026',
-          kicker: 'Madera Sostenible FSC®',
-          title: 'Espacios que transmiten calma y armonía natural.',
-          highlightTitle: 'Diseño nórdico atemporal.',
-          subtitle: 'Creaciones artesanales fabricadas en roble europeo y lino orgánico para quienes valoran la textura, la luz y la calidez en su hogar.',
-          primaryCta: { text: 'Explorar Catálogo', link: '#pricing' },
-          secondaryCta: { text: 'Ver Proyectos', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-          style: 'split'
-        },
-        logos: {
-          enabled: true,
-          title: 'Publicado en los principales medios de interiorismo y arquitectura',
-          items: [
-            { id: 'l1', name: 'Arquitectura y Diseño', tagline: 'Selección 2026' },
-            { id: 'l2', name: 'AD España', tagline: 'Diseño Sostenible' },
-            { id: 'l3', name: 'Elle Decoration', tagline: 'Tendencia Cálida' },
-            { id: 'l4', name: 'Apartamento', tagline: 'Espacios Vivos' }
-          ]
-        },
-        marquee: {
-          enabled: true,
-          speed: 'normal',
-          direction: 'left',
-          items: [
-            { id: 'm1', text: 'ROBLE MACIZO CERTIFICADO FSC®', highlight: true },
-            { id: 'm2', text: 'ENVÍO CON MONTAJE INCLUIDO' },
-            { id: 'm3', text: 'ACEITES VEGETALES NATURALES SIN COVs', highlight: true },
-            { id: 'm4', text: 'FABRICADO EN EUROPA' }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          kicker: 'Nuestra Filosofía',
-          title: 'El arte de habitar con calma.',
-          subtitle: 'Diseñado para durar toda una vida sin pasar de moda.',
-          items: [
-            {
-              id: 'b1',
-              title: 'Roble de Bosques Sostenibles',
-              description: 'Toda nuestra madera procede de talas controladas con replantación garantizada en el norte de Europa.',
-              icon: 'Leaf',
-              tag: '100% Sostenible',
-              colSpan: 2,
-              statNumber: '100%',
-              statLabel: 'madera certificada FSC'
-            },
-            {
-              id: 'b2',
-              title: 'Iluminación Cálida 2700K',
-              description: 'LEDs de espectro completo sin parpadeo que replican la temperatura de la luz dorada del atardecer.',
-              icon: 'Sun',
-              tag: 'Luz Agradable',
-              colSpan: 1
-            },
-            {
-              id: 'b3',
-              title: 'Entrega con Montaje Pro',
-              description: 'Subimos el producto a tu estancia, lo montamos y retiramos todos los embalajes reciclables.',
-              icon: 'Truck',
-              tag: 'Servicio Guante Blanco',
-              colSpan: 1
-            },
-            {
-              id: 'b4',
-              title: 'Acabados al Aceite Natural',
-              description: 'Protección transpirable que realza la veta natural del roble sin barnices químicos tóxicos.',
-              icon: 'Sparkles',
-              tag: 'Libre de Tóxicos',
-              colSpan: 2
-            }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          kicker: 'Inspiración para tu Hogar',
-          title: 'Rincones diseñados para descansar.',
-          items: [
-            {
-              id: 'g1',
-              title: 'Lámpara Colgante Vesta en Vidrio Soplado',
-              category: 'Iluminación',
-              imageUrl: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
-              aspectRatio: 'square'
-            },
-            {
-              id: 'g2',
-              title: 'Mesa de Comedor Fjord en Roble Macizo',
-              category: 'Comedor',
-              imageUrl: 'https://images.unsplash.com/photo-1530629013299-6cb10d168419?auto=format&fit=crop&w=800&q=80',
-              aspectRatio: 'wide'
-            },
-            {
-              id: 'g3',
-              title: 'Butaca Koto en Lino Lavado Natural',
-              category: 'Salón',
-              imageUrl: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80',
-              aspectRatio: 'tall'
-            }
-          ]
-        },
-        productHighlight: {
-          enabled: true,
-          kicker: 'Pieza Estrella',
-          title: 'Aparador Nórdico Fjord — 180cm',
-          subtitle: 'El equilibrio perfecto entre almacenamiento silencioso y presencia escultórica.',
-          description: 'Fabricado íntegramente en roble con puertas de lamas verticales y herrajes de cierre amortiguado Blum. Incluye pasacables oculto para equipos de sonido o televisión.',
-          imageUrl: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Dimensiones', value: '180 x 45 x 75 cm', detail: 'Largo x Fondo x Alto' },
-            { label: 'Madera', value: 'Roble Macizo', detail: 'Acabado en aceite vegetal incoloro' },
-            { label: 'Cierre', value: 'Soft-Close', detail: 'Herrajes ocultos de alta gama' }
-          ]
-        },
-        stats: {
-          enabled: true,
-          title: 'Compromiso y números que hablan.',
-          items: [
-            { id: 's1', value: '+4.800', label: 'Hogares Lúmina', description: 'Clientes satisfechos en España y Portugal' },
-            { id: 's2', value: '10 Años', label: 'Garantía Estructural', description: 'En toda nuestra línea de madera maciza' },
-            { id: 's3', value: '100%', label: 'Packaging Biodegradable', description: 'Sin plásticos de un solo uso' },
-            { id: 's4', value: '1 Árbol', label: 'Por Cada Pedido', description: 'Plantado en proyectos de reforestación' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Hogares reales, experiencias reales.',
-          items: [
-            {
-              id: 't1',
-              name: 'Laura Méndez',
-              role: 'Interiorista',
-              company: 'Barcelona',
-              quote: 'La calidad del roble y el olor a madera natural al abrir el mueble es insuperable. Mis clientes quedan maravillados con la calidez de la lámpara Vesta.',
-              avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            },
-            {
-              id: 't2',
-              name: 'Javier Castillo',
-              role: 'Arquitecto',
-              company: 'Valencia',
-              quote: 'El servicio de entrega con montaje fue impecable. Muy agradecido por el cuidado en cada detalle del embalaje.',
-              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            }
-          ]
-        },
-        pricing: {
-          enabled: true,
-          title: 'Piezas Más Populares',
-          subtitle: 'Precios con IVA y transporte especializado incluido.',
-          billingCycle: 'annual',
-          plans: [
-            {
-              id: 'p_fjord',
-              name: 'Aparador Fjord Roble',
-              tag: 'Bestseller',
-              priceMonthly: '890 €',
-              priceAnnual: '890 €',
-              description: 'Roble macizo de 180cm con puertas correderas de lamas.',
-              features: [
-                'Roble macizo europeo certificado FSC',
-                'Herrajes amortiguados de por vida',
-                'Envío con subida a domicilio y montaje',
-                'Tratamiento antimanchas natural',
-                '10 años de garantía estructural'
-              ],
-              ctaText: 'Comprar Aparador',
-              ctaLink: '#buy-fjord',
-              highlighted: true
-            },
-            {
-              id: 'p_vesta',
-              name: 'Lámpara Vesta Colgante',
-              priceMonthly: '290 €',
-              priceAnnual: '290 €',
-              description: 'Vidrio soplado artesanal y latón mate con LED regulable 2700K.',
-              features: [
-                'Vidrio soplado a boca por maestros vidrieros',
-                'Bombilla LED cálida 2700K regulable incluida',
-                'Cable textil trenzado de 2 metros ajustable',
-                'Florón de latón macizo cepillado',
-                'Envío protegido en 48 horas'
-              ],
-              ctaText: 'Comprar Lámpara',
-              ctaLink: '#buy-vesta',
-              highlighted: false
-            }
-          ]
-        },
-        faq: {
-          enabled: true,
-          title: 'Dudas Habituales',
-          items: [
-            {
-              id: 'f1',
-              question: '¿Cómo se limpia y mantiene la madera de roble?',
-              answer: 'Basta con un paño ligeramente humedecido en agua templada. Cada 2 años recomendamos aplicar una fina capa de nuestro aceite vegetal protector para mantener la nutrición del poro.'
-            },
-            {
-              id: 'f2',
-              question: '¿Qué incluye el servicio de entrega con guante blanco?',
-              answer: 'Dos operarios llevan el mueble hasta la habitación deseada, desembalan, montan las piezas necesarias y se llevan todos los cartones y protecciones para su reciclaje.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          kicker: 'Transforma tu Espacio',
-          title: 'Crea un hogar donde siempre apetezca estar.',
-          subtitle: 'Compra hoy con envío gratuito y 100 días de devolución.',
-          primaryCta: { text: 'Explorar Todo el Catálogo', link: '#pricing' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Lúmina Home Studio S.L.',
-          legalLinks: [
-            { label: 'Guía de Mantenimiento', href: '#care' },
-            { label: 'Política de Devolución (100 días)', href: '#returns' },
-            { label: 'Privacidad y Cookies', href: '#privacy' }
-          ],
-          socialLinks: [
-            { platform: 'Pinterest', url: 'https://pinterest.com' },
-            { platform: 'Instagram', url: 'https://instagram.com' }
-          ]
-        }
-      }
-    }
-  },
-
-  // 3. SILVESTRE SKINCARE — Cosmética Botánica Orgánica
-  {
-    id: 'silvestre-skin',
-    name: 'Silvestre Skin',
-    tagline: 'Cosmética botánica de alta eficacia formulada con extractos silvestres prensados en frío y biotecnología celular',
-    category: 'ecommerce',
-    style: 'natural',
-    thumbnail: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética limpia y orgánica en tonos musgo y crema, acento verde néctar #00FF88, tipografía Syne, rutina facial en 3 pasos, ingredientes limpios certificados y suscripciones de recarga.',
-    accentColor: '#00FF88',
-    theme: 'dark',
-    defaultConfig: {
-      templateId: 'silvestre-skin',
-      name: 'Silvestre Botanicals',
-      slug: 'silvestre-botanicals',
-      domain: 'silvestreskin.com',
-      theme: 'dark',
-      accentColor: '#00FF88',
-      fontFamily: "'Syne', sans-serif",
-      borderRadius: 20,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'logos',
-        'marquee',
-        'productHighlight',
-        'bentoFeatures',
-        'gallery',
-        'testimonials',
-        'pricing',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Silvestre Botanicals — Cuidado Facial Botánico de Alta Eficacia',
-        description: 'Fórmulas limpias, veganas y libres de agua de relleno con aceites puros de recolección silvestre.',
-        keywords: 'cosmetica botanica, skincare natural, serum acido hialuronico, vegano, cruelty free'
-      },
-      sections: {
-        navbar: {
-          brandName: 'SILVESTRE',
-          logoText: 'SILVESTRE BOTANICALS',
-          ctaText: 'Ver Rutinas',
-          ctaLink: '#pricing',
-          links: [
-            { label: 'Productos', href: '#pricing' },
-            { label: 'Ingredientes', href: '#bentoFeatures' },
-            { label: 'Resultados', href: '#testimonials' },
-            { label: 'Filosofía', href: '#faq' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Fórmula 100% Activa',
-          kicker: 'Biotecnología Botánica',
-          title: 'Piel luminosa, nutrida por la fuerza del bosque.',
-          highlightTitle: 'Sin agua de relleno. 100% activos.',
-          subtitle: 'Sustituimos el agua común por hidrolatos puros de jara y rosas silvestres. Resultados clínicos visibles en textura, hidratación y luminosidad desde el día 14.',
-          primaryCta: { text: 'Descubrir Rutina Esencial', link: '#pricing' },
-          secondaryCta: { text: 'Conoce los Ingredientes', link: '#bentoFeatures' },
-          imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
-          style: 'centered'
-        },
-        logos: {
-          enabled: true,
-          title: 'Certificaciones internacionales de pureza y sostenibilidad',
-          items: [
-            { id: 'l1', name: 'ECOCERT Cosmos Organic', tagline: '100% Certificado' },
-            { id: 'l2', name: 'Leaping Bunny Cruelty Free', tagline: 'No testado en animales' },
-            { id: 'l3', name: 'The Vegan Society', tagline: '100% Vegano' },
-            { id: 'l4', name: 'Dermatest Excellent', tagline: 'Testado en Piel Sensible' }
-          ]
-        },
-        marquee: {
-          enabled: true,
-          speed: 'normal',
-          direction: 'left',
-          items: [
-            { id: 'm1', text: 'PRENSADO EN FRÍO ARTESANAL', highlight: true },
-            { id: 'm2', text: '0% SULFATOS, PARABENOS O PERFUMES SINTÉTICOS' },
-            { id: 'm3', text: 'ENVASE DE VIDRIO VIOLETA BIOFOTÓNICO', highlight: true },
-            { id: 'm4', text: 'RECARGAS ECO-RESPONSIBLES' }
-          ]
-        },
-        productHighlight: {
-          enabled: true,
-          kicker: 'Serum Icono',
-          title: 'Elixir Botánico Regenerador Nocturno',
-          subtitle: 'Un concentrado de 18 aceites botánicos preciosos ricos en retinol vegetal (Bakuchiol al 2%).',
-          description: 'Acelera la renovación celular mientras duermes, calma rojeces y restaura la barrera lipídica sin sensación grasa.',
-          imageUrl: 'https://images.unsplash.com/photo-1608248597359-00994f71a4f0?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Bakuchiol', value: '2.0%', detail: 'Alternativa natural y suave al retinol' },
-            { label: 'Escualano', value: 'Oliva Virgen', detail: 'Mimetiza el sebo natural de la piel' },
-            { label: 'Vitamina C', value: 'Liposomada', detail: 'Alta estabilidad antioxidante' }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          kicker: 'Pureza Comprobada',
-          title: 'Ingredientes puros que respetan tu piel.',
-          items: [
-            {
-              id: 'b1',
-              title: 'Vidrio Biofotónico Miron',
-              description: 'Bloquea el espectro de luz visible dañina y solo permite el paso de rayos UVA e infrarrojos para conservar los principios activos frescos.',
-              icon: 'ShieldCheck',
-              tag: 'Conservación Óptima',
-              colSpan: 2
-            },
-            {
-              id: 'b2',
-              title: 'Zero Perfume Sintético',
-              description: 'El aroma proviene exclusivamente de los aceites esenciales puros de neroli y manzanilla silvestre.',
-              icon: 'Flower',
-              tag: 'Aroma Terapéutico',
-              colSpan: 1
-            },
-            {
-              id: 'b3',
-              title: 'Recargas de Aluminio',
-              description: 'Reduce un 85% tu huella de plástico pidiendo tus recargas en cápsulas de aluminio infinito.',
-              icon: 'RefreshCw',
-              tag: 'Economía Circular',
-              colSpan: 1
-            }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'Texturas y Rituales',
-          items: [
-            { id: 'g1', title: 'Gotas de Aceite Botánico de Rosa Mosqueta', category: 'Textura', imageUrl: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Bálsamo Limpiador de Camelia', category: 'Limpieza', imageUrl: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Lo que dicen quienes ya lo usan.',
-          items: [
-            {
-              id: 't1',
-              name: 'Dr. Andrea Sola',
-              role: 'Médico Dermatóloga',
-              company: 'Madrid',
-              quote: 'La formulación del Elixir Nocturno con Bakuchiol es formidable. Es la alternativa perfecta al retinol para pacientes con piel reactiva o rosácea.',
-              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            }
-          ]
-        },
-        pricing: {
-          enabled: true,
-          title: 'Packs y Rutinas Completas',
-          subtitle: 'Envío gratis a partir de 45€ y 3 muestras botánicas en cada pedido.',
-          billingCycle: 'annual',
-          plans: [
-            {
-              id: 'pack_esencial',
-              name: 'Rutina Iluminadora Completa',
-              tag: 'Ahorro 20%',
-              priceMonthly: '84 €',
-              priceAnnual: '84 €',
-              description: 'Limpiador en Bálsamo (100ml) + Serum Ácido Hialurónico + Elixir Nocturno (30ml).',
-              features: [
-                'Bálsamo limpiador desmaquillante suave',
-                'Serum de hidratación profunda multicapa',
-                'Elixir regenerador con Bakuchiol al 2%',
-                'Toalla facial de algodón orgánico de regalo',
-                'Muestras personalizadas según tu tipo de piel'
-              ],
-              ctaText: 'Comprar Rutina Completa',
-              ctaLink: '#buy-routine',
-              highlighted: true
-            },
-            {
-              id: 'elixir_single',
-              name: 'Elixir Nocturno Bakuchiol (30ml)',
-              priceMonthly: '46 €',
-              priceAnnual: '46 €',
-              description: 'Tratamiento intensivo antiedad y luminosidad para 3 meses de uso diario.',
-              features: [
-                'Concentrado de 18 aceites prensados en frío',
-                'Botella de cristal violeta biofotónico',
-                'Gotero dosificador de precisión',
-                'Apto para pieles sensibles y embarazadas'
-              ],
-              ctaText: 'Comprar Elixir',
-              ctaLink: '#buy-elixir',
-              highlighted: false
-            }
-          ]
-        },
-        faq: {
-          enabled: true,
-          title: 'Preguntas Frecuentes',
-          items: [
-            {
-              id: 'f1',
-              question: '¿Es apto para pieles con tendencia acneica o grasa?',
-              answer: 'Sí. Los aceites utilizados son 100% no comedogénicos (como el jojoba y el escualano), que ayudan a equilibrar la producción natural de sebo sin obstruir los poros.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          kicker: 'Cuida tu Piel',
-          title: 'Experimenta el poder reparador de la botánica viva.',
-          subtitle: 'Recibe tu pedido en 24-48 horas con empaque compostable.',
-          primaryCta: { text: 'Conseguir Mi Rutina', link: '#pricing' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Silvestre Botanicals Labs S.L.',
-          legalLinks: [
-            { label: 'Glosario de Ingredientes', href: '#ingredients' },
-            { label: 'Envíos y Muestras', href: '#samples' },
+            { label: 'Términos de Compra', href: '#terms' },
+            { label: 'Servicio Técnico Oficial', href: '#service' },
             { label: 'Privacidad', href: '#privacy' }
           ],
           socialLinks: [
@@ -833,34 +265,33 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
     }
   },
 
-  // 4. VALKIRIA APPAREL — Moda Urbana Sostenible de Edición Limitada
+  // 2. SILVESTRE SKIN — Cosmética Botánica Orgánica
   {
-    id: 'valkiria-apparel',
-    name: 'Valkiria Studio',
-    tagline: 'Streetwear minimalista confeccionado con algodón orgánico de 450 GSM y tintes minerales en Portugal',
+    id: 'silvestre-skin',
+    name: 'Silvestre Botanicals',
+    tagline: 'Cosmética botánica orgánica y cuidado facial con principios activos de recolección silvestre sostenible',
     category: 'ecommerce',
-    style: 'creativo',
-    thumbnail: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética cyberpunk y streetwear contemporáneo en negro y violeta #8B5CF6, tipografía Space Grotesk, drops numerados, guía de tallas interactiva y lookbook inmersivo.',
-    accentColor: '#8B5CF6',
+    thumbnail: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en verde bosque oscuro y acento menta neón #00FF88, tipografía Syne, sérums concentrados con ácido hialurónico vegetal, aceites botánicos prensados en frío y pack de rutina completa.',
+    accentColor: '#00FF88',
     theme: 'dark',
     defaultConfig: {
-      templateId: 'valkiria-apparel',
-      name: 'Valkiria Studio',
-      slug: 'valkiria-studio',
-      domain: 'valkiria.store',
+      templateId: 'silvestre-skin',
+      name: 'Silvestre Skin Botanicals',
+      slug: 'silvestre-skin',
+      domain: 'silvestreskin.com',
       theme: 'dark',
-      accentColor: '#8B5CF6',
-      fontFamily: "'Space Grotesk', sans-serif",
-      borderRadius: 14,
+      accentColor: '#00FF88',
+      fontFamily: "'Syne', sans-serif",
+      borderRadius: 18,
       published: true,
       sectionOrder: [
         'navbar',
         'hero',
-        'marquee',
-        'gallery',
+        'logos',
         'bentoFeatures',
         'productHighlight',
+        'gallery',
         'stats',
         'testimonials',
         'pricing',
@@ -869,178 +300,211 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
         'footer'
       ],
       seo: {
-        title: 'Valkiria Studio — Streetwear Sostenible Pesado 450 GSM',
-        description: 'Prendas de alta durabilidad cortadas y cosidas en Portugal con patrones holgados y algodón orgánico.',
-        keywords: 'streetwear, hoodie 450gsm, moda sostenible, oversize, algodon organico'
+        title: 'Silvestre Skin — Cuidado Facial Botánico & Ingredientes Puros',
+        description: 'Fórmulas limpias prensadas en frío para una piel radiante, calmada y protegida de la polución urbana.',
+        keywords: 'cosmetica botanica, skincare organico, serum facial, aceites prensados en frio, vegano, cruelty free'
       },
       sections: {
         navbar: {
-          brandName: 'VALKIRIA',
-          logoText: 'VALKIRIA LABS',
-          ctaText: 'Ver Drop 04',
+          brandName: 'Silvestre',
+          logoText: 'SILVESTRE // BOTANICALS',
+          ctaText: 'Ver Rutina Facial',
           ctaLink: '#pricing',
           links: [
-            { label: 'Drop 04', href: '#pricing' },
-            { label: 'Lookbook', href: '#gallery' },
-            { label: 'Gramajes & Fit', href: '#bentoFeatures' },
-            { label: 'Producción', href: '#faq' }
+            { label: 'Principios Activos', href: '#features' },
+            { label: 'El Elixir Icono', href: '#product' },
+            { label: 'Colección', href: '#pricing' },
+            { label: 'Preguntas', href: '#faq' }
           ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Drop 04 // Disponible',
-          kicker: 'French Terry 450 GSM',
-          title: 'Gramaje pesado. Caída perfecta. Cero compromisos.',
-          highlightTitle: 'Diseñado para durar una década.',
-          subtitle: 'Sudaderas, camisetas pesadas y pantalones técnicos confeccionados sin fibras sintéticas ni plásticos ocultos.',
-          primaryCta: { text: 'Comprar Drop 04', link: '#pricing' },
-          secondaryCta: { text: 'Ver Lookbook', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Fórmulas 100% Libres de Sulfatos, Parabenos y Siliconas',
+          kicker: 'Botánica de Alta Eficacia',
+          title: 'El poder regenerador de la naturaleza,',
+          highlightTitle: 'en su forma más pura.',
+          subtitle: 'Extractos de plantas silvestres recolectadas a mano y prensadas en frío para nutrir, calmar y restaurar la barrera cutánea sin agentes sintéticos agresivos.',
+          primaryCta: { text: 'Descubrir la Rutina Botánica', link: '#pricing' },
+          secondaryCta: { text: 'Ver Fórmulas y Testimonios →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
-        marquee: {
+        logos: {
           enabled: true,
-          speed: 'fast',
-          direction: 'left',
+          title: 'SELLOS DE CALIDAD ORGÁNICA Y CRUELTY-FREE',
           items: [
-            { id: 'm1', text: '450 GSM HEAVYWEIGHT COTTON', highlight: true },
-            { id: 'm2', text: 'MADE IN PORTO, PORTUGAL' },
-            { id: 'm3', text: 'PRE-SHRUNK FABRIC // 0% ENCOGIMIENTO', highlight: true },
-            { id: 'm4', text: 'LIMITED RUN // 300 PIECES' }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'Lookbook Drop 04',
-          subtitle: 'Fotografía en localización industrial.',
-          items: [
-            { id: 'g1', title: 'Hoodie Boxy Fit en Antracita Mineral', category: 'Sudaderas', imageUrl: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Heavy Tee 280 GSM en Blanco Crudo', category: 'Camisetas', imageUrl: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80' }
+            { id: 'l1', name: 'ECOCERT Bio', tagline: '100% Organic' },
+            { id: 'l2', name: 'Leaping Bunny', tagline: 'Cruelty Free' },
+            { id: 'l3', name: 'Vegan Society', tagline: '100% Plant Based' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          title: 'La Anatomía de una Prenda Eterna',
+          kicker: 'Ingredientes Vivos',
+          title: 'Prensado en frío para mantener los antioxidantes intactos.',
+          subtitle: 'Nuestros laboratorios artesanales preservan los polifenoles y ácidos grasos esenciales sin añadir calor ni disolventes.',
           items: [
             {
-              id: 'b1',
-              title: 'Algodón Peinado 450 GSM',
-              description: 'Tejido French Terry de bucle cerrado con tacto suave por dentro y estructura firme por fuera que mantiene el volumen sin deformarse.',
-              icon: 'Layers',
-              tag: 'Estructura Robusta',
-              colSpan: 2
+              id: 'f1',
+              title: 'Aceite de Rosa Mosqueta Silvestre y Escualano',
+              description: 'Estimula la producción natural de colágeno, atenúa manchas de sol y aporta elasticidad duradera sin sensación grasa.',
+              icon: 'Sparkles',
+              tag: '100% Puro',
+              colSpan: 2,
+              statNumber: '96%',
+              statLabel: 'De usuarias notaron mayor luminosidad en 14 días'
             },
             {
-              id: 'b2',
-              title: 'Patrón Boxy & Drop Shoulder',
-              description: 'Hombros caídos con corte holgado contemporáneo que estiliza la silueta.',
-              icon: 'User',
-              tag: 'Corte Moderno',
+              id: 'f2',
+              title: 'Ácido Hialurónico Vegetal Multimolecular',
+              description: 'Penetra en las capas profundas de la epidermis para retener hasta 1.000 veces su peso en agua y rellenar líneas de expresión.',
+              icon: 'Droplets',
+              tag: 'Hidratación Profunda',
               colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Envases de Vidrio Violeta Biofotónico',
+              description: 'Protege las moléculas fotosensibles de los rayos solares, prolongando la frescura de los principios activos sin conservantes sintéticos.',
+              icon: 'ShieldCheck',
+              tag: 'Vidrio Miron',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Testado Dermatológicamente en Pieles Sensibles',
+              description: 'Fórmulas hipoalergénicas aptas para pieles con rosácea, dermatitis atópica y tendencia a la reactividad.',
+              icon: 'Heart',
+              tag: 'Pieles Sensibles',
+              colSpan: 2,
+              statNumber: '0%',
+              statLabel: 'De fragancias artificiales o derivados del petróleo'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          kicker: 'Prenda Insignia',
-          title: 'The Heavy Hoodie 450 GSM — Carbon',
-          subtitle: 'Capucha doble sin cordones innecesarios y puños acanalados de alta tensión.',
-          description: 'Lavada a la piedra con enzimas naturales para un tacto vintage suave y sin encogimiento tras los lavados.',
-          imageUrl: 'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=1200&q=80',
+          badge: 'El Producto Estrella',
+          kicker: 'Sérum Reparador Nocturno',
+          title: 'Elixir Botánico Midnight Nectar 30ml.',
+          subtitle: 'Un concentrado oleoso de 12 extractos botánicos y bakuchiol natural.',
+          description: 'Actúa durante las horas de sueño cuando la tasa de renovación celular es más alta. El bakuchiol (la alternativa vegetal al retinol sin irritación) regenera la textura de la piel mientras el aceite de jojoba silvestre equilibra la producción de sebo.',
+          imageUrl: 'https://images.unsplash.com/photo-1608248597359-25f0a8277259?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Composición', value: '100% Orgánico', detail: 'Certificación GOTS' },
-            { label: 'Gramaje', value: '450 GSM', detail: 'Peso total aprox. 1.1 kg' },
-            { label: 'Origen', value: 'Porto', detail: 'Fabricación ética verificada' }
+            { label: 'Tipo de Piel', value: 'Todo tipo de pieles, incluidas mixtas y sensibles' },
+            { label: 'Modo de Uso', value: '3 a 4 gotas sobre el rostro limpio antes de dormir' },
+            { label: 'Textura', value: 'Aceite seco de absorción instantánea sin residuo pesado' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Detalles de los Productos Silvestre',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80', caption: 'Frasco de vidrio violeta con gotero de precisión' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1608248597359-25f0a8277259?auto=format&fit=crop&w=800&q=80', caption: 'Textura dorada de rápida absorción dérmica' }
           ]
         },
         stats: {
           enabled: true,
           items: [
-            { id: 's1', value: '300', label: 'Piezas por Drop', description: 'Numeradas y limitadas' },
-            { id: 's2', value: '0%', label: 'Poliéster', description: '100% fibras naturales' },
-            { id: 's3', value: '10 Años', label: 'Vida Útil Estimada', description: 'Costuras dobles reforzadas' }
+            { id: 's1', value: '100%', label: 'Ingredientes de Origen Vegetal' },
+            { id: 's2', value: '14 Días', label: 'Para Ver Resultados Visibles' },
+            { id: 's3', value: '4.9/5', label: 'Valoración en Más de 2.000 Clientes' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'Comunidad Valkiria',
+          title: 'Lo que opinan dermatólogas y clientas sobre Silvestre.',
           items: [
             {
               id: 't1',
-              name: 'Sergio Valdés',
-              role: 'Director Creativo',
-              company: 'Berlín',
-              quote: 'Es con diferencia la mejor sudadera que he tenido en cuanto a peso y caída de hombros. No pierde el color ni encoge ni un milímetro tras lavarla.',
-              avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+              author: 'Dra. Carmen Soler',
+              name: 'Dra. Carmen Soler',
+              role: 'Dermatóloga Especialista en Barrera Cutánea',
+              company: 'Clínica Dermatológica Madrid',
+              quote: 'Recomiendo el Elixir Midnight Nectar a pacientes con piel reactiva que buscan los beneficios regeneradores del retinol pero no toleran la sequedad o irritación.',
+              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Piezas Disponibles Drop 04',
-          billingCycle: 'annual',
+          title: 'Fórmulas Individuales y Packs de Rutina Completa',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'heavy_hoodie',
-              name: 'Heavy Hoodie 450 GSM',
-              tag: 'Últimas 40 uds',
-              priceMonthly: '110 €',
-              priceAnnual: '110 €',
-              description: 'Sudadera con capucha doble, corte boxy y bolsillo canguro reforzado.',
-              features: [
-                '100% Algodón orgánico GOTS de 450 GSM',
-                'Capucha doble estructurada sin cordones',
-                'Tratamiento preencogido al vapor',
-                'Envío gratuito en 24h a Península'
-              ],
-              ctaText: 'Añadir al Carrito',
-              ctaLink: '#buy-hoodie',
-              highlighted: true
+              id: 'p1',
+              name: 'Elixir Midnight Nectar (30ml)',
+              priceMonthly: '42€',
+              priceAnnual: 'Envío gratuito a partir de 50€',
+              description: 'Tratamiento intensivo regenerador de noche para 3 meses de aplicación diaria.',
+              features: ['Bakuchiol natural al 2%', '12 aceites botánicos prensados', 'Frasco de vidrio violeta protector', 'Muestra gratuita de crema de día'],
+              highlighted: false,
+              ctaText: 'Añadir al Carrito'
             },
             {
-              id: 'heavy_tee',
-              name: 'Heavy Tee 280 GSM',
-              priceMonthly: '48 €',
-              priceAnnual: '48 €',
-              description: 'Camiseta pesada de cuello ajustado de 3cm que no se deforma.',
-              features: [
-                '100% Algodón peinado de 280 GSM',
-                'Cuello ribeteado reforzado con doble pespunte',
-                'Corte relajado de caída recta',
-                'Tintado mineral no contaminante'
-              ],
-              ctaText: 'Añadir al Carrito',
-              ctaLink: '#buy-tee',
-              highlighted: false
+              id: 'p2',
+              name: 'Pack Rutina Iluminadora Completa',
+              priceMonthly: '89€',
+              priceAnnual: 'Ahorro de 25€ frente a compra individual',
+              description: 'Limpiador en gel botánico, Sérum de Ácido Hialurónico y Elixir Midnight Nectar.',
+              features: ['3 productos de tamaño completo', 'Neceser de lino orgánico de regalo', 'Guía paso a paso de masaje facial Gua Sha', 'Envío urgente gratuito en 24h'],
+              highlighted: true,
+              ctaText: 'Comprar Rutina Completa'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Guía de Tallas y Envíos',
+          title: 'Preguntas Frecuentes sobre Cosmética Botánica',
           items: [
             {
-              id: 'f1',
-              question: '¿Qué talla debo elegir para un look oversize?',
-              answer: 'Nuestras prendas ya cuentan con un corte holgado natural en su talla habitual. Si prefieres un ajuste más estándar al cuerpo, te recomendamos pedir una talla menos.'
+              id: 'q1',
+              question: '¿Los aceites faciales pueden obstruir los poros o causar brotes de acné?',
+              answer: 'No. Utilizamos únicamente aceites botánicos no comedogénicos como la jojoba y el escualano de oliva que tienen una estructura molecular idéntica al sebo natural de la piel, ayudando a equilibrarla.'
+            },
+            {
+              id: 'q2',
+              question: '¿Los productos son aptos durante el embarazo y lactancia?',
+              answer: 'Sí. Nuestras fórmulas no contienen retinol, aceites esenciales con contraindicaciones ni derivados de la vitamina A sintética, por lo que son completamente seguras durante estas etapas.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cuánto tiempo dura un frasco de sérum de 30ml?',
+              answer: 'Aplicando la dosis recomendada de 3 a 4 gotas diarias por la noche, un frasco de 30ml tiene una duración estimada de entre 90 y 110 días de uso continuado.'
+            },
+            {
+              id: 'q4',
+              question: '¿Los productos son 100% veganos y libres de crueldad animal?',
+              answer: 'Absolutamente. No utilizamos ningún derivado de origen animal como ceras o colágeno bovino y contamos con la certificación internacional Leaping Bunny que garantiza cero pruebas en animales.'
+            },
+            {
+              id: 'q5',
+              question: '¿Cuál es la política de devoluciones de la tienda online?',
+              answer: 'Si un producto no se adapta a tu piel, dispones de 30 días para devolverlo y recibir un reembolso íntegro o cambiarlo por otra fórmula que se adapte mejor a tus necesidades.'
+            },
+            {
+              id: 'q6',
+              question: '¿Cómo deben conservarse los productos en casa?',
+              answer: 'Recomendamos mantener los frascos en un lugar fresco y seco alejados de fuentes directas de calor. No es necesario conservarlos en el frigorífico gracias a la protección de nuestro vidrio biofotónico.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Sé parte del Drop 04 antes de que se agote.',
-          subtitle: 'Unidades estrictamente limitadas a 300 piezas por colorway.',
-          primaryCta: { text: 'Comprar Drop 04', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'Devuelve la vitalidad natural a tu piel.',
+          subtitle: 'Fórmulas puras y respetuosas elaboradas con botánica silvestre sostenible.',
+          primaryCta: { text: 'Descubrir Silvestre Skin', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Valkiria Labs Lda. Made in Portugal.',
+          copyright: '© 2026 Silvestre Skin Botanicals S.L. Todos los derechos reservados.',
           legalLinks: [
-            { label: 'Guía de Tallas', href: '#sizes' },
-            { label: 'Envíos y Cambios Gratis', href: '#returns' }
+            { label: 'Ingredientes INCI', href: '#inci' },
+            { label: 'Sostenibilidad', href: '#eco' },
+            { label: 'Aviso Legal', href: '#legal' }
           ],
           socialLinks: [
             { platform: 'Instagram', url: 'https://instagram.com' }
@@ -1050,34 +514,32 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
     }
   },
 
-  // 5. NOVA PRO GEAR — Audio & Periféricos para Creadores
+  // 3. VALKIRIA APPAREL — Moda Urbana & Sastrería Contemporánea
   {
-    id: 'nova-gear',
-    name: 'Nova Pro Gear',
-    tagline: 'Micrófonos de condensador analógicos, brazos articulados de precisión y controladores para streamers y músicos',
+    id: 'valkiria-apparel',
+    name: 'Valkiria Studio',
+    tagline: 'Moda urbana contemporánea, sastrería arquitectónica y tejidos técnicos reciclados de alta durabilidad',
     category: 'ecommerce',
-    style: 'oscuro',
-    thumbnail: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética tech studio en negro mate y acento cian #00E5FF, tipografía Inter, diagramas de patrón polar, grabaciones de audio comparativas en vivo y packs de estudio.',
-    accentColor: '#00E5FF',
+    thumbnail: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en negro grafito #0E0E12, acento violeta neón #8B5CF6, tipografía Space Grotesk, catálogo de prendas de autor, tablas de tallas milimétricas, lookbooks editoriales y pasarela directa.',
+    accentColor: '#8B5CF6',
     theme: 'dark',
     defaultConfig: {
-      templateId: 'nova-gear',
-      name: 'Nova Pro Audio',
-      slug: 'nova-pro-audio',
-      domain: 'novaprogear.com',
+      templateId: 'valkiria-apparel',
+      name: 'Valkiria Studio Apparel',
+      slug: 'valkiria-studio',
+      domain: 'valkiriastudio.com',
       theme: 'dark',
-      accentColor: '#00E5FF',
-      fontFamily: "'Plus Jakarta Sans', sans-serif",
-      borderRadius: 16,
+      accentColor: '#8B5CF6',
+      fontFamily: "'Space Grotesk', sans-serif",
+      borderRadius: 14,
       published: true,
       sectionOrder: [
         'navbar',
         'hero',
         'logos',
-        'marquee',
-        'productHighlight',
         'bentoFeatures',
+        'productHighlight',
         'gallery',
         'stats',
         'testimonials',
@@ -1087,186 +549,464 @@ export const ECOMMERCE_TEMPLATES: TemplateDefinition[] = [
         'footer'
       ],
       seo: {
-        title: 'Nova Pro Audio — Micrófonos e Interfaces de Grado Estudio',
-        description: 'Equipamiento de audio profesional para podcasters, streamers y creadores de contenido exigentes.',
-        keywords: 'microfono condensador, interfaz audio usb-c, podcast, stream deck, audio pro'
+        title: 'Valkiria Studio — Moda Urbana & Sastrería Arquitectónica',
+        description: 'Prendas unisex confeccionadas en pequeñas tiradas con tejidos técnicos reciclados y patrones oversize de autor.',
+        keywords: 'moda urbana, streetwear de autor, sastrería oversize, ropa tecnica, algodon organico, moda sostenible'
       },
       sections: {
         navbar: {
-          brandName: 'NOVA',
-          logoText: 'NOVA PRO AUDIO',
-          ctaText: 'Ver Equipos',
+          brandName: 'Valkiria',
+          logoText: 'VALKIRIA // STUDIO',
+          ctaText: 'Ver Colección 04',
           ctaLink: '#pricing',
           links: [
-            { label: 'Micrófonos', href: '#pricing' },
-            { label: 'Especificaciones', href: '#productHighlight' },
-            { label: 'Tecnología', href: '#bentoFeatures' },
-            { label: 'Soporte', href: '#faq' }
+            { label: 'Colección', href: '#pricing' },
+            { label: 'Tejidos', href: '#features' },
+            { label: 'Prenda Icono', href: '#product' },
+            { label: 'Lookbook', href: '#gallery' }
           ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Nova Podcaster X2',
-          kicker: 'Cápsula de 34mm Bañada en Oro',
-          title: 'Tu voz con la calidez y el detalle de una emisora de radio.',
-          highlightTitle: 'Audio Broadcast Profesional.',
-          subtitle: 'Micrófono de condensador dual XLR y USB-C con preamplificador analógico integrado de +70dB de ganancia limpia y cero ruido de fondo.',
-          primaryCta: { text: 'Conseguir Nova Podcaster X2', link: '#pricing' },
-          secondaryCta: { text: 'Escuchar Muestras de Audio', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Drop 04 — Edición Limitada a 250 Unidades por Modelo',
+          kicker: 'Sastrería Urbana de Vanguardia',
+          title: 'Arquitectura textil y volumen.',
+          highlightTitle: 'Sin etiquetas convencionales.',
+          subtitle: 'Prendas diseñadas para fluir con el movimiento urbano. Cortes volumétricos confeccionados con lanas recicladas italianas y algodón orgánico de 450 g/m².',
+          primaryCta: { text: 'Explorar Drop 04', link: '#pricing' },
+          secondaryCta: { text: 'Ver Editorial en Galería →', link: '#gallery' },
+          imageUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
         logos: {
           enabled: true,
-          title: 'Utilizado a diario por los principales podcasts y emisoras digitales',
+          title: 'PRESENTADO EN LAS PRINCIPALES SEMANAS DE LA MODA INDEPENDIENTE',
           items: [
-            { id: 'l1', name: 'Twitch Studio Partner', tagline: 'Audio Oficial' },
-            { id: 'l2', name: 'Spotify for Podcasters', tagline: 'Recomendado' },
-            { id: 'l3', name: 'YouTube Creator Lab', tagline: 'Hardware Certificado' },
-            { id: 'l4', name: 'Sound On Sound', tagline: '5 Estrellas' }
-          ]
-        },
-        marquee: {
-          enabled: true,
-          speed: 'normal',
-          direction: 'left',
-          items: [
-            { id: 'm1', text: 'DUAL XLR + USB-C 24-BIT / 192KHZ', highlight: true },
-            { id: 'm2', text: 'BUILT-IN DSP PREAMP (+72DB GAIN)' },
-            { id: 'm3', text: 'SHOCKMOUNT Y POP FILTER MAGNÉTICO INCLUIDO', highlight: true },
-            { id: 'm4', text: 'COMPATIBLE MAC, WINDOWS, IPAD Y LINUX' }
-          ]
-        },
-        productHighlight: {
-          enabled: true,
-          kicker: 'Ingeniería Acústica',
-          title: 'Cápsula de Gran Diafragma Acondicionada',
-          subtitle: 'Rechazo fuera del eje excepcional que aísla los teclados mecánicos y el ruido ambiental.',
-          description: 'El patrón polar cardioide optimizado captura la resonancia natural de las frecuencias graves y medias sin necesidad de filtros ecualizadores complejos.',
-          imageUrl: 'https://images.unsplash.com/photo-1520523839898-507121c172a7?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Frecuencia', value: '20Hz - 20kHz', detail: 'Curva plana de alta fidelidad' },
-            { label: 'Conversión', value: '24-bit / 192kHz', detail: 'DAC ESS Sabre integrado' },
-            { label: 'Conexión', value: 'XLR + USB-C', detail: 'Uso analógico o digital sin latencia' }
+            { id: 'l1', name: 'Berlin Fashion Week', tagline: 'Avant-Garde Selection' },
+            { id: 'l2', name: 'Vogue Talents', tagline: 'Sustainable Designer' },
+            { id: 'l3', name: 'Highsnobiety', tagline: 'Curated Drop' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          title: 'Hardware Diseñado para Creadores',
+          kicker: 'Materiales & Patronaje',
+          title: 'Confección ética en talleres locales de cercanía.',
+          subtitle: 'Producimos exclusivamente en Portugal y España bajo condiciones de trabajo justas y con trazabilidad completa de cada fibra.',
           items: [
             {
-              id: 'b1',
-              title: 'Cuerpo de Zinc Fundido Macizo',
-              description: 'Blindaje electromagnético completo contra interferencias de pantallas de ordenador, routers Wi-Fi o fuentes de alimentación.',
-              icon: 'Shield',
-              tag: 'Cero Ruido Eléctrico',
-              colSpan: 2
+              id: 'f1',
+              title: 'Algodón Orgánico Pesado de 450 GSM',
+              description: 'Tejido denso que mantiene la estructura volumétrica del patrón tras cientos de lavados sin deformarse ni generar bolitas.',
+              icon: 'Sparkles',
+              tag: '450 GSM Heavyweight',
+              colSpan: 2,
+              statNumber: '450',
+              statLabel: 'Gramos por metro cuadrado de densidad textil'
             },
             {
-              id: 'b2',
-              title: 'Monitoreo Directo con Auriculares',
-              description: 'Salida de 3.5mm de alta impedancia con control de mezcla entre el audio de tu ordenador y tu micrófono en tiempo real.',
-              icon: 'Headphones',
-              tag: 'Latencia Cero',
+              id: 'f2',
+              title: 'Cremalleras Metálicas YKK Excella de Titanio',
+              description: 'Dientes pulidos individualmente para un deslizamiento ultra suave y resistencia a la corrosión.',
+              icon: 'Shield',
+              tag: 'YKK Excella',
               colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Patronaje Unisex de Caída Impecable',
+              description: 'Siluetas estudiadas para adaptarse a cualquier fisonomía mediante hombros caídos y pinzas dorsales estratégicas.',
+              icon: 'Layers',
+              tag: 'Genderless Cut',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Tintes Minerales con Cero Residuos Tóxicos',
+              description: 'Gama de colores tierra y carbón lograda mediante pigmentos naturales con un 85% de ahorro de agua en tintorería.',
+              icon: 'Droplets',
+              tag: 'Tintes Minerales',
+              colSpan: 2,
+              statNumber: '85%',
+              statLabel: 'Menos consumo de agua respecto a tintes convencionales'
             }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'La Pieza Maestra',
+          kicker: 'Prenda de Abrigo',
+          title: 'Overcoat Arquitectónico de Lana Reciclada.',
+          subtitle: 'Estructura oversize con solapas cruzadas y forro térmico transpirable.',
+          description: 'Confeccionado en lana hervida reciclada de 650 g/m² en talleres artesanos de Oporto. Su caída recta y bolsillos ocultos con cierre magnético lo convierten en el abrigo definitivo para el invierno urbano.',
+          imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Composición', value: '80% Lana Reciclada Italiana, 20% Poliamida Técnica Regenerada' },
+            { label: 'Aislamiento', value: 'Protección térmica confort hasta -5°C' },
+            { label: 'Cuidados', value: 'Limpieza en seco profesional ecológica' }
           ]
         },
         gallery: {
           enabled: true,
-          title: 'Setups Profesionales en Acción',
+          title: 'Editorial Lookbook Drop 04',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80', caption: 'Pantalón ancho con pinzas y sudadera oversize de 450 gsm' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80', caption: 'Detalle de costuras reforzadas en hombro caído' }
+          ]
+        },
+        stats: {
+          enabled: true,
           items: [
-            { id: 'g1', title: 'Montaje con Brazo Articulado Oculto', category: 'Estudio', imageUrl: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Conexión Directa a Portátil USB-C', category: 'Móvil', imageUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80' }
+            { id: 's1', value: '250', label: 'Unidades Máximas por Drop' },
+            { id: 's2', value: '100%', label: 'Confección Ética en la UE' },
+            { id: 's3', value: '450g', label: 'Densidad del Algodón Orgánico' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'Opiniones de Creadores',
+          title: 'Lo que opinan estilistas y clientes de Valkiria.',
           items: [
             {
               id: 't1',
-              name: 'David Forner',
-              role: 'Host de Podcast',
-              company: '500k oyentes/mes',
-              quote: 'Pasar del micrófono habitual al Nova Podcaster X2 elevó la calidad de nuestro show a nivel de cadena nacional. Los oyentes lo notaron al instante en el primer episodio.',
-              avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
+              author: 'Hugo Alarcón',
+              name: 'Hugo Alarcón',
+              role: 'Director Creativo & Estilista de Moda',
+              company: 'Vogue España',
+              quote: 'El patrón y el peso de las prendas de Valkiria están a la altura de las grandes firmas de pasarela internacional pero con una conciencia de sostenibilidad real.',
+              avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Equipa tu Estudio',
-          billingCycle: 'annual',
+          title: 'Piezas Disponibles del Drop 04',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'nova_x2_solo',
-              name: 'Nova Podcaster X2 Solo',
-              priceMonthly: '189 €',
-              priceAnnual: '189 €',
-              description: 'Micrófono USB-C/XLR + Soporte de mesa antivibración + Cable USB-C trenzado de 3m.',
-              features: [
-                'Cápsula de 34mm bañada en oro',
-                'Salida dual USB-C + XLR analógica',
-                'Soporte antivibraciones de escritorio',
-                'Filtro antipop magnético metálico',
-                'Software Nova Control para ecualización DSP'
-              ],
-              ctaText: 'Comprar Solo',
-              ctaLink: '#buy-solo',
-              highlighted: false
+              id: 'p1',
+              name: 'Heavyweight Boxy Hoodie (450 GSM)',
+              priceMonthly: '110€',
+              priceAnnual: 'Algodón orgánico peinado',
+              description: 'Sudadera sin cordones con capucha doble y bolsillo canguro oculto en costuras laterales.',
+              features: ['Tejido pesado de 450 gsm', 'Corte boxy oversize con hombros caídos', 'Puños de canalé de alta resistencia', 'Envío gratuito en 24-48h'],
+              highlighted: false,
+              ctaText: 'Seleccionar Talla'
             },
             {
-              id: 'nova_x2_studio_pack',
-              name: 'Nova Pro Studio Pack',
-              tag: 'Pack Completo',
-              priceMonthly: '269 €',
-              priceAnnual: '269 €',
-              description: 'Incluye Micrófono X2 + Brazo articulado con muelle interno oculto + Auriculares de estudio Nova Monitor 40.',
-              features: [
-                'Todo lo incluido en el modelo Solo',
-                'Brazo articulado de aluminio con pasacables',
-                'Auriculares circumaurales cerrados de 50mm',
-                'Cable XLR profesional de 3 metros blindado',
-                'Garantía de reemplazo inmediato de 3 años'
-              ],
-              ctaText: 'Comprar Studio Pack',
-              ctaLink: '#buy-studio-pack',
-              highlighted: true
+              id: 'p2',
+              name: 'Overcoat Arquitectónico de Lana',
+              priceMonthly: '285€',
+              priceAnnual: 'Serie limitada a 80 unidades',
+              description: 'Abrigo largo cruzado de lana reciclada italiana de 650 gsm con bolsillos magnéticos.',
+              features: ['80% Lana reciclada italiana', 'Forro de cupro japonés antiestático', 'Botones de cuerno natural grabados', 'Bolsa portatrajes de lino de regalo'],
+              highlighted: true,
+              ctaText: 'Comprar Abrigo'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
+          title: 'Preguntas Frecuentes sobre Valkiria',
           items: [
             {
-              id: 'f1',
-              question: '¿Necesito una tarjeta de sonido externa para usarlo?',
-              answer: 'No. Al disponer de puerto USB-C, puedes conectarlo directamente a tu Mac, PC o iPad y funcionará de forma inmediata sin necesidad de drivers adicionales ni interfaz externa.'
+              id: 'q1',
+              question: '¿Cómo elijo mi talla adecuada en los patrones oversize?',
+              answer: 'Recomendamos elegir tu talla habitual para un fit holgado y estructurado tal como fue concebido en el diseño. Si prefieres un ajuste más entallado, te sugerimos seleccionar una talla menos.'
+            },
+            {
+              id: 'q2',
+              question: '¿Dónde se fabrican las colecciones de Valkiria?',
+              answer: 'Todas nuestras prendas se diseñan en nuestro estudio de Madrid y se confeccionan en pequeños talleres familiares del norte de Portugal reconocidos por su maestría textil.'
+            },
+            {
+              id: 'q3',
+              question: '¿Qué política de cambios de talla disponen?',
+              answer: 'Ofrecemos cambios de talla gratuitos a domicilio en un plazo de 14 días. Enviamos al mensajero con la nueva talla y recogemos la prenda original en el mismo momento.'
+            },
+            {
+              id: 'q4',
+              question: '¿Habrá reposición de stock una vez agotado un Drop?',
+              answer: 'Para mantener la exclusividad y evitar la sobreproducción textil, cada Drop se produce en una única tirada limitada de 250 unidades y no vuelve a confeccionarse.'
+            },
+            {
+              id: 'q5',
+              question: '¿Cómo debo lavar las prendas de algodón pesado?',
+              answer: 'Recomendamos lavar del revés en agua fría (máximo 30°C) con detergente neutro y secar en plano a la sombra para preservar la densidad y los tintes minerales durante años.'
+            },
+            {
+              id: 'q6',
+              question: '¿Realizan envíos a todo el mundo?',
+              answer: 'Enviamos a toda la Unión Europea, Reino Unido, Estados Unidos y Japón con mensajería urgente y empaquetado 100% biodegradable libre de plásticos.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Lleva el sonido de tus creaciones al siguiente nivel.',
-          subtitle: 'Envío en 24 horas y 30 días de prueba en tu propio estudio.',
-          primaryCta: { text: 'Adquirir Nova Studio Pack', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'Viste la arquitectura urbana contemporánea.',
+          subtitle: 'Unidades limitadas por drop con envío y cambios de talla sin coste.',
+          primaryCta: { text: 'Explorar Tienda Valkiria', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Nova Pro Audio Inc.',
+          copyright: '© 2026 Valkiria Studio Apparel S.L. Todos los derechos reservados.',
           legalLinks: [
-            { label: 'Descarga de Software DSP', href: '#downloads' },
-            { label: 'Garantía 3 Años', href: '#warranty' },
-            { label: 'Contacto Técnico', href: '#support' }
+            { label: 'Guía de Tallas', href: '#tallas' },
+            { label: 'Envíos y Cambios', href: '#envios' },
+            { label: 'Términos de Venta', href: '#terms' }
           ],
           socialLinks: [
-            { platform: 'YouTube', url: 'https://youtube.com' },
-            { platform: 'Twitch', url: 'https://twitch.com' }
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 4. LÚMINA HOME — Mobiliario Nórdico & Diseño de Interiores
+  {
+    id: 'lumina-home',
+    name: 'Lúmina Living',
+    tagline: 'Mobiliario de diseño escandinavo, maderas nobles de tala sostenible y lámparas escultóricas para hogares cálidos',
+    category: 'ecommerce',
+    thumbnail: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en tonos arena y carbón con acento oro cálido #FFD700, tipografía Outfit, catálogo de sofás modulares de lino belga, mesas de roble macizo y servicio de interiorismo 3D.',
+    accentColor: '#FFD700',
+    theme: 'dark',
+    defaultConfig: {
+      templateId: 'lumina-home',
+      name: 'Lúmina Living Scandinavian Design',
+      slug: 'lumina-living',
+      domain: 'luminaliving.com',
+      theme: 'dark',
+      accentColor: '#FFD700',
+      fontFamily: "'Outfit', sans-serif",
+      borderRadius: 16,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Lúmina Living — Mobiliario Nórdico & Lámparas Escultóricas',
+        description: 'Muebles de roble macizo sostenible, sofás de lino y luminarias de diseño para crear espacios llenos de calma y luz.',
+        keywords: 'muebles nordicos, diseño escandinavo, sofas de lino, mesas de roble, lamparas de diseño, decoracion minimalista'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Lúmina',
+          logoText: 'LÚMINA // LIVING',
+          ctaText: 'Ver Catálogo',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Materiales', href: '#features' },
+            { label: 'Pieza Icono', href: '#product' },
+            { label: 'Colección', href: '#pricing' },
+            { label: 'Espacios', href: '#gallery' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Maderas con Certificación Forestal FSC 100%',
+          kicker: 'Diseño Escandinavo & Calidez',
+          title: 'Espacios que transmiten calma,',
+          highlightTitle: 'creados para vivir.',
+          subtitle: 'Mobiliario atemporal fabricado a mano en roble macizo, lino belga lavado y piedra caliza para transformar tu hogar en un refugio de serenidad y luz natural.',
+          primaryCta: { text: 'Descubrir la Colección 2026', link: '#pricing' },
+          secondaryCta: { text: 'Ver Galería de Espacios →', link: '#gallery' },
+          imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'PREMIOS INTERNACIONALES DE DISEÑO Y SOSTENIBILIDAD',
+          items: [
+            { id: 'l1', name: 'Red Dot Award', tagline: 'Best of the Best 2026' },
+            { id: 'l2', name: 'FSC Certified', tagline: '100% Sustainable Forest' },
+            { id: 'l3', name: 'Elle Decoration', tagline: 'Design of the Year' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Artesanía & Pureza',
+          title: 'Materiales que envejecen con nobleza.',
+          subtitle: 'Sin aglomerados ni plásticos: solo madera maciza aceitada, textiles naturales y ensamblajes tradicionales de cola de milano.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Roble Blanco Europeo de Bosques Sostenibles',
+              description: 'Madera secada al aire durante 18 meses para evitar tensiones estructurales, tratada con aceites vegetales naturales libres de COVs.',
+              icon: 'TreePine',
+              tag: '100% Roble Macizo',
+              colSpan: 2,
+              statNumber: '10 Años',
+              statLabel: 'De garantía estructural en todas las piezas'
+            },
+            {
+              id: 'f2',
+              title: 'Tapicerías de Lino Belga y Lana Bouclé',
+              description: 'Tejidos de tacto voluptuoso con test Martindale superior a 45.000 ciclos de resistencia al desgaste diario.',
+              icon: 'Sparkles',
+              tag: 'Lino Belga',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Ensamblajes Ocultos sin Tornillos Vistos',
+              description: 'Técnicas de ebanistería tradicional que permiten desmontar y reparar las piezas generación tras generación.',
+              icon: 'Hammer',
+              tag: 'Ebanistería Pura',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Servicio de Entrega Guante Blanco con Montaje',
+              description: 'Nuestro equipo especializado transporta el mueble, lo desembala en la habitación elegida y retira todos los embalajes.',
+              icon: 'Truck',
+              tag: 'Montaje Incluido',
+              colSpan: 2,
+              statNumber: '100%',
+              statLabel: 'Embalajes de cartón reciclado libres de poliestireno'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'El Sofá Insignia',
+          kicker: 'Confort Modular',
+          title: 'Sofá Modular Fjord en Lino Natural Crudo.',
+          subtitle: 'Estructura profunda de madera maciza con relleno de plumón y látex ecológico.',
+          description: 'Diseñado por el estudio danés Holm & Vester. Sus módulos configurables permiten adaptar el sofá a cualquier salón con fundas completamente desenfundables y lavables en lavadora doméstica.',
+          imageUrl: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Dimensiones', value: '280 x 105 x 75 cm (Configuración 3 plazas con chaiselongue)' },
+            { label: 'Tapicería', value: '100% Lino Belga lavado a la piedra (480 g/m²)' },
+            { label: 'Sostenibilidad', value: 'Relleno libre de espumas químicas de poliuretano' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Inspiración de Espacios Lúmina',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80', caption: 'Salón con sofá Fjord y mesa de centro de roble macizo' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', caption: 'Lámpara colgante de cerámica artesanal con luz cálida difusa' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '10 Años', label: 'Garantía Estructural en Roble' },
+            { id: 's2', value: '100% FSC', label: 'Madera de Bosques Responsables' },
+            { id: 's3', value: '4.9/5', label: 'Satisfacción de Clientes' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que opinan interioristas y familias sobre Lúmina.',
+          items: [
+            {
+              id: 't1',
+              author: 'Sofia Lindqvist',
+              name: 'Sofia Lindqvist',
+              role: 'Arquitecta de Interiores en Studio Oslo',
+              company: 'Studio Oslo',
+              quote: 'La calidad del roble y la textura del lino del sofá Fjord son insuperables. Es una pieza que aporta una sensación inmediata de bienestar y orden visual a cualquier hogar.',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Piezas Clave de la Colección',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Mesa de Comedor Asger (220cm)',
+              priceMonthly: '980€',
+              priceAnnual: 'Roble macizo aceitado',
+              description: 'Mesa de comedor para 8 personas con tablero de 4cm de grosor y bordes biselados suaves.',
+              features: ['100% Roble macizo europeo', 'Tratamiento antimanchas natural', 'Patas con ensamblaje invisible', 'Entrega con montaje en domicilio'],
+              highlighted: false,
+              ctaText: 'Ver Mesa Asger'
+            },
+            {
+              id: 'p2',
+              name: 'Sofá Modular Fjord (3 Plazas)',
+              priceMonthly: '1.850€',
+              priceAnnual: 'El más vendido de la colección',
+              description: 'Sofá modular de lino belga desenfundable con cojines de plumón y suspensión de muelles ensacados.',
+              features: ['Fundas 100% lino desenfundables', 'Módulos intercambiables', '10 años de garantía en armazón', 'Entrega Guante Blanco incluida'],
+              highlighted: true,
+              ctaText: 'Configurar Sofá Fjord'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre Pedidos y Envíos',
+          items: [
+            {
+              id: 'q1',
+              question: '¿En qué consiste el servicio de entrega Guante Blanco?',
+              answer: 'Dos operarios especializados transportan el mueble hasta la estancia que indiques en tu casa, lo montan completamente, comprueban su nivelado y retiran todos los plásticos y cartones para su reciclaje.'
+            },
+            {
+              id: 'q2',
+              question: '¿Puedo solicitar muestras de tela y madera antes de comprar?',
+              answer: 'Sí. Enviamos un pack gratuito con 5 muestras de lino, lana bouclé y muestras de madera de roble natural y ahumado a tu domicilio en 48 horas.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cómo se limpian las manchas en los sofás de lino?',
+              answer: 'Todas las fundas son completamente desenfundables mediante cremalleras ocultas y pueden lavarse a máquina en programa delicado con agua fría o limpiarse localmente con un paño húmedo.'
+            },
+            {
+              id: 'q4',
+              question: '¿Cuánto tiempo tarda la fabricación y entrega de los muebles?',
+              answer: 'Las piezas en stock se entregan en 3 a 5 días laborables, mientras que los sofás configurados a medida tienen un plazo de fabricación artesanal de 3 a 4 semanas.'
+            },
+            {
+              id: 'q5',
+              question: '¿Qué garantía tienen los muebles de madera maciza?',
+              answer: 'Ofrecemos 10 años de garantía directa que cubre la integridad del armazón de madera maciza, ensamblajes y deformaciones imprevistas por temperatura.'
+            },
+            {
+              id: 'q6',
+              question: '¿Ofrecen servicio de asesoramiento en decoración e interiorismo?',
+              answer: 'Contamos con un equipo de interioristas que pueden realizar una propuesta de distribución 3D de tu salón de forma gratuita al enviarnos el plano de tu casa.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'Convierte tu casa en el hogar que sueñas.',
+          subtitle: 'Diseño nórdico atemporal con entrega especializada y montaje en tu salón.',
+          primaryCta: { text: 'Explorar Catálogo Lúmina', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Lúmina Living Scandinavian Design S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Servicio de Interiorismo', href: '#interiorismo' },
+            { label: 'Cuidado de la Madera', href: '#cuidados' },
+            { label: 'Garantía y Devoluciones', href: '#garantia' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Pinterest', url: 'https://pinterest.com' }
           ]
         }
       }

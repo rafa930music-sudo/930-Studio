@@ -1,14 +1,14 @@
 import { TemplateDefinition } from '../../types';
 
 export const SERVICES_TEMPLATES: TemplateDefinition[] = [
-  // 12. HAVEN — Inmobiliaria de Lujo & Residencias Exclusivas
+  // 1. HAVEN REAL ESTATE — Inmobiliaria de Lujo
   {
     id: 'haven-realestate',
-    name: 'Haven',
-    tagline: 'Inmobiliaria boutique especializada en villas de lujo, áticos con vistas panorámicas y fincas privadas',
+    name: 'Haven Luxury Real Estate',
+    tagline: 'Inmobiliaria boutique especializada en villas de lujo, áticos con vistas panorámicas y fincas privadas singulares',
     category: 'services',
     thumbnail: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    description: 'Blanco luminoso y azul océano #0284C7, tipografía elegante, buscador de propiedades, carrusel de residencias exclusivas, bento de comodidades premium, galería de interiores, mapa y formulario de visita privada.',
+    description: 'Estética luminosa en blanco marfil y azul océano #0284C7, tipografía Playfair Display & Plus Jakarta Sans, carrusel de propiedades exclusivas, bento de servicios patrimoniales, mapa y formulario de visita privada.',
     accentColor: '#0284C7',
     theme: 'light',
     defaultConfig: {
@@ -18,19 +18,19 @@ export const SERVICES_TEMPLATES: TemplateDefinition[] = [
       domain: 'havenestates.com',
       theme: 'light',
       accentColor: '#0284C7',
-      fontFamily: 'Inter, -apple-system, sans-serif',
+      fontFamily: "'Playfair Display', Georgia, serif",
       borderRadius: 16,
       published: true,
       sectionOrder: [
         'navbar',
         'hero',
-        'slider',
+        'logos',
         'bentoFeatures',
+        'productHighlight',
         'gallery',
         'stats',
         'testimonials',
-        'leadForm',
-        'map',
+        'pricing',
         'faq',
         'ctaFinal',
         'footer'
@@ -45,13 +45,13 @@ export const SERVICES_TEMPLATES: TemplateDefinition[] = [
           brandName: 'Haven',
           logoText: 'HAVEN REAL ESTATE',
           ctaText: 'Solicitar Visita Privada',
-          ctaLink: '#contact',
+          ctaLink: '#pricing',
           links: [
-            { label: 'Propiedades', href: '#slider' },
+            { label: 'Propiedades', href: '#pricing' },
             { label: 'Servicios VIP', href: '#features' },
+            { label: 'Mansión Insignia', href: '#product' },
             { label: 'Galería', href: '#gallery' },
-            { label: 'Contacto', href: '#contact' },
-            { label: 'Oficinas', href: '#map' }
+            { label: 'Preguntas', href: '#faq' }
           ],
           glassBlur: true,
           sticky: true
@@ -63,588 +63,213 @@ export const SERVICES_TEMPLATES: TemplateDefinition[] = [
           title: 'El hogar donde tus sueños',
           highlightTitle: 'encuentran su lugar.',
           subtitle: 'Accede a la colección más exclusiva de villas frente al mar, áticos de diseño y residencias privadas con máxima discreción y seguridad jurídica.',
-          primaryCta: { text: 'Explorar Propiedades Destacadas', link: '#slider' },
-          secondaryCta: { text: 'Valoración Gratuita de tu Inmueble →', link: '#contact' },
+          primaryCta: { text: 'Explorar Propiedades Destacadas', link: '#pricing' },
+          secondaryCta: { text: 'Valoración Gratuita de tu Inmueble →', link: '#features' },
           imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
-          style: 'centered'
-        },
-        slider: {
-          enabled: true,
-          kicker: 'Residencias en Exclusiva',
-          title: 'Propiedades destacadas de nuestra cartera.',
-          subtitle: 'Villas seleccionadas por su valor arquitectónico, privacidad y vistas incomparables.',
-          autoplay: true,
-          slides: [
-            {
-              id: 'sl_1',
-              title: 'Villa Solaria — La Zagaleta, Marbella (4,200,000€)',
-              subtitle: '6 dormitorios en suite, piscina infinity climatizada, spa privado y vistas panorámicas al mar Mediterráneo.',
-              tag: 'En Venta • Exclusiva',
-              imageUrl: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80',
-              ctaText: 'Ver Dosier Completo',
-              ctaLink: '#contact'
-            },
-            {
-              id: 'sl_2',
-              title: 'Ático Dúplex Salamanca — Madrid Centro (3,100,000€)',
-              subtitle: 'Terraza perimetral de 140m², domótica integral Lutron, 4 plazas de garaje y conserjería 24/7.',
-              tag: 'En Venta • Prime Location',
-              imageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
-              ctaText: 'Ver Dosier del Ático',
-              ctaLink: '#contact'
-            },
-            {
-              id: 'sl_3',
-              title: 'Finca Na Xamena — Ibiza Norte (5,800,000€)',
-              subtitle: 'Arquitectura balear contemporánea con acceso directo a cala privada, helipuerto y jardines aromáticos.',
-              tag: 'En Venta • Frente al Mar',
-              imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-              ctaText: 'Ver Dosier de la Finca',
-              ctaLink: '#contact'
-            }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          kicker: 'Servicio Haven Bespoke',
-          title: 'Asesoramiento inmobiliario con rigor patrimonial.',
-          subtitle: 'Acompañamos a compradores, inversores y propietarios durante todo el ciclo de adquisición.',
-          items: [
-            {
-              id: 'f1',
-              title: 'Acceso a Cartera Off-Market (Venta Silenciosa)',
-              description: 'Más del 40% de nuestras propiedades más exclusivas no se publicitan en internet para preservar la privacidad de las partes.',
-              icon: 'ShieldCheck',
-              tag: '100% Confidencial',
-              colSpan: 2,
-              statNumber: '+180M€',
-              statLabel: 'Volumen de transacciones gestionadas en 2025'
-            },
-            {
-              id: 'f2',
-              title: 'Auditoría Legal & Fiscal de la Propiedad',
-              description: 'Comprobación exhaustiva de cargas registrales, licencias urbanísticas y optimización tributaria de la compraventa.',
-              icon: 'Scale',
-              tag: 'Seguridad Jurídica',
-              colSpan: 1
-            },
-            {
-              id: 'f3',
-              title: 'Servicio de Concierge & Arquitectura Interior',
-              description: 'Gestión de reformas de alta gama, amueblamiento llave en mano con interioristas premiados y mantenimiento post-compra.',
-              icon: 'Building2',
-              tag: 'Llave en Mano',
-              colSpan: 1
-            },
-            {
-              id: 'f4',
-              title: 'Golden Visa & Residencia para Inversores',
-              description: 'Tramitación especializada de permisos de residencia por inversión inmobiliaria para clientes internacionales y familias.',
-              icon: 'Globe2',
-              tag: 'Asesoría Internacional',
-              colSpan: 2,
-              statNumber: '100%',
-              statLabel: 'Éxito en aprobaciones de expedientes de residencia'
-            }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          kicker: 'Interiores & Arquitectura',
-          title: 'Espacios creados para ser disfrutados.',
-          subtitle: 'Materiales nobles, luz natural y distribución pensada para el bienestar.',
-          items: [
-            {
-              id: 'g1',
-              title: 'Salón Principal con Grandes Ventanales — Villa Solaria',
-              category: 'Marbella',
-              imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-              aspectRatio: 'wide'
-            },
-            {
-              id: 'g2',
-              title: 'Cocina Minimalista con Isla de Mármol Calacatta',
-              category: 'Diseño Interior',
-              imageUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
-              aspectRatio: 'square'
-            },
-            {
-              id: 'g3',
-              title: 'Piscina Infinity al Atardecer con Vistas a la Bahía',
-              category: 'Ibiza',
-              imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80',
-              aspectRatio: 'square'
-            }
-          ]
-        },
-        stats: {
-          enabled: true,
-          kicker: 'Nuestra Trayectoria',
-          title: 'Líderes en el segmento inmobiliario prime.',
-          subtitle: 'Cifras que demuestran la confianza de clientes nacionales e internacionales.',
-          items: [
-            { id: 's1', value: '180M€+', label: 'Volumen Transaccionado', description: 'En propiedades singulares' },
-            { id: 's2', value: '45 Días', label: 'Tiempo Medio de Venta', description: 'Gracias a nuestra red privada' },
-            { id: 's3', value: '100%', label: 'Discreción Garantizada', description: 'Acuerdos de confidencialidad NDA' },
-            { id: 's4', value: '98%', label: 'Clientes por Recomendación', description: 'Lealtad patrimonial' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Lo que opinan nuestros compradores y propietarios.',
-          subtitle: 'Experiencias compartidas tras adquirir o vender su propiedad con Haven.',
-          items: [
-            {
-              id: 't1',
-              name: 'Henrik & Astrid Lindqvist',
-              role: 'Inversores Inmobiliarios',
-              company: 'Estocolmo • Marbella',
-              quote: 'Buscábamos una villa en La Zagaleta durante más de un año sin éxito. El equipo de Haven nos presentó una propiedad fuera de mercado en tres semanas y gestionó todo el proceso legal con una profesionalidad impecable.',
-              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
-              rating: 5
-            },
-            {
-              id: 't2',
-              name: 'Carmen Martínez-Bordiú',
-              role: 'Propietaria en Barrio de Salamanca',
-              company: 'Madrid',
-              quote: 'Vender nuestro ático familiar requería máxima discreción. Haven organizó únicamente visitas con compradores cualificados y cerramos la venta al precio acordado en menos de dos meses.',
-              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
-              rating: 5
-            }
-          ]
-        },
-        leadForm: {
-          enabled: true,
-          kicker: 'Atención Personalizada',
-          title: 'Solicita una consulta o visita privada.',
-          subtitle: 'Un agente senior de Haven se pondrá en contacto contigo de forma estrictamente confidencial.',
-          submitButtonText: 'Enviar Solicitud Inmobiliaria',
-          successTitle: '¡Solicitud Recibida Correctamente!',
-          successMessage: 'Gracias por confiar en Haven. Tu asesor patrimonial asignado te contactará en menos de 24 horas laborables.',
-          steps: [
-            {
-              id: 'step_1',
-              stepNumber: 1,
-              title: 'Datos de Contacto',
-              subtitle: 'Indícanos cómo prefieres que nos comuniquemos contigo.',
-              fields: [
-                { id: 'hf_name', label: 'Nombre Completo', type: 'text', placeholder: 'Ej. Alejandro Santos', required: true },
-                { id: 'hf_email', label: 'Correo Electrónico', type: 'email', placeholder: 'alejandro@empresa.com', required: true },
-                { id: 'hf_phone', label: 'Teléfono / WhatsApp', type: 'text', placeholder: '+34 600 000 000', required: true }
-              ]
-            },
-            {
-              id: 'step_2',
-              stepNumber: 2,
-              title: 'Interés Inmobiliario',
-              subtitle: 'Ubicación, tipo de operación y rango de presupuesto.',
-              fields: [
-                {
-                  id: 'hf_interest',
-                  label: 'Tipo de Operación',
-                  type: 'select',
-                  options: ['Comprar una Propiedad Residencial', 'Vender mi Propiedad (Valoración)', 'Inversión Patrimonial / Rentabilidad', 'Alquiler de Temporada de Lujo'],
-                  required: true
-                },
-                {
-                  id: 'hf_location',
-                  label: 'Zona de Interés',
-                  type: 'select',
-                  options: ['Marbella & Costa del Sol', 'Madrid (Salamanca / La Moraleja / El Viso)', 'Ibiza & Formentera', 'Mallorca (Son Vida / Andratx)', 'Otras Ubicaciones Exclusivas'],
-                  required: true
-                },
-                {
-                  id: 'hf_budget',
-                  label: 'Rango de Inversión',
-                  type: 'select',
-                  options: ['1,000,000€ - 2,500,000€', '2,500,000€ - 5,000,000€', '+5,000,000€ (Cartera Ultra Prime)'],
-                  required: true
-                },
-                { id: 'hf_notes', label: 'Comentarios adicionales o características específicas', type: 'textarea', placeholder: 'Ej. Villa con vistas al mar, mínimo 5 dormitorios, piscina climatizada...', required: false }
-              ]
-            }
-          ]
-        },
-        map: {
-          enabled: true,
-          kicker: 'Nuestras Boutiques Inmobiliarias',
-          title: 'Oficinas en las ubicaciones más prestigiosas.',
-          subtitle: 'Visítanos para mantener una reunión privada con nuestros directores de zona.',
-          address: 'Paseo de la Castellana 85, Planta 12',
-          city: '28046 Madrid • Delegaciones en Puerto Banús (Marbella) y Marina Botafoch (Ibiza)',
-          hours: 'Lunes a Viernes: 09:00 - 20:00 (Cita previa disponible fines de semana)',
-          phone: '+34 910 000 890',
-          email: 'private@havenestates.com',
-          embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.5448371302824!2d-3.6918!3d40.4402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI2JzI0LjciTiAzwrA0MSczMC41Ilc!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses',
-          directionsUrl: 'https://maps.google.com'
-        },
-        faq: {
-          enabled: true,
-          title: 'Preguntas Frecuentes sobre Haven Real Estate',
-          subtitle: 'Todo sobre el proceso de compraventa, fiscalidad y discreción.',
-          items: [
-            {
-              id: 'hf_q1',
-              question: '¿Cómo garantizáis la confidencialidad en propiedades off-market?',
-              answer: 'Exigimos la firma de un acuerdo de confidencialidad (NDA) y la acreditación de capacidad financiera previa antes de compartir la dirección exacta, planos y reportaje fotográfico de la vivienda.'
-            },
-            {
-              id: 'hf_q2',
-              question: '¿Qué gastos e impuestos implica comprar una vivienda de lujo en España?',
-              answer: 'En obra nueva se aplica el 10% de IVA más el Impuesto de Actos Jurídicos Documentados (AJD, entre el 0.75% y el 1.5% según la comunidad autónoma). En segunda mano se abona el Impuesto de Transmisiones Patrimoniales (ITP, entre el 6% y el 10%). Nuestro equipo legal te entregará un desglose exacto antes de presentar cualquier oferta.'
-            },
-            {
-              id: 'hf_q3',
-              question: '¿Gestionáis la obtención del NIE y apertura de cuentas para compradores extranjeros?',
-              answer: 'Sí. Nuestro departamento legal asiste a compradores internacionales con poderes notariales para tramitar el NIE, abrir cuentas bancarias en entidades de primera línea y tramitar la Golden Visa si procede.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          kicker: 'Tu Próxima Residencia',
-          title: 'Da el paso hacia un nuevo estándar de vida.',
-          subtitle: 'Contáctanos hoy mismo para acceder a nuestro catálogo confidencial de propiedades.',
-          primaryCta: { text: 'Agendar Reunión Privada', link: '#contact' },
-          secondaryCta: { text: 'Descargar Catálogo Selección 2026', link: '#guide' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Haven Luxury Real Estate S.L. Madrid • Marbella • Ibiza • Mallorca.',
-          legalLinks: [
-            { label: 'Aviso Legal & Honorarios', href: '#legal' },
-            { label: 'Prevención de Blanqueo', href: '#aml' },
-            { label: 'Política de Privacidad', href: '#privacy' },
-            { label: 'Registro de Agentes Inmobiliarios', href: '#register' }
-          ],
-          socialLinks: [
-            { platform: 'Instagram', url: 'https://instagram.com' },
-            { platform: 'LinkedIn', url: 'https://linkedin.com' },
-            { platform: 'YouTube', url: 'https://youtube.com' }
-          ]
-        }
-      }
-    }
-  },
-
-  // 13. LEGAL — Bufete de Abogados, Asesoría Jurídica & Litigación Corporativa
-  {
-    id: 'legal-firm',
-    name: 'Legal',
-    tagline: 'Bufete de abogados corporativo especializado en fusiones y adquisiciones, derecho mercantil y litigación compleja',
-    category: 'services',
-    thumbnail: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80',
-    description: 'Azul marino solemne y dorado #1E3A8A / #D97706, tipografía jurídica elegante, áreas de práctica en bento, pestañas de especialidades corporativas, métricas de casos ganados, formulario de consulta confidencial y mapa de sede.',
-    accentColor: '#1E3A8A',
-    theme: 'light',
-    defaultConfig: {
-      templateId: 'legal-firm',
-      name: 'Vanguard Legal Partners',
-      slug: 'vanguard-legal',
-      domain: 'vanguardlegal.law',
-      theme: 'light',
-      accentColor: '#1E3A8A',
-      fontFamily: 'Inter, -apple-system, sans-serif',
-      borderRadius: 12,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'logos',
-        'bentoFeatures',
-        'tabs',
-        'stats',
-        'testimonials',
-        'leadForm',
-        'map',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Vanguard Legal Partners — Bufete de Abogados Mercantil, Fiscal & Litigación',
-        description: 'Defendemos los intereses corporativos de empresas líderes, fondos de inversión y directivos con máxima excelencia técnica.',
-        keywords: 'bufete de abogados, derecho mercantil, fusiones y adquisiciones, m&a espana, litigacion mercantil, compliance tributario'
-      },
-      sections: {
-        navbar: {
-          brandName: 'Vanguard Legal',
-          logoText: 'VANGUARD LEGAL',
-          ctaText: 'Consulta Confidencial',
-          ctaLink: '#contact',
-          links: [
-            { label: 'Áreas de Práctica', href: '#features' },
-            { label: 'Servicios', href: '#tabs' },
-            { label: 'Resultados', href: '#stats' },
-            { label: 'Equipo', href: '#testimonials' },
-            { label: 'Sede', href: '#map' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Reconocidos por Chambers & Partners 2025 • Top Tier en M&A',
-          kicker: 'Excelencia Jurídica & Estrategia Empresarial',
-          title: 'Defensa implacable.',
-          highlightTitle: 'Rigor jurídico sin fisuras.',
-          subtitle: 'Asesoramos a corporaciones, consejos de administración y patrimonios familiares en las operaciones más complejas y litigios de alto impacto.',
-          primaryCta: { text: 'Conocer Nuestras Áreas de Práctica', link: '#features' },
-          secondaryCta: { text: 'Solicitar Reunión Confidencial →', link: '#contact' },
-          imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
         logos: {
           enabled: true,
-          title: 'RECONOCIMIENTOS DE LOS PRINCIPALES DIRECTORIOS JURÍDICOS MUNDIALES',
+          title: 'MIEMBROS DE LAS REDES INMOBILIARIAS INTERNACIONALES LÍDERES',
           items: [
-            { id: 'l1', name: 'Chambers Global', tagline: 'Band 1 Corporate' },
-            { id: 'l2', name: 'The Legal 500', tagline: 'Top Tier Firm' },
-            { id: 'l3', name: 'Best Lawyers', tagline: 'Lawyer of the Year' },
-            { id: 'l4', name: 'Leaders League', tagline: 'Excellent Dispute Resolution' },
-            { id: 'l5', name: 'Iberian Lawyer', tagline: 'Gold Award M&A' }
+            { id: 'l1', name: 'Luxury Portfolio Int.', tagline: 'Global Network' },
+            { id: 'l2', name: 'Leading Real Estate', tagline: 'Companies of the World' },
+            { id: 'l3', name: 'RICS Certified', tagline: 'Royal Institution' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          kicker: 'Áreas de Especialización',
-          title: 'Soluciones jurídicas con visión de negocio.',
-          subtitle: 'Nuestros socios combinan experiencia en las firmas internacionales más exigentes con un trato directo y personalizado.',
+          kicker: 'Servicios de Alta Gama',
+          title: 'Gestión integral del patrimonio inmobiliario.',
+          subtitle: 'Acompañamos a compradores, vendedores e inversores con un servicio 360° totalmente confidencial.',
           items: [
             {
               id: 'f1',
-              title: 'Fusiones, Adquisiciones & Private Equity (M&A)',
-              description: 'Asesoramiento integral en compraventa de empresas, due diligence legal, pactos de socios y reestructuraciones societarias transfronterizas.',
-              icon: 'Scale',
-              tag: 'M&A Corporativo',
+              title: 'Cartera Off-Market de Propiedades Secretas',
+              description: 'Acceso a fincas y residencias singulares no publicadas en portales comerciales por expreso deseo de confidencialidad de sus propietarios.',
+              icon: 'Key',
+              tag: 'Cartera Confidencial',
               colSpan: 2,
-              statNumber: '+450M€',
-              statLabel: 'En transacciones corporativas cerradas en el último ejercicio'
+              statNumber: '40%+',
+              statLabel: 'De nuestras transacciones se cierran fuera de mercado'
             },
             {
               id: 'f2',
-              title: 'Litigación Mercantil & Arbitraje Internacional',
-              description: 'Defensa de disputas societarias complejas ante los tribunales de justicia y cortes arbitrales de Madrid, París y Londres.',
-              icon: 'ShieldCheck',
-              tag: 'Litigios & Arbitraje',
+              title: 'Asesoría Jurídica y Fiscal Internacional',
+              description: 'Equipo propio de abogados especializados en Golden Visa, estructuración fiscal patrimonial y due diligence urbanística.',
+              icon: 'Scale',
+              tag: 'Seguridad Legal',
               colSpan: 1
             },
             {
               id: 'f3',
-              title: 'Derecho Fiscal & Planificación Patrimonial',
-              description: 'Optimización tributaria corporativa, reorganización de holdings familiares y defensa en inspecciones de la Agencia Tributaria.',
-              icon: 'Boxes',
-              tag: 'Fiscalidad Prime',
+              title: 'Tours Virtuales 3D y Grabación con Drones',
+              description: 'Recorridos inmersivos de ultra alta definición y planimetría arquitectónica detallada para inversores no residentes.',
+              icon: 'Video',
+              tag: 'Tours Inmersivos',
               colSpan: 1
             },
             {
               id: 'f4',
-              title: 'Gobierno Corporativo & Compliance Penal',
-              description: 'Diseño e implantación de programas de prevención de delitos (Compliance) y asesoramiento a secretarías de consejos de administración.',
-              icon: 'CheckCircle2',
-              tag: 'Compliance 360°',
+              title: 'Gestión Posventa y Concierge Residencial',
+              description: 'Supervisión de reformas, interiorismo llave en mano, mantenimiento de piscinas/jardines y administración patrimonial.',
+              icon: 'ShieldCheck',
+              tag: 'Concierge VIP',
               colSpan: 2,
-              statNumber: '99.2%',
-              statLabel: 'De resoluciones y acuerdos extrajudiciales favorables para nuestros clientes'
+              statNumber: '100%',
+              statLabel: 'Atención personalizada en español, inglés, francés y alemán'
             }
           ]
         },
-        tabs: {
+        productHighlight: {
           enabled: true,
-          kicker: 'Servicios Jurídicos Estructurados',
-          title: 'Acompañamiento a medida según la etapa de tu empresa.',
-          subtitle: 'Desde operaciones puntuales de gran escala hasta asesoría jurídica continuada.',
-          tabs: [
-            {
-              id: 'tab_corporate',
-              label: 'Operaciones de M&A y Rondas de Capital',
-              icon: 'Scale',
-              title: 'Seguridad absoluta en la compraventa de compañías',
-              description: 'Lideramos la negociación de contratos de compraventa de acciones (SPA), acuerdos de inversión y financiación estructurada.',
-              imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-              points: [
-                'Redacción y negociación de Cartas de Intenciones (LOI) y Term Sheets',
-                'Auditorías legales preventivas (Vendor Due Diligence)',
-                'Cierre notarial y liquidación de garantías'
-              ]
-            },
-            {
-              id: 'tab_dispute',
-              label: 'Resolución de Conflictos y Arbitraje',
-              icon: 'ShieldCheck',
-              title: 'Defensa firme en litigios comerciales de alto riesgo',
-              description: 'Estrategias procesales agresivas y efectivas para salvaguardar el valor patrimonial de tu empresa ante incumplimientos contractuales.',
-              imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80',
-              points: [
-                'Acciones de responsabilidad de administradores y conflictos entre socios',
-                'Medidas cautelares urgentes de embargo y protección de activos',
-                'Negociación de acuerdos transaccionales confidenciales'
-              ]
-            }
+          badge: 'Propiedad Insignia',
+          kicker: 'Villa de Autor en Marbella',
+          title: 'Villa Mirador: Vistas Panorámicas al Mediterráneo.',
+          subtitle: '950 m² construidos sobre parcela de 2.200 m² en primera línea de golf.',
+          description: '6 dormitorios en suite, piscina infinity climatizada con cloración salina, bodega climatizada para 800 botellas, spa privado con sauna finlandesa y garaje subterráneo para 5 vehículos con cargadores de alta potencia.',
+          imageUrl: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Precio', value: '4.850.000 € (Impuestos no incluidos)' },
+            { label: 'Ubicación', value: 'La Zagaleta, Benahavís (Málaga)' },
+            { label: 'Seguridad', value: 'Urbanización privada con control de acceso 24/7' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Residencias de Nuestra Colección',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80', caption: 'Salón diáfano con chimenea de mármol y ventanales correderos' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80', caption: 'Piscina infinity con vistas panorámicas al atardecer' }
           ]
         },
         stats: {
           enabled: true,
-          kicker: 'Nuestras Métricas',
-          title: 'Un historial consolidado de victorias jurídicas.',
-          subtitle: 'Cifras auditadas de nuestra práctica legal durante los últimos 15 años.',
           items: [
-            { id: 's1', value: '+450M€', label: 'Volumen Asesorado', description: 'En operaciones corporativas' },
-            { id: 's2', value: '25 Años', label: 'Experiencia Media de Socios', description: 'Procedentes de firmas Tier 1' },
-            { id: 's3', value: '94%', label: 'Litigios Resueltos con Éxito', description: 'En sede judicial y arbitral' },
-            { id: 's4', value: '100%', label: 'Secreto Profesional Absoluto', description: 'Garantía deontológica estricta' }
+            { id: 's1', value: '350M€+', label: 'Volumen Transaccionado' },
+            { id: 's2', value: '98%', label: 'Satisfacción de Clientes' },
+            { id: 's3', value: '18 Días', label: 'Tiempo Medio de Cierre Off-Market' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'La confianza de directores generales y consejeros.',
-          subtitle: 'Opiniones de líderes corporativos que confían la defensa de sus empresas a Vanguard Legal.',
+          title: 'La opinión de nuestros clientes propietarios y compradores.',
           items: [
             {
               id: 't1',
-              name: 'Ignacio Larrea',
-              role: 'Presidente del Consejo de Administración',
-              company: 'Grupo Industrial Ibérico',
-              quote: 'Vanguard Legal lideró la adquisición de nuestro competidor francés en una operación altamente compleja con tres jurisdicciones involucradas. Su agilidad, rigor técnico y capacidad de negociación fueron determinantes para cerrar el acuerdo con éxito.',
+              author: 'Christian Weber',
+              name: 'Christian Weber',
+              role: 'Inversor & Propietario de Villa en Mallorca',
+              company: 'Weber Holdings Zurich',
+              quote: 'Haven gestionó la compra de nuestra residencia en Mallorca con una discreción y rigor técnico impecables. Su conocimiento del mercado y asesoría legal nos ahorraron meses de gestiones.',
               avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
               rating: 5
-            },
-            {
-              id: 't2',
-              name: 'Helena Villalobos',
-              role: 'Managing Director',
-              company: 'Solaria Capital Partners',
-              quote: 'En momentos de litigio crítico, tener al equipo de litigación de Vanguard Legal a tu lado te da una tranquilidad incalculable. Su estrategia procesal fue brillante desde el primer minuto.',
-              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
-              rating: 5
             }
           ]
         },
-        leadForm: {
+        pricing: {
           enabled: true,
-          kicker: 'Consulta Jurídica Confidencial',
-          title: 'Expón tu caso con total reserva profesional.',
-          subtitle: 'Un socio del departamento correspondiente analizará la viabilidad y responderá en menos de 24 horas.',
-          submitButtonText: 'Enviar Consulta Jurídica',
-          successTitle: '¡Consulta Recibida Bajo Secreto Profesional!',
-          successMessage: 'Un socio del bufete revisará los antecedentes de tu caso y se pondrá en contacto contigo para mantener una primera sesión de trabajo confidencial.',
-          steps: [
+          title: 'Tipologías Residenciales Disponibles',
+          billingCycle: 'monthly',
+          plans: [
             {
-              id: 'step_1',
-              stepNumber: 1,
-              title: 'Datos del Solicitante',
-              subtitle: 'Identificación corporativa o personal.',
-              fields: [
-                { id: 'lf_name', label: 'Nombre y Apellidos', type: 'text', placeholder: 'Ej. Dr. Roberto Mendoza', required: true },
-                { id: 'lf_company', label: 'Empresa / Razón Social', type: 'text', placeholder: 'Nombre de la compañía', required: true },
-                { id: 'lf_email', label: 'Correo Corporativo', type: 'email', placeholder: 'roberto.mendoza@empresa.com', required: true },
-                { id: 'lf_phone', label: 'Teléfono Directo', type: 'text', placeholder: '+34 910 000 000', required: true }
-              ]
+              id: 'p1',
+              name: 'Áticos de Lujo & Penthouses',
+              priceMonthly: 'Desde 1.200.000€',
+              priceAnnual: 'Vistas urbanas o al mar',
+              description: 'Residencias en plantas altas con terrazas privadas superiores a 80m² y piscina privada.',
+              features: ['Ubicaciones prime en Madrid y Barcelona', 'Seguridad y conserjería 24 horas', 'Plazas de garaje dobles incluidas', 'Acabados en maderas nobles y mármol'],
+              highlighted: false,
+              ctaText: 'Ver Áticos Disponibles'
             },
             {
-              id: 'step_2',
-              stepNumber: 2,
-              title: 'Naturaleza del Asunto',
-              subtitle: 'Área legal requerida y breve resumen de los hechos.',
-              fields: [
-                {
-                  id: 'lf_area',
-                  label: 'Área Jurídica de la Consulta',
-                  type: 'select',
-                  options: ['Fusiones y Adquisiciones / M&A', 'Litigio Mercantil o Conflicto Societario', 'Arbitraje Comercial Nacional o Internacional', 'Inspección Fiscal / Reorganización Tributaria', 'Compliance Penal & Gobierno Corporativo'],
-                  required: true
-                },
-                {
-                  id: 'lf_urgency',
-                  label: 'Grado de Urgencia',
-                  type: 'select',
-                  options: ['Plazo procesal en curso (< 7 días)', 'Operación en negociación activa (< 30 días)', 'Planificación preventiva ordinaria'],
-                  required: true
-                },
-                { id: 'lf_summary', label: 'Resumen sintético del asunto (protegido por secreto profesional)', type: 'textarea', placeholder: 'Indica brevemente el conflicto o la operación prevista...', required: true }
-              ]
+              id: 'p2',
+              name: 'Villas & Mansiones Singulares',
+              priceMonthly: 'Desde 2.500.000€',
+              priceAnnual: 'Parcelas independientes privadas',
+              description: 'Villas de autor con jardín maduro, piscina infinity y máxima privacidad en entornos exclusivos.',
+              features: ['Parcelas superiores a 1.500 m²', 'Zonas de spa, gimnasio y bodega', 'Eficiencia energética Passivhaus A+', 'Servicio de Concierge durante 1 año'],
+              highlighted: true,
+              ctaText: 'Solicitar Dossier Confidencial'
             }
           ]
-        },
-        map: {
-          enabled: true,
-          kicker: 'Sede Principal',
-          title: 'Ubicados en el corazón financiero de Madrid.',
-          subtitle: 'Salas de juntas confidenciales equipadas con sistemas de videoconferencia cifrada de alta seguridad.',
-          address: 'Calle Serrano 45, Planta 6ª',
-          city: '28001 Madrid • Despachos asociados en Barcelona, Londres y Lisboa',
-          hours: 'Lunes a Jueves: 08:30 - 19:30 | Viernes: 08:30 - 15:00',
-          phone: '+34 914 000 500',
-          email: 'contacto@vanguardlegal.law',
-          embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.123456789!2d-3.6872!3d40.4285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzQyLjYiTiAzwrA0MScxMy45Ilc!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses',
-          directionsUrl: 'https://maps.google.com'
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes sobre Vanguard Legal',
-          subtitle: 'Estructura de honorarios, plazos de respuesta y conflictos de interés.',
+          title: 'Preguntas Frecuentes sobre Compra e Inversión',
           items: [
             {
-              id: 'lf_q1',
-              question: '¿Cómo se verifica la ausencia de conflictos de interés antes de aceptar un caso?',
-              answer: 'Antes de recibir información confidencial sensible, nuestro departamento de cumplimiento realiza un cotejo informático estricto para verificar que no asesoramos a partes con intereses contrapuestos en la misma operación o disputa.'
+              id: 'q1',
+              question: '¿Qué es el catálogo Off-Market y cómo puedo acceder a él?',
+              answer: 'Es una selección exclusiva de propiedades que no se publicitan abiertamente en internet por petición de sus dueños. Para acceder, realizamos una breve reunión de cualificación confidencial.'
             },
             {
-              id: 'lf_q2',
-              question: '¿Cuál es la política de facturación y estructura de honorarios?',
-              answer: 'Ofrecemos presupuestos cerrados por hitos procesales (cap fees), acuerdos de iguala mensual para asesoría corporativa recurrente o esquemas mixtos con prima de éxito (success fees) vinculada al resultado favorable de la operación o litigio.'
+              id: 'q2',
+              question: '¿Qué gastos e impuestos adicionales conlleva la compra de una propiedad en España?',
+              answer: 'En viviendas de segunda mano aplica el Impuesto de Transmisiones Patrimoniales (ITP entre 6% y 10% según comunidad autónoma), más gastos de notaría, registro de la propiedad y asesoría legal (aprox. 1.5% adicional).'
             },
             {
-              id: 'lf_q3',
-              question: '¿Trabajáis con empresas y fondos con sede fuera de España?',
-              answer: 'Sí. Más del 50% de nuestros clientes corporativos son multinacionales con sede en Reino Unido, Estados Unidos, Alemania, Francia y Latinoamérica que realizan inversiones o mantienen litigios en España y la Unión Europea.'
+              id: 'q3',
+              question: '¿Ayudan a compradores extranjeros en la obtención del NIE y cuentas bancarias?',
+              answer: 'Sí. Nuestro departamento jurídico gestiona íntegramente la solicitud de NIE para no residentes, apertura de cuentas en banca privada española y tramitación de la Golden Visa si aplica.'
+            },
+            {
+              id: 'q4',
+              question: '¿Cómo se solicita una visita privada a una villa de lujo?',
+              answer: 'Puedes rellenar el formulario de contacto o llamarnos directamente. Coordinamos la visita con transporte privado o recogida en el aeropuerto si procedes de fuera.'
+            },
+            {
+              id: 'q5',
+              question: '¿Realizan valoraciones oficiales de fincas y mansiones?',
+              answer: 'Contamos con peritos tasadores homologados RICS y arquitectos especialistas que emiten informes de valoración patrimonial rigurosos basados en transacciones reales del mercado prime.'
+            },
+            {
+              id: 'q6',
+              question: '¿Qué servicios posventa ofrecen una vez firmada la escritura?',
+              answer: 'Nos encargamos de los cambios de titularidad en suministros, gestión de contratos de mantenimiento con empresas certificadas y enlace con diseñadores de interiores de primer nivel.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          kicker: 'Protección Jurídica Integral',
-          title: 'Asegura la posición de tu empresa hoy mismo.',
-          subtitle: 'Solicita una reunión inicial con nuestros socios para evaluar tu caso con el máximo rigor.',
-          primaryCta: { text: 'Agendar Sesión de Trabajo', link: '#contact' },
-          secondaryCta: { text: 'Descargar Memoria Corporativa (PDF)', link: '#deck' },
-          backgroundStyle: 'minimal'
+          title: 'Encuentra la residencia que define tu estilo de vida.',
+          subtitle: 'Solicita una consulta privada y confidencial con nuestros asesores patrimoniales.',
+          primaryCta: { text: 'Contactar con Haven Real Estate', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Vanguard Legal Partners S.L.P. Ilustre Colegio de Abogados de Madrid.',
+          copyright: '© 2026 Haven Luxury Real Estate S.L. Todos los derechos reservados.',
           legalLinks: [
-            { label: 'Código Deontológico', href: '#ethics' },
-            { label: 'Aviso Legal & Régimen Profesional', href: '#legal' },
-            { label: 'Política de Privacidad', href: '#privacy' }
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Prevención Blanqueo de Capitales', href: '#pbc' },
+            { label: 'Privacidad', href: '#privacy' }
           ],
           socialLinks: [
-            { platform: 'LinkedIn', url: 'https://linkedin.com' },
-            { platform: 'Twitter / X', url: 'https://twitter.com' }
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'LinkedIn', url: 'https://linkedin.com' }
           ]
         }
       }
     }
   },
 
-  // 20. CORE — Consultoría Estratégica, M&A & Transformación Empresarial
+  // 2. VANGUARD & PARTNERS — Abogados & Asesoría Corporativa M&A
   {
-    id: 'core-consulting',
-    name: 'Core',
-    tagline: 'Firma de consultoría de dirección estratégica especializada en fusiones y adquisiciones (M&A), optimización de operaciones y transformación digital para multinacionales',
+    id: 'lex-counsel',
+    name: 'Vanguard & Partners',
+    tagline: 'Despacho de abogados de élite especializado en fusiones y adquisiciones (M&A), derecho mercantil, fiscalidad y litigios complejos',
     category: 'services',
-    thumbnail: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    description: 'Azul marino corporativo #0A2540 y acento azul acero #0066CC, tipografía ejecutiva con carácter, marcas globales asesoradas, bento de casos de éxito y valor generado, itinerario de asesoramiento en fases, estadísticas auditadas y solicitud confidencial.',
-    accentColor: '#0A2540',
-    theme: 'light',
+    thumbnail: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en azul medianoche #0F172A y oro champán #D4AF37, tipografía Cinzel & Plus Jakarta Sans, áreas de práctica corporativa, casos de éxito en transacciones millonarias y consulta confidencial.',
+    accentColor: '#D4AF37',
+    theme: 'dark',
     defaultConfig: {
-      templateId: 'core-consulting',
-      name: 'Core Strategy Partners',
-      slug: 'core-strategy',
-      domain: 'corestrategy.partners',
-      theme: 'light',
-      accentColor: '#0A2540',
-      fontFamily: 'Inter, -apple-system, sans-serif',
+      templateId: 'lex-counsel',
+      name: 'Vanguard & Partners Abogados',
+      slug: 'vanguard-law',
+      domain: 'vanguardlaw.es',
+      theme: 'dark',
+      accentColor: '#D4AF37',
+      fontFamily: "'Cinzel', Georgia, serif",
       borderRadius: 14,
       published: true,
       sectionOrder: [
@@ -653,8 +278,7 @@ export const SERVICES_TEMPLATES: TemplateDefinition[] = [
         'logos',
         'bentoFeatures',
         'productHighlight',
-        'tabs',
-        'timeline',
+        'gallery',
         'stats',
         'testimonials',
         'pricing',
@@ -663,301 +287,704 @@ export const SERVICES_TEMPLATES: TemplateDefinition[] = [
         'footer'
       ],
       seo: {
-        title: 'Core Strategy Partners — Consultoría Estratégica de Dirección & M&A',
-        description: 'Asesoramiento de confianza para comités de dirección, fondos de capital privado y empresas del IBEX 35 en momentos críticos de crecimiento y transformación.',
-        keywords: 'consultoria estrategica, mergers acquisitions, private equity advisory, transformacion digital ibex 35, valor empresarial'
+        title: 'Vanguard & Partners — Abogados de Empresa, M&A y Litigios Complejos',
+        description: 'Asesoramiento jurídico estratégico para multinacionales, fondos de capital riesgo y family offices.',
+        keywords: 'abogados m&a, fusiones y adquisiciones, derecho mercantil, litigacion civil, fiscalidad corporativa'
       },
       sections: {
         navbar: {
-          brandName: 'Core',
-          logoText: 'CORE STRATEGY',
-          ctaText: 'Consulta Confidencial',
-          ctaLink: '#contact',
+          brandName: 'Vanguard',
+          logoText: 'VANGUARD & PARTNERS',
+          ctaText: 'Consulta Jurídica Confidencial',
+          ctaLink: '#pricing',
           links: [
-            { label: 'Servicios', href: '#tabs' },
-            { label: 'Impacto', href: '#features' },
-            { label: 'Metodología', href: '#timeline' },
-            { label: 'Casos de Éxito', href: '#stats' },
-            { label: 'Contacto', href: '#contact' }
+            { label: 'Áreas de Práctica', href: '#features' },
+            { label: 'Transacciones M&A', href: '#product' },
+            { label: 'Equipo & Socios', href: '#gallery' },
+            { label: 'Honorarios', href: '#pricing' }
           ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Asesores Estratégicos de Empresas Fortune 500 & Capital Privado',
-          kicker: 'Liderazgo & Creación de Valor',
-          title: 'Decisiones determinantes respaldadas por',
-          highlightTitle: 'rigor analítico.',
-          subtitle: 'Acompañamos a presidentes ejecutivos y consejos de administración en procesos de adquisiciones complejas, reestructuración operativa e integración tecnológica a escala.',
-          primaryCta: { text: 'Agendar Consulta Estratégica', link: '#contact' },
-          secondaryCta: { text: 'Descargar Informe de Tendencias 2026', link: '#report' },
-          imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
-          style: 'split'
+          badge: 'Reconocidos por Chambers and Partners & The Legal 500 (Tier 1)',
+          kicker: 'Estrategia Jurídica & Defensa de Alto Nivel',
+          title: 'Defensa implacable y rigor jurídico',
+          highlightTitle: 'en cada transacción crítica.',
+          subtitle: 'Acompañamos a corporaciones, consejos de administración y fondos de inversión en operaciones societarias complejas, reestructuraciones y resolución de conflictos de alto impacto.',
+          primaryCta: { text: 'Agendar Reunión Confidencial', link: '#pricing' },
+          secondaryCta: { text: 'Ver Casos y Áreas de Práctica →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
         },
         logos: {
           enabled: true,
-          title: 'CONFIADO POR FONDOS DE INVERSIÓN Y LÍDERES GLOBALES DE LA INDUSTRIA',
+          title: 'RANKINGS JURÍDICOS Y RECONOCIMIENTOS INTERNACIONALES',
           items: [
-            { id: 'cl1', name: 'Blackstone Group', tagline: 'Private Equity' },
-            { id: 'cl2', name: 'Santander CIB', tagline: 'Banking & Advisory' },
-            { id: 'cl3', name: 'Telefónica Tech', tagline: 'Digital Strategy' },
-            { id: 'cl4', name: 'Ferrovial Infra', tagline: 'Infrastructure' },
-            { id: 'cl5', name: 'Repsol Energy', tagline: 'Energy Transition' }
+            { id: 'l1', name: 'Chambers Global 2026', tagline: 'Band 1 Corporate/M&A' },
+            { id: 'l2', name: 'The Legal 500', tagline: 'Top Tier Firm' },
+            { id: 'l3', name: 'Best Lawyers', tagline: 'Lawyer of the Year 2026' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          kicker: 'Propuesta de Valor',
-          title: 'Resultados medibles en el balance de situación.',
-          subtitle: 'No entregamos diagnósticos teóricos de biblioteca; ejecutamos planes de acción directos junto al equipo directivo.',
+          kicker: 'Áreas de Práctica Jurídica',
+          title: 'Soluciones jurídicas a medida para retos societarios de máxima exigencia.',
+          subtitle: 'Combinamos una profunda visión de negocio con una técnica procesal impecable.',
           items: [
             {
-              id: 'cf1',
-              title: 'Due Diligence Comercial & Asesoramiento M&A',
-              description: 'Evaluación exhaustiva de sinergias, posición competitiva en el mercado y planes de integración post-adquisición (PMI) en transacciones superiores a 50M€.',
+              id: 'f1',
+              title: 'Fusiones, Adquisiciones y Private Equity',
+              description: 'Estructuración y cierre de transacciones de compraventa de empresas, due diligence integral, pactos de socios y rondas de financiación.',
+              icon: 'Briefcase',
+              tag: 'M&A Estratégico',
+              colSpan: 2,
+              statNumber: '1.2B€',
+              statLabel: 'En transacciones asesoradas en el último ejercicio'
+            },
+            {
+              id: 'f2',
+              title: 'Litigación Compleja y Arbitraje Internacional',
+              description: 'Representación en disputas contractuales multimillonarias ante tribunales mercantiles y cortes de arbitraje de París, Londres y Madrid.',
+              icon: 'Scale',
+              tag: 'Litigios & Arbitraje',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Fiscalidad Corporativa y Reestructuraciones',
+              description: 'Planificación fiscal estratégica de grupos multinacionales, precios de transferencia y defensa ante inspecciones tributarias.',
               icon: 'TrendingUp',
-              tag: 'M&A Advisory',
-              colSpan: 2,
-              statNumber: '4.8B €',
-              statLabel: 'En transacciones corporativas asesoradas en los últimos 5 años'
-            },
-            {
-              id: 'cf2',
-              title: 'Optimización de EBITDA & Estructura de Costes',
-              description: 'Rediseño de procesos críticos de cadena de suministro y reducción de gasto no operativo.',
-              icon: 'Percent',
-              tag: 'Operaciones',
+              tag: 'Fiscalidad Prime',
               colSpan: 1
             },
             {
-              id: 'cf3',
-              title: 'Adopción de IA & Modernización Tecnológica',
-              description: 'Modelos predictivos aplicados a la fijación dinámica de precios y automatización de procesos internos.',
-              icon: 'Cpu',
-              tag: 'Tech Transformation',
-              colSpan: 1
-            },
-            {
-              id: 'cf4',
-              title: 'Estrategia de Entrada en Nuevos Mercados',
-              description: 'Análisis regulatorio, planes de expansión internacional go-to-market y formación de alianzas estratégicas globales.',
-              icon: 'Globe2',
-              tag: 'Expansión Global',
+              id: 'f4',
+              title: 'Gobierno Corporativo y Compliance Penal',
+              description: 'Asesoramiento directo a consejos de administración, prevención de riesgos penales y protocolos anticorrupción.',
+              icon: 'ShieldCheck',
+              tag: 'Compliance Penal',
               colSpan: 2,
-              statNumber: '32 Países',
-              statLabel: 'Mercados analizados e implementados para nuestros clientes'
+              statNumber: '100%',
+              statLabel: 'De confidencialidad garantizada bajo estricto secreto profesional'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          kicker: 'Estudio de Caso Destacado',
-          title: 'Transformación de un conglomerado industrial de 1,200M€.',
-          subtitle: 'Cómo incrementamos el margen operativo un 380 bps en 18 meses manteniendo el 100% de la plantilla.',
-          description: 'Alineamos el modelo operativo con una nueva división de servicios digitales recurrentes y desinvertimos en activos no estratégicos con múltiplos récord.',
-          imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
-          layout: 'image-right',
-          ctaText: 'Ver Estudio de Caso Completo',
-          ctaLink: '#contact',
+          badge: 'Transacción Destacada',
+          kicker: 'Operación Cross-Border',
+          title: 'Adquisición de Grupo Tecnológico Europeo por 240M€.',
+          subtitle: 'Due diligence multidisciplinar, negociación de SPAs y autorización regulatoria de competencia.',
+          description: 'Vanguard & Partners lideró el asesoramiento integral a un consorcio internacional de capital riesgo en la compra de una compañía líder de ciberseguridad industrial, coordinando equipos legales en 4 jurisdicciones europeas de forma simultánea.',
+          imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Incremento de Valoración', value: '+42%', detail: 'Medido en múltiplos de salida' },
-            { label: 'Ahorro Operativo Anual', value: '46M €', detail: 'Consolidadas en EBITDA recurrente' },
-            { label: 'Tiempo de Ejecución', value: '18 Meses', detail: 'Con hitos trimestrales cumplidos' }
+            { label: 'Volumen', value: '240.000.000 €' },
+            { label: 'Jurisdicciones', value: 'España, Alemania, Francia y Reino Unido' },
+            { label: 'Resultado', value: 'Cierre exitoso sin contingencias regulatorias' }
           ]
         },
-        tabs: {
+        gallery: {
           enabled: true,
-          kicker: 'Áreas de Práctica',
-          title: 'Servicios de consultoría de alta dirección.',
-          subtitle: 'Especialización sectorial profunda para responder a los desafíos más complejos.',
-          tabs: [
-            {
-              id: 'tab_ma',
-              label: 'Fusiones, Adquisiciones & Capital Privado',
-              icon: 'Briefcase',
-              title: 'Maximización del valor del capital antes, durante y después del deal',
-              description: 'Apoyamos a fondos de inversión y directores de desarrollo corporativo en la identificación de targets, due diligence comercial e integración acelerada.',
-              imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-              points: [
-                'Valoración independiente de sinergias de ingresos y costes',
-                'Plan de 100 días para la toma de control e integración',
-                'Estrategias de salida y optimización del equity story'
-              ]
-            },
-            {
-              id: 'tab_ops',
-              label: 'Rendimiento Operativo & Rediseño Organizativo',
-              icon: 'Settings2',
-              title: 'Eficiencia y agilidad organizativa para el nuevo ciclo económico',
-              description: 'Rediseñamos la estructura jerárquica, los incentivos del equipo directivo y la cadena de suministro para ganar competitividad.',
-              imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
-              points: [
-                'Revisión zero-based budgeting (presupuesto base cero)',
-                'Automatización robótica de procesos y gobierno del dato',
-                'Alineamiento del plan de incentivos a largo plazo (LTIP)'
-              ]
-            }
-          ]
-        },
-        timeline: {
-          enabled: true,
-          kicker: 'El Método Core',
-          title: 'De la formulación analítica al impacto real en cuenta.',
-          subtitle: 'Una hoja de ruta clara dividida en cuatro etapas secuenciales.',
-          milestones: [
-            {
-              id: 'm1',
-              phase: 'Fase 01',
-              dateOrQuarter: 'Semanas 1 a 4',
-              title: 'Diagnóstico Cuantitativo & Benchmark de Mercado',
-              description: 'Inmersión en los datos de la compañía, entrevistas con los principales líderes de división y análisis comparativo con competidores internacionales.',
-              status: 'completed',
-              points: ['Auditoría de márgenes unitarios', 'Mapeo de fugas de valor', 'Validación de hipótesis directivas']
-            },
-            {
-              id: 'm2',
-              phase: 'Fase 02',
-              dateOrQuarter: 'Semanas 5 a 8',
-              title: 'Diseño de Iniciativas Estratégicas & Business Case',
-              description: 'Modelización financiera detallada de cada palanca de valor con priorización por impacto esperado y complejidad de implantación.',
-              status: 'in_progress',
-              points: ['Cuantificación de ROI por palanca', 'Asignación de responsables ejecutivos', 'Aprobación en Comité de Dirección']
-            },
-            {
-              id: 'm3',
-              phase: 'Fase 03',
-              dateOrQuarter: 'Meses 3 a 12',
-              title: 'Oficina de Transformación (PMO) & Ejecución',
-              description: 'Despliegue operativo de las iniciativas con seguimiento semanal riguroso y resolución ágil de bloqueos organizativos.',
-              status: 'upcoming',
-              points: ['Tablero de control ejecutivo en tiempo real', 'Gestión del cambio y cultura', 'Captura progresiva de ahorros en P&L']
-            }
+          title: 'Sede y Despachos de la Firma',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80', caption: 'Biblioteca jurídica y sala de juntas de socios' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', caption: 'Sede central en el distrito financiero' }
           ]
         },
         stats: {
           enabled: true,
-          kicker: 'Historial Auditado',
-          title: 'Cifras contrastadas de nuestros proyectos de consultoría.',
-          subtitle: 'Impacto medible en rentabilidad y valor para el accionista.',
           items: [
-            { id: 'cs1', value: '4.8B €', label: 'Volumen de M&A Asesorado', description: 'En más de 60 transacciones cerradas' },
-            { id: 'cs2', value: '+32%', label: 'Mejora Media de EBITDA', description: 'En programas de transformación a 24 meses' },
-            { id: 'cs3', value: '92%', label: 'Tasa de Clientes Recurrentes', description: 'Fondos de capital y multinacionales líderes' },
-            { id: 'cs4', value: '25+', label: 'Socios Seniors', description: 'Con experiencia previa en McKinsey, BCG y Bain' }
+            { id: 's1', value: '1.2B€+', label: 'Transaccionado en M&A' },
+            { id: 's2', value: '94%', label: 'Tasa de Éxito en Litigación' },
+            { id: 's3', value: '25 Años', label: 'De Trayectoria Profesional' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'Lo que opinan los directores generales que confían en Core.',
-          subtitle: 'Relaciones de confianza y confidencialidad mantenidas durante años.',
+          title: 'La valoración de directores generales y consejeros.',
           items: [
             {
-              id: 'ct1',
-              name: 'Ignacio de la Serna',
-              role: 'Managing Director en Iberia Private Equity',
-              company: 'Fondo de Inversión',
-              quote: 'El equipo de Core aportó un nivel de claridad analítica y pragmatismo que fue determinante para cerrar la adquisición de nuestro mayor activo industrial. Su equipo sénior estuvo presente en cada negociación clave.',
+              id: 't1',
+              author: 'Rodrigo Mendoza',
+              name: 'Rodrigo Mendoza',
+              role: 'Managing Director en Iberia Capital Partners',
+              company: 'Iberia Capital',
+              quote: 'Vanguard & Partners no solo ofrece un rigor técnico impecable, sino una visión estratégica comercial indispensable para desbloquear negociaciones complejas de compraventa.',
               avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
-              rating: 5
-            },
-            {
-              id: 'ct2',
-              name: 'Beatriz Alarcón',
-              role: 'CEO en Grupo Logístico Peninsular',
-              company: 'Empresa IBEX Small Cap',
-              quote: 'Reestructuramos toda la operativa de última milla con el acompañamiento de Core. Cumplieron con el 100% de los ahorros presupuestados en el calendario previsto sin desviar el foco del negocio diario.',
-              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Modelos de Colaboración & Honorarios',
-          subtitle: 'Estructuras alineadas con la consecución de objetivos tangibles de negocio.',
+          title: 'Modelos de Contratación de Servicios Jurídicos',
           billingCycle: 'monthly',
-          discountNote: 'Estructuras híbridas con honorarios fijos y comisiones por éxito (success fees) en M&A',
           plans: [
             {
-              id: 'core_diagnostic',
-              name: 'Strategic Health Check',
-              tag: 'Diagnóstico Rápido',
-              priceMonthly: '18,000€',
-              priceAnnual: '18,000€',
-              description: 'Auditoría integral de 4 semanas sobre márgenes, posición competitiva y oportunidades inmediatas de valor.',
-              features: [
-                'Análisis financiero de cuentas de resultados de los últimos 3 años',
-                'Benchmark cuantitativo con los 5 principales rivales del sector',
-                'Entrevistas con el comité de dirección y mandos intermedios',
-                'Informe ejecutivo con 10 palancas de valor cuantificadas',
-                'Presentación presencial en Consejo de Administración'
-              ],
-              ctaText: 'Solicitar Health Check',
-              ctaLink: '#contact-healthcheck',
-              highlighted: false
+              id: 'p1',
+              name: 'Iguala Jurídica Corporativa',
+              priceMonthly: '2.500€/mes',
+              priceAnnual: 'Asesoría continua de empresa',
+              description: 'Asesoramiento mercantil recurrente, secretaría de consejo de administración y revisión contractual continua.',
+              features: ['Hasta 25 horas mensuales de asesoría legal', 'Acceso directo a socios sénior del despacho', 'Revisión y redacción de contratos mercantiles', 'Auditoría anual de compliance societario'],
+              highlighted: false,
+              ctaText: 'Solicitar Propuesta de Iguala'
             },
             {
-              id: 'core_transformation',
-              name: 'Programa de Transformación Integral',
-              tag: 'Mayor Impacto',
-              priceMonthly: '45,000€',
-              priceAnnual: '45,000€',
-              description: 'Acompañamiento directivo continuo con equipo dedicado de socios y directores de proyecto en la sede del cliente.',
-              features: [
-                'Equipo sénior dedicado a tiempo completo in situ',
-                'Oficina de Transformación (PMO) y cuadros de mando semanales',
-                'Rediseño operativo y renegociación de contratos estratégicos',
-                'Garantía de impacto en EBITDA ligada a honorarios variables',
-                'Soporte directo ilimitado para el Presidente y Consejero Delegado'
-              ],
-              ctaText: 'Agendar Sesión con Socios',
-              ctaLink: '#contact-transformation',
-              highlighted: true
+              id: 'p2',
+              name: 'Asesoramiento en Transacción M&A',
+              priceMonthly: 'A Presupuesto',
+              priceAnnual: 'Estructura mixta fixed + success fee',
+              description: 'Acompañamiento integral en operaciones de compraventa de empresas, due diligence y negociación de SPAs.',
+              features: ['Due diligence jurídica, fiscal y laboral completa', 'Redacción y negociación del contrato de compraventa (SPA)', 'Pacto de socios y acuerdos de no competencia', 'Gestión del cierre notarial y desembolsos'],
+              highlighted: true,
+              ctaText: 'Reunión de Planteamiento'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes sobre Core',
-          subtitle: 'Aspectos relativos a la confidencialidad, equipo y régimen de honorarios.',
+          title: 'Preguntas Frecuentes sobre el Servicio Jurídico',
           items: [
             {
-              id: 'cfq_1',
-              question: '¿Cómo garantizáis la estricta confidencialidad de la información?',
-              answer: 'Firmamos acuerdos de confidencialidad reforzados (NDA) antes de cualquier intercambio de datos. Todos los análisis se realizan en entornos cifrados aislados y los socios firman compromisos de no competencia en el mismo sector.'
+              id: 'q1',
+              question: '¿Cómo garantizan la confidencialidad de la información societaria?',
+              answer: 'Firmamos un acuerdo de confidencialidad (NDA) vinculante con penalización antes de recibir cualquier documento y utilizamos cuartos de datos virtuales (VDR) con cifrado bancario de grado militar.'
             },
             {
-              id: 'cfq_2',
-              question: '¿Quién compone el equipo que trabajará en nuestro proyecto?',
-              answer: 'A diferencia de firmas tradicionales, en Core el proyecto es liderado de principio a fin por socios con más de 15 años de experiencia ejecutiva, sin delegar la responsabilidad en consultores junior.'
+              id: 'q2',
+              question: '¿Qué experiencia tienen en litigios internacionales y arbitrajes?',
+              answer: 'Nuestros socios han defendido con éxito más de 120 arbitrajes ante la Corte de Arbitraje de la CCI de París y la Corte Civil y Mercantil de Madrid con un 94% de laudos favorables.'
             },
             {
-              id: 'cfq_3',
-              question: '¿Trabajáis con esquemas de honorarios ligados a resultados (Success Fees)?',
-              answer: 'Sí. En proyectos de M&A y programas de optimización de EBITDA estructuramos una parte significativa de nuestros honorarios ligada a la consecución efectiva de los objetivos pactados con el cliente.'
+              id: 'q3',
+              question: '¿Cuál es el tiempo medio requerido para completar una due diligence legal?',
+              answer: 'Una auditoría legal completa estándar para una pyme o mediana empresa suele completarse en un plazo de entre 2 y 3 semanas, emitiendo un informe ejecutivo de red flags.'
+            },
+            {
+              id: 'q4',
+              question: '¿Trabajan con modelos de honorarios a éxito (Success Fee)?',
+              answer: 'En operaciones corporativas de fusiones y adquisiciones combinamos un componente fijo por horas de due diligence con una comisión de éxito ligada al cierre efectivo de la transacción.'
+            },
+            {
+              id: 'q5',
+              question: '¿Tienen capacidad de actuación en operaciones fuera de España?',
+              answer: 'Formamos parte de una red internacional de firmas legales líderes que nos permite coordinar transacciones en más de 45 países con un único interlocutor en nuestro despacho.'
+            },
+            {
+              id: 'q6',
+              question: '¿Cómo se solicita una primera reunión con un socio de la firma?',
+              answer: 'A través de nuestro formulario confidencial o contacto telefónico. Asignamos al socio responsable del área correspondiente en menos de 4 horas laborables.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          kicker: 'Máxima Confidencialidad',
-          title: 'Lideremos la próxima etapa de tu compañía.',
-          subtitle: 'Solicita una reunión privada con uno de nuestros socios directores para explorar vías de colaboración.',
-          primaryCta: { text: 'Solicitar Reunión Confidencial', link: '#contact' },
-          secondaryCta: { text: 'Conocer a Nuestros Socios', link: '#team' },
-          backgroundStyle: 'glow'
+          title: 'La seguridad jurídica que tu empresa necesita.',
+          subtitle: 'Programa una sesión de trabajo confidencial con nuestros socios especialistas.',
+          primaryCta: { text: 'Agendar Consulta Confidencial', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Core Strategy Partners S.L. Madrid • Barcelona • Londres • Zúrich.',
+          copyright: '© 2026 Vanguard & Partners Abogados S.L.P. Todos los derechos reservados.',
           legalLinks: [
-            { label: 'Aviso Legal & Registro Mercantil', href: '#legal' },
-            { label: 'Compromiso de Confidencialidad', href: '#confidentiality' },
-            { label: 'Política de Privacidad', href: '#privacy' }
+            { label: 'Normativa Deontológica', href: '#normativa' },
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Privacidad', href: '#privacy' }
           ],
           socialLinks: [
-            { platform: 'LinkedIn', url: 'https://linkedin.com' },
-            { platform: 'Twitter / X', url: 'https://twitter.com' }
+            { platform: 'LinkedIn', url: 'https://linkedin.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 3. AXIS ARCHITECTS — Arquitectura Sostenible & Proyectos Singulares
+  {
+    id: 'axis-architects',
+    name: 'Axis Architecture Studio',
+    tagline: 'Estudio de arquitectura bioclimática, diseño de viviendas Passivhaus y proyectos singulares de vanguardia',
+    category: 'services',
+    thumbnail: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en gris hormigón visto y acento terracota #E2725B, tipografía Syne & Plus Jakarta Sans, renders 3D hiperrealistas, memoria técnica de materiales ecológicos y planos constructivos.',
+    accentColor: '#E2725B',
+    theme: 'dark',
+    defaultConfig: {
+      templateId: 'axis-architects',
+      name: 'Axis Architecture Studio',
+      slug: 'axis-architects',
+      domain: 'axisstudio.es',
+      theme: 'dark',
+      accentColor: '#E2725B',
+      fontFamily: "'Syne', sans-serif",
+      borderRadius: 16,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Axis Architecture — Arquitectura Bioclimática & Casas Passivhaus',
+        description: 'Diseño arquitectónico contemporáneo con máxima eficiencia energética, materiales nobles y respeto por el paisaje.',
+        keywords: 'estudio arquitectura, casas passivhaus, arquitectura bioclimatica, diseño viviendas unifamiliares, rehabilitacion arquitectonica'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Axis Studio',
+          logoText: 'AXIS // ARCHITECTURE',
+          ctaText: 'Presentar Proyecto',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Filosofía', href: '#features' },
+            { label: 'Casa Mirador', href: '#product' },
+            { label: 'Proyectos', href: '#gallery' },
+            { label: 'Fases', href: '#pricing' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Estudio Certificado Passivhaus Designer • Ganadores Premios FAD 2025',
+          kicker: 'Arquitectura Bioclimática & Belleza Sensorial',
+          title: 'Espacios que dialogan con la luz,',
+          highlightTitle: 'la materia y el paisaje.',
+          subtitle: 'Diseñamos residencias y espacios singulares donde la pureza de líneas y la sostenibilidad ambiental se funden para crear hogares confortables y con consumo energético casi nulo.',
+          primaryCta: { text: 'Descubrir Proyectos Singulares', link: '#gallery' },
+          secondaryCta: { text: 'Agendar Consulta con el Arquitecto →', link: '#pricing' },
+          imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'CERTIFICACIONES Y PREMIOS DE ARQUITECTURA',
+          items: [
+            { id: 'l1', name: 'Passivhaus Institute', tagline: 'Certified Designer' },
+            { id: 'l2', name: 'Premios FAD 2025', tagline: 'Arquitectura Residencial' },
+            { id: 'l3', name: 'BREEAM Excellent', tagline: 'Sustainable Buildings' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Principios Constructivos',
+          title: 'Arquitectura pensada desde el lugar y la orientación solar.',
+          subtitle: 'Optimizamos la ventilación cruzada natural y el aislamiento térmico continuo.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Estándar Passivhaus de Consumo Casi Nulo',
+              description: 'Ahorro de hasta el 90% en la factura de calefacción y refrigeración gracias a triple acristalamiento, estanqueidad al aire y recuperadores de calor.',
+              icon: 'Zap',
+              tag: '90% Ahorro Energético',
+              colSpan: 2,
+              statNumber: '90%',
+              statLabel: 'De reducción de demanda energética frente a construcción convencional'
+            },
+            {
+              id: 'f2',
+              title: 'Materiales Nobles: Madera, Piedra y Cal',
+              description: 'Seleccionamos materiales de bajo impacto ecológico que respiran de forma natural y envejecen con una pátina hermosa.',
+              icon: 'Layers',
+              tag: 'Materiales Vivos',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Modelado BIM 3D y Renders Hiperrealistas',
+              description: 'Visualización precisa de cada rincón, textura e iluminación solar en cada estación del año antes de colocar el primer ladrillo.',
+              icon: 'Box',
+              tag: 'BIM 3D',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Dirección de Obra Exhaustiva con Control de Costes',
+              description: 'Supervisión semanal a pie de obra con mediciones milimétricas para garantizar que el proyecto se ejecute en el plazo y presupuesto acordado.',
+              icon: 'CheckCircle',
+              tag: 'Cero Desviaciones',
+              colSpan: 2,
+              statNumber: '0%',
+              statLabel: 'Desviación media en presupuestos cerrados de construcción'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'Proyecto Galardonado',
+          kicker: 'Residencia en la Costa Brava',
+          title: 'Casa Pedra: Integrada en el Acantilado.',
+          subtitle: 'Vivienda unifamiliar Passivhaus de 420 m² con muros de piedra seca local.',
+          description: 'Estructurada en tres volúmenes escalonados que siguen la pendiente natural del terreno, abriendo todas las estancias principales al horizonte marino y protegiéndose del viento de tramuntana mediante patios vegetales interiores.',
+          imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Superficie', value: '420 m² construidos sobre parcela de 1.800 m²' },
+            { label: 'Certificación', value: 'Passivhaus Plus (Genera más energía de la que consume)' },
+            { label: 'Premio', value: 'Primer Premio de Arquitectura y Sostenibilidad COAC 2025' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Portfolio de Obras Seleccionadas',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80', caption: 'Pórtico de hormigón visto y carpintería de madera de roble' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80', caption: 'Patio interior con piscina de piedra caliza y olivo centenario' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '45+', label: 'Proyectos Passivhaus Construidos' },
+            { id: 's2', value: '100%', label: 'Edificios de Consumo Nulo' },
+            { id: 's3', value: '12', label: 'Premios de Arquitectura' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'La experiencia de nuestros clientes al vivir sus hogares.',
+          items: [
+            {
+              id: 't1',
+              author: 'Marc Rovira',
+              name: 'Marc Rovira',
+              role: 'Propietario de Casa Pedra en Begur',
+              company: 'Cliente Axis',
+              quote: 'Vivir en una casa diseñada por Axis ha cambiado por completo nuestro día a día. La luz natural, el silencio y la temperatura constante sin corrientes de aire hacen que sea un absoluto placer llegar a casa.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Fases del Proyecto Arquitectónico',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Estudio Previo & Viabilidad Urbanística',
+              priceMonthly: '1.800€',
+              priceAnnual: 'Deducible del proyecto final',
+              description: 'Análisis topográfico, normativa urbanística de la parcela, anteproyecto conceptual y estimación económica.',
+              features: ['Visita técnica a la parcela y estudio solar', 'Comprobación de ordenanzas municipales', 'Primeros bocetos de distribución en 3D', 'Estimación de costes totales de construcción'],
+              highlighted: false,
+              ctaText: 'Solicitar Estudio Previo'
+            },
+            {
+              id: 'p2',
+              name: 'Proyecto Integral Llave en Mano',
+              priceMonthly: 'A Presupuesto',
+              priceAnnual: 'Honorarios según baremo COAM/COAC',
+              description: 'Desde el diseño inicial y tramitación de licencias hasta la dirección de obra y entrega de llaves.',
+              features: ['Proyecto Básico y de Ejecución visado', 'Cálculo estructural e ingeniería de instalaciones', 'Gestión completa de licencias municipales', 'Dirección facultativa semanal a pie de obra'],
+              highlighted: true,
+              ctaText: 'Presentar mi Proyecto'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre el Proceso',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Qué es una casa Passivhaus y cuánto se ahorra en energía?',
+              answer: 'Es un estándar de construcción que minimiza el uso de calefacción y refrigeración convencional mediante un aislamiento térmico continuo, hermeticidad y ventilación mecánica con recuperación de calor, logrando un ahorro de hasta el 90% en la factura eléctrica.'
+            },
+            {
+              id: 'q2',
+              question: '¿Cuánto tiempo dura el proceso completo desde el diseño hasta la entrega de llaves?',
+              answer: 'El diseño y proyecto ejecutivo suele llevar de 3 a 5 meses; la tramitación de licencias municipales entre 3 y 8 meses (según ayuntamiento); y la fase de construcción aproximadamente entre 10 y 14 meses.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cómo se controla que no haya sobrecostes durante la obra?',
+              answer: 'Elaboramos un pliego de condiciones y mediciones exhaustivas para licitar la obra entre varias constructoras de confianza con precio cerrado y penalizaciones por retraso.'
+            },
+            {
+              id: 'q4',
+              question: '¿Nos ayudan a elegir la parcela adecuada antes de comprarla?',
+              answer: 'Sí. Acompañamos a nuestros clientes a visitar terrenos para analizar orientación solar, desniveles topográficos, accesos y limitaciones urbanísticas antes de formalizar la compra.'
+            },
+            {
+              id: 'q5',
+              question: '¿Diseñan también el interiorismo y paisajismo?',
+              answer: 'Entendemos la arquitectura como un todo integrado. Diseñamos el mobiliario a medida, iluminación arquitectónica y el paisajismo exterior con vegetación autóctona de bajo consumo hídrico.'
+            },
+            {
+              id: 'q6',
+              question: '¿En qué zonas geográficas desarrollan proyectos?',
+              answer: 'Tenemos sedes en Madrid y Barcelona y desarrollamos proyectos residenciales en toda la península ibérica, Islas Baleares y sur de Francia.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'Construyamos el hogar donde quieres vivir.',
+          subtitle: 'Cuéntanos tu idea de proyecto y te presentaremos un estudio inicial sin compromiso.',
+          primaryCta: { text: 'Agendar Consulta de Proyecto', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Axis Architecture Studio S.L.P. Colegio Oficial de Arquitectos.',
+          legalLinks: [
+            { label: 'Colegiación Profesional', href: '#colegio' },
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Pinterest', url: 'https://pinterest.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 4. APEX ADVISORS — Consultoría Estratégica & Finanzas Cuantitativas
+  {
+    id: 'apex-advisors',
+    name: 'Apex Strategic Advisory',
+    tagline: 'Consultoría estratégica de negocio, optimización financiera cuantitativa y escalado operativo para scale-ups y multinacionales',
+    category: 'services',
+    thumbnail: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética corporativa sobria en azul marino #1E3A8A y blanco puro, tipografía Plus Jakarta Sans, dashboards de métricas financieras, marcos de consultoría cuantitativa y calculadora de ROI.',
+    accentColor: '#1E3A8A',
+    theme: 'light',
+    defaultConfig: {
+      templateId: 'apex-advisors',
+      name: 'Apex Strategic Advisory',
+      slug: 'apex-advisory',
+      domain: 'apexadvisors.com',
+      theme: 'light',
+      accentColor: '#1E3A8A',
+      fontFamily: "'Plus Jakarta Sans', sans-serif",
+      borderRadius: 14,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Apex Strategic Advisory — Consultoría de Negocio & Finanzas Cuantitativas',
+        description: 'Optimizamos márgenes operativos, estructuración de capital y modelos de crecimiento para empresas líderes.',
+        keywords: 'consultoria estrategica, finanzas cuantitativas, optimizacion de margenes, reestructuracion operativa, valoracion de empresas'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Apex Advisory',
+          logoText: 'APEX STRATEGIC ADVISORY',
+          ctaText: 'Auditoría Estratégica Inicial',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Servicios', href: '#features' },
+            { label: 'Metodología', href: '#product' },
+            { label: 'Resultados', href: '#stats' },
+            { label: 'Programas', href: '#pricing' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Ex-Socios de McKinsey, BCG y Goldman Sachs • Más de 80 Proyectos Completados',
+          kicker: 'Consultoría Estratégica & Métricas de Crecimiento',
+          title: 'Decisiones estratégicas basadas en datos,',
+          highlightTitle: 'no en intuiciones.',
+          subtitle: 'Ayudamos a comités de dirección a desbloquear palancas de crecimiento rentable, optimizar estructuras de costes y maximizar el valor de la compañía ante rondas de inversión o ventas.',
+          primaryCta: { text: 'Solicitar Diagnóstico Estratégico', link: '#pricing' },
+          secondaryCta: { text: 'Conoce Nuestros Casos de Estudio →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'COMPAÑÍAS QUE HAN CONFIADO EN NUESTRO ASESORAMIENTO',
+          items: [
+            { id: 'l1', name: 'Banco Santander', tagline: 'Estrategia Digital' },
+            { id: 'l2', name: 'Telefonica Open Future', tagline: 'Scale-up Scaling' },
+            { id: 'l3', name: 'Inditex Supplier Guild', tagline: 'Eficiencia de Cadena' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Capacidades Estratégicas',
+          title: 'Impacto medible en la cuenta de resultados en menos de 90 días.',
+          subtitle: 'Sin informes teóricos que acumulan polvo: entregamos planes de acción ejecutables con métricas claras.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Modelado Financiero y Planificación Cuantitativa',
+              description: 'Modelos predictivos de tesorería, análisis de sensibilidad de precios y optimización del coste de adquisición de clientes (CAC / LTV).',
+              icon: 'TrendingUp',
+              tag: 'Finanzas Cuantitativas',
+              colSpan: 2,
+              statNumber: '3.4x',
+              statLabel: 'Retorno medio sobre la inversión de nuestros proyectos de consultoría'
+            },
+            {
+              id: 'f2',
+              title: 'Reestructuración y Eficiencia Operativa',
+              description: 'Eliminación de cuellos de botella en procesos de cadena de suministro y automatización de tareas administrativas.',
+              icon: 'Sliders',
+              tag: 'Eficiencia Operativa',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Estrategia de Precios (Pricing Power)',
+              description: 'Rediseño de empaquetado de productos y tarifas para capturar el valor real sin perder volumen de clientes.',
+              icon: 'DollarSign',
+              tag: 'Pricing & Monetización',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Preparación para Rondas de Inversión y Salida (M&A)',
+              description: 'Construcción del Equity Story, normalización del EBITDA y asesoramiento táctico en la negociación con fondos.',
+              icon: 'CheckCircle2',
+              tag: 'Exit Readiness',
+              colSpan: 2,
+              statNumber: '+38%',
+              statLabel: 'De incremento medio en valoración de múltiplos tras nuestra intervención'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'Marco Metodológico',
+          kicker: 'Metodología Apex Quantum Flow',
+          title: 'El Framework de los 90 Días de Transformación.',
+          subtitle: 'Diagnóstico rápido en 2 semanas, diseño táctico en 4 y ejecución guiada en 6.',
+          description: 'Identificamos las 3 palancas de mayor retorno financiero de tu negocio y desplegamos un equipo sénior sobre el terreno para implementar los cambios operativos junto a tus directores de departamento.',
+          imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Semanas 1-2', value: 'Auditoría financiera profunda y mapa de ineficiencias' },
+            { label: 'Semanas 3-6', value: 'Rediseño de procesos, pricing y matriz de gobernanza' },
+            { label: 'Semanas 7-12', value: 'Ejecución guiada, dashboards de control KPI y transferencia de conocimiento' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '80+', label: 'Proyectos de Transformación Completados' },
+            { id: 's2', value: '+24%', label: 'Mejora Media en Margen EBITDA' },
+            { id: 's3', value: '98%', label: 'De Clientes Nos Recomiendan' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que opinan CEOs y Directores Financieros.',
+          items: [
+            {
+              id: 't1',
+              author: 'Álvaro Carvajal',
+              name: 'Álvaro Carvajal',
+              role: 'CEO & Cofundador en LogiTrans Europe',
+              company: 'LogiTrans Europe',
+              quote: 'Apex rediseñó nuestra estrategia de precios y estructura de costes en un momento crítico. En solo 6 meses pasamos de un EBITDA del 8% al 19%, preparándonos para una ronda Serie B exitosa.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Programas de Intervención Estratégica',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Diagnóstico Estratégico Rápido (2 Semanas)',
+              priceMonthly: '4.500€',
+              priceAnnual: 'Pago único de auditoría',
+              description: 'Análisis exhaustivo de cuentas, estructura de márgenes y benchmarking competitivo con informe ejecutivo.',
+              features: ['Auditoría cuantitativa de la cuenta de resultados', 'Benchmarking de márgenes frente al sector', 'Matriz de las 5 palancas de mejora inmediata', 'Presentación ejecutiva al Comité de Dirección'],
+              highlighted: false,
+              ctaText: 'Solicitar Diagnóstico Rápido'
+            },
+            {
+              id: 'p2',
+              name: 'Programa Completo de Transformación 90 Días',
+              priceMonthly: 'A Presupuesto',
+              priceAnnual: 'Retribución ligada a hitos de EBITDA',
+              description: 'Acompañamiento integral con equipo de consultores sénior para ejecutar el plan de eficiencia y escalado.',
+              features: ['Equipo dedicado de 2 consultores sénior', 'Rediseño integral de modelos financieros y pricing', 'Implementación de dashboards de control en tiempo real', 'Compromiso de mejora medible en EBITDA'],
+              highlighted: true,
+              ctaText: 'Agendar Sesión con Socio'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre la Consultoría',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Qué tipo de empresas se benefician más de los servicios de Apex?',
+              answer: 'Empresas con facturación entre 3M€ y 100M€ que experimentan problemas de rentabilidad a pesar de crecer en ventas, o que preparan una ronda de inversión, venta o relevo generacional.'
+            },
+            {
+              id: 'q2',
+              question: '¿Cómo garantizan que las recomendaciones no queden solo en un documento teórico?',
+              answer: 'Nuestros consultores trabajan codo con codo con los equipos operativos de la empresa, configurando herramientas reales y realizando seguimiento semanal hasta consolidar los nuevos procesos.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cuánto tiempo de dedicación requiere el equipo interno de la empresa?',
+              answer: 'Diseñamos el proceso para minimizar la interrupción operativa: requerimos unas 3 a 5 horas semanales del CFO/CEO durante las dos primeras semanas de recopilación de datos.'
+            },
+            {
+              id: 'q4',
+              question: '¿Ofrecen acuerdos con componentes retributivos a éxito?',
+              answer: 'Sí. En proyectos de optimización de márgenes y preparación para rondas podemos estructurar parte de los honorarios ligados a la consecución efectiva de objetivos de EBITDA o valoración.'
+            },
+            {
+              id: 'q5',
+              question: '¿Qué perfil tienen los consultores asignados a cada proyecto?',
+              answer: 'Únicamente asignamos consultores sénior con más de 10 años de experiencia previa en consultoras Tier 1 (McKinsey, BCG, Bain) o banca de inversión de primer nivel.'
+            },
+            {
+              id: 'q6',
+              question: '¿Cómo se solicita una primera reunión de evaluación?',
+              answer: 'Puedes rellenar el formulario de contacto para fijar una videollamada de 30 minutos con un socio de la firma para evaluar preliminarmente la viabilidad del proyecto.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'Desbloquea el verdadero potencial de tu compañía.',
+          subtitle: 'Agenda un diagnóstico estratégico inicial con nuestros socios consultores.',
+          primaryCta: { text: 'Solicitar Diagnóstico Estratégico', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Apex Strategic Advisory S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Política de Confidencialidad', href: '#confidencialidad' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'LinkedIn', url: 'https://linkedin.com' }
           ]
         }
       }

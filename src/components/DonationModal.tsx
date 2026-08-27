@@ -41,7 +41,7 @@ export const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose })
     });
     setHasDonated(true);
     const amount = customAmount ? customAmount : selectedTier;
-    const paypalUrl = `https://www.paypal.me/rafa930music/${amount}`;
+    const paypalUrl = `https://www.paypal.me/Rafa930paypal/${amount}`;
     window.open(paypalUrl, '_blank', 'noopener,noreferrer');
   };
 

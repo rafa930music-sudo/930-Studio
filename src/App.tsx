@@ -210,6 +210,7 @@ export default function App() {
             setView('preview');
           }}
           onResetAllData={handleResetAllData}
+          onTriggerSplash={() => setShowSplash(true)}
         />
       )}
 

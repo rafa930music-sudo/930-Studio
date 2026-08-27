@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { SiteConfig, SectionType } from '../types';
+import { SiteConfig, SectionType, SavedComponent } from '../types';
 import { WebsiteRenderer } from './WebsiteRenderer';
 import { ImagePickerModal } from './ImagePickerModal';
 import { ExportModal } from './ExportModal';
@@ -12,6 +12,7 @@ import { StyleInspector } from './editor/StyleInspector';
 import { SettingsInspector } from './editor/SettingsInspector';
 import { CanvasContextMenu } from './editor/CanvasContextMenu';
 import { InlineTextToolbar } from './editor/InlineTextToolbar';
+import { ToastContainer, ToastMessage } from './Toast';
 import { getDefaultSectionData } from '../data/defaultSections';
 import {
   ArrowLeft,
@@ -38,6 +39,11 @@ import {
   Heart,
   ExternalLink,
   ChevronRight,
+  ChevronLeft,
+  ChevronDown,
+  Navigation,
+  ArrowUp,
+  ArrowDown,
   HelpCircle,
   X,
   Type,
@@ -49,8 +55,57 @@ import {
   Maximize,
   RotateCcw,
   Zap,
-  Save
+  Save,
+  Tv,
+  Bookmark,
+  AlertTriangle
 } from 'lucide-react';
+
+const SECTION_ICONS: Record<string, string> = {
+  navbar: '🧭',
+  hero: '🚀',
+  logos: '🏢',
+  bentoFeatures: '🍱',
+  productHighlight: '✨',
+  stats: '📊',
+  testimonials: '💬',
+  pricing: '💎',
+  faq: '❓',
+  timeline: '⏳',
+  gallery: '🖼️',
+  slider: '🎞️',
+  tabs: '📑',
+  marquee: '💫',
+  countdown: '⏱️',
+  leadForm: '📋',
+  map: '🗺️',
+  ctaFinal: '🎯',
+  footer: '⚓',
+  custom: '🧩'
+};
+
+const SECTION_LABELS: Record<string, string> = {
+  navbar: 'Barra de Navegación',
+  hero: 'Encabezado Hero',
+  logos: 'Logotipos de Confianza',
+  bentoFeatures: 'Características Bento',
+  productHighlight: 'Destacado de Producto',
+  stats: 'Métricas & Estadísticas',
+  testimonials: 'Testimonios & Clientes',
+  pricing: 'Tabla de Precios',
+  faq: 'Preguntas Frecuentes',
+  timeline: 'Línea de Tiempo / Proceso',
+  gallery: 'Galería Visual',
+  slider: 'Carrusel de Diapositivas',
+  tabs: 'Pestañas de Contenido',
+  marquee: 'Marquesina Dinámica',
+  countdown: 'Cuenta Regresiva',
+  leadForm: 'Formulario de Contacto',
+  map: 'Mapa de Ubicación',
+  ctaFinal: 'Llamada a la Acción (CTA)',
+  footer: 'Pie de Página',
+  custom: 'Sección Personalizada'
+};
 
 interface VisualEditorProps {
   site: SiteConfig;
@@ -85,6 +140,27 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
   const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(true);
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(true);
 
+  const [isPresentationMode, setIsPresentationMode] = useState(false);
+  const [sectionToDelete, setSectionToDelete] = useState<SectionType | null>(null);
+  const [toasts, setToasts] = useState<ToastMessage[]>([]);
+
+  const addToast = (type: 'success' | 'error' | 'info', title: string, description?: string) => {
+    const id = Math.random().toString(36).substring(2, 9);
+    setToasts((prev) => [...prev, { id, type, title, description }]);
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+    }, 3800);
+  };
+
+  const removeToast = (id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
+  // Scroll & Selection Indicator References
+  const canvasScrollRef = useRef<HTMLDivElement>(null);
+  const [highlightedSection, setHighlightedSection] = useState<SectionType | null>(null);
+  const highlightTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   // Modals
   const [isAddSectionOpen, setIsAddSectionOpen] = useState(false);
   const [isExportOpen, setIsExportOpen] = useState(false);
@@ -116,6 +192,47 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
     setHistoryIndex(newHistory.length - 1);
   };
 
+  const handleSelectAndScrollToSection = (sec: SectionType, shouldScroll: boolean = true) => {
+    setActiveSection(sec);
+    if (!isPresentationMode) {
+      setIsRightPanelOpen(true);
+    }
+    setHighlightedSection(sec);
+
+    if (highlightTimerRef.current) clearTimeout(highlightTimerRef.current);
+    highlightTimerRef.current = setTimeout(() => {
+      setHighlightedSection(null);
+    }, 1800);
+
+    if (shouldScroll) {
+      setTimeout(() => {
+        const el = document.getElementById(`wrapper-${sec}`) || document.getElementById(`section-${sec}`);
+        if (el) {
+          el.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+          });
+        }
+      }, 50);
+    }
+  };
+
+  const handleScrollToTop = () => {
+    if (canvasScrollRef.current) {
+      canvasScrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollToBottom = () => {
+    if (canvasScrollRef.current) {
+      canvasScrollRef.current.scrollTo({
+        top: canvasScrollRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     if (saveStatus === 'dirty') {
       if (autoSaveTimerRef.current) clearTimeout(autoSaveTimerRef.current);
@@ -137,6 +254,7 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
       setHistoryIndex(newIndex);
       setSite(history[newIndex]);
       setSaveStatus('dirty');
+      addToast('info', 'Acción deshecha');
     }
   };
 
@@ -146,12 +264,16 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
       setHistoryIndex(newIndex);
       setSite(history[newIndex]);
       setSaveStatus('dirty');
+      addToast('info', 'Acción rehecha');
     }
   };
 
   // Keyboard Shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      const targetTag = (e.target as HTMLElement)?.tagName;
+      const isTyping = ['INPUT', 'TEXTAREA', 'SELECT'].includes(targetTag) || (e.target as HTMLElement)?.isContentEditable;
+
       const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
       const isCmdOrCtrl = isMac ? e.metaKey : e.ctrlKey;
 
@@ -159,6 +281,7 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
         e.preventDefault();
         onSaveSite(site);
         setSaveStatus('saved');
+        addToast('success', '¡Sitio guardado con éxito!', 'Tus cambios están respaldados en el almacenamiento local.');
       } else if (isCmdOrCtrl && e.key.toLowerCase() === 'e') {
         e.preventDefault();
         setIsExportOpen(true);
@@ -171,20 +294,31 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
       ) {
         e.preventDefault();
         handleRedo();
-      } else if (isCmdOrCtrl && e.key.toLowerCase() === 'd' && activeSection) {
+      } else if (isCmdOrCtrl && e.key.toLowerCase() === 'd' && activeSection && !isTyping) {
         e.preventDefault();
         handleDuplicateSection(activeSection);
-      } else if (e.key === '?' && !isCmdOrCtrl) {
+      } else if ((e.key === 'Delete' || e.key === 'Backspace') && activeSection && !isTyping && !isCmdOrCtrl) {
+        e.preventDefault();
+        setSectionToDelete(activeSection);
+      } else if (e.code === 'Space' && !isTyping && !isCmdOrCtrl) {
+        e.preventDefault();
+        setIsPresentationMode((prev) => !prev);
+      } else if (e.key === '?' && !isCmdOrCtrl && !isTyping) {
         setIsShortcutsOpen(true);
       } else if (e.key === 'Escape') {
-        setContextMenu(null);
-        setInlineToolbar(null);
+        if (isPresentationMode) {
+          setIsPresentationMode(false);
+        } else {
+          setContextMenu(null);
+          setInlineToolbar(null);
+          setSectionToDelete(null);
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [site, history, historyIndex, activeSection, onSaveSite]);
+  }, [site, history, historyIndex, activeSection, isPresentationMode, onSaveSite]);
 
   // Section Order & Hierarchy Operations
   const currentOrder: SectionType[] =
@@ -222,9 +356,13 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
       ...site,
       sectionOrder: newOrder
     });
+    handleSelectAndScrollToSection(sec, true);
+    addToast('success', 'Sección duplicada', `Se ha creado una copia de ${SECTION_LABELS[sec] || sec}.`);
   };
 
-  const handleDeleteSection = (sec: SectionType) => {
+  const handleConfirmDeleteSection = () => {
+    if (!sectionToDelete) return;
+    const sec = sectionToDelete;
     const newOrder = currentOrder.filter((k) => k !== sec);
     updateSiteWithHistory({
       ...site,
@@ -233,6 +371,65 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
     if (activeSection === sec) {
       setActiveSection(newOrder[0] || null);
     }
+    setSectionToDelete(null);
+    addToast('info', 'Sección eliminada', 'Puedes deshacer este cambio con Ctrl+Z.');
+  };
+
+  const handleDeleteSection = (sec: SectionType) => {
+    setSectionToDelete(sec);
+  };
+
+  const handleSaveAsComponent = (sec: SectionType) => {
+    try {
+      const saved = localStorage.getItem('930_saved_components') || localStorage.getItem('930studio_saved_components');
+      const list = saved ? JSON.parse(saved) : [];
+      const newComp: SavedComponent = {
+        id: `comp_${Date.now()}`,
+        name: `${SECTION_LABELS[sec] || sec} personalizada`,
+        category: sec,
+        sectionType: sec,
+        data: site.sections[sec],
+        customStyle: site.customSectionStyles?.[sec],
+        createdAt: new Date().toISOString()
+      };
+      const updated = [newComp, ...list];
+      localStorage.setItem('930_saved_components', JSON.stringify(updated));
+      addToast('success', 'Componente guardado en biblioteca', 'Puedes insertarlo en cualquier momento desde el catálogo.');
+    } catch (err) {
+      console.error(err);
+      addToast('error', 'Error al guardar componente');
+    }
+  };
+
+  const handleAddSavedComponent = (comp: SavedComponent) => {
+    const secType = comp.sectionType;
+    const updatedSections = {
+      ...site.sections,
+      [secType]: comp.data || getDefaultSectionData(secType)
+    };
+
+    let newOrder = [...currentOrder];
+    if (!newOrder.includes(secType)) {
+      let insertIndex = newOrder.indexOf('footer');
+      if (insertIndex === -1) insertIndex = newOrder.length;
+      newOrder.splice(insertIndex, 0, secType);
+    }
+
+    const updatedStyles = {
+      ...(site.customSectionStyles || {}),
+      ...(comp.customStyle ? { [secType]: comp.customStyle } : {})
+    };
+
+    updateSiteWithHistory({
+      ...site,
+      sections: updatedSections,
+      sectionOrder: newOrder,
+      customSectionStyles: updatedStyles
+    });
+
+    handleSelectAndScrollToSection(secType, true);
+    setIsAddSectionOpen(false);
+    addToast('success', 'Componente insertado', `Se añadió "${comp.name}" a tu sitio.`);
   };
 
   const handleToggleVisibility = (sec: SectionType) => {
@@ -274,8 +471,34 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
       sectionOrder: newOrder
     });
 
-    setActiveSection(type);
+    handleSelectAndScrollToSection(type, true);
     setIsAddSectionOpen(false);
+  };
+
+  const handleNavigatePreviousSection = () => {
+    if (!activeSection) {
+      if (currentOrder.length > 0) handleSelectAndScrollToSection(currentOrder[0], true);
+      return;
+    }
+    const currentIndex = currentOrder.indexOf(activeSection);
+    if (currentIndex > 0) {
+      handleSelectAndScrollToSection(currentOrder[currentIndex - 1], true);
+    } else {
+      handleSelectAndScrollToSection(currentOrder[currentOrder.length - 1], true);
+    }
+  };
+
+  const handleNavigateNextSection = () => {
+    if (!activeSection) {
+      if (currentOrder.length > 0) handleSelectAndScrollToSection(currentOrder[0], true);
+      return;
+    }
+    const currentIndex = currentOrder.indexOf(activeSection);
+    if (currentIndex < currentOrder.length - 1 && currentIndex !== -1) {
+      handleSelectAndScrollToSection(currentOrder[currentIndex + 1], true);
+    } else {
+      handleSelectAndScrollToSection(currentOrder[0], true);
+    }
   };
 
   const handleUpdateText = (path: string, value: string) => {
@@ -479,6 +702,19 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
 
         {/* Right: Actions */}
         <div className="flex items-center gap-2">
+          {/* Presentation Mode Toggle */}
+          <button
+            onClick={() => setIsPresentationMode((prev) => !prev)}
+            className={`p-2 rounded-xl transition-all cursor-pointer ${
+              isPresentationMode
+                ? 'bg-[#00E5FF] text-black font-extrabold shadow-[0_0_12px_rgba(0,229,255,0.4)]'
+                : 'bg-white/5 hover:bg-white/10 text-neutral-400 hover:text-white'
+            }`}
+            title="Modo Presentación / Zen (Espacio)"
+          >
+            <Tv className="w-4 h-4" />
+          </button>
+
           {/* Shortcuts guide button */}
           <button
             onClick={() => setIsShortcutsOpen(true)}
@@ -525,176 +761,287 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
         {/* ========================================================================= */}
         {/* LEFT PANEL: Jerarquía DOM & Biblioteca de Bloques */}
         {/* ========================================================================= */}
-        {isLeftPanelOpen ? (
-          <aside className="w-72 shrink-0 border-r border-white/10 bg-[#12121A] flex flex-col z-20 transition-all">
-            {/* Left Header */}
-            <div className="p-3 border-b border-white/10 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-[#00E5FF]" />
-                <span className="text-xs font-black uppercase tracking-wider text-white">Estructura</span>
+        {!isPresentationMode && (
+          isLeftPanelOpen ? (
+            <aside className="w-72 shrink-0 border-r border-white/10 bg-[#12121A] flex flex-col z-20 transition-all">
+              {/* Left Header */}
+              <div className="p-3 border-b border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-[#00E5FF]" />
+                  <span className="text-xs font-black uppercase tracking-wider text-white">Estructura</span>
+                </div>
+                <button
+                  onClick={() => setIsLeftPanelOpen(false)}
+                  className="p-1 text-neutral-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+                  title="Ocultar panel izquierdo"
+                >
+                  <PanelLeftClose className="w-4 h-4" />
+                </button>
               </div>
-              <button
-                onClick={() => setIsLeftPanelOpen(false)}
-                className="p-1 text-neutral-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
-                title="Ocultar panel izquierdo"
-              >
-                <PanelLeftClose className="w-4 h-4" />
-              </button>
-            </div>
 
-            {/* Tree Component */}
-            <div className="flex-1 overflow-hidden">
-              <HierarchyTree
-                site={site}
-                activeSection={activeSection}
-                onSelectSection={(sec) => {
-                  setActiveSection(sec);
-                  setIsRightPanelOpen(true);
-                }}
-                onMoveUp={handleMoveUp}
-                onMoveDown={handleMoveDown}
-                onDuplicate={handleDuplicateSection}
-                onDelete={handleDeleteSection}
-                onToggleVisibility={handleToggleVisibility}
-                onOpenAddSection={() => setIsAddSectionOpen(true)}
-                onUpdateSite={updateSiteWithHistory}
-              />
-            </div>
-          </aside>
-        ) : (
-          <button
-            onClick={() => setIsLeftPanelOpen(true)}
-            className="absolute left-3 top-3 z-30 p-2 rounded-xl bg-[#12121A] border border-white/15 text-neutral-300 hover:text-white hover:border-[#00E5FF] shadow-lg transition-all"
-            title="Abrir panel izquierdo"
-          >
-            <PanelLeftOpen className="w-4 h-4 text-[#00E5FF]" />
-          </button>
+              {/* Tree Component */}
+              <div className="flex-1 overflow-hidden">
+                <HierarchyTree
+                  site={site}
+                  activeSection={activeSection}
+                  onSelectSection={(sec) => {
+                    handleSelectAndScrollToSection(sec, true);
+                  }}
+                  onMoveUp={handleMoveUp}
+                  onMoveDown={handleMoveDown}
+                  onDuplicate={handleDuplicateSection}
+                  onDelete={handleDeleteSection}
+                  onToggleVisibility={handleToggleVisibility}
+                  onOpenAddSection={() => setIsAddSectionOpen(true)}
+                  onUpdateSite={updateSiteWithHistory}
+                />
+              </div>
+            </aside>
+          ) : (
+            <button
+              onClick={() => setIsLeftPanelOpen(true)}
+              className="absolute left-3 top-3 z-30 p-2 rounded-xl bg-[#12121A] border border-white/15 text-neutral-300 hover:text-white hover:border-[#00E5FF] shadow-lg transition-all"
+              title="Abrir panel izquierdo"
+            >
+              <PanelLeftOpen className="w-4 h-4 text-[#00E5FF]" />
+            </button>
+          )
         )}
 
         {/* ========================================================================= */}
-        {/* CENTER: Canvas de Renderizado */}
+        {/* CENTER: Canvas de Renderizado & Barra de Navegación Rápida */}
         {/* ========================================================================= */}
-        <main
-          className="flex-1 bg-[#0A0A0F] overflow-y-auto overflow-x-hidden flex justify-center p-4 relative"
-          onClick={() => {
-            setContextMenu(null);
-            setInlineToolbar(null);
-          }}
-        >
-          <div
-            className="transition-all duration-200 origin-top shadow-[0_20px_70px_rgba(0,0,0,0.8)] border border-white/10 rounded-2xl overflow-hidden bg-black"
-            style={{
-              width: viewportWidths[viewport],
-              transform: `scale(${zoomScale / 100})`,
-              minHeight: '100%'
-            }}
-          >
-            <WebsiteRenderer
-              site={site}
-              isEditable={true}
-              selectedSection={activeSection}
-              onSelectSection={(sec) => {
-                setActiveSection(sec);
-                setIsRightPanelOpen(true);
-              }}
-              onEditSection={(sec) => {
-                setActiveSection(sec);
-                setIsRightPanelOpen(true);
-              }}
-              onUpdateText={handleUpdateText}
-              onContextMenu={(e, sec) => {
-                setContextMenu({ x: e.clientX, y: e.clientY, section: sec });
-              }}
-              onImageDoubleClick={(path, currentUrl) => {
-                setImagePickerTarget({ path, currentUrl });
-              }}
-            />
-          </div>
-        </main>
+        <div className="flex-1 flex flex-col bg-[#0A0A0F] overflow-hidden relative">
+          {/* Floating Presentation Mode Pill HUD */}
+          {isPresentationMode && (
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded-2xl bg-[#12121A]/95 border border-[#00E5FF]/40 backdrop-blur-xl shadow-[0_10px_35px_rgba(0,0,0,0.85)] flex items-center gap-3 animate-fade-in text-xs">
+              <div className="flex items-center gap-1.5 text-[#00E5FF] font-black">
+                <Tv className="w-4 h-4" />
+                <span>Modo Presentación (Zen)</span>
+              </div>
+              <div className="h-4 w-px bg-white/20" />
+              <span className="text-neutral-400 text-[11px] hidden sm:inline">Presiona [Espacio] o [Esc] para volver</span>
+              <button
+                onClick={() => setIsPresentationMode(false)}
+                className="px-2.5 py-1 rounded-lg bg-[#00E5FF] hover:bg-[#00cce6] text-black font-extrabold cursor-pointer transition-all"
+              >
+                Salir
+              </button>
+            </div>
+          )}
 
-        {/* ========================================================================= */}
-        {/* RIGHT PANEL: Inspector Contextual (Contenido, Estilo, Ajustes) */}
-        {/* ========================================================================= */}
-        {isRightPanelOpen && activeSection ? (
-          <aside className="w-84 shrink-0 border-l border-white/10 bg-[#12121A] flex flex-col z-20 transition-all">
-            {/* Inspector Header with Tabs */}
-            <div className="p-3 border-b border-white/10 flex items-center justify-between shrink-0">
-              <div className="flex items-center bg-[#1A1A24] p-1 rounded-xl border border-white/10 text-xs font-bold w-full mr-2">
+          {/* Floating Canvas Helper Bar: Quick Section Jump & Vertical Scroll Steppers */}
+          <div className="h-11 shrink-0 bg-[#12121A]/95 backdrop-blur-md border-b border-white/10 px-4 flex items-center justify-between z-10 select-none">
+            {/* Left: Section Navigator stepper & quick dropdown */}
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-neutral-400 font-bold hidden sm:flex items-center gap-1.5">
+                <Navigation className="w-3.5 h-3.5 text-[#00E5FF]" />
+                <span>Sección:</span>
+              </span>
+
+              <div className="flex items-center bg-[#1A1A24] border border-white/10 rounded-xl p-0.5 shadow-xs">
                 <button
-                  onClick={() => setInspectorTab('content')}
-                  className={`flex-1 py-1.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
-                    inspectorTab === 'content' ? 'bg-[#00E5FF] text-black font-black shadow-xs' : 'text-neutral-400 hover:text-white'
-                  }`}
+                  onClick={handleNavigatePreviousSection}
+                  className="p-1 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Sección anterior"
                 >
-                  <Type className="w-3 h-3" />
-                  <span>Contenido</span>
+                  <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
-                <button
-                  onClick={() => setInspectorTab('style')}
-                  className={`flex-1 py-1.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
-                    inspectorTab === 'style' ? 'bg-[#FF00E5] text-black font-black shadow-xs' : 'text-neutral-400 hover:text-white'
-                  }`}
+
+                <select
+                  value={activeSection || ''}
+                  onChange={(e) => {
+                    if (e.target.value) {
+                      handleSelectAndScrollToSection(e.target.value as SectionType, true);
+                    }
+                  }}
+                  aria-label="Seleccionar sección"
+                  className="bg-transparent text-white font-extrabold px-2 py-0.5 text-xs outline-none cursor-pointer border-none"
                 >
-                  <Palette className="w-3 h-3" />
-                  <span>Estilo</span>
-                </button>
+                  {currentOrder.map((sec, index) => {
+                    const customName = site.customSectionStyles?.[sec]?.customName;
+                    const icon = SECTION_ICONS[sec] || '📦';
+                    const label = customName || SECTION_LABELS[sec] || sec;
+                    return (
+                      <option key={`${sec}-${index}`} value={sec} className="bg-[#1A1A24] text-white">
+                        {icon} {index + 1}. {label}
+                      </option>
+                    );
+                  })}
+                </select>
+
                 <button
-                  onClick={() => setInspectorTab('settings')}
-                  className={`flex-1 py-1.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
-                    inspectorTab === 'settings' ? 'bg-[#00FF88] text-black font-black shadow-xs' : 'text-neutral-400 hover:text-white'
-                  }`}
+                  onClick={handleNavigateNextSection}
+                  className="p-1 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Siguiente sección"
                 >
-                  <Settings2 className="w-3 h-3" />
-                  <span>Ajustes</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
-              <button
-                onClick={() => setIsRightPanelOpen(false)}
-                className="p-1.5 text-neutral-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
-                title="Ocultar inspector"
-              >
-                <PanelRightClose className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Inspector Content Body */}
-            <div className="flex-1 overflow-y-auto">
-              {inspectorTab === 'content' && (
-                <ContentInspector
-                  site={site}
-                  activeSection={activeSection}
-                  onUpdateSite={updateSiteWithHistory}
-                  onOpenImagePicker={(path, currentUrl) => setImagePickerTarget({ path, currentUrl })}
-                />
-              )}
-
-              {inspectorTab === 'style' && (
-                <StyleInspector
-                  site={site}
-                  activeSection={activeSection}
-                  onUpdateSite={updateSiteWithHistory}
-                />
-              )}
-
-              {inspectorTab === 'settings' && (
-                <SettingsInspector
-                  site={site}
-                  activeSection={activeSection}
-                  onUpdateSite={updateSiteWithHistory}
-                />
+              {activeSection && (
+                <button
+                  onClick={() => handleSelectAndScrollToSection(activeSection, true)}
+                  className="px-2.5 py-1 rounded-lg bg-[#00E5FF]/10 hover:bg-[#00E5FF]/25 text-[#00E5FF] text-[11px] font-black transition-all border border-[#00E5FF]/30 cursor-pointer hidden md:flex items-center gap-1"
+                  title="Centrar y enfocar sección en el lienzo"
+                >
+                  <span>Enfocar</span>
+                </button>
               )}
             </div>
-          </aside>
-        ) : !isRightPanelOpen ? (
-          <button
-            onClick={() => setIsRightPanelOpen(true)}
-            className="absolute right-3 top-3 z-30 p-2 rounded-xl bg-[#12121A] border border-white/15 text-neutral-300 hover:text-white hover:border-[#00E5FF] shadow-lg transition-all"
-            title="Abrir inspector"
+
+            {/* Right: Quick scroll actions & Device specs indicator */}
+            <div className="flex items-center gap-2">
+              <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono font-medium text-neutral-400 bg-[#1A1A24] px-2.5 py-0.5 rounded-lg border border-white/5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88]" />
+                <span>{viewportWidths[viewport]}</span>
+              </div>
+
+              <div className="flex items-center gap-1 bg-[#1A1A24] p-0.5 rounded-xl border border-white/10">
+                <button
+                  onClick={handleScrollToTop}
+                  className="p-1 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Desplazarse al inicio de la plantilla (Arriba)"
+                >
+                  <ArrowUp className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={handleScrollToBottom}
+                  className="p-1 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Desplazarse al final de la plantilla (Abajo)"
+                >
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Scrollable Canvas Viewport with Custom Neon Scrollbar */}
+          <main
+            ref={canvasScrollRef}
+            className="flex-1 editor-canvas-scroll bg-[#0A0A0F] overflow-y-auto overflow-x-hidden flex flex-col items-center p-4 sm:p-8 relative pb-52 select-none"
+            onClick={() => {
+              setContextMenu(null);
+              setInlineToolbar(null);
+            }}
           >
-            <PanelRightOpen className="w-4 h-4 text-[#00E5FF]" />
-          </button>
-        ) : null}
+            <div
+              className="transition-all duration-200 origin-top shadow-[0_20px_80px_rgba(0,0,0,0.9)] border border-white/15 rounded-2xl overflow-hidden bg-black w-full"
+              style={{
+                maxWidth: viewportWidths[viewport],
+                transform: zoomScale !== 100 ? `scale(${zoomScale / 100})` : undefined,
+                minHeight: 'min-content'
+              }}
+            >
+              <WebsiteRenderer
+                site={site}
+                isEditable={true}
+                selectedSection={activeSection}
+                highlightedSection={highlightedSection}
+                onSelectSection={(sec) => {
+                  handleSelectAndScrollToSection(sec, false);
+                }}
+                onEditSection={(sec) => {
+                  handleSelectAndScrollToSection(sec, false);
+                }}
+                onUpdateText={handleUpdateText}
+                onContextMenu={(e, sec) => {
+                  setContextMenu({ x: e.clientX, y: e.clientY, section: sec });
+                }}
+                onImageDoubleClick={(path, currentUrl) => {
+                  setImagePickerTarget({ path, currentUrl });
+                }}
+              />
+            </div>
+          </main>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* ========================================================================= */}
+        {/* RIGHT PANEL: Inspector Contextual (Contenido, Estilo, Ajustes) */}
+        {/* ========================================================================= */}
+        {!isPresentationMode && (
+          isRightPanelOpen && activeSection ? (
+            <aside className="w-84 shrink-0 border-l border-white/10 bg-[#12121A] flex flex-col z-20 transition-all">
+              {/* Inspector Header with Tabs */}
+              <div className="p-3 border-b border-white/10 flex items-center justify-between shrink-0">
+                <div className="flex items-center bg-[#1A1A24] p-1 rounded-xl border border-white/10 text-xs font-bold w-full mr-2">
+                  <button
+                    onClick={() => setInspectorTab('content')}
+                    className={`flex-1 py-1.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                      inspectorTab === 'content' ? 'bg-[#00E5FF] text-black font-black shadow-xs' : 'text-neutral-400 hover:text-white'
+                    }`}
+                  >
+                    <Type className="w-3 h-3" />
+                    <span>Contenido</span>
+                  </button>
+                  <button
+                    onClick={() => setInspectorTab('style')}
+                    className={`flex-1 py-1.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                      inspectorTab === 'style' ? 'bg-[#FF00E5] text-black font-black shadow-xs' : 'text-neutral-400 hover:text-white'
+                    }`}
+                  >
+                    <Palette className="w-3 h-3" />
+                    <span>Estilo</span>
+                  </button>
+                  <button
+                    onClick={() => setInspectorTab('settings')}
+                    className={`flex-1 py-1.5 rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                      inspectorTab === 'settings' ? 'bg-[#00FF88] text-black font-black shadow-xs' : 'text-neutral-400 hover:text-white'
+                    }`}
+                  >
+                    <Settings2 className="w-3 h-3" />
+                    <span>Ajustes</span>
+                  </button>
+                </div>
+
+                <button
+                  onClick={() => setIsRightPanelOpen(false)}
+                  className="p-1.5 text-neutral-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+                  title="Ocultar inspector"
+                >
+                  <PanelRightClose className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Inspector Content Body */}
+              <div className="flex-1 overflow-y-auto">
+                {inspectorTab === 'content' && (
+                  <ContentInspector
+                    site={site}
+                    activeSection={activeSection}
+                    onUpdateSite={updateSiteWithHistory}
+                    onOpenImagePicker={(path, currentUrl) => setImagePickerTarget({ path, currentUrl })}
+                  />
+                )}
+
+                {inspectorTab === 'style' && (
+                  <StyleInspector
+                    site={site}
+                    activeSection={activeSection}
+                    onUpdateSite={updateSiteWithHistory}
+                  />
+                )}
+
+                {inspectorTab === 'settings' && (
+                  <SettingsInspector
+                    site={site}
+                    activeSection={activeSection}
+                    onUpdateSite={updateSiteWithHistory}
+                  />
+                )}
+              </div>
+            </aside>
+          ) : !isRightPanelOpen ? (
+            <button
+              onClick={() => setIsRightPanelOpen(true)}
+              className="absolute right-3 top-3 z-30 p-2 rounded-xl bg-[#12121A] border border-white/15 text-neutral-300 hover:text-white hover:border-[#00E5FF] shadow-lg transition-all"
+              title="Abrir inspector"
+            >
+              <PanelRightOpen className="w-4 h-4 text-[#00E5FF]" />
+            </button>
+          ) : null
+        )}
       </div>
 
       {/* ========================================================================= */}
@@ -717,6 +1064,7 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
             setIsRightPanelOpen(true);
           }}
           onDuplicate={(sec) => handleDuplicateSection(sec)}
+          onSaveAsComponent={(sec) => handleSaveAsComponent(sec)}
           onMoveUp={(sec) => {
             const idx = currentOrder.indexOf(sec);
             handleMoveUp(idx);
@@ -743,14 +1091,54 @@ export const VisualEditor: React.FC<VisualEditorProps> = ({
       )}
 
       {/* ========================================================================= */}
-      {/* MODALS */}
+      {/* MODALS & NOTIFICATIONS */}
       {/* ========================================================================= */}
+
+      {/* Toast Notification HUD */}
+      <ToastContainer toasts={toasts} onDismiss={removeToast} />
+
+      {/* Delete Confirmation Modal */}
+      {sectionToDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+          <div className="border border-white/15 rounded-3xl w-full max-w-md p-6 bg-[#12121A] text-white shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-rose-500/15 text-rose-400 border border-rose-500/30 flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-black">¿Eliminar sección?</h3>
+                <p className="text-xs text-neutral-400">
+                  Se eliminará &quot;{SECTION_LABELS[sectionToDelete] || sectionToDelete}&quot; del lienzo.
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-neutral-400 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5">
+              Esta acción eliminará el bloque del diseño. Puedes revertirlo inmediatamente pulsando <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-mono text-[10px] ml-1">Ctrl + Z</kbd>.
+            </p>
+            <div className="flex items-center justify-end gap-2 pt-2">
+              <button
+                onClick={() => setSectionToDelete(null)}
+                className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-bold transition-colors cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={handleConfirmDeleteSection}
+                className="px-4 py-2 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-black transition-colors cursor-pointer shadow-lg shadow-rose-500/20"
+              >
+                Eliminar Sección
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Add Section Library */}
       <AddSectionModal
         isOpen={isAddSectionOpen}
         onClose={() => setIsAddSectionOpen(false)}
         onAddSection={handleAddSection}
+        onAddSavedComponent={handleAddSavedComponent}
         existingSections={currentOrder}
       />
 

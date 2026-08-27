@@ -13,6 +13,7 @@ export const KeyboardShortcutsModal: React.FC<KeyboardShortcutsModalProps> = ({
   if (!isOpen) return null;
 
   const shortcuts = [
+    { key: 'Espacio', label: 'Modo Presentación (Zen)', desc: 'Oculta todos los paneles y barras para previsualizar a pantalla completa.' },
     { key: 'Ctrl + S / ⌘S', label: 'Guardar sitio web', desc: 'Guarda instantáneamente los cambios en el almacenamiento local.' },
     { key: 'Ctrl + E / ⌘E', label: 'Exportar proyecto', desc: 'Abre el modal de exportación (HTML, ZIP, SEO y código).' },
     { key: 'Ctrl + Z / ⌘Z', label: 'Deshacer cambio', desc: 'Revierte la última acción en el historial (hasta 50 snapshots).' },

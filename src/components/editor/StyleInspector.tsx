@@ -38,10 +38,18 @@ const NEON_PRESETS = [
   { name: 'Magenta Eléctrico', color: '#FF00E5', glow: '0 0 25px rgba(255, 0, 229, 0.35)' },
   { name: 'Verde Matrix', color: '#00FF88', glow: '0 0 25px rgba(0, 255, 136, 0.35)' },
   { name: 'Oro Cósmico', color: '#FFD700', glow: '0 0 25px rgba(255, 215, 0, 0.35)' },
-  { name: 'Violeta Profundo', color: '#8B5CF6', glow: '0 0 25px rgba(139, 92, 246, 0.35)' },
+  { name: 'Violeta Cyber', color: '#8B5CF6', glow: '0 0 25px rgba(139, 92, 246, 0.35)' },
   { name: 'Naranja Hyper', color: '#FF6B00', glow: '0 0 25px rgba(255, 107, 0, 0.35)' },
   { name: 'Azul Klein', color: '#0055FF', glow: '0 0 25px rgba(0, 85, 255, 0.35)' },
-  { name: 'Blanco Puro', color: '#FFFFFF', glow: '0 0 25px rgba(255, 255, 255, 0.35)' }
+  { name: 'Blanco Titanio', color: '#FFFFFF', glow: '0 0 25px rgba(255, 255, 255, 0.35)' },
+  { name: 'Rosa Vaporwave', color: '#FF70A6', glow: '0 0 25px rgba(255, 112, 166, 0.35)' },
+  { name: 'Menta Glaciar', color: '#38EF7D', glow: '0 0 25px rgba(56, 239, 125, 0.35)' },
+  { name: 'Rojo Fuego', color: '#FF3366', glow: '0 0 25px rgba(255, 51, 102, 0.35)' },
+  { name: 'Lima Ácida', color: '#CCFF00', glow: '0 0 25px rgba(204, 255, 0, 0.35)' },
+  { name: 'Ámbar Cálido', color: '#FFB703', glow: '0 0 25px rgba(255, 183, 3, 0.35)' },
+  { name: 'Turquesa Profundo', color: '#00B4D8', glow: '0 0 25px rgba(0, 180, 216, 0.35)' },
+  { name: 'Índigo Real', color: '#4361EE', glow: '0 0 25px rgba(67, 97, 238, 0.35)' },
+  { name: 'Púrpura Velvet', color: '#7209B7', glow: '0 0 25px rgba(114, 9, 183, 0.35)' }
 ];
 
 const GOOGLE_FONTS = [
@@ -54,7 +62,13 @@ const GOOGLE_FONTS = [
   { label: 'Poppins (Amigable & Geométrica)', value: "'Poppins', sans-serif" },
   { label: 'Syne (Vanguardista & Creativa)', value: "'Syne', sans-serif" },
   { label: 'Cabinet Grotesk (Bold Editorial)', value: "'Cabinet Grotesk', sans-serif" },
-  { label: 'Roboto (Estándar & Neutra)', value: "'Roboto', sans-serif" }
+  { label: 'Roboto (Estándar & Neutra)', value: "'Roboto', sans-serif" },
+  { label: 'Lexend (Alta Legibilidad)', value: "'Lexend', sans-serif" },
+  { label: 'Raleway (Elegancia Fina)', value: "'Raleway', sans-serif" },
+  { label: 'Oswald (Condensada & Titulares)', value: "'Oswald', sans-serif" },
+  { label: 'DM Sans (Limpia & Geométrica)', value: "'DM Sans', sans-serif" },
+  { label: 'Sora (Tech Moderna)', value: "'Sora', sans-serif" },
+  { label: 'Manrope (Moderna & Suave)', value: "'Manrope', sans-serif" }
 ];
 
 export const StyleInspector: React.FC<StyleInspectorProps> = ({

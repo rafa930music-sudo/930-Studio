@@ -1,15 +1,14 @@
 import { TemplateDefinition } from '../../types';
 
 export const COMMUNITY_TEMPLATES: TemplateDefinition[] = [
-  // 1. OCÉANOS VIVOS — Conservación Marina & Regeneración de Arrecifes
+  // 1. OCÉANOS VIVOS — Conservación Marina & Restauración de Arrecifes
   {
     id: 'oceanos-vivos',
-    name: 'Océanos Vivos',
-    tagline: 'Fundación internacional dedicada a la limpieza de plásticos marinos, protección de cetáceos y restauración de arrecifes de coral',
+    name: 'Fundación Océanos Vivos',
+    tagline: 'Conservación marina internacional, retirada de redes fantasma y regeneración de arrecifes de coral protegidos',
     category: 'community',
-    style: 'natural',
     thumbnail: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética oceánica profunda en azul marino y cian bioluminiscente #00E5FF, tipografía Inter, contador de toneladas de plástico retiradas, mapa de expediciones y pasarela de donaciones transparentes.',
+    description: 'Estética oceánica en azul abisal #090E17 y cian bioluminiscente #00E5FF, tipografía Plus Jakarta Sans, contador de toneladas de plástico retiradas, mapas de expedición marina y aportaciones transparentes con deducción fiscal.',
     accentColor: '#00E5FF',
     theme: 'dark',
     defaultConfig: {
@@ -26,11 +25,10 @@ export const COMMUNITY_TEMPLATES: TemplateDefinition[] = [
         'navbar',
         'hero',
         'logos',
-        'marquee',
-        'stats',
         'bentoFeatures',
-        'gallery',
         'productHighlight',
+        'gallery',
+        'stats',
         'testimonials',
         'pricing',
         'faq',
@@ -38,238 +36,249 @@ export const COMMUNITY_TEMPLATES: TemplateDefinition[] = [
         'footer'
       ],
       seo: {
-        title: 'Océanos Vivos — Protección de Arrecifes y Mares Limpios',
-        description: 'Apoya nuestras expediciones marinas y los programas de recogida de redes fantasma y plásticos oceánicos.',
-        keywords: 'ong marina, salvar oceanos, arrecifes de coral, voluntariado mar, donacion'
+        title: 'Fundación Océanos Vivos — Protección de Arrecifes y Mares Limpios',
+        description: 'Apoya nuestras expediciones científicas marinas, la retirada de redes fantasma y la repoblación de corales.',
+        keywords: 'conservacion marina, limpiar plasticos mar, proteger arrecifes de coral, voluntariado marino, donacion ong medio ambiente'
       },
       sections: {
         navbar: {
-          brandName: 'OCÉANOS VIVOS',
+          brandName: 'Océanos Vivos',
           logoText: 'OCÉANOS VIVOS // ONG',
-          ctaText: 'Hacer Donación',
+          ctaText: 'Hacer una Aportación',
           ctaLink: '#pricing',
           links: [
-            { label: 'Misiones', href: '#bentoFeatures' },
-            { label: 'Impacto', href: '#stats' },
-            { label: 'Expediciones', href: '#gallery' },
-            { label: 'Donar', href: '#pricing' }
+            { label: 'Misiones', href: '#features' },
+            { label: 'El Arrecife Insignia', href: '#product' },
+            { label: 'Impacto Real', href: '#stats' },
+            { label: 'Socios & Cuotas', href: '#pricing' }
           ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Misión Arrecifes 2026',
-          kicker: 'Conservación Marina Global',
-          title: 'Protegemos el latido azul de nuestro planeta.',
-          highlightTitle: 'Cada segundo cuenta.',
-          subtitle: 'Trabajamos en primera línea recuperando ecosistemas de coral dañados, retirando redes de pesca abandonadas y protegiendo santuarios de ballenas.',
-          primaryCta: { text: 'Unirme como Socio', link: '#pricing' },
-          secondaryCta: { text: 'Ver Expediciones Activas', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80',
+          badge: 'ONG Acreditada por la Fundación Lealtad • 100% Transparencia Financiera',
+          kicker: 'Conservación Marina & Biodiversidad',
+          title: 'Protegemos el latido azul de',
+          highlightTitle: 'nuestros océanos.',
+          subtitle: 'Trabajamos en primera línea retirando plásticos y redes fantasma del fondo marino, rehabilitando tortugas heridas y reforestando viveros de coral en el Mediterráneo y el Caribe.',
+          primaryCta: { text: 'Unirme como Socio Defensor', link: '#pricing' },
+          secondaryCta: { text: 'Conoce Nuestras Expediciones →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
         logos: {
           enabled: true,
-          title: 'Organismos colaboradores y alianzas científicas internacionales',
+          title: 'ALIANZAS Y ACREDITACIONES CIENTÍFICAS INTERNACIONALES',
           items: [
-            { id: 'l1', name: 'UNESCO Ocean Decade', tagline: 'Partner Oficial' },
-            { id: 'l2', name: 'IUCN Red List', tagline: 'Asesor Científico' },
-            { id: 'l3', name: 'Global Coral Alliance', tagline: 'Investigación' },
-            { id: 'l4', name: '1% for the Planet', tagline: 'Miembro Acreditado' }
-          ]
-        },
-        marquee: {
-          enabled: true,
-          speed: 'normal',
-          direction: 'left',
-          items: [
-            { id: 'm1', text: '+420 TONELADAS DE PLÁSTICO RETIRADAS', highlight: true },
-            { id: 'm2', text: '18 SANTUARIOS MARINOS PROTEGIDOS' },
-            { id: 'm3', text: '100% TRANSPARENCIA FINANCIERA AUDITADA', highlight: true },
-            { id: 'm4', text: 'DESGRAVACIÓN FISCAL DEL 80% EN ESPAÑA' }
-          ]
-        },
-        stats: {
-          enabled: true,
-          kicker: 'Impacto Real Medible',
-          title: 'Nuestros números en los últimos 3 años.',
-          items: [
-            { id: 's1', value: '420 Tn', label: 'Plástico Recuperado', description: 'Transformado en materiales reciclados' },
-            { id: 's2', value: '65.000', label: 'Corales Replantados', description: 'Con un 88% de tasa de supervivencia' },
-            { id: 's3', value: '18', label: 'Áreas Marinas Protegidas', description: 'Libres de pesca de arrastre industrial' },
-            { id: 's4', value: '12.400', label: 'Socios Activos', description: 'Que financian nuestra flota propia' }
+            { id: 'l1', name: 'Fundación Lealtad', tagline: '100% Transparente' },
+            { id: 'l2', name: 'IUCN Red List', tagline: 'Scientific Partner' },
+            { id: 'l3', name: 'UN Ocean Decade', tagline: 'Official Action' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          kicker: 'Líneas de Acción',
-          title: 'Cómo defendemos la biodiversidad oceánica.',
+          kicker: 'Misiones en Marcha',
+          title: 'Acción directa en el agua respaldada por biólogos marinos.',
+          subtitle: 'Cada euro donado se traduce en metros cuadrados de arrecife protegido y kilos de plástico retirados.',
           items: [
             {
-              id: 'b1',
-              title: 'Viveros Submarinos de Coral Resistente',
-              description: 'Cultivamos microfragmentos de especies de coral térmicamente adaptadas para repoblar barreras degradadas por el cambio climático.',
-              icon: 'Shield',
-              tag: 'Regeneración',
-              colSpan: 2
-            },
-            {
-              id: 'b2',
-              title: 'Retirada de Redes Fantasma',
-              description: 'Buzos profesionales extraen aparejos de pesca a la deriva que atrapan tortugas, tiburones y focas.',
+              id: 'f1',
+              title: 'Limpieza Submarina de Redes Fantasma',
+              description: 'Buceadores técnicos recuperan aparejos de pesca perdidos que continúan atrapando fauna marina durante décadas en el fondo rocoso.',
               icon: 'Anchor',
-              tag: 'Rescate',
+              tag: 'Rescate Marino',
+              colSpan: 2,
+              statNumber: '145 Ton',
+              statLabel: 'De redes y plásticos retirados del fondo marino este año'
+            },
+            {
+              id: 'f2',
+              title: 'Viveros de Coral y Microfragmentación',
+              description: 'Cultivamos fragmentos de coral resistentes al calor en estructuras marinas y los reimplantamos en arrecifes degradados.',
+              icon: 'Sparkles',
+              tag: 'Regeneración Coralina',
               colSpan: 1
             },
             {
-              id: 'b3',
-              title: 'Vigilancia Satelital Anti-Furtivos',
-              description: 'Colaboramos con guardacostas para detectar buques ilegales en reservas de cría.',
-              icon: 'Eye',
-              tag: 'Vigilancia',
+              id: 'f3',
+              title: 'Hospital de Fauna Marina y Tortugas',
+              description: 'Centro de rescate y recuperación veterinaria para tortugas atrapadas en plásticos antes de su devolución al mar.',
+              icon: 'Heart',
+              tag: 'Veterinaria Marina',
               colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Auditoría Pública y Cuentas Claras',
+              description: 'El 88% de los fondos recibidos se destina directamente a misiones sobre el terreno, con auditoría anual disponible online.',
+              icon: 'ShieldCheck',
+              tag: '88% a Misión',
+              colSpan: 2,
+              statNumber: '88%',
+              statLabel: 'De los fondos van directamente a la conservación en el mar'
             }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'Galería de Expediciones en el Mar',
-          items: [
-            { id: 'g1', title: 'Siembra de Coral en Arrecifes del Caribe', category: 'Conservación', imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80', aspectRatio: 'wide' },
-            { id: 'g2', title: 'Liberación de Tortuga Boba Marina', category: 'Rescate', imageUrl: 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=800&q=80', aspectRatio: 'tall' }
           ]
         },
         productHighlight: {
           enabled: true,
-          kicker: 'Barco de Investigación',
-          title: 'El Buque Insignia "Poseidón III"',
-          subtitle: 'Un catamarán híbrido equipado con laboratorio oceanográfico propio.',
-          description: 'Permite a biólogos marinos y voluntarios navegar durante meses monitorizando la calidad de las aguas y cartografiando fondos marinos en 3D.',
-          imageUrl: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Misión Destacada 2026',
+          kicker: 'Proyecto Posidonia',
+          title: 'Santuario de Posidonia Oceánica en Baleares.',
+          subtitle: 'Protegemos el pulmón del Mediterráneo y sumidero natural de carbono.',
+          description: 'Instalamos boyas de fondeo ecológicas para evitar que las anclas de embarcaciones arrasen las praderas milenarias de posidonia, además de plantar 15.000 nuevos esquejes con la ayuda de voluntarios locales.',
+          imageUrl: 'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Eslora', value: '38 Metros', detail: 'Propulsión solar e híbrida' },
-            { label: 'Científicos', value: '14 Tripulantes', detail: 'Laboratorio de biología marina abordo' }
+            { label: 'Superficie Protegida', value: '450 Hectáreas marinas delimitadas' },
+            { label: 'Captura de Carbono', value: 'Hasta 15 veces más CO2 por m² que la selva amazónica' },
+            { label: 'Estatus', value: 'Patrimonio de la Humanidad por la UNESCO' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Nuestras Expediciones en Imágenes',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80', caption: 'Buceadores científicos monitorizando el crecimiento de corales' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80', caption: 'Liberación de tortuga boba recuperada en aguas abiertas' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '145 Ton', label: 'Plásticos Retirados del Mar' },
+            { id: 's2', value: '25.000', label: 'Corales Reimplantados' },
+            { id: 's3', value: '88%', label: 'Fondos Directos a Conservación' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'La voz de nuestros científicos y socios',
+          title: 'Testimonios de socios y biólogos voluntarios.',
           items: [
             {
               id: 't1',
-              name: 'Dra. Marina Valdés',
-              role: 'Directora Científica',
-              company: 'Expedición Coral',
-              quote: 'Ver florecer de nuevo un arrecife que dábamos por muerto gracias a las donaciones mensuales de miles de personas anónimas es la mayor satisfacción de mi vida profesional.',
-              avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
+              author: 'Dra. Celia Fontcuberta',
+              name: 'Dra. Celia Fontcuberta',
+              role: 'Bióloga Marina & Directora Científica',
+              company: 'Instituto de Ciencias del Mar',
+              quote: 'Océanos Vivos demuestra que con rigor científico, pasión y transparencia total es posible revertir la degradación de nuestros ecosistemas marinos y devolver la vida al azul.',
+              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Hazte Socio y Protege el Mar',
-          subtitle: 'Tus aportaciones tienen hasta un 80% de desgravación en el IRPF.',
-          billingCycle: 'annual',
+          title: 'Formas de Colaboración y Apoyo',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'donacion_coral',
-              name: 'Guardián del Arrecife',
-              priceMonthly: '9 € / mes',
-              priceAnnual: '9 € / mes',
-              description: 'Permite financiar la siembra de 3 corales al mes y recibir el informe trimestral.',
-              features: [
-                'Siembra certificada de corales a tu nombre',
-                'Informe trimestral de expediciones en vídeo',
-                'Certificado de donación para desgravación fiscal',
-                'Acceso al canal privado de la tripulación'
-              ],
-              ctaText: 'Donar 9€ al Mes',
-              ctaLink: '#donate-9',
-              highlighted: false
+              id: 'p1',
+              name: 'Socio Protector del Arrecife',
+              priceMonthly: '15€/mes',
+              priceAnnual: 'Solo 3€/mes tras desgravación fiscal del 80%',
+              description: 'Permite retirar 5 kg de redes plásticas del fondo marino cada mes y plantar 2 nuevos corales.',
+              features: ['Certificado digital oficial de socio protector', 'Boletín trimestral con informe de expediciones', 'Desgravación fiscal de hasta el 80% en tu IRPF', 'Invitación a jornadas de voluntariado de playa'],
+              highlighted: false,
+              ctaText: 'Hacerme Socio Protector'
             },
             {
-              id: 'donacion_oceano',
-              name: 'Defensor Oceánico',
-              tag: 'Mayor Impacto',
-              priceMonthly: '20 € / mes',
-              priceAnnual: '20 € / mes',
-              description: 'Financia combustible para el buque de rescate y la retirada de 50kg de plástico marino.',
-              features: [
-                'Retirada directa de 50kg de redes y plástico al mes',
-                'Adopción y seguimiento GPS de una tortuga rescatada',
-                'Invitación a las jornadas anuales de voluntariado',
-                'Certificado oficial fiscal con desgravación del 80%',
-                'Pack de bienvenida con camiseta de algodón orgánico'
-              ],
-              ctaText: 'Donar 20€ al Mes',
-              ctaLink: '#donate-20',
-              highlighted: true
+              id: 'p2',
+              name: 'Socio Guardián del Océano',
+              priceMonthly: '30€/mes',
+              priceAnnual: 'Solo 6€/mes tras desgravación fiscal',
+              description: 'Financia una jornada mensual de barco de rescate y tratamiento veterinario de fauna marina herida.',
+              features: ['Adopta y bautiza simbólicamente un arrecife de coral', 'Geolocalización satelital de tortugas liberadas', 'Deducción fiscal directa con certificado para Hacienda', 'Acceso a charlas online exclusivas con los biólogos en alta mar'],
+              highlighted: true,
+              ctaText: 'Ser Socio Guardián'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Preguntas sobre Donaciones',
+          title: 'Preguntas Frecuentes sobre Donaciones y la Fundación',
           items: [
             {
-              id: 'f1',
-              question: '¿Cómo funciona la desgravación fiscal de mi donación?',
-              answer: 'En los primeros 250€ donados al año te desgravas el 80% en tu declaración de la renta (si donas 100€, Hacienda te devuelve 80€). Emitimos el certificado oficial automáticamente.'
+              id: 'q1',
+              question: '¿Cómo funciona la desgravación fiscal de mi cuota de socio?',
+              answer: 'Como ONG declarada de utilidad pública, los primeros 250€ donados al año desgravan el 80% en tu declaración de la renta (IRPF). Si donas 15€/mes (180€/año), Hacienda te devuelve 144€, por lo que tu aportación real neta es de solo 3€ al mes.'
+            },
+            {
+              id: 'q2',
+              question: '¿Dónde puedo ver en qué se gasta el dinero de las cuotas?',
+              answer: 'Publicamos anualmente nuestra memoria de actividades y cuentas auditadas por una firma externa independiente en nuestra web oficial, desglosando cada gasto al céntimo.'
+            },
+            {
+              id: 'q3',
+              question: '¿Puedo colaborar como voluntario en las limpiezas de costa?',
+              answer: 'Sí. Organizamos jornadas periódicas de limpieza de playas y concienciación en diferentes puntos de la costa donde toda persona interesada puede participar de forma gratuita.'
+            },
+            {
+              id: 'q4',
+              question: '¿Cómo puedo cancelar o modificar mi cuota si cambian mis circunstancias?',
+              answer: 'Puedes pausar, reducir o cancelar tu aportación en cualquier momento y de forma inmediata enviando un correo a socios@oceanosvivos.org o llamando a nuestro teléfono gratuito.'
+            },
+            {
+              id: 'q5',
+              question: '¿Emiten el certificado de donaciones para la declaración de la renta?',
+              answer: 'Sí. Cada mes de marzo enviamos automáticamente a tu correo el certificado fiscal y comunicamos los datos a la Agencia Tributaria para que aparezca ya aplicado en tu borrador.'
+            },
+            {
+              id: 'q6',
+              question: '¿Aceptan donaciones de empresas o colaboraciones corporativas?',
+              answer: 'Contamos con programas específicos de Responsabilidad Social Corporativa (RSC) para empresas con deducciones del 40% al 50% en el Impuesto sobre Sociedades.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Juntos podemos salvar nuestros océanos.',
-          subtitle: 'Cada minuto que pasa, una tonelada de plástico entra al mar. Actúa hoy.',
-          primaryCta: { text: 'Hacer una Donación Ahora', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'El mar nos necesita hoy, no mañana.',
+          subtitle: 'Únete a más de 8.000 socios que protegen activamente la vida marina.',
+          primaryCta: { text: 'Unirme a Océanos Vivos', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Fundación Océanos Vivos. ONG inscrita en el Registro Oficial.',
+          copyright: '© 2026 Fundación Océanos Vivos. ONG de Utilidad Pública.',
           legalLinks: [
-            { label: 'Memorias Económicas Auditadas', href: '#finances' },
-            { label: 'Política de Transparencia', href: '#transparency' }
+            { label: 'Cuentas Auditadas', href: '#cuentas' },
+            { label: 'Estatutos Oficiales', href: '#estatutos' },
+            { label: 'Privacidad', href: '#privacy' }
           ],
           socialLinks: [
             { platform: 'Instagram', url: 'https://instagram.com' },
-            { platform: 'YouTube', url: 'https://youtube.com' }
+            { platform: 'Twitter', url: 'https://twitter.com' }
           ]
         }
       }
     }
   },
 
-  // 2. RAÍCES VERDES — Reforestación Autóctona & Huertos Urbanos
+  // 2. REFUGIO HUELLAS — Santuario & Adopción Responsable
   {
-    id: 'raices-verdes',
-    name: 'Raíces Verdes',
-    tagline: 'Asociación ecológica para la recuperación de bosques mediterráneos y creación de corredores biológicos verdes',
+    id: 'refugio-huellas',
+    name: 'Santuario Animal Huellas',
+    tagline: 'Santuario de rescate, atención veterinaria integral y adopción responsable de perros y gatos abandonados',
     category: 'community',
-    style: 'natural',
-    thumbnail: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética en verde bosque y tierra fértil con acento verde esmeralda #00FF88, tipografía Outfit, mapa interactivo de bosques plantados, días de plantación comunitaria y apadrinamiento de árboles.',
-    accentColor: '#00FF88',
-    theme: 'dark',
+    thumbnail: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en tonos tierra cálidos y naranja suave #F97316, tipografía Nunito & Plus Jakarta Sans, fichas de animales en adopción con historia real, formulario de preadopción y apadrinamiento mensual.',
+    accentColor: '#F97316',
+    theme: 'light',
     defaultConfig: {
-      templateId: 'raices-verdes',
-      name: 'Raíces Verdes Bosques',
-      slug: 'raices-verdes',
-      domain: 'raicesverdes.org',
-      theme: 'dark',
-      accentColor: '#00FF88',
-      fontFamily: "'Outfit', sans-serif",
-      borderRadius: 16,
+      templateId: 'refugio-huellas',
+      name: 'Santuario Animal Huellas',
+      slug: 'santuario-huellas',
+      domain: 'santuariohuellas.org',
+      theme: 'light',
+      accentColor: '#F97316',
+      fontFamily: "'Nunito', sans-serif",
+      borderRadius: 18,
       published: true,
       sectionOrder: [
         'navbar',
         'hero',
-        'stats',
+        'logos',
         'bentoFeatures',
-        'gallery',
         'productHighlight',
+        'gallery',
+        'stats',
         'testimonials',
         'pricing',
         'faq',
@@ -277,19 +286,269 @@ export const COMMUNITY_TEMPLATES: TemplateDefinition[] = [
         'footer'
       ],
       seo: {
-        title: 'Raíces Verdes — Reforestación y Bosques Autóctonos',
-        description: 'Plantamos árboles autóctonos en zonas desertificadas e incendiadas con custodia del territorio.',
-        keywords: 'reforestacion, plantar arboles, voluntariado ambiental, cambio climatico'
+        title: 'Santuario Huellas — Rescate Animal & Adopción Responsable',
+        description: 'Dales una segunda oportunidad. Conoce a los perros y gatos que esperan un hogar lleno de amor.',
+        keywords: 'adopcion perros, adoptar gato, refugio animales, santuario animal, voluntariado protectora, apadrinar perro'
       },
       sections: {
         navbar: {
-          brandName: 'RAÍCES VERDES',
-          logoText: 'RAÍCES VERDES // ECO',
-          ctaText: 'Plantar un Árbol',
+          brandName: 'Huellas',
+          logoText: 'SANTUARIO // HUELLAS',
+          ctaText: 'Adoptar un Amigo',
           ctaLink: '#pricing',
           links: [
-            { label: 'Bosques', href: '#bentoFeatures' },
-            { label: 'Voluntariado', href: '#gallery' },
+            { label: 'Animales en Adopción', href: '#gallery' },
+            { label: 'Nuestra Labor', href: '#features' },
+            { label: 'Caso de Rescate', href: '#product' },
+            { label: 'Apadrinar', href: '#pricing' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Sacrificio Cero Garantizado • Más de 800 Rescates Exitosos',
+          kicker: 'Amor, Rescate & Segundas Oportunidades',
+          title: 'Cada vida rescatada es una historia',
+          highlightTitle: 'que merece un final feliz.',
+          subtitle: 'Acogemos, rehabilitamos física y emocionalmente a animales abandonados o maltratados, y encontramos familias definitivas y comprometidas para cada uno de ellos.',
+          primaryCta: { text: 'Conoce a Nuestros Animales', link: '#gallery' },
+          secondaryCta: { text: 'Apadrinar por 10€/mes →', link: '#pricing' },
+          imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'ASOCIACIONES VETERINARIAS Y PROTECTORAS COLABORADORAS',
+          items: [
+            { id: 'l1', name: 'Federación Animalia', tagline: 'Santuario Certificado' },
+            { id: 'l2', name: 'Clínica VetSur', tagline: 'Atención 24h' },
+            { id: 'l3', name: 'Red Adopta Responsable', tagline: 'Cero Sacrificio' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Nuestros Pilares de Cuidado',
+          title: 'Un hogar de paso donde sanar cuerpo y corazón.',
+          subtitle: 'No usamos jaulas frías: viven en patios ajardinados adaptados por grupos de afinidad.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Atención Veterinaria Completa & Cirugías',
+              description: 'Todos los animales se entregan con microchip oficial, pasaporte, vacunación al día, desparasitación y esterilizados.',
+              icon: 'ShieldCheck',
+              tag: '100% Salud',
+              colSpan: 2,
+              statNumber: '100%',
+              statLabel: 'De animales entregados con chip, vacunas y esterilización'
+            },
+            {
+              id: 'f2',
+              title: 'Educadores Caninos en Positivo',
+              description: 'Equipo de etólogos que rehabilitan traumas de miedo o reactividad mediante refuerzo positivo respetuoso.',
+              icon: 'Smile',
+              tag: 'Etología Positiva',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Patios Libres de Esparcimiento de 5.000 m²',
+              description: 'Zonas verdes con piscina canina para el verano donde socializan y juegan diariamente en libertad.',
+              icon: 'Sun',
+              tag: '5.000 m² Verdes',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Seguimiento y Asesoramiento Posadopción',
+              description: 'Acompañamos a la familia durante todo el proceso de adaptación en casa con consultas etológicas gratuitas.',
+              icon: 'HeartHandshake',
+              tag: 'Apoyo Continuo',
+              colSpan: 2,
+              statNumber: '99%',
+              statLabel: 'De adopciones exitosas sin devoluciones gracias al protocolo'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'Historia de Superación',
+          kicker: 'El Rescate de Bruno',
+          title: 'Bruno: De la soledad a una familia para siempre.',
+          subtitle: 'Rescatado con fractura de pata y desnutrición severa, hoy corre feliz.',
+          description: 'Tras 4 meses de cirugías traumatológicas y rehabilitación en el santuario, Bruno recuperó la confianza en las personas y fue adoptado por una familia con jardín y dos niños que son sus compañeros inseparables de juegos.',
+          imageUrl: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Tiempo en Refugio', value: '4 meses de cuidados intensivos' },
+            { label: 'Estado Actual', value: 'Adoptado y completamente recuperado' },
+            { label: 'Mensaje', value: 'Adoptar salva dos vidas: la del animal que acoges y la del que entra en su lugar' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Amigos que Buscan una Familia',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80', caption: 'Luna: Mestiza de 2 años, cariñosa y tranquila, perfecta para piso' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80', caption: 'Milo: Cachorrón juguetón rescatado en el campo, sociable con otros perros' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '820+', label: 'Animales Rescatados y Adoptados' },
+            { id: 's2', value: '0', label: 'Sacrificios (Sacrificio Cero)' },
+            { id: 's3', value: '100%', label: 'Entregados Esterilizados' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Historias de familias adoptantes.',
+          items: [
+            {
+              id: 't1',
+              author: 'Familia Gómez-Navarro',
+              name: 'Familia Gómez-Navarro',
+              role: 'Adoptantes de Max',
+              company: 'Familia Huellas',
+              quote: 'Adoptar a Max en el Santuario Huellas fue la mejor decisión familiar que hemos tomado. Nos asesoraron con una honestidad y cariño infinitos para encontrar al compañero ideal.',
+              avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Formas de Ayudar al Santuario',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Padrino / Madrina de un Peludo',
+              priceMonthly: '10€/mes',
+              priceAnnual: 'Desgravable en IRPF',
+              description: 'Cubre la alimentación especial, juguetes y chequeos veterinarios mensuales de un perro o gato del refugio.',
+              features: ['Fotografías y cartas mensuales de tu ahijado', 'Visitas programadas para pasearlo los fines de semana', 'Mención en la placa de padrinos del santuario', 'Certificado oficial de donación para Hacienda'],
+              highlighted: false,
+              ctaText: 'Apadrinar un Animal'
+            },
+            {
+              id: 'p2',
+              name: 'Socio de Rescate Médico y Cirugías',
+              priceMonthly: '25€/mes',
+              priceAnnual: 'Salva vidas en emergencias',
+              description: 'Permite financiar intervenciones quirúrgicas urgentes, medicación crónica y pruebas diagnósticas complejas.',
+              features: ['Financiación de cirugías traumatológicas de urgencia', 'Informe trimestral de altas médicas y rescates', 'Invitación a la Fiesta Anual de Adoptantes Huellas', 'Deducción fiscal directa del 80% en tu IRPF'],
+              highlighted: true,
+              ctaText: 'Hacerme Socio Médico'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre el Proceso de Adopción',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Cuáles son los requisitos para adoptar un perro o gato?',
+              answer: 'Completar un breve cuestionario de preadopción, una entrevista personal o videollamada para conocer tu estilo de vida y vivienda, y firmar el contrato de adopción responsable.'
+            },
+            {
+              id: 'q2',
+              question: '¿Por qué se pide una tasa de adopción y qué cubre?',
+              answer: 'La tasa de adopción (140€ perros / 90€ gatos) es una contribución solidaria que cubre solo una parte de los costes veterinarios reales: chip, vacunas, desparasitación, analíticas y esterilización completa.'
+            },
+            {
+              id: 'q3',
+              question: '¿Puedo visitar el santuario antes de decidirme?',
+              answer: 'Sí. Abrimos nuestras puertas los sábados y domingos por la mañana con cita previa para que puedas conocer a los animales en persona en nuestros patios de juego.'
+            },
+            {
+              id: 'q4',
+              question: '¿Qué ocurre si el animal no se adapta a mi hogar o a otras mascotas?',
+              answer: 'Nuestro equipo de etólogos realiza un seguimiento estrecho para resolver cualquier problema de conducta. Si por motivos justificados no fuera posible la convivencia, el animal siempre puede regresar al santuario sin reproches.'
+            },
+            {
+              id: 'q5',
+              question: '¿Puedo ser casa de acogida temporal si no puedo adoptar para siempre?',
+              answer: 'Sí. Las casas de acogida son vitales para cachorros lactantes, animales convalecientes de cirugías o ancianos. El santuario cubre el 100% de los gastos de comida y veterinario.'
+            },
+            {
+              id: 'q6',
+              question: '¿Cómo puedo desgravar mi cuota mensual en la declaración de la renta?',
+              answer: 'Como asociación sin ánimo de lucro registrada, el 80% de tus aportaciones anuales hasta 250€ se deduce directamente de tu IRPF en la declaración anual.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'No puedes cambiar el mundo entero, pero sí el suyo.',
+          subtitle: 'Adopta, apadrina o hazte socio de nuestro santuario.',
+          primaryCta: { text: 'Iniciar Solicitud de Adopción', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Santuario Animal Huellas. Asociación sin Ánimo de Lucro.',
+          legalLinks: [
+            { label: 'Contrato de Adopción', href: '#adopcion' },
+            { label: 'Estatutos', href: '#estatutos' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Facebook', url: 'https://facebook.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 3. SEMILLAS DE LA TIERRA — Agroecología & Reforestación
+  {
+    id: 'semillas-tierra',
+    name: 'Semillas de la Tierra',
+    tagline: 'Movimiento agroecológico, reforestación comunitaria de bosques autóctonos y recuperación de variedades agrícolas tradicionales',
+    category: 'community',
+    thumbnail: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en verde bosque profundo #10B981 y tierra arcillosa, tipografía Outfit, contador de árboles plantados en tiempo real, mapas de corredores biológicos y apadrinamiento de bosques.',
+    accentColor: '#10B981',
+    theme: 'dark',
+    defaultConfig: {
+      templateId: 'semillas-tierra',
+      name: 'Asociación Semillas de la Tierra',
+      slug: 'semillas-tierra',
+      domain: 'semillasdelatierra.eco',
+      theme: 'dark',
+      accentColor: '#10B981',
+      fontFamily: "'Outfit', sans-serif",
+      borderRadius: 16,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Semillas de la Tierra — Reforestación Comunitaria & Agroecología',
+        description: 'Plantamos bosques autóctonos y recuperamos semillas tradicionales para frenar la desertificación y devolver la vida al campo.',
+        keywords: 'reforestacion bosques, arboles autoctonos, agroecologia, banco de semillas tradicionales, voluntariado medioambiental'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Semillas',
+          logoText: 'SEMILLAS // TIERRA',
+          ctaText: 'Plantar un Bosque',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Proyectos', href: '#features' },
+            { label: 'Bosque Insignia', href: '#product' },
             { label: 'Impacto', href: '#stats' },
             { label: 'Apadrinar', href: '#pricing' }
           ],
@@ -298,679 +557,195 @@ export const COMMUNITY_TEMPLATES: TemplateDefinition[] = [
         },
         hero: {
           enabled: true,
-          badge: 'Temporada de Siembra 2026',
-          kicker: 'Custodia del Territorio',
-          title: 'Devolvemos la vida a las tierras olvidadas.',
-          subtitle: 'No solo plantamos árboles: regeneramos el suelo con especies autóctonas (encinas, quejigos, acebuches) y cuidamos cada brote durante sus primeros 3 veranos críticos.',
-          primaryCta: { text: 'Apadrinar mi Primer Árbol — 12 €', link: '#pricing' },
-          secondaryCta: { text: 'Ver Jornadas de Voluntariado', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Más de 120.000 Árboles Autóctonos Plantados con Supervivencia del 85%',
+          kicker: 'Regeneración Ecológica & Biodiversidad',
+          title: 'Plantamos los bosques que darán sombra',
+          highlightTitle: 'a las generaciones del futuro.',
+          subtitle: 'Restauramos suelos erosionados plantando encinas, robles y quejigos mediante bombas de semillas y plantaciones comunitarias con custodia del territorio a largo plazo.',
+          primaryCta: { text: 'Apadrinar un Árbol (5€)', link: '#pricing' },
+          secondaryCta: { text: 'Conoce Nuestros Bosques Vivos →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
-        stats: {
+        logos: {
           enabled: true,
+          title: 'REDES DE CUSTODIA DEL TERRITORIO Y ALIANZAS AMBIENTALES',
           items: [
-            { id: 's1', value: '+185.000', label: 'Árboles Plantados', description: 'Con seguimiento geolocalizado' },
-            { id: 's2', value: '91%', label: 'Supervivencia', description: 'Gracias al riego de apoyo estival' },
-            { id: 's3', value: '450 Ha', label: 'Suelo Recuperado', description: 'Antiguas zonas incendiadas' }
+            { id: 'l1', name: 'Custodia del Territorio', tagline: 'Miembro Oficial' },
+            { id: 'l2', name: 'Sociedad Española de Ornitología', tagline: 'SEO BirdLife' },
+            { id: 'l3', name: 'FSC Regenerative', tagline: 'Bosques Sostenibles' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          title: 'Nuestro Método de Reforestación Sostenible',
-          items: [
-            {
-              id: 'b1',
-              title: 'Diversidad Autóctona 100%',
-              description: 'Combinamos estratos arbóreos y arbustivos para crear un ecosistema resiliente contra plagas e incendios.',
-              icon: 'Leaf',
-              tag: 'Biodiversidad',
-              colSpan: 2
-            },
-            {
-              id: 'b2',
-              title: 'Protector Forestal Biodegradable',
-              description: 'Tubos protectores de fibra de cartón que se disuelven de forma natural sin dejar microplásticos.',
-              icon: 'CheckCircle',
-              tag: 'Cero Plástico',
-              colSpan: 1
-            }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'Jornadas de Siembra en Comunidad',
-          items: [
-            { id: 'g1', title: 'Familias plantando en la Sierra de Guadarrama', category: 'Voluntariado', imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Primeros brotes de encina con micorrizas', category: 'Naturaleza', imageUrl: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80' }
-          ]
-        },
-        productHighlight: {
-          enabled: true,
-          title: 'Seguimiento por Satélite de tu Árbol',
-          subtitle: 'Recibe las coordenadas GPS exactas y fotos del crecimiento cada año.',
-          description: 'A través de nuestra plataforma de custodia forestal, puedes visitar tu árbol en persona o ver su evolución fotográfica.',
-          imageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Geolocalización', value: 'GPS Único', detail: 'Margen de error menor a 1 metro' },
-            { label: 'Cuidado', value: '3 Años', detail: 'Riegos y desbroce perimetral asegurado' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Historias de Socios',
-          items: [
-            {
-              id: 't1',
-              name: 'Carmen y Pablo',
-              role: 'Voluntarios Activos',
-              company: 'Madrid',
-              quote: 'Ir con nuestros hijos un sábado a plantar encinas y volver al año siguiente para verlas crecer no tiene precio. Una labor ejemplar.',
-              avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            }
-          ]
-        },
-        pricing: {
-          enabled: true,
-          title: 'Planes de Apadrinamiento',
-          billingCycle: 'annual',
-          plans: [
-            {
-              id: 'plan_arbol',
-              name: 'Apadrinar 1 Árbol Autóctono',
-              priceMonthly: '12 € (pago único)',
-              priceAnnual: '12 € (pago único)',
-              description: 'Planta y cuida una encina, alcornoque o quejigo en un bosque protegido.',
-              features: [
-                'Planta de semilla autóctona certificada',
-                'Protector forestal y tutor biodegradable',
-                'Coordenadas GPS y certificado de plantación digital',
-                '3 años de riegos de mantenimiento garantizados'
-              ],
-              ctaText: 'Plantar 1 Árbol — 12 €',
-              ctaLink: '#plant-1',
-              highlighted: false
-            },
-            {
-              id: 'plan_bosquete',
-              name: 'Crear un Pequeño Bosquete (10 Árboles)',
-              tag: 'Más Popular',
-              priceMonthly: '95 € (pago único)',
-              priceAnnual: '95 € (pago único)',
-              description: 'Crea una masa forestal diversa que absorbe más de 2 toneladas de CO2.',
-              features: [
-                '10 árboles y arbustos autóctonos de distintas especies',
-                'Placa conmemorativa de madera en el bosque',
-                'Pase familiar VIP a la jornada anual de plantación',
-                'Informe anual de absorción de carbono',
-                'Certificado fiscal para deducción en el IRPF'
-              ],
-              ctaText: 'Plantar Bosquete — 95 €',
-              ctaLink: '#plant-10',
-              highlighted: true
-            }
-          ]
-        },
-        faq: {
-          enabled: true,
-          title: 'Preguntas Frecuentes',
+          kicker: 'Metodología Regenerativa',
+          title: 'No solo plantamos árboles: regeneramos el suelo fértil y el agua.',
+          subtitle: 'Seleccionamos especies autóctonas locales con protectores biodegradables y riego de apoyo estival.',
           items: [
             {
               id: 'f1',
-              question: '¿Puedo visitar el lugar exacto donde se plantó mi árbol?',
-              answer: 'Sí. Todos nuestros proyectos se sitúan en montes públicos o fincas con acuerdos de custodia abiertos al disfrute ciudadano.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          title: 'Siembra el futuro hoy mismo.',
-          subtitle: 'El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es hoy.',
-          primaryCta: { text: 'Plantar Mi Árbol', link: '#pricing' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Asociación Raíces Verdes.',
-          legalLinks: [{ label: 'Memoria de Sostenibilidad', href: '#sustainability' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
-        }
-      }
-    }
-  },
-
-  // 3. ESPERANZA ANIMAL — Rescate, Rehabilitación & Adopción Responsable
-  {
-    id: 'esperanza-animal',
-    name: 'Esperanza Animal',
-    tagline: 'Refugio y santuario animal dedicado al rescate de animales abandonados, atención veterinaria y adopciones responsables',
-    category: 'community',
-    style: 'creativo',
-    thumbnail: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética cálida y amigable en blanco, negro y acento ámbar #FFB800, tipografía Plus Jakarta Sans, fichas de animales en adopción con fotos e historias, formulario de acogida y apadrinamiento veterinario.',
-    accentColor: '#FFB800',
-    theme: 'dark',
-    defaultConfig: {
-      templateId: 'esperanza-animal',
-      name: 'Refugio Esperanza Animal',
-      slug: 'esperanza-animal',
-      domain: 'esperanzaanimal.org',
-      theme: 'dark',
-      accentColor: '#FFB800',
-      fontFamily: "'Plus Jakarta Sans', sans-serif",
-      borderRadius: 18,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'stats',
-        'gallery',
-        'bentoFeatures',
-        'productHighlight',
-        'testimonials',
-        'pricing',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Esperanza Animal — Adopción de Perros y Gatos Rescatados',
-        description: 'Encuentra a tu compañero de cuatro patas o colabora con nuestro refugio.',
-        keywords: 'adopcion perros, protectora animales, acoger gatos, refugio animal'
-      },
-      sections: {
-        navbar: {
-          brandName: 'ESPERANZA ANIMAL',
-          logoText: 'ESPERANZA ANIMAL // REFUGIO',
-          ctaText: 'Adoptar / Ayudar',
-          ctaLink: '#pricing',
-          links: [
-            { label: 'En Adopción', href: '#gallery' },
-            { label: 'Refugio', href: '#bentoFeatures' },
-            { label: 'Historias', href: '#testimonials' },
-            { label: 'Dona', href: '#pricing' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Adopta, No Compres',
-          kicker: 'Segundas Oportunidades',
-          title: 'Una segunda oportunidad para quienes solo saben dar amor.',
-          subtitle: 'Rescatamos, curamos y cuidamos a perros y gatos sin hogar hasta encontrar la familia definitiva que se merecen.',
-          primaryCta: { text: 'Ver Animales en Adopción', link: '#gallery' },
-          secondaryCta: { text: 'Hacerte Padrino desde 6€/mes', link: '#pricing' },
-          imageUrl: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80',
-          style: 'centered'
-        },
-        stats: {
-          enabled: true,
-          items: [
-            { id: 's1', value: '+1.400', label: 'Vidas Salvadas', description: 'Animales adoptados con éxito' },
-            { id: 's2', value: '100%', label: 'Esterilizados y Vacunados', description: 'Protocolo veterinario completo' },
-            { id: 's3', value: '0', label: 'Sacrificios', description: 'Política estricta de sacrificio cero' }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'Peludos Buscando Hogar Definitivo',
-          items: [
-            { id: 'g1', title: 'Bruno — Mestizo cariñoso de 2 años', category: 'Perros', imageUrl: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Mía — Gata tricolor ronroneadora', category: 'Gatos', imageUrl: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80' }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          title: 'Cómo Funciona Nuestro Proceso de Adopción',
-          items: [
-            {
-              id: 'b1',
-              title: '1. Cuestionario de Compatibilidad',
-              description: 'Evaluamos tu estilo de vida, espacio y experiencia para recomendarte al compañero ideal.',
-              icon: 'Heart',
-              tag: 'Bienestar Animal',
-              colSpan: 2
+              title: 'Supervivencia del 85% con Riego Estival de Apoyo',
+              description: 'A diferencia de reforestaciones masivas que se abandonan, regamos y cuidamos cada ejemplar durante sus 3 primeros veranos críticos.',
+              icon: 'Droplets',
+              tag: '85% Supervivencia',
+              colSpan: 2,
+              statNumber: '85%',
+              statLabel: 'De tasa de supervivencia tras los primeros 3 años de vida del árbol'
             },
             {
-              id: 'b2',
-              title: '2. Visita y Encuentro Previo',
-              description: 'Conoce al animal en nuestro refugio o en su casa de acogida temporal.',
-              icon: 'Smile',
-              tag: 'Conexión',
+              id: 'f2',
+              title: 'Banco de Semillas Tradicionales y Variedades Antiguas',
+              description: 'Conservamos más de 300 variedades de hortalizas y frutales autóctonos adaptados al estrés hídrico sin fertilizantes químicos.',
+              icon: 'Sprout',
+              tag: '300+ Semillas',
               colSpan: 1
-            }
-          ]
-        },
-        productHighlight: {
-          enabled: true,
-          title: 'Hospital Veterinario Propio del Refugio',
-          subtitle: 'Tratamos casos graves de atropellos, leishmaniosis y desnutrición.',
-          description: 'Gracias a los donantes, contamos con quirófano y salas de cuarentena climatizadas para asegurar una pronta recuperación.',
-          imageUrl: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Atención', value: '24/7', detail: 'Con veterinarios residentes' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Finales Felices',
-          items: [
-            {
-              id: 't1',
-              name: 'Andrea y Toby',
-              role: 'Adoptantes',
-              company: 'Valencia',
-              quote: 'Adoptar a Toby en Esperanza Animal fue la mejor decisión que he tomado. El proceso fue transparente, cariñoso y hoy es el rey de la casa.',
-              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            }
-          ]
-        },
-        pricing: {
-          enabled: true,
-          title: 'Colabora con el Refugio',
-          billingCycle: 'annual',
-          plans: [
-            {
-              id: 'padrino_feed',
-              name: 'Padrino de Alimentación',
-              priceMonthly: '8 € / mes',
-              priceAnnual: '8 € / mes',
-              description: 'Cubre el pienso de calidad de un perro o gato durante todo el mes.',
-              features: [
-                'Alimento nutritivo de gama alta',
-                'Foto y carta personalizada de tu apadrinado',
-                'Visitas especiales los fines de semana',
-                'Certificado de deducción fiscal'
-              ],
-              ctaText: 'Ser Padrino — 8€/mes',
-              ctaLink: '#sponsor-feed',
-              highlighted: false
             },
             {
-              id: 'padrino_vet',
-              name: 'Padrino de Salud Veterinario',
-              tag: 'Muy Necesario',
-              priceMonthly: '18 € / mes',
-              priceAnnual: '18 € / mes',
-              description: 'Financia vacunas, desparasitaciones y medicación para animales en tratamiento.',
-              features: [
-                'Tratamientos veterinarios y cirugías urgentes',
-                'Informe médico del progreso del animal',
-                'Acceso al grupo privado de padrinos del refugio',
-                'Desgravación fiscal en la renta'
-              ],
-              ctaText: 'Ser Padrino Médico — 18€/mes',
-              ctaLink: '#sponsor-vet',
-              highlighted: true
-            }
-          ]
-        },
-        faq: {
-          enabled: true,
-          title: 'Dudas sobre Adopciones',
-          items: [
-            {
-              id: 'f1',
-              question: '¿Qué cuota de adopción se solicita y qué cubre?',
-              answer: 'Solicitamos una cuota solidaria de 150€ para perros y 100€ para gatos que cubre solo una fracción del coste real: microchip oficial, pasaporte europeo, vacunas completas, test de enfermedades y esterilización.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          title: 'Cambia una vida. Abre tu corazón.',
-          subtitle: 'Hay cientos de miradas esperando un hogar lleno de cariño.',
-          primaryCta: { text: 'Ver Lista de Animales', link: '#gallery' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Refugio Esperanza Animal. Asociación sin ánimo de lucro.',
-          legalLinks: [{ label: 'Estatutos y Cuentas Claras', href: '#accounts' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
-        }
-      }
-    }
-  },
-
-  // 4. MANOS QUE EDUCAN — Becas y Tecnología en Escuelas Rurales
-  {
-    id: 'manos-educan',
-    name: 'Manos Que Educan',
-    tagline: 'ONG educativa dedicada a equipar aulas con ordenadores, bibliotecas y becas escolares en comunidades desfavorecidas',
-    category: 'community',
-    style: 'corporativo',
-    thumbnail: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética educativa limpia en azul marino y naranja brillante #FF6B00, tipografía Inter, contador de niños becados, proyectos de aulas digitales y voluntariado formativo.',
-    accentColor: '#FF6B00',
-    theme: 'dark',
-    defaultConfig: {
-      templateId: 'manos-educan',
-      name: 'Manos Que Educan ONG',
-      slug: 'manos-educan',
-      domain: 'manosqueeducan.org',
-      theme: 'dark',
-      accentColor: '#FF6B00',
-      fontFamily: "'Plus Jakarta Sans', sans-serif",
-      borderRadius: 16,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'stats',
-        'bentoFeatures',
-        'gallery',
-        'productHighlight',
-        'testimonials',
-        'pricing',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Manos Que Educan — Becas Escolares y Aulas Digitales',
-        description: 'Garantizamos el acceso a una educación de calidad y herramientas tecnológicas para niños sin recursos.',
-        keywords: 'becas escolares, donar educacion, aulas digitales, voluntariado educacion'
-      },
-      sections: {
-        navbar: {
-          brandName: 'MANOS QUE EDUCAN',
-          logoText: 'MANOS QUE EDUCAN // ONG',
-          ctaText: 'Becar a un Niño',
-          ctaLink: '#pricing',
-          links: [
-            { label: 'Aulas', href: '#bentoFeatures' },
-            { label: 'Resultados', href: '#stats' },
-            { label: 'Escuelas', href: '#gallery' },
-            { label: 'Becas', href: '#pricing' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Campaña Curso 2026',
-          kicker: 'Educación y Tecnología para Todos',
-          title: 'El conocimiento es la herramienta más poderosa para romper el ciclo de la pobreza.',
-          subtitle: 'Dotamos a escuelas rurales de ordenadores reacondicionados, conexión a internet y becas completas de libros y comedor.',
-          primaryCta: { text: 'Becar Material Escolar — 15 €/mes', link: '#pricing' },
-          secondaryCta: { text: 'Conocer Nuestras Escuelas', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
-          style: 'centered'
-        },
-        stats: {
-          enabled: true,
-          items: [
-            { id: 's1', value: '3.850', label: 'Niños Becados', description: 'Con matrícula y material garantizado' },
-            { id: 's2', value: '42', label: 'Aulas Digitales Creadas', description: 'Equipadas con ordenadores solares' },
-            { id: 's3', value: '98%', label: 'Graduados', description: 'Tasa de finalización de primaria' }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          title: 'Pilares de Nuestros Programas Educativos',
-          items: [
-            {
-              id: 'b1',
-              title: 'Aulas Digitales con Energía Solar',
-              description: 'Instalamos placas solares e internet satelital en escuelas remotas para garantizar el acceso al mundo digital.',
-              icon: 'Laptop',
-              tag: 'Brecha Digital',
-              colSpan: 2
-            },
-            {
-              id: 'b2',
-              title: 'Comedores Escolares Saludables',
-              description: 'Garantizamos un almuerzo caliente y nutritivo que combate el absentismo escolar.',
-              icon: 'Coffee',
-              tag: 'Nutrición',
+              id: 'f3',
+              title: 'Creación de Corredores Biológicos para Fauna',
+              description: 'Conectamos espacios naturales fragmentados para permitir el paso seguro de polinizadores, aves y pequeños mamíferos.',
+              icon: 'TreePine',
+              tag: 'Corredores Vivos',
               colSpan: 1
-            }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'Aulas y Alumnos en Acción',
-          items: [
-            { id: 'g1', title: 'Nueva aula de informática en comunidad andina', category: 'Tecnología', imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Taller de lectura y biblioteca comunitaria', category: 'Lectura', imageUrl: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80' }
-          ]
-        },
-        productHighlight: {
-          enabled: true,
-          title: 'Kit Escolar Completo para 1 Año',
-          subtitle: 'Mochila, cuadernos, libros de texto, calculadora y uniforme.',
-          description: 'Eliminamos cualquier barrera económica que impida a los padres enviar a sus hijos a clase.',
-          imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Coste', value: '45 € / Año', detail: 'Por alumno cubierto al 100%' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Voz de los Maestros',
-          items: [
-            {
-              id: 't1',
-              name: 'Prof. Samuel Morales',
-              role: 'Director de Escuela',
-              company: 'Cajamarca',
-              quote: 'Tener ordenadores e internet cambió la mirada de nuestros niños. Ahora investigan, programan y sueñan con ir a la universidad.',
-              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-              rating: 5
-            }
-          ]
-        },
-        pricing: {
-          enabled: true,
-          title: 'Opciones de Beca',
-          billingCycle: 'annual',
-          plans: [
-            {
-              id: 'beca_libros',
-              name: 'Beca de Material y Libros',
-              priceMonthly: '15 € / mes',
-              priceAnnual: '15 € / mes',
-              description: 'Cubre todo el material escolar, libros y uniforme de un estudiante.',
-              features: [
-                'Mochila y lote completo de libros de texto',
-                'Seguimiento de las notas trimestrales del alumno',
-                'Carta de agradecimiento escrita a mano por el estudiante',
-                'Certificado de desgravación fiscal del 80%'
-              ],
-              ctaText: 'Becar por 15€/mes',
-              ctaLink: '#scholarship-15',
-              highlighted: true
-            }
-          ]
-        },
-        faq: {
-          enabled: true,
-          title: 'Preguntas Frecuentes',
-          items: [
-            {
-              id: 'f1',
-              question: '¿Puedo enviar cartas o mensajes al alumno becado?',
-              answer: 'Sí. Fomentamos el intercambio epistolar para que el estudiante sienta el apoyo de su padrino.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          title: 'Invierte en el futuro de un niño hoy.',
-          subtitle: 'Tu donación mensual transforma una vida para siempre.',
-          primaryCta: { text: 'Crear Mi Beca Educativa', link: '#pricing' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Manos Que Educan Fundación.',
-          legalLinks: [{ label: 'Transparencia y Cuentas', href: '#transparency' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
-        }
-      }
-    }
-  },
-
-  // 5. RED SOLIDARIA — Comedores Sociales & Inclusión Comunitaria
-  {
-    id: 'red-solidaria',
-    name: 'Red Solidaria',
-    tagline: 'Red comunitaria de bancos de alimentos, comedores sociales dignos y asesoramiento sociolaboral para familias en riesgo',
-    category: 'community',
-    style: 'corporativo',
-    thumbnail: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética cálida y solidaria en blanco y magenta #FF00E5, tipografía Inter, contador de comidas servidas al día, mapa de centros de acogida y pasarela de donaciones mensuales.',
-    accentColor: '#FF00E5',
-    theme: 'dark',
-    defaultConfig: {
-      templateId: 'red-solidaria',
-      name: 'Red Solidaria Comunitaria',
-      slug: 'red-solidaria',
-      domain: 'redsolidaria.org',
-      theme: 'dark',
-      accentColor: '#FF00E5',
-      fontFamily: "'Plus Jakarta Sans', sans-serif",
-      borderRadius: 16,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'stats',
-        'bentoFeatures',
-        'gallery',
-        'testimonials',
-        'pricing',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Red Solidaria — Comedores Sociales y Banco de Alimentos',
-        description: 'Ofrecemos alimentos diarios, duchas comunitarias y apoyo en la inserción laboral.',
-        keywords: 'banco de alimentos, donar comida, comedor social, voluntariado social'
-      },
-      sections: {
-        navbar: {
-          brandName: 'RED SOLIDARIA',
-          logoText: 'RED SOLIDARIA // SOCIAL',
-          ctaText: 'Donar Comida',
-          ctaLink: '#pricing',
-          links: [
-            { label: 'Comedores', href: '#bentoFeatures' },
-            { label: 'Impacto', href: '#stats' },
-            { label: 'Colaborar', href: '#pricing' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Nadie Sin Plato de Comida',
-          kicker: 'Acción Comunitaria Urgente',
-          title: 'Dignidad, alimento caliente y esperanza cada día.',
-          subtitle: 'Servimos más de 1.200 comidas diarias preparadas con ingredientes frescos y acompañamos a las personas en su camino hacia la reinserción social y laboral.',
-          primaryCta: { text: 'Financiar 10 Menús — 20 €', link: '#pricing' },
-          secondaryCta: { text: 'Hacerte Voluntario', link: '#bentoFeatures' },
-          imageUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
-          style: 'centered'
-        },
-        stats: {
-          enabled: true,
-          items: [
-            { id: 's1', value: '1.200', label: 'Menús Diarios', description: 'Elaborados por cocineros profesionales' },
-            { id: 's2', value: '450 Tn', label: 'Alimentos Rescatados', description: 'De mermas de supermercados y huertas' },
-            { id: 's3', value: '380', label: 'Personas Empleadas', description: 'Insertadas laboralmente este año' }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          title: 'Ecosistema de Ayuda Integral',
-          items: [
-            {
-              id: 'b1',
-              title: 'Comedores Sociales con Formato Restaurante',
-              description: 'Servicio en mesa con respeto y calidez para preservar la dignidad de cada usuario.',
-              icon: 'Coffee',
-              tag: 'Dignidad',
-              colSpan: 2
             },
             {
-              id: 'b2',
-              title: 'Talleres de Orientación y Búsqueda de Empleo',
-              description: 'Clases de informática, elaboración de CV y preparación de entrevistas.',
+              id: 'f4',
+              title: 'Participación Ciudadana y Educación Ambiental',
+              description: 'Más de 4.000 escolares y familias han participado en nuestras jornadas de siembra y bombas de semillas nendo dango.',
               icon: 'Users',
-              tag: 'Inserción',
-              colSpan: 1
+              tag: 'Comunidad Viva',
+              colSpan: 2,
+              statNumber: '4.000+',
+              statLabel: 'Voluntarios y familias que han plantado con sus propias manos'
             }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'Proyecto Emblemático',
+          kicker: 'Bosque de Niebla del Valle',
+          title: 'Regeneración de 80 Hectáreas de Dehesa Mediterránea.',
+          subtitle: 'Plantación de 25.000 encinas, quejigos y alcornoques en suelo degradado.',
+          description: 'Un proyecto a 10 años que frena la desertificación en una ladera erosionada por el sobrepastoreo. Incluye charcas para anfibios, cajas nido para lechuzas y acuerdos de custodia vinculantes con los propietarios rurales durante 50 años.',
+          imageUrl: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Superficie', value: '80 Hectáreas en la Sierra Morena' },
+            { label: 'Especies', value: 'Quercus ilex, Quercus faginea, Pistacia lentiscus, Arbutus unedo' },
+            { label: 'Captura CO2', value: 'Estimada en 1.800 toneladas durante el ciclo de crecimiento' }
           ]
         },
         gallery: {
           enabled: true,
-          title: 'Nuestra Cocina Solidaria',
+          title: 'Voluntariado y Bosques Plantados',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80', caption: 'Jornada comunitaria de siembra de bellotas con familias' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80', caption: 'Brote joven de encina con protector vegetal biodegradable' }
+          ]
+        },
+        stats: {
+          enabled: true,
           items: [
-            { id: 'g1', title: 'Preparación de menús equilibrados', category: 'Cocina', imageUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80' }
+            { id: 's1', value: '120.000+', label: 'Árboles Plantados y Cuidados' },
+            { id: 's2', value: '85%', label: 'Supervivencia Comprobada' },
+            { id: 's3', value: '300+', label: 'Variedades de Semillas Protegidas' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'Historias de Superación',
+          title: 'Lo que opinan agricultores y voluntarios.',
           items: [
             {
               id: 't1',
-              name: 'Manuel García',
-              role: 'Usuario y hoy Voluntario',
-              company: 'Madrid',
-              quote: 'Cuando perdí mi trabajo me encontré solo y desorientado. En Red Solidaria no solo encontré un plato caliente, encontré una familia que creyó en mí y me ayudó a salir adelante.',
-              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+              author: 'Andrés Barroso',
+              name: 'Andrés Barroso',
+              role: 'Agricultor Agroecológico y Socio',
+              company: 'Red Agroecológica',
+              quote: 'Semillas de la Tierra ha devuelto la vida y la fertilidad a campos que se consideraban perdidos por la sequía. Su conocimiento de las semillas tradicionales y el trabajo en comunidad es un tesoro para el mundo rural.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Donaciones y Menús Solidarios',
-          billingCycle: 'annual',
+          title: 'Planes de Apadrinamiento de Bosques',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'pack_menus',
-              name: 'Pack 10 Menús Calientes',
-              priceMonthly: '20 €',
-              priceAnnual: '20 €',
-              description: 'Garantiza comida completa para una familia durante toda una semana.',
-              features: [
-                'Primer plato, segundo, postre y pan fresco',
-                'Elaborado con nutricionistas colegiados',
-                'Desgravación fiscal inmediata del 80%'
-              ],
-              ctaText: 'Donar 20€',
-              ctaLink: '#donate-20',
-              highlighted: true
+              id: 'p1',
+              name: 'Guardián del Bosque Joven',
+              priceMonthly: '10€/mes',
+              priceAnnual: 'Solo 2€/mes tras deducción de IRPF',
+              description: 'Financia la plantación y 3 años de riego estival de 2 árboles autóctonos cada mes.',
+              features: ['Certificado de apadrinamiento con coordenadas GPS del árbol', 'Acceso al visor satelital para ver crecer tu bosque', 'Deducción fiscal del 80% en tu declaración de la renta', 'Participación gratuita en las jornadas de siembra de otoño'],
+              highlighted: false,
+              ctaText: 'Apadrinar 2 Árboles'
+            },
+            {
+              id: 'p2',
+              name: 'Protector de Bosque y Suelo Vivo',
+              priceMonthly: '25€/mes',
+              priceAnnual: 'El mayor impacto ecológico directo',
+              description: 'Permite reforestar 50 m² de bosque mediterráneo, crear charcas para fauna y conservar semillas.',
+              features: ['Planta 5 árboles al mes con protectores biodegradables', 'Financia la conservación de variedades de semillas antiguas', 'Informe fotográfico semestral de la evolución de la parcela', 'Certificado oficial de compensación de huella de carbono'],
+              highlighted: true,
+              ctaText: 'Proteger 50 m² de Bosque'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
+          title: 'Preguntas Frecuentes sobre las Reforestaciones',
           items: [
             {
-              id: 'f1',
-              question: '¿Puedo donar alimentos directamente?',
-              answer: 'Sí, recogemos alimentos no perecederos y productos frescos de empresas en todos nuestros centros de lunes a sábado.'
+              id: 'q1',
+              question: '¿Por qué la tasa de supervivencia de sus árboles es del 85%?',
+              answer: 'Porque plantamos exclusivamente especies autóctonas adaptadas al suelo y clima local, protegemos los brotes con tubos biodegradables contra herbívoros y realizamos riegos de apoyo durante los meses más secos del verano.'
+            },
+            {
+              id: 'q2',
+              question: '¿Puedo visitar los árboles que he apadrinado?',
+              answer: 'Sí. Todos los árboles y parcelas cuentan con coordenadas GPS públicas y organizamos visitas guiadas mensuales para que los padrinos y socias puedan comprobar su crecimiento sobre el terreno.'
+            },
+            {
+              id: 'q3',
+              question: '¿En qué terrenos se realizan las plantaciones?',
+              answer: 'Trabajamos en montes públicos comunales mediante convenios con ayuntamientos rurales y en fincas privadas mediante contratos de Custodia del Territorio de 50 años que blindan los árboles ante talas.'
+            },
+            {
+              id: 'q4',
+              question: '¿Las donaciones son deducibles en el IRPF o Impuesto de Sociedades?',
+              answer: 'Sí. Las donaciones particulares tienen una desgravación del 80% en los primeros 250€ anuales, y las aportaciones de empresas desgravan hasta el 50% en el Impuesto de Sociedades.'
+            },
+            {
+              id: 'q5',
+              question: '¿Cómo se garantiza que el bosque no arda en incendios forestales?',
+              answer: 'Diseñamos mosaicos agroforestales discontinuos con fajas cortafuegos desbrozadas, pastoreo rotacional preventivo con ganado local y fomento de especies pirófilas resistentes como el alcornoque.'
+            },
+            {
+              id: 'q6',
+              question: '¿Cómo puedo conseguir semillas del banco tradicional para mi huerto?',
+              answer: 'Los socios del banco de semillas pueden solicitar anualmente hasta 6 lotes de semillas tradicionales para reproducirlas en sus huertos con el compromiso de devolver parte de las semillas cosechadas.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Ayuda a que nadie se quede atrás.',
-          subtitle: 'Un pequeño gesto tuyo es un plato caliente para quien más lo necesita.',
-          primaryCta: { text: 'Donar Ahora', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'Siembra vida hoy para cosechar futuro.',
+          subtitle: 'Apadrina tu árbol o únete a nuestras jornadas de plantación comunitaria.',
+          primaryCta: { text: 'Plantar con Semillas de la Tierra', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Red Solidaria Comunitaria.',
-          legalLinks: [{ label: 'Auditoría Anual', href: '#audit' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
+          copyright: '© 2026 Asociación Semillas de la Tierra. Custodia del Territorio.',
+          legalLinks: [
+            { label: 'Convenios de Custodia', href: '#custodia' },
+            { label: 'Banco de Semillas', href: '#semillas' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Twitter', url: 'https://twitter.com' }
+          ]
         }
       }
     }

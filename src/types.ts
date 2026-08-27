@@ -53,10 +53,11 @@ export interface BentoFeatureItem {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
   tag?: string;
   colSpan?: number; // 1 or 2
   imageUrl?: string;
+  stat?: string;
   statNumber?: string;
   statLabel?: string;
 }
@@ -78,6 +79,7 @@ export interface ProductSpec {
 export interface ProductHighlightSection {
   enabled: boolean;
   kicker?: string;
+  badge?: string;
   title: string;
   subtitle: string;
   description: string;
@@ -105,9 +107,10 @@ export interface StatsSection {
 
 export interface TestimonialItem {
   id: string;
-  name: string;
+  name?: string;
+  author?: string;
   role: string;
-  company: string;
+  company?: string;
   quote: string;
   avatarUrl: string;
   rating?: number;
@@ -129,7 +132,7 @@ export interface PricingPlan {
   description: string;
   features: string[];
   ctaText: string;
-  ctaLink: string;
+  ctaLink?: string;
   highlighted: boolean;
 }
 
@@ -170,13 +173,15 @@ export interface MapSection {
   kicker?: string;
   title: string;
   subtitle?: string;
-  address: string;
-  city: string;
-  hours: string;
-  phone: string;
-  email: string;
-  embedUrl: string;
+  address?: string;
+  city?: string;
+  hours?: string;
+  phone?: string;
+  email?: string;
+  embedUrl?: string;
   directionsUrl?: string;
+  latitude?: number;
+  longitude?: number;
 }
 
 export interface SliderSlide {
@@ -194,7 +199,7 @@ export interface SliderSection {
   kicker?: string;
   title: string;
   subtitle?: string;
-  autoplay: boolean;
+  autoplay?: boolean;
   slides: SliderSlide[];
 }
 
@@ -211,7 +216,8 @@ export interface GallerySection {
   kicker?: string;
   title: string;
   subtitle?: string;
-  items: GalleryItem[];
+  items?: GalleryItem[];
+  images?: Array<string | { id: string; url: string; caption?: string }>;
 }
 
 export interface TabItem {
@@ -241,8 +247,10 @@ export interface MarqueeItem {
 
 export interface MarqueeSection {
   enabled: boolean;
-  speed: 'slow' | 'normal' | 'fast';
-  direction: 'left' | 'right';
+  title?: string;
+  subtitle?: string;
+  speed?: 'slow' | 'normal' | 'fast';
+  direction?: 'left' | 'right';
   items: MarqueeItem[];
 }
 

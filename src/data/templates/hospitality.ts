@@ -1,15 +1,14 @@
 import { TemplateDefinition } from '../../types';
 
 export const HOSPITALITY_TEMPLATES: TemplateDefinition[] = [
-  // 1. SAVOR — Restaurante Gastronómico de Autor & Alta Cocina
+  // 1. SAVOR — Alta Cocina de Autor & Menú Degustación Michelin
   {
     id: 'savor-restaurant',
-    name: 'Savor',
+    name: 'Savor Gastronomy',
     tagline: 'Restaurante gastronómico con dos estrellas Michelin, menú degustación de temporada y bodega de autor',
     category: 'hospitality',
-    style: 'elegante',
     thumbnail: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
-    description: 'Tonos carbón y ámbar cálido #F59E0B, tipografía culinaria noble, carrusel de pases gastronómicos, bento de filosofía de huerto propio, galería de emplatados de autor, formulario de reserva de mesa, mapa y cta.',
+    description: 'Tonos carbón y ámbar cálido #F59E0B, tipografía Playfair Display, carrusel de pases gastronómicos, bento de huerto propio, galería de emplatados, reserva de mesa, mapa y cta.',
     accentColor: '#F59E0B',
     theme: 'dark',
     defaultConfig: {
@@ -19,12 +18,13 @@ export const HOSPITALITY_TEMPLATES: TemplateDefinition[] = [
       domain: 'savorrestaurante.com',
       theme: 'dark',
       accentColor: '#F59E0B',
-      fontFamily: "'Playfair Display', serif",
+      fontFamily: "'Playfair Display', Georgia, serif",
       borderRadius: 14,
       published: true,
       sectionOrder: [
         'navbar',
         'hero',
+        'logos',
         'slider',
         'bentoFeatures',
         'productHighlight',
@@ -50,8 +50,8 @@ export const HOSPITALITY_TEMPLATES: TemplateDefinition[] = [
           ctaLink: '#pricing',
           links: [
             { label: 'Menú Degustación', href: '#pricing' },
-            { label: 'La Huerta', href: '#bentoFeatures' },
-            { label: 'El Plato Icono', href: '#productHighlight' },
+            { label: 'La Huerta', href: '#features' },
+            { label: 'Plato Icono', href: '#product' },
             { label: 'Galería', href: '#gallery' },
             { label: 'Ubicación', href: '#map' }
           ],
@@ -60,219 +60,308 @@ export const HOSPITALITY_TEMPLATES: TemplateDefinition[] = [
         },
         hero: {
           enabled: true,
-          badge: '2 Estrellas Michelin 2026',
+          badge: '2 Estrellas Michelin 2026 • 3 Soles Repsol',
           kicker: 'Cocina de Emoción y Paisaje',
-          title: 'El sabor de la tierra, elevado a su máxima expresión.',
-          highlightTitle: 'Arte culinario sin artificios.',
-          subtitle: 'Un viaje de 16 pases ideado por el chef Mateo Arriaga donde el producto de proximidad dialoga con técnicas ancestrales de fermentación y brasa.',
-          primaryCta: { text: 'Reservar Menú Degustación', link: '#pricing' },
-          secondaryCta: { text: 'Descubrir los Pases', link: '#gallery' },
-          imageUrl: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80',
+          title: 'El sabor de la tierra, elevado a su',
+          highlightTitle: 'máxima expresión.',
+          subtitle: 'Un viaje sensorial de 16 pases ideado por el chef Mateo Arriaga donde el producto de proximidad dialoga con técnicas ancestrales de fermentación y brasa viva.',
+          primaryCta: { text: 'Reservar Experiencia Gastronómica', link: '#pricing' },
+          secondaryCta: { text: 'Ver Galería de Pases →', link: '#gallery' },
+          imageUrl: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'DISTINCIONES Y GUÍAS GASTRONÓMICAS INTERNACIONALES',
+          items: [
+            { id: 'l1', name: 'Guía Michelin 2026', tagline: '2 Estrellas' },
+            { id: 'l2', name: 'Guía Repsol', tagline: '3 Soles' },
+            { id: 'l3', name: 'Relais & Châteaux', tagline: 'Miembro de Honor' },
+            { id: 'l4', name: 'Les Grandes Tables', tagline: 'Excellence' }
+          ]
         },
         slider: {
           enabled: true,
-          title: 'Menú Degustación "Origen" — Selección de Pases',
-          subtitle: 'Cada plato representa un ecosistema de nuestro entorno natural.',
-          autoplay: true,
+          title: 'Pases de la Temporada de Otoño & Invierno',
           slides: [
             {
-              id: 'sl1',
-              title: 'Cigala de Lonja a la Brasa de Sarmientos',
-              subtitle: 'Con emulsión de sus cabezas tostadas y crujiente de algas de roca.',
-              imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
+              id: 's1',
+              title: 'Cigala Real a la Brasa de Sarmiento',
+              subtitle: 'Con emulsión de sus corales y jugo concentrado de chirivía tostada al humo.',
+              imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80',
+              ctaText: 'Ver Detalle'
             },
             {
-              id: 'sl2',
-              title: 'Pichón Asado en Dos Cocciones',
-              subtitle: 'Pechuga sonrosada con praliné de avellanas y ravioli de sus interiores.',
-              imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80'
+              id: 's2',
+              title: 'Pichón de Bresse en Dos Cocciones',
+              subtitle: 'Pechuga rosada con salsa perigueux de trufa negra melanosporum y milhojas de tubérculos.',
+              imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80',
+              ctaText: 'Ver Detalle'
+            },
+            {
+              id: 's3',
+              title: 'Texturas de Cacao Criollo & Helado de Romero',
+              subtitle: 'Ganache aireada de chocolate al 75%, tierra de avellanas y aceite de oliva virgen temprano.',
+              imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=80',
+              ctaText: 'Ver Detalle'
             }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          title: 'Los Tres Pilares de Savor',
+          kicker: 'Filosofía y Origen',
+          title: 'Respeto absoluto por el producto y el tiempo.',
+          subtitle: 'Cada ingrediente proviene de nuestra huerta biodinámica o de lonjas artesanales seleccionadas cada amanecer.',
           items: [
             {
-              id: 'b1',
+              id: 'f1',
               title: 'Huerto Biodinámico Propio de 3 Hectáreas',
-              description: 'Cosechamos cada mañana las verduras, brotes y flores que se servirán en el servicio de mediodía y noche.',
+              description: 'Cultivamos más de 80 variedades de hortalizas olvidadas, flores comestibles y hierbas aromáticas recolectadas dos horas antes de cada servicio.',
               icon: 'Leaf',
-              tag: 'Km 0 Real',
-              colSpan: 2
+              tag: '100% Km 0',
+              colSpan: 2,
+              statNumber: '80+',
+              statLabel: 'Variedades botánicas autóctonas cultivadas'
             },
             {
-              id: 'b2',
-              title: 'Bodega con Más de 800 Referencias',
-              description: 'Pequeños viticultores independientes, añadas históricas y maridajes sin alcohol con kombuchas caseras.',
+              id: 'f2',
+              title: 'Cava con Más de 1.400 Referencias',
+              description: 'Nuestra sumiller jefa selecciona joyas de pequeños viticultores independientes, añadas históricas y vinos naturales.',
               icon: 'Wine',
-              tag: 'Sumillería',
+              tag: 'Cava de Autor',
               colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Fuego de Encina y Fermentaciones',
+              description: 'Técnicas ancestrales de brasa japonesa robata combinadas con koji, garums caseros y vinagres añejos.',
+              icon: 'Flame',
+              tag: 'Artesanal',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Solo 10 Mesas por Servicio',
+              description: 'Una atmósfera de serenidad e intimidad absoluta para que cada comensal disfrute de una atención exclusiva.',
+              icon: 'Users',
+              tag: 'Privacidad',
+              colSpan: 2,
+              statNumber: '28',
+              statLabel: 'Comensales máximos por turno'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          title: 'El Plato Icono: Alcachofa Confitada & Trufa Negra',
-          subtitle: 'Confitada durante 8 horas en grasa de jamón ibérico y terminada al carbón de encina.',
-          description: 'Acompañada de yema de huevo de corral curada en miso blanco y láminas generosas de Tuber melanosporum.',
-          imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
+          badge: 'El Plato Icono',
+          kicker: 'Creación de Vanguardia',
+          title: 'Huevo de Campo a 63° con Crema de Boletus y Trufa Negra.',
+          subtitle: 'La síntesis de nuestro compromiso con el bosque y el tiempo.',
+          description: 'Yema untuosa cocinada a baja temperatura milimétrica, reposada sobre un jugo denso de hongos silvestres recolectados en la sierra y láminas generosas de trufa negra de temporada rallada en mesa.',
+          imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Origen', value: 'Huerta de Tudela', detail: 'Cultivo ecológico certificado' },
-            { label: 'Maridaje', value: 'Palo Cortado VORS', detail: 'Bodegas Tradición 30 años' }
+            { label: 'Maridaje Recomendado', value: 'Champagne Grand Cru Blanc de Blancs Millésimé' },
+            { label: 'Tiempo de Preparación', value: '72 horas de reducción del caldo base' },
+            { label: 'Temperatura de Servicio', value: '62.5°C exactos' }
           ]
         },
         gallery: {
           enabled: true,
-          title: 'Atmósfera y Creaciones',
-          items: [
-            { id: 'g1', title: 'Comedor Principal con Vistas al Jardín', category: 'Sala', imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Postre de Cacao Silvestre y Helado de Levadura', category: 'Postres', imageUrl: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80' }
+          title: 'El Espacio y la Atmósfera',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80', caption: 'Sala principal con iluminación cenital cálida' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80', caption: 'Mesa del chef frente a la cocina vista' },
+            { id: 'g3', url: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80', caption: 'Cava de cristal con temperatura controlada' },
+            { id: 'g4', url: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80', caption: 'Pase de alta cocina con emplatado en vivo' }
           ]
         },
         stats: {
           enabled: true,
           items: [
-            { id: 's1', value: '2', label: 'Estrellas Michelin', description: 'Y 3 Soles Repsol' },
-            { id: 's2', value: '16', label: 'Pases Gastronómicos', description: 'Por comensal' },
-            { id: 's3', value: '24', label: 'Comensales por Servicio', description: 'Intimidad absoluta' }
+            { id: 's1', value: '2', label: 'Estrellas Michelin Consecutivas' },
+            { id: 's2', value: '16', label: 'Pases en el Menú Degustación' },
+            { id: 's3', value: '1.400+', label: 'Referencias en Nuestra Cava' },
+            { id: 's4', value: '98%', label: 'Ingredientes de Origen Local' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'Crítica Gastronómica',
+          title: 'Opiniones de críticos gastronómicos y comensales.',
           items: [
             {
               id: 't1',
-              name: 'Carlos Capel',
-              role: 'Crítico Gastronómico',
-              company: 'El País',
-              quote: 'Una de las experiencias culinarias más conmovedoras y certeras del panorama europeo actual. El dominio del fuego y la pureza del vegetal son sublimes.',
-              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+              author: 'Rodrigo Castelló',
+              name: 'Rodrigo Castelló',
+              role: 'Crítico Gastronómico en Guía Gourmet',
+              company: 'Guía Gourmet',
+              quote: 'Savor no solo sirve platos extraordinarios, cuenta una historia viva del paisaje mediterráneo con una técnica y una delicadeza que conmueven en cada bocado.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            },
+            {
+              id: 't2',
+              author: 'Valeria Montiel',
+              name: 'Valeria Montiel',
+              role: 'Sommelier Internacional',
+              company: 'Vinum Society',
+              quote: 'El maridaje propuesto por el equipo de sumillería es una clase magistral de armonía y sorpresa. Una de las mejores cenas de mi vida.',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Menús y Experiencias',
-          billingCycle: 'annual',
+          title: 'Nuestras Experiencias Degustación',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'menu_origen',
-              name: 'Menú "Origen" (12 Pases)',
-              priceMonthly: '165 €',
-              priceAnnual: '165 €',
-              description: 'Un recorrido esencial por nuestros grandes clásicos y el producto estacional de lonja y huerto.',
+              id: 'p1',
+              name: 'Menú Esencia (12 Pases)',
+              priceMonthly: '145€',
+              priceAnnual: 'Por persona (Bebida aparte)',
+              description: 'Un recorrido esencial por nuestros clásicos de huerta y mar de la temporada actual.',
               features: [
                 '12 pases gastronómicos completos',
                 'Aperitivo de bienvenida en bodega',
-                'Panes artesanos de masa madre y mantequilla de pasto',
-                'Petit fours y café de especialidad'
+                'Selección de panes artesanos y aceites tempranos',
+                'Servicio de café de especialidad e infusiones del huerto'
               ],
-              ctaText: 'Reservar Menú Origen',
-              ctaLink: '#book-origen',
-              highlighted: false
+              highlighted: false,
+              ctaText: 'Reservar Menú Esencia'
             },
             {
-              id: 'menu_gran_reserva',
-              name: 'Menú "Gran Festival" (16 Pases + Maridaje)',
-              tag: 'Experiencia Total',
-              priceMonthly: '260 €',
-              priceAnnual: '260 €',
-              description: 'La experiencia completa que incluye los platos más icónicos y maridaje con vinos de autor.',
+              id: 'p2',
+              name: 'Menú Gran Savor (16 Pases)',
+              priceMonthly: '195€',
+              priceAnnual: 'Por persona (Bebida aparte)',
+              description: 'La experiencia culinaria completa con los platos más complejos e innovadores del chef.',
               features: [
-                '16 pases gastronómicos con caviares y trufas',
-                'Maridaje de 8 copas seleccionado por nuestro sumiller',
-                'Mesa preferencial con vistas a la cocina vista',
-                'Menú impreso firmado por el chef Mateo Arriaga'
+                '16 pases gastronómicos de autor',
+                'Visita guiada a la huerta y cocina con el chef',
+                'Pase exclusivo de quesos artesanos afinados',
+                'Petit fours y cóctel de despedida en terraza'
               ],
-              ctaText: 'Reservar Gran Festival',
-              ctaLink: '#book-festival',
-              highlighted: true
+              highlighted: true,
+              ctaText: 'Reservar Gran Savor'
             }
           ]
         },
         map: {
           enabled: true,
-          title: 'Dónde Encontrarnos',
-          subtitle: 'Un enclave rodeado de viñedos y naturaleza a 20 minutos de la ciudad.',
-          address: 'Camino de los Viñedos, s/n',
-          city: '28000 Madrid / La Rioja',
-          hours: 'Miércoles a Domingo: 13:30 - 16:30 | 20:30 - 23:30',
-          phone: '+34 912 345 678',
-          email: 'reservas@savorrestaurante.com',
-          embedUrl: 'https://maps.google.com'
+          title: 'Ubicación & Horarios de Servicio',
+          address: 'Paseo de la Alquería, 14, 46018 Valencia, España',
+          latitude: 39.4699,
+          longitude: -0.3763,
+          hours: 'Almuerzos: Jueves a Domingo de 13:30 a 16:30 | Cenas: Miércoles a Sábado de 20:30 a 23:30'
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
+          title: 'Preguntas Frecuentes sobre Reservas',
           items: [
             {
-              id: 'f1',
-              question: '¿Con cuánta antelación abren las reservas?',
-              answer: 'Abrimos el calendario con 90 días de antelación el primer día de cada mes a las 00:00h.'
+              id: 'q1',
+              question: '¿Con cuánta antelación se deben realizar las reservas?',
+              answer: 'El calendario de reservas se abre con 60 días de antelación el primer día de cada mes a las 10:00h. Recomendamos reservar con tiempo para servicios de fin de semana.'
             },
             {
-              id: 'f2',
-              question: '¿Adaptan el menú a intolerancias o alergias alimentarias?',
-              answer: 'Sí. Rogamos indicar cualquier intolerancia o restricción alimentaria al momento de realizar la reserva para que el equipo de cocina prepare alternativas adecuadas.'
+              id: 'q2',
+              question: '¿Pueden adaptar el menú a alergias o dietas vegetarianas?',
+              answer: 'Sí. Adaptamos nuestros menús con aviso previo de al menos 48 horas para celíacos, vegetarianos, embarazadas y comensales con intolerancias alimentarias severas.'
+            },
+            {
+              id: 'q3',
+              question: '¿Existe algún código de vestimenta requerido?',
+              answer: 'Sugerimos un código elegante informal (smart casual). No está permitido el acceso con ropa deportiva o calzado de playa.'
+            },
+            {
+              id: 'q4',
+              question: '¿Disponen de maridaje de vinos para los menús?',
+              answer: 'Ofrecemos dos propuestas de maridaje: Maridaje de Grandes Terruños (75€) y Maridaje Exclusivo de Joyas de Colección (120€), además de maridaje sin alcohol a base de kombuchas e infusiones propias.'
+            },
+            {
+              id: 'q5',
+              question: '¿Cuál es la política de cancelación de reservas?',
+              answer: 'Las cancelaciones realizadas con más de 48 horas de antelación no tienen ningún coste. Para cancelaciones posteriores o no presentación se cargará una tarifa de 50€ por comensal.'
+            },
+            {
+              id: 'q6',
+              question: '¿Disponen de servicio de aparcacoches o parking privado?',
+              answer: 'Contamos con parking privado vigilado y gratuito en el propio recinto del restaurante con plazas de recarga eléctrica para vehículos.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Vive una velada gastronómica que recordarás siempre.',
-          subtitle: 'Asegura tu mesa en Savor con confirmación inmediata.',
-          primaryCta: { text: 'Reservar Mesa Ahora', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'Una velada inolvidable te espera en Savor.',
+          subtitle: 'Reserva tu mesa y déjate llevar por una experiencia gastronómica única.',
+          primaryCta: { text: 'Solicitar Reserva de Mesa', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Savor Restaurante Gastronómico S.L.',
-          legalLinks: [{ label: 'Política de Cancelación de Reservas', href: '#cancellation' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
+          copyright: '© 2026 Savor Restaurante Gastronómico S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Política de Reservas', href: '#reservas' },
+            { label: 'Aviso Legal', href: '#legal' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' },
+            { platform: 'Facebook', url: 'https://facebook.com' }
+          ]
         }
       }
     }
   },
 
-  // 2. SOL & BRASAS — Asador de Leña & Cortes Madurados
+  // 2. KANSO RAMEN — Taberna Japonesa & Ramen Artesanal
   {
-    id: 'sol-brasas',
-    name: 'Sol & Brasas',
-    tagline: 'Asador tradicional contemporáneo con parrilla de encina, cortes de vaca rubia gallega madurados 60 días y bodega de tintos',
+    id: 'kanso-ramen',
+    name: 'Kanso Ramen Bar',
+    tagline: 'Taberna japonesa tradicional especializada en caldos tonkotsu cocinados a fuego lento durante 18 horas y fideos frescos caseros',
     category: 'hospitality',
-    style: 'oscuro',
-    thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética rústica industrial en negro carbón y fuego #FF6B00, tipografía robusta, carta de chuletones madurados, bodega climatizada y reservas en tiempo real.',
-    accentColor: '#FF6B00',
+    thumbnail: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en negro carbón #12121A y rojo carmesí #EF4444, tipografía Space Grotesk, menú interactivo con fotos de cuencos de ramen, gyozas caseras y sake artesanal.',
+    accentColor: '#EF4444',
     theme: 'dark',
     defaultConfig: {
-      templateId: 'sol-brasas',
-      name: 'Sol & Brasas Steakhouse',
-      slug: 'sol-brasas',
-      domain: 'solybrasas.es',
+      templateId: 'kanso-ramen',
+      name: 'Kanso Ramen Bar',
+      slug: 'kanso-ramen',
+      domain: 'kansoramen.com',
       theme: 'dark',
-      accentColor: '#FF6B00',
-      fontFamily: "'Outfit', sans-serif",
-      borderRadius: 14,
+      accentColor: '#EF4444',
+      fontFamily: "'Space Grotesk', sans-serif",
+      borderRadius: 12,
       published: true,
-      sectionOrder: ['navbar', 'hero', 'bentoFeatures', 'productHighlight', 'gallery', 'stats', 'pricing', 'map', 'faq', 'ctaFinal', 'footer'],
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'map',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
       seo: {
-        title: 'Sol & Brasas — Asador de Leña y Carne Madurada',
-        description: 'Chuletones de vaca rubia gallega madurados en cámara propia y asados sobre brasas de carbón de encina.',
-        keywords: 'asador carnes, chuletón madurado, parrilla carbon, restaurante brasa'
+        title: 'Kanso Ramen — Auténtico Ramen Artesanal & Izakaya Japonesa',
+        description: 'Caldos cocinados 18 horas, fideos amasados a diario y chashu braseado al soplete.',
+        keywords: 'ramen artesanal, tonkotsu ramen, izakaya japonesa, fideos japoneses, sake bar'
       },
       sections: {
         navbar: {
-          brandName: 'SOL & BRASAS',
-          logoText: 'SOL & BRASAS // ASADOR',
-          ctaText: 'Reservar Mesa',
+          brandName: 'Kanso Ramen',
+          logoText: 'KANSO // RAMEN',
+          ctaText: 'Ver Carta & Pedir',
           ctaLink: '#pricing',
           links: [
-            { label: 'Cortes Madurados', href: '#pricing' },
-            { label: 'Parrilla', href: '#bentoFeatures' },
+            { label: 'El Caldo', href: '#features' },
+            { label: 'Plato Estrella', href: '#product' },
+            { label: 'Especialidades', href: '#pricing' },
             { label: 'Ubicación', href: '#map' }
           ],
           glassBlur: true,
@@ -280,515 +369,720 @@ export const HOSPITALITY_TEMPLATES: TemplateDefinition[] = [
         },
         hero: {
           enabled: true,
-          badge: 'Brasas de Encina Vivas',
-          kicker: 'Maduración Propia Dry Aged',
-          title: 'El templo de la carne a la brasa y la buena leña.',
-          subtitle: 'Seleccionamos las mejores razas autóctonas y maduramos cada lomo en nuestra cámara a la vista con humedad y temperatura controladas al milímetro.',
-          primaryCta: { text: 'Ver Cortes y Reservar', link: '#pricing' },
-          imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Fideos amasados a diario en nuestro obrador propio',
+          kicker: 'Tradición de Tokio & Fukuoka',
+          title: 'El alma del ramen japonés,',
+          highlightTitle: 'en cada cucharada.',
+          subtitle: 'Caldos densos cocinados lentamente durante 18 horas, tare añejado en barrica de cedro y chashu de cerdo ibérico braseado al soplete al momento.',
+          primaryCta: { text: 'Explorar Nuestra Carta', link: '#pricing' },
+          secondaryCta: { text: 'Cómo Llegar a la Taberna →', link: '#map' },
+          imageUrl: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
         bentoFeatures: {
           enabled: true,
-          title: 'Nuestra Obsesión por el Fuego',
+          kicker: 'Los Cuatro Pilares',
+          title: 'La obsesión por el detalle en cada ingrediente.',
+          subtitle: 'No usamos polvos concentrados ni atajos industriales: solo materias primas puras y tiempo.',
           items: [
             {
-              id: 'b1',
-              title: 'Parrilla Vasca con Elevación Milimétrica',
-              description: 'Controlamos la distancia al ascua para sellar la grasa exterior y caramelizar la superficie manteniendo el corazón jugoso.',
+              id: 'f1',
+              title: 'Caldo Tonkotsu de 18 Horas de Ebullición',
+              description: 'Huesos de cerdo seleccionados a fuego constante hasta extraer todo el colágeno y lograr una emulsión cremosa y aterciopelada.',
               icon: 'Flame',
-              tag: 'Fuego Vivo',
-              colSpan: 2
+              tag: '18h Fuego Lento',
+              colSpan: 2,
+              statNumber: '18h',
+              statLabel: 'Tiempo mínimo de cocción ininterrumpida'
             },
             {
-              id: 'b2',
-              title: 'Cámara Dry Aged a la Vista',
-              description: 'Lomos madurados de 45 a 90 días donde la concentración de sabores minerales y textura alcanzan su cumbre.',
-              icon: 'Award',
-              tag: 'Dry Aged',
+              id: 'f2',
+              title: 'Fideos Frescos de Trigo Japonés',
+              description: 'Amasados cada mañana con agua alcalina kansui para conseguir la elasticidad y textura al dente perfecta.',
+              icon: 'Utensils',
+              tag: 'Obrador Propio',
               colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Chashu Ibérico Marinado en Soja Dulce',
+              description: 'Panceta enrollada y cocinada a baja temperatura durante 12 horas, marcada con soplete justo antes de servir.',
+              icon: 'Sparkles',
+              tag: 'Cerdo Ibérico',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Huevo Ajitsuke de Yema Líquida',
+              description: 'Huevos de campo marinados 24 horas en sake, mirin y soja con el centro meloso que se funde en el caldo.',
+              icon: 'CheckCircle2',
+              tag: 'Marinado 24h',
+              colSpan: 2,
+              statNumber: '100%',
+              statLabel: 'Huevos de gallinas camperas criadas en libertad'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          title: 'Chuletón de Vaca Rubia Gallega — 60 Días',
-          subtitle: 'Infiltración grasa sobresaliente y sabor a mantequilla y frutos secos.',
-          description: 'Servido sobre plato caliente con sal marina en escamas de manantial y pimientos de Guernica confitados.',
-          imageUrl: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80',
+          badge: 'El Cuenco Insignia',
+          kicker: 'Especialidad de la Casa',
+          title: 'Kanso Black Garlic Tonkotsu Ramen.',
+          subtitle: 'Intensidad, umami profundo y aroma a ajo negro tostado.',
+          description: 'Nuestro caldo tonkotsu estrella enriquecido con mayu (aceite artesanal de ajo negro asado al wok), doble ración de chashu, cebolleta tierna japonesa, alga nori crujiente y setas kikurage.',
+          imageUrl: 'https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Peso', value: '1.2 - 1.5 kg', detail: 'Ideal para compartir entre 2 personas' },
-            { label: 'Maduración', value: '60 Días', detail: 'Cámara Dry Aged con sal del Himalaya' }
+            { label: 'Nivel de Picante', value: 'Suave / Medio / Extremo (a elegir)' },
+            { label: 'Punto del Fideo', value: 'Firme (Katamé) o Clásico' },
+            { label: 'Opción Sin Cerdo', value: 'Disponible en caldo Tori Paitan de ave y vegetariano Miso' }
           ]
         },
         gallery: {
           enabled: true,
-          title: 'Nuestra Parrilla',
-          items: [
-            { id: 'g1', title: 'Chuletón sobre brasas crepitantes', category: 'Brasa', imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80' },
-            { id: 'g2', title: 'Bodega de tintos de Ribera y Rioja', category: 'Vinos', imageUrl: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80' }
+          title: 'Ambiente de Taberna Japonesa',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=800&q=80', caption: 'Cuenco de Black Garlic Tonkotsu' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80', caption: 'Gyozas caseras doradas a la plancha' },
+            { id: 'g3', url: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80', caption: 'Barra de madera con servicio directo desde cocina' }
           ]
         },
         stats: {
           enabled: true,
           items: [
-            { id: 's1', value: '60 Días', label: 'Maduración Media', description: 'Concentración óptima de sabor' },
-            { id: 's2', value: '100%', label: 'Carbón de Encina', description: 'Aroma limpio sin humos químicos' }
+            { id: 's1', value: '18h', label: 'Horas de Cocción del Caldo' },
+            { id: 's2', value: '450+', label: 'Cuencos Servidos Diariamente' },
+            { id: 's3', value: '4.9/5', label: 'Puntuación en Google Reviews' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Opiniones de nuestros comensales.',
+          items: [
+            {
+              id: 't1',
+              author: 'Kenji Takahashi',
+              name: 'Kenji Takahashi',
+              role: 'Consultor Gastronómico Tokio-Madrid',
+              company: 'Tokyo Food Lab',
+              quote: 'Hacía años que no probaba un caldo tonkotsu tan auténtico fuera de Japón. La textura de los fideos caseros y el punto del ajitama son absolutamente perfectos.',
+              avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Cortes Principales & Menús',
-          billingCycle: 'annual',
+          title: 'Carta de Especialidades Principales',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'corte_rubia',
-              name: 'Chuletón Vaca Rubia Gallega (1kg)',
-              priceMonthly: '78 €',
-              priceAnnual: '78 €',
-              description: 'Para 2 personas. Incluye guarnición de patatas fritas en grasa de buey y pimientos asados.',
-              features: ['Maduración de 45-60 días', 'Asado a la brasa al punto solicitado', 'Guarnición doble incluida', 'Sal en escamas volcánica'],
-              ctaText: 'Reservar Mesa con Chuletón',
-              ctaLink: '#book-rubia',
-              highlighted: true
+              id: 'p1',
+              name: 'Tonkotsu Clásico de Fukuoka',
+              priceMonthly: '13.50€',
+              priceAnnual: 'Cuenco completo',
+              description: 'Caldo blanco cremoso de cerdo, fideos rectos finos, chashu ibérico, bambú menma y huevo marinado.',
+              features: ['Caldo tonkotsu 18h', '2 piezas de chashu ibérico', 'Huevo ajitsuke entero', 'Cebolleta negi y nori'],
+              highlighted: false,
+              ctaText: 'Pedir en Barra'
+            },
+            {
+              id: 'p2',
+              name: 'Black Garlic Tonkotsu Deluxe',
+              priceMonthly: '15.50€',
+              priceAnnual: 'El más solicitado',
+              description: 'Nuestra receta insignia con aceite de ajo negro asado, triple chashu y setas kikurage crujientes.',
+              features: ['Aceite mayu de ajo negro', '3 piezas de chashu al soplete', 'Huevo ajitsuke meloso', 'Ración extra de fideos (Kaedama) opcional'],
+              highlighted: true,
+              ctaText: 'Pedir Especialidad'
             }
           ]
         },
         map: {
           enabled: true,
-          title: 'Ven a Disfrutar del Fuego',
-          address: 'Calle Mayor 42',
-          city: 'Madrid',
-          hours: 'Martes a Domingo: 13:00 - 17:00 | 20:00 - 00:00',
-          phone: '+34 913 222 111',
-          email: 'contacto@solybrasas.es',
-          embedUrl: 'https://maps.google.com'
+          title: 'Encuéntranos en el Barrio de Malasaña',
+          address: 'Calle del Pez, 22, 28004 Madrid, España',
+          latitude: 40.4241,
+          longitude: -3.7051,
+          hours: 'Abierto todos los días de 13:00 a 16:30 y de 20:00 a 23:45. Sin reserva previa.'
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
-          items: [{ id: 'f1', question: '¿Tienen opciones para celíacos?', answer: 'Sí, todas nuestras carnes a la brasa y salsas son 100% libres de gluten.' }]
+          title: 'Preguntas Frecuentes sobre la Taberna',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Se admiten reservas previas para grupos?',
+              answer: 'Funcionamos con el sistema tradicional japonés de entrada por orden de llegada para asegurar la máxima fluidez. El tiempo medio de espera en horas punta no suele superar los 15-20 minutos.'
+            },
+            {
+              id: 'q2',
+              question: '¿Tienen opciones vegetarianas o veganas disponibles?',
+              answer: 'Sí. Preparamos a diario un delicioso ramen vegano con caldo a base de setas shiitake secas, alga kombu y miso blanco tostado acompañado de tofu marinado.'
+            },
+            {
+              id: 'q3',
+              question: '¿Qué es el servicio de Kaedama?',
+              answer: 'El kaedama consiste en pedir una ración extra de fideos recién cocidos directamente a tu cuenco si todavía te queda caldo caliente por solo 2€ adicionales.'
+            },
+            {
+              id: 'q4',
+              question: '¿Tienen cervezas y sakes japoneses de importación?',
+              answer: 'Disponemos de cervezas artesanales de Kioto, refrescos japoneses Ramune y una selección de sakes Junmai y Daiginjo servidos fríos o tibios.'
+            },
+            {
+              id: 'q5',
+              question: '¿Disponen de servicio de comida para llevar?',
+              answer: 'Sí. Empacamos el caldo hirviendo y los fideos en compartimentos separados para que puedas combinarlos en casa manteniendo la textura óptima.'
+            },
+            {
+              id: 'q6',
+              question: '¿Los fideos contienen gluten?',
+              answer: 'Nuestros fideos tradicionales se elaboran con harina de trigo alcalina con gluten. Contamos con fideos de arroz como sustituto bajo petición previa.'
+            }
+          ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Reserva tu mesa en Sol & Brasas.',
-          subtitle: 'Asegura tu corte de carne madurada hoy.',
-          primaryCta: { text: 'Reservar Ahora', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'Un cuenco humeante de auténtico ramen te espera.',
+          subtitle: 'Ven a disfrutar de la verdadera taberna japonesa en el centro de la ciudad.',
+          primaryCta: { text: 'Ver Cómo Llegar', link: '#map' }
         },
         footer: {
-          copyright: '© 2026 Sol & Brasas Asadores S.L.',
-          legalLinks: [{ label: 'Aviso Legal', href: '#legal' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
+          copyright: '© 2026 Kanso Ramen Bar S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Información de Alérgenos', href: '#alergenos' },
+            { label: 'Aviso Legal', href: '#legal' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
         }
       }
     }
   },
 
-  // 3. KANSO RAMEN — Izakaya Tradicional & Coctelería Botánica
+  // 3. VELVET LOUNGE — Cocktail Club & Speakeasy
   {
-    id: 'kanso-ramen',
-    name: 'Kanso Ramen',
-    tagline: 'Taberna japonesa artesanal con caldos tonkotsu hervidos 18 horas, fideos frescos hechos a mano y coctelería con sake',
+    id: 'velvet-lounge',
+    name: 'Velvet Lounge & Jazz',
+    tagline: 'Club clandestino de coctelería de autor, destilados de colección y sesiones nocturnas de jazz en directo',
     category: 'hospitality',
-    style: 'oscuro',
-    thumbnail: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética Tokio neo-noir en negro y rojo neón #EF4444, tipografía japonesa y occidental moderna, carta interactiva de ramen con nivel de picante y reserva de barra.',
-    accentColor: '#EF4444',
+    thumbnail: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en negro medianoche y oro viejo #D97706, tipografía Playfair Display, carta de cócteles botánicos, agenda de conciertos de jazz y reserva de barra privada.',
+    accentColor: '#D97706',
     theme: 'dark',
     defaultConfig: {
-      templateId: 'kanso-ramen',
-      name: 'Kanso Ramen & Izakaya',
-      slug: 'kanso-ramen',
-      domain: 'kansoramen.es',
+      templateId: 'velvet-lounge',
+      name: 'Velvet Cocktail Club & Speakeasy',
+      slug: 'velvet-lounge',
+      domain: 'velvetcocktail.club',
       theme: 'dark',
-      accentColor: '#EF4444',
-      fontFamily: "'Space Grotesk', sans-serif",
+      accentColor: '#D97706',
+      fontFamily: "'Playfair Display', Georgia, serif",
       borderRadius: 14,
       published: true,
-      sectionOrder: ['navbar', 'hero', 'bentoFeatures', 'productHighlight', 'gallery', 'pricing', 'map', 'faq', 'ctaFinal', 'footer'],
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'slider',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'map',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
       seo: {
-        title: 'Kanso Ramen — Izakaya Japonesa & Fideos Artesanales',
-        description: 'Auténtico ramen de Tokio en caldo tonkotsu denso y gyozas hechas a mano.',
-        keywords: 'ramen artesanal, tonkotsu, izakaya, comida japonesa, gyoza'
+        title: 'Velvet Lounge — Coctelería de Autor & Club de Jazz Clandestino',
+        description: 'Coctelería botánica, destilados de época y música en vivo en un ambiente íntimo y sofisticado.',
+        keywords: 'cocteleria de autor, speakeasy, club de jazz, reservas cocktail bar, destilados raros'
       },
       sections: {
         navbar: {
-          brandName: 'KANSO',
-          logoText: 'KANSO // 簡素',
-          ctaText: 'Reservar Barra',
+          brandName: 'Velvet Lounge',
+          logoText: 'VELVET // SPEAKEASY',
+          ctaText: 'Reservar Mesa VIP',
           ctaLink: '#pricing',
           links: [
-            { label: 'Carta de Ramen', href: '#pricing' },
-            { label: 'El Caldo', href: '#productHighlight' },
-            { label: 'Ubicación', href: '#map' }
+            { label: 'Coctelería', href: '#features' },
+            { label: 'El Trago Icono', href: '#product' },
+            { label: 'Experiencias', href: '#pricing' },
+            { label: 'Ubicación Secreta', href: '#map' }
           ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Fideos Hechos a Diario',
-          kicker: 'Caldo Tonkotsu de 18 Horas',
-          title: 'El alma de Tokio en cada cuenco de ramen humeante.',
-          subtitle: 'Fideos alcalinos frescos elaborados cada madrugada en nuestro obrador con harina japonesa y agua mineral filtrada.',
-          primaryCta: { text: 'Ver la Carta', link: '#pricing' },
-          imageUrl: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Top 50 Cocktail Bars of Europe 2026 • Jazz en Vivo Cada Noche',
+          kicker: 'El Santuario de la Noche',
+          title: 'Coctelería de autor y jazz.',
+          highlightTitle: 'Tras la puerta secreta.',
+          subtitle: 'Un espacio íntimo donde la mixología molecular se encuentra con los destilados de época y la música analógica en directo.',
+          primaryCta: { text: 'Reservar Acceso VIP', link: '#pricing' },
+          secondaryCta: { text: 'Explorar Menú de Tragos →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
-        bentoFeatures: {
+        slider: {
           enabled: true,
-          title: 'El Secreto de Kanso',
-          items: [
+          title: 'Cócteles Insignia de la Temporada',
+          slides: [
             {
-              id: 'b1',
-              title: 'Caldo Hervido 18 Horas Ininterrumpidas',
-              description: 'Huesos de cerdo ibérico y verduras asadas a fuego lento hasta extraer todo el colágeno y umami profundo.',
-              icon: 'Coffee',
-              tag: 'Puro Colágeno',
-              colSpan: 2
+              id: 's1',
+              title: 'Smoked Bourbon Old Fashioned',
+              subtitle: 'Bourbon añejado 12 años infusionado en roble quemado, amargo de angostura y piel de naranja confitada al soplete.',
+              imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1000&q=80',
+              ctaText: 'Ver Detalle'
             },
             {
-              id: 'b2',
-              title: 'Chashu Marinado y Sopleteado',
-              description: 'Panceta melosa cocinada a baja temperatura durante 12 horas con salsa tare de soja añeja y mirin.',
-              icon: 'Flame',
-              tag: 'Melosidad',
-              colSpan: 1
+              id: 's2',
+              title: 'Botanical Gin & Clarified Fig',
+              subtitle: 'Ginebra artesanal destilada con botánicos silvestres, licor de higo clarificado y agua tónica artesanal.',
+              imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=80',
+              ctaText: 'Ver Detalle'
             }
           ]
-        },
-        productHighlight: {
-          enabled: true,
-          title: 'Kanso Black Garlic Tonkotsu',
-          subtitle: 'Nuestro plato insignia enriquecido con aceite de ajo negro Mayu tostado.',
-          description: 'Servido con fideos al dente, huevo ajitama de yema líquida, alga nori crujiente y cebollino japonés.',
-          imageUrl: 'https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=1200&q=80',
-          specs: [
-            { label: 'Tiempo de cocción', value: '18 Horas', detail: 'Caldo rico y untuoso' },
-            { label: 'Nivel Picante', value: 'Personalizable', detail: 'Del 0 al 5' }
-          ]
-        },
-        gallery: {
-          enabled: true,
-          title: 'La Experiencia en Barra',
-          items: [
-            { id: 'g1', title: 'Barra de madera y neon de Tokio', category: 'Ambiente', imageUrl: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80' }
-          ]
-        },
-        pricing: {
-          enabled: true,
-          title: 'Ramen & Especialidades Izakaya',
-          billingCycle: 'annual',
-          plans: [
-            {
-              id: 'ramen_tonkotsu',
-              name: 'Tonkotsu Black Garlic Ramen',
-              tag: 'Favorito',
-              priceMonthly: '14.50 €',
-              priceAnnual: '14.50 €',
-              description: 'Caldo denso de cerdo, ajo negro, 2 láminas de chashu, huevo ajitama y bambú menma.',
-              features: ['Fideos frescos de elaboración propia', 'Chashu tierno a la llama', 'Huevo marinado ajitama con yema fundente', 'Opción picante disponible'],
-              ctaText: 'Pedir en Local',
-              ctaLink: '#order-ramen',
-              highlighted: true
-            }
-          ]
-        },
-        map: {
-          enabled: true,
-          title: 'Visítanos en el Centro',
-          address: 'Calle Luna 18',
-          city: 'Barcelona / Madrid',
-          hours: 'Todos los días: 13:00 - 16:30 | 20:00 - 23:45 (Sin reserva en barra)',
-          phone: '+34 933 111 222',
-          email: 'hola@kansoramen.es',
-          embedUrl: 'https://maps.google.com'
-        },
-        faq: {
-          enabled: true,
-          title: 'Preguntas Frecuentes',
-          items: [{ id: 'f1', question: '¿Tienen opciones veganas de ramen?', answer: 'Sí, disponemos de nuestro Creamy Tantanmen Vegano con caldo de sésamo y leche de soja y shiitake salteado.' }]
-        },
-        ctaFinal: {
-          enabled: true,
-          title: 'Ven a probar el mejor ramen de la ciudad.',
-          subtitle: 'Sin esperas innecesarias con nuestro sistema de lista virtual.',
-          primaryCta: { text: 'Ver Ubicación y Horarios', link: '#map' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Kanso Izakaya S.L.',
-          legalLinks: [{ label: 'Aviso Legal', href: '#legal' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
-        }
-      }
-    }
-  },
-
-  // 4. VELVET LOUNGE — Cocktail Bar Clandestino & Jazz
-  {
-    id: 'velvet-lounge',
-    name: 'Velvet Lounge',
-    tagline: 'Coctelería clandestina de autor, destilados raros, música jazz en directo y ambiente íntimo bajo luz tenue',
-    category: 'hospitality',
-    style: 'elegante',
-    thumbnail: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética en terciopelo azul noche y latón dorado #F59E0B, tipografía elegante, carta de cócteles de autor con ingredientes clarificados y reserva de reservados VIP.',
-    accentColor: '#F59E0B',
-    theme: 'dark',
-    defaultConfig: {
-      templateId: 'velvet-lounge',
-      name: 'Velvet Speakeasy & Cocktails',
-      slug: 'velvet-lounge',
-      domain: 'velvetlounge.bar',
-      theme: 'dark',
-      accentColor: '#F59E0B',
-      fontFamily: "'Playfair Display', serif",
-      borderRadius: 16,
-      published: true,
-      sectionOrder: ['navbar', 'hero', 'bentoFeatures', 'productHighlight', 'gallery', 'pricing', 'map', 'faq', 'ctaFinal', 'footer'],
-      seo: {
-        title: 'Velvet Lounge — Coctelería Clandestina & Jazz en Directo',
-        description: 'Cócteles de autor de vanguardia, hielo cristalino tallado a mano y noches de jazz íntimas.',
-        keywords: 'cocteleria clandestina, speakeasy, jazz bar, cocteles de autor'
-      },
-      sections: {
-        navbar: {
-          brandName: 'VELVET',
-          logoText: 'VELVET // SPEAKEASY',
-          ctaText: 'Reservar Acceso',
-          ctaLink: '#pricing',
-          links: [{ label: 'Cócteles', href: '#pricing' }, { label: 'Jazz Sessions', href: '#bentoFeatures' }, { label: 'Acceso', href: '#map' }],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Top 50 Cocktail Bars 2026',
-          kicker: 'Alquimia y Destilados Raros',
-          title: 'El secreto mejor guardado de la noche.',
-          subtitle: 'Entra a través de una puerta oculta y déjate envolver por el terciopelo, el sonido de un saxo tenor y cócteles clarificados con hielo puro de corte manual.',
-          primaryCta: { text: 'Reservar Mesa Privada', link: '#pricing' },
-          imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80',
-          style: 'centered'
         },
         bentoFeatures: {
           enabled: true,
-          title: 'Alquimia en la Barra',
+          kicker: 'Mixología Clandestina',
+          title: 'El arte de la destilación y la mezcla impecable.',
+          subtitle: 'Ingredientes infusionados en laboratorio propio con técnicas de rotovapor y clarificación por frío.',
           items: [
             {
-              id: 'b1',
+              id: 'f1',
               title: 'Hielo Cristalino Tallado a Mano',
-              description: 'Bloques de agua desmineralizada congelada lentamente durante 48h para una dilución mínima del cóctel.',
+              description: 'Bloques de hielo puro con congelación direccional de 72 horas, tallados en diamantes y esferas para una dilución mínima.',
               icon: 'Sparkles',
-              tag: 'Pureza',
-              colSpan: 2
+              tag: 'Hielo Puro',
+              colSpan: 2,
+              statNumber: '72h',
+              statLabel: 'Congelación direccional sin burbujas de aire'
             },
             {
-              id: 'b2',
-              title: 'Jazz en Vivo Cada Jueves y Sábado',
-              description: 'Tríos acústicos de contrabajo, batería con escobillas y piano Steinway.',
-              icon: 'Music',
-              tag: 'Música Viva',
+              id: 'f2',
+              title: 'Colección de Whiskeys & Rones Raros',
+              description: 'Más de 350 botellas históricas de destilerías desaparecidas y barricas individuales de edición limitada.',
+              icon: 'Wine',
+              tag: 'Ediciones Raras',
               colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Cuarteto de Jazz Acústico en Directo',
+              description: 'Músicos de renombre internacional interpretando standards de Blue Note y arreglos contemporáneos todas las noches.',
+              icon: 'Music',
+              tag: 'Jazz en Vivo',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Acceso Restringido y Clave de Puerta',
+              description: 'Aforo limitado a 45 personas para mantener una atmósfera de sosiego, conversación y privacidad total.',
+              icon: 'Key',
+              tag: 'Speakeasy',
+              colSpan: 2,
+              statNumber: '45',
+              statLabel: 'Plazas exclusivas por sesión'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          title: 'Cóctel Icono: "Nocturno en Do Menor"',
-          subtitle: 'Bourbon envejecido en barricas de Oporto, cordial de higos tostados y bitter de haba tonka.',
-          description: 'Ahumado al instante con madera de roble ante el cliente y servido en copa de cristal Baccarat.',
-          imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80',
-          specs: [{ label: 'Destilado', value: 'Bourbon Single Cask', detail: 'Edición limitada' }]
+          badge: 'El Trago Icono',
+          kicker: 'Firma Velvet',
+          title: 'The Golden Velvet Negroni.',
+          subtitle: 'Ginebra macerada en azafrán, vermut rojo infusionado con piel de cacao y Campari clarificado.',
+          description: 'Servido sobre un bloque cúbico de hielo con lámina de pan de oro comestible de 24 quilates y perfume de bergamota pulverizado al momento frente al comensal.',
+          imageUrl: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Graduación', value: '24% Vol.' },
+            { label: 'Servicio', value: 'Vaso Old Fashioned de cristal de Bohemia tallado' },
+            { label: 'Perfil de Sabor', value: 'Amargo elegante, especiado noble y final largo de cacao' }
+          ]
         },
         gallery: {
           enabled: true,
-          title: 'Atmósfera Nocturna',
+          title: 'La Atmósfera Clandestina',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80', caption: 'Barra de mármol y latón iluminada con lámparas de época' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80', caption: 'Zona de sillones de terciopelo y escenario de jazz' }
+          ]
+        },
+        stats: {
+          enabled: true,
           items: [
-            { id: 'g1', title: 'Barra de mármol negro y estantería retroiluminada', category: 'Barra', imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80' }
+            { id: 's1', value: '350+', label: 'Destilados de Colección en Carta' },
+            { id: 's2', value: '6 Noches', label: 'De Jazz en Directo por Semana' },
+            { id: 's3', value: 'Top 50', label: 'Bares de Europa 2026' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Reseñas de visitantes y amantes de la mixología.',
+          items: [
+            {
+              id: 't1',
+              author: 'Hugo Berlanga',
+              name: 'Hugo Berlanga',
+              role: 'Escritor y Miembro del Club de Destilados',
+              company: 'Cocktail Masters',
+              quote: 'Velvet devuelve el misticismo a la noche. La atención en barra es quirúrgica y la acústica para escuchar el contrabajo mientras saboreas un Negroni es insuperable.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Experiencias de Coctelería',
-          billingCycle: 'annual',
+          title: 'Experiencias de Barra & Reservas VIP',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'reserva_mesa',
-              name: 'Reserva de Mesa + Cóctel de Bienvenida',
-              priceMonthly: '18 €',
-              priceAnnual: '18 €',
-              description: 'Mesa garantizada en sala principal con espectáculo de jazz incluido.',
-              features: ['Acceso sin cola por puerta secreta', 'Cóctel de autor de bienvenida', 'Snacks gourmet de la casa'],
-              ctaText: 'Reservar Acceso',
-              ctaLink: '#book-table',
-              highlighted: true
+              id: 'p1',
+              name: 'Mesa Lounge Jazz',
+              priceMonthly: '45€',
+              priceAnnual: 'Por persona (Crédito en consumiciones)',
+              description: 'Reserva de mesa garantizada para 2 a 4 personas durante el concierto de jazz.',
+              features: ['Mesa de terciopelo reservada', '2 cócteles de autor incluidos', 'Aperitivo gourmet de frutos secos trufados', 'Acceso prioritario sin cola'],
+              highlighted: false,
+              ctaText: 'Reservar Mesa'
+            },
+            {
+              id: 'p2',
+              name: 'Masterclass Privada de Mixología',
+              priceMonthly: '95€',
+              priceAnnual: 'Por persona (Grupos reducidos)',
+              description: 'Sesión de 2 horas con nuestro head bartender aprendiendo técnicas de destilación y cata de 4 cócteles.',
+              features: ['Cata de destilados de colección', 'Elaboración guiada de 3 cócteles propios', 'Dosier de recetas y técnicas', 'Regalo de jigger profesional'],
+              highlighted: true,
+              ctaText: 'Reservar Masterclass'
             }
           ]
         },
         map: {
           enabled: true,
-          title: 'Cómo Entrar',
-          subtitle: 'La contraseña cambia cada semana y se envía por SMS al reservar.',
-          address: 'Ubicación discreta en el barrio de Salamanca',
-          city: 'Madrid',
-          hours: 'Miércoles a Domingo: 19:30 - 03:00',
-          phone: '+34 911 888 999',
-          email: 'secret@velvetlounge.bar',
-          embedUrl: 'https://maps.google.com'
+          title: 'Ubicación Confidencial',
+          address: 'Pasadizo de San Ginés, 7, 28013 Madrid, España (Detrás de la librería)',
+          latitude: 40.4168,
+          longitude: -3.7038,
+          hours: 'Martes a Domingo de 19:30 a 03:00. Código de vestimenta elegante.'
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
-          items: [{ id: 'f1', question: '¿Existe código de vestimenta?', answer: 'Recomendamos un código Smart Casual / Elegante para mantener la atmósfera del club.' }]
+          title: 'Preguntas Frecuentes sobre Velvet',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Cómo se obtiene la clave de acceso a la puerta secreta?',
+              answer: 'Al confirmar tu reserva a través de nuestra web recibirás un SMS confidencial 2 horas antes con la contraseña del día para acceder por la entrada oculta.'
+            },
+            {
+              id: 'q2',
+              question: '¿A qué hora comienzan los pases de jazz en vivo?',
+              answer: 'El primer set musical inicia a las 21:30 y el segundo a las 23:45, con descansos intercalados con música seleccionada en vinilo analógico.'
+            },
+            {
+              id: 'q3',
+              question: '¿Se sirven opciones de comida o picoteo en mesa?',
+              answer: 'Disponemos de una carta selecta de aperitivos fríos: tablas de quesos afinados, jamón de bellota 100% ibérico, ostras frescas y trufas artesanales.'
+            },
+            {
+              id: 'q4',
+              question: '¿Hay algún requisito de edad o vestimenta?',
+              answer: 'El acceso es exclusivo para mayores de 21 años. El código de vestimenta es elegante formal (no se admiten zapatillas deportivas ni ropa deportiva).'
+            },
+            {
+              id: 'q5',
+              question: '¿Se puede reservar el local para celebraciones privadas?',
+              answer: 'Ofrecemos alquiler privado del club completo para eventos corporativos o aniversarios los lunes y martes bajo solicitud previa.'
+            },
+            {
+              id: 'q6',
+              question: '¿Tienen opciones de cócteles sin alcohol (Mocktails)?',
+              answer: 'Diseñamos cócteles botánicos sin alcohol elaborados con destilados zero-proof, hidrolatos florales y fermentados caseros.'
+            }
+          ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'Descubre el secreto de Velvet.',
-          subtitle: 'Plazas estrictamente limitadas por capacidad.',
-          primaryCta: { text: 'Reservar Mi Acceso', link: '#pricing' },
-          backgroundStyle: 'glow'
+          title: 'La noche cobra vida en Velvet.',
+          subtitle: 'Reserva tu rincón exclusivo y déjate envolver por la música y la mixología.',
+          primaryCta: { text: 'Solicitar Clave de Acceso', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Velvet Speakeasy Club.',
-          legalLinks: [{ label: 'Aviso Legal', href: '#legal' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
+          copyright: '© 2026 Velvet Lounge & Cocktail Club S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Normas del Club', href: '#normas' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
         }
       }
     }
   },
 
-  // 5. BOTANIK CAFÉ — Specialty Coffee & Brunch Artesanal
+  // 4. BOTANIK CAFÉ — Specialty Coffee & Artisan Bakery
   {
     id: 'botanik-cafe',
-    name: 'Botanik Café',
-    tagline: 'Cafetería de especialidad con granos de origen único tostados en casa, repostería casera de masa madre y brunch saludable',
+    name: 'Botanik Specialty Coffee',
+    tagline: 'Cafetería de especialidad de origen ético, tostador artesanal y obrador de repostería con masa madre orgánica',
     category: 'hospitality',
-    style: 'natural',
     thumbnail: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
-    description: 'Estética en tonos madera clara, plantas tropicales y verde matcha #10B981, tipografía fresca, carta de cafés filtrados V60 y brunch.',
+    description: 'Estética en blanco roto y verde esmeralda botánico #10B981, tipografía Outfit, menú de cafés de filtro V60, croissants de mantequilla francesa y suscripción de café en grano.',
     accentColor: '#10B981',
     theme: 'dark',
     defaultConfig: {
       templateId: 'botanik-cafe',
-      name: 'Botanik Specialty Coffee',
+      name: 'Botanik Specialty Coffee & Roasters',
       slug: 'botanik-cafe',
-      domain: 'botanikcafe.es',
+      domain: 'botanikcoffee.com',
       theme: 'dark',
       accentColor: '#10B981',
       fontFamily: "'Outfit', sans-serif",
       borderRadius: 16,
       published: true,
-      sectionOrder: ['navbar', 'hero', 'bentoFeatures', 'productHighlight', 'gallery', 'pricing', 'map', 'faq', 'ctaFinal', 'footer'],
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'map',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
       seo: {
-        title: 'Botanik Café — Café de Especialidad & Brunch Saludable',
-        description: 'Cafés de origen etíope y colombiano, tostado propio y tostadas en pan de masa madre.',
-        keywords: 'cafe especialidad, brunch madrid, flat white, repostería casera, v60'
+        title: 'Botanik Coffee — Café de Especialidad & Tostador Artesanal',
+        description: 'Lotes únicos de café de finca 100% Arábica con tueste semanal y bollería artesana de masa madre.',
+        keywords: 'cafe de especialidad, tostador artesanal, v60 filter coffee, bolleria masa madre, brunch saludable'
       },
       sections: {
         navbar: {
-          brandName: 'BOTANIK',
-          logoText: 'BOTANIK COFFEE',
-          ctaText: 'Ver Carta Brunch',
+          brandName: 'Botanik Café',
+          logoText: 'BOTANIK // COFFEE',
+          ctaText: 'Comprar Café en Grano',
           ctaLink: '#pricing',
-          links: [{ label: 'Cafés', href: '#pricing' }, { label: 'Orígenes', href: '#productHighlight' }, { label: 'Dónde Estamos', href: '#map' }],
+          links: [
+            { label: 'Nuestros Orígenes', href: '#features' },
+            { label: 'El Lote Estrella', href: '#product' },
+            { label: 'Suscripción', href: '#pricing' },
+            { label: 'Visítanos', href: '#map' }
+          ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Tueste Semanal Propio',
-          kicker: 'Café 100% Arábica de Especialidad',
-          title: 'El café que te mereces, preparado con rigor y cariño.',
-          subtitle: 'Cafés de pequeños caficultores con puntuación SCA superior a 86 puntos. Máquinas La Marzocco y baristas formados en extracción de precisión.',
-          primaryCta: { text: 'Ver Menú de Brunch y Cafés', link: '#pricing' },
-          imageUrl: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80',
+          badge: 'Tueste Artesanal Semanal • Puntuación SCA > 86 Puntos',
+          kicker: 'Del Grano a la Taza',
+          title: 'El ritual del café de especialidad,',
+          highlightTitle: 'tostado con alma.',
+          subtitle: 'Compramos directamente a pequeños caficultores de Etiopía, Colombia y Kenia a precios justos para ofrecerte tazas limpias, florales y llenas de matices.',
+          primaryCta: { text: 'Ver Lotes de Café en Grano', link: '#pricing' },
+          secondaryCta: { text: 'Conoce Nuestra Cafetería →', link: '#map' },
+          imageUrl: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'CERTIFICACIONES DE COMERCIO DIRECTO Y CALIDAD SCA',
+          items: [
+            { id: 'l1', name: 'Specialty Coffee Association', tagline: 'Certified Roaster' },
+            { id: 'l2', name: 'Direct Trade Certified', tagline: 'Fair Remuneration' },
+            { id: 'l3', name: 'Organic Agriculture EU', tagline: '100% Bio' }
+          ]
         },
         bentoFeatures: {
           enabled: true,
-          title: 'Nuestra Filosofía Cafetera',
+          kicker: 'Nuestra Filosofía',
+          title: 'Transparencia total en cada eslabón de la cadena.',
+          subtitle: 'Conocemos el nombre de cada productor, la altitud de la finca y el método de secado de cada grano.',
           items: [
             {
-              id: 'b1',
-              title: 'Comercio Directo con Caficultores',
-              description: 'Pagamos hasta 3 veces el precio de mercado a fincas familiares en Colombia, Etiopía y Guatemala.',
-              icon: 'Heart',
-              tag: 'Comercio Justo',
-              colSpan: 2
+              id: 'f1',
+              title: 'Tueste Medio Ligero en Máquina Loring',
+              description: 'Tostamos por convección de aire caliente para preservar los azúcares naturales y la acidez brillante del fruto sin notas quemadas.',
+              icon: 'Flame',
+              tag: 'Tueste Óptimo',
+              colSpan: 2,
+              statNumber: '87.5',
+              statLabel: 'Puntuación media en cata profesional SCA'
             },
             {
-              id: 'b2',
-              title: 'Pan de Masa Madre 100% Fermentación Lenta',
-              description: 'Obrador propio que elabora hogazas crujientes de trigo sarraceno y centeno para nuestros desayunos.',
+              id: 'f2',
+              title: 'Métodos Manuales de Filtro V60, Aeropress y Chemex',
+              description: 'Extracciones precisas con agua filtrada por ósmosis inversa remineralizada a 120 ppm para un perfil de sabor puro.',
               icon: 'Coffee',
-              tag: 'Masa Madre',
+              tag: 'Filtro & Espresso',
               colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Obrador Propio de Masa Madre y Croissants',
+              description: 'Fermentaciones en frío de 36 horas con mantequilla francesa DOP de Normandía y harinas ecológicas molidas a la piedra.',
+              icon: 'Wheat',
+              tag: '36h Fermentación',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Trato Directo con Caficultores Familiares',
+              description: 'Pagamos hasta un 250% por encima del precio de mercado de bolsa para garantizar la sostenibilidad de las comunidades de origen.',
+              icon: 'HeartHandshake',
+              tag: 'Comercio Justo',
+              colSpan: 2,
+              statNumber: '250%',
+              statLabel: 'Sobreprecio medio pagado al productor'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          title: 'Etiopía Yirgacheffe — Proceso Lavado',
-          subtitle: 'Notas florales de jazmín, bergamota y melocotón maduro con acidez brillante.',
-          description: 'Extraído en filtro V60 para degustar todos los matices sutiles de la variedad Heirloom.',
-          imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
-          specs: [{ label: 'Altitud', value: '2.100 m', detail: 'Alta montaña' }]
+          badge: 'El Lote Exclusivo',
+          kicker: 'Origen Etiopía Guji',
+          title: 'Etiopía Uraga Natural — Proceso Anaeróbico.',
+          subtitle: 'Notas deslumbrantes a jazmín, melocotón blanco y bergamota.',
+          description: 'Cultivado a 2.150 metros de altitud en suelos volcánicos fértiles. El proceso de fermentación anaeróbica en cereza durante 96 horas resalta una dulzura acaramelada y un cuerpo sedoso incomparable.',
+          imageUrl: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Variedad', value: 'Heirloom Autóctona Etíope' },
+            { label: 'Puntuación SCA', value: '88.75 Puntos' },
+            { label: 'Recomendado Para', value: 'Filtro V60, Espresso frutal y Cold Brew' }
+          ]
         },
         gallery: {
           enabled: true,
-          title: 'Rincones Botanik',
+          title: 'El Espacio y la Experiencia',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80', caption: 'Barra de espresso con máquina La Marzocco KB90' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80', caption: 'Espacio lleno de luz natural y plantas tropicales' },
+            { id: 'g3', url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', caption: 'Bollería artesanal recién horneada cada mañana' }
+          ]
+        },
+        stats: {
+          enabled: true,
           items: [
-            { id: 'g1', title: 'Latte art perfecto y tostada de aguacate', category: 'Brunch', imageUrl: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80' }
+            { id: 's1', value: '88+', label: 'Puntuación SCA en Lotes Micro' },
+            { id: 's2', value: '100%', label: 'Café de Comercio Directo' },
+            { id: 's3', value: '36h', label: 'Fermentación en Masa Madre' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que dicen los apasionados del café.',
+          items: [
+            {
+              id: 't1',
+              author: 'Inés Carrasco',
+              name: 'Inés Carrasco',
+              role: 'Barista Certificada y Q-Grader',
+              company: 'Coffee Guild Europe',
+              quote: 'El tueste de Botanik es de una consistencia impecable. Cada lote expresa con honestidad el terroir y las flores del origen sin un ápice de amargor agresivo.',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
           ]
         },
         pricing: {
           enabled: true,
-          title: 'Favoritos de la Carta',
-          billingCycle: 'annual',
+          title: 'Planes de Suscripción de Café en Casa',
+          billingCycle: 'monthly',
           plans: [
             {
-              id: 'brunch_completo',
-              name: 'Pack Brunch Botanik Completo',
-              tag: 'Top Ventas',
-              priceMonthly: '16.50 €',
-              priceAnnual: '16.50 €',
-              description: 'Café de especialidad a elegir + Tostada de masa madre + Bowl de açai o yogur griego + Zumo de naranja natural.',
-              features: ['Café con leche vegetal sin suplemento', 'Huevos benedictinos o aguacate', 'Zumo exprimido al momento', 'Cookie casera de avellanas'],
-              ctaText: 'Ver en Local',
-              ctaLink: '#brunch-menu',
-              highlighted: true
+              id: 'p1',
+              name: 'Pack Amante del Espresso (500g)',
+              priceMonthly: '18€',
+              priceAnnual: 'Envío mensual a domicilio',
+              description: 'Dos bolsas de 250g con perfiles dulces y achocolatados ideales para cafetera espresso o italiana.',
+              features: ['2 bolsas de 250g recién tostadas', 'Origen rotativo cada mes', 'Molienda a medida o grano entero', 'Envío gratuito en 24 horas'],
+              highlighted: false,
+              ctaText: 'Suscribirse al Pack'
+            },
+            {
+              id: 'p2',
+              name: 'Club Geisha & Micro-Lotes (750g)',
+              priceMonthly: '32€',
+              priceAnnual: 'Para paladares exigentes',
+              description: 'Tres bolsas de 250g con los lotes más exclusivos y florales de procesos experimentales.',
+              features: ['3 bolsas de microlotes de finca limitada', 'Ficha de cata detallada del productor', 'Acceso anticipado a lotes Geisha de subasta', 'Descuento del 15% en accesorios de barista'],
+              highlighted: true,
+              ctaText: 'Unirse al Club VIP'
             }
           ]
         },
         map: {
           enabled: true,
-          title: 'Te Esperamos en el Barrio',
-          address: 'Plaza del Roble 7',
-          city: 'Valencia / Madrid',
-          hours: 'Lunes a Domingo: 08:30 - 19:30',
-          phone: '+34 961 000 333',
-          email: 'hola@botanikcafe.es',
-          embedUrl: 'https://maps.google.com'
+          title: 'Visita Nuestro Espacio y Tostador',
+          address: 'Calle Provenza, 188, 08036 Barcelona, España',
+          latitude: 41.3888,
+          longitude: 2.1589,
+          hours: 'Lunes a Viernes de 08:00 a 19:30 | Sábados y Domingos de 09:00 a 20:00'
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes',
-          items: [{ id: 'f1', question: '¿Aceptan mascotas?', answer: '¡Sí, somos 100% pet friendly! Tu perro siempre tendrá agua fresca y galletas caninas caseras.' }]
+          title: 'Preguntas Frecuentes sobre Botanik',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Con qué frecuencia tuestan el café que envían a domicilio?',
+              answer: 'Tostamos los lunes y miércoles de cada semana. Todos los envíos se despachan en las 24-48 horas posteriores al tueste para garantizar que el café llegue en su ventana óptima de desgasificación.'
+            },
+            {
+              id: 'q2',
+              question: '¿Pueden enviar el café molido para mi tipo de cafetera?',
+              answer: 'Sí. Puedes seleccionar grano entero o molienda específica para Espresso, Cafetera Italiana Moka, Filtro V60, Prensa Francesa o Cold Brew sin coste adicional.'
+            },
+            {
+              id: 'q3',
+              question: '¿Disponen de opciones de leche vegetal y brunch sin gluten?',
+              answer: 'Servimos leche de avena barista especializada y contamos con opciones de tostadas de pan sin gluten y bowls de acai orgánico preparados al momento.'
+            },
+            {
+              id: 'q4',
+              question: '¿Se puede trabajar con ordenador portátil en la cafetería?',
+              answer: 'Contamos con una zona habilitada con enchufes y conexión Wi-Fi de alta velocidad para nómadas digitales de lunes a viernes hasta las 14:00h.'
+            },
+            {
+              id: 'q5',
+              question: '¿Es posible pausar o cancelar la suscripción de café?',
+              answer: 'Puedes pausar, cambiar la frecuencia de envío o cancelar tu suscripción en cualquier momento con un solo clic desde tu panel de usuario sin penalizaciones.'
+            },
+            {
+              id: 'q6',
+              question: '¿Organizan cursos de cata o talleres de barista?',
+              answer: 'Impartimos talleres prácticos de iniciación a la cata y técnicas de vertido en filtro los sábados por la tarde en grupos de máximo 6 personas.'
+            }
+          ]
         },
         ctaFinal: {
           enabled: true,
-          title: 'El mejor desayuno de tu semana te espera en Botanik.',
-          subtitle: 'Pasa a por tu café de camino al trabajo o quédate a disfrutar de un brunch sin prisas.',
-          primaryCta: { text: 'Cómo Llegar', link: '#map' },
-          backgroundStyle: 'glow'
+          title: 'Descubre cómo sabe el verdadero café.',
+          subtitle: 'Pide tu bolsa de café recién tostado o ven a visitarnos a nuestra cafetería.',
+          primaryCta: { text: 'Comprar Café en Grano Ahora', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Botanik Specialty Coffee S.L.',
-          legalLinks: [{ label: 'Aviso Legal', href: '#legal' }],
-          socialLinks: [{ platform: 'Instagram', url: 'https://instagram.com' }]
+          copyright: '© 2026 Botanik Specialty Coffee S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Envíos y Devoluciones', href: '#shipping' },
+            { label: 'Sostenibilidad', href: '#sustainability' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
         }
       }
     }

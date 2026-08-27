@@ -53,6 +53,7 @@ interface WebsiteRendererProps {
   onEditSection?: (sectionKey: SectionType) => void;
   onUpdateText?: (path: string, value: string) => void;
   selectedSection?: SectionType | null;
+  highlightedSection?: SectionType | null;
   onSelectSection?: (sectionKey: SectionType) => void;
   onContextMenu?: (e: React.MouseEvent, sectionKey: SectionType) => void;
   onImageDoubleClick?: (path: string, currentUrl: string) => void;
@@ -98,6 +99,7 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
   onEditSection,
   onUpdateText,
   selectedSection,
+  highlightedSection,
   onSelectSection,
   onContextMenu,
   onImageDoubleClick
@@ -1956,6 +1958,7 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
         if (!rendered) return null;
 
         const isSelected = selectedSection === sectionType;
+        const isHighlighted = highlightedSection === sectionType;
         const customStyle = site.customSectionStyles?.[sectionType] || {};
         const elementSettings = site.elementSettings?.[sectionType] || {};
 
@@ -1994,6 +1997,7 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
             <div
               key={sectionType}
               id={elementSettings.customId || `section-${sectionType}`}
+              data-section={sectionType}
               className={`relative transition-all ${visibilityClasses} ${elementSettings.customClasses || ''}`}
               style={wrapperStyle}
             >
@@ -2009,6 +2013,7 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
           <div
             key={sectionType}
             id={`wrapper-${sectionType}`}
+            data-section={sectionType}
             onClick={(e) => {
               e.stopPropagation();
               if (onSelectSection) onSelectSection(sectionType);
@@ -2022,21 +2027,23 @@ export const WebsiteRenderer: React.FC<WebsiteRendererProps> = ({
               }
             }}
             style={wrapperStyle}
-            className={`relative transition-all group/sec cursor-pointer ${visibilityClasses} ${elementSettings.customClasses || ''} ${
-              isSelected
-                ? 'ring-2 ring-[#00E5FF] ring-inset shadow-[0_0_20px_rgba(0,229,255,0.2)]'
+            className={`relative transition-all duration-300 group/sec cursor-pointer ${visibilityClasses} ${elementSettings.customClasses || ''} ${
+              isHighlighted
+                ? 'ring-4 ring-[#00E5FF] shadow-[0_0_35px_rgba(0,229,255,0.7)] section-target-highlight z-30'
+                : isSelected
+                ? 'ring-2 ring-[#00E5FF] ring-inset shadow-[0_0_20px_rgba(0,229,255,0.25)] z-20'
                 : 'hover:ring-1 hover:ring-[#00E5FF]/40 hover:ring-inset'
             }`}
           >
             {/* Active section floating badge */}
             <div
-              className={`absolute top-2 left-2 z-40 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider transition-opacity flex items-center gap-1.5 shadow-md pointer-events-none ${
-                isSelected
-                  ? 'bg-[#00E5FF] text-black opacity-100'
+              className={`absolute top-2 left-2 z-40 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-md pointer-events-none ${
+                isSelected || isHighlighted
+                  ? 'bg-[#00E5FF] text-black opacity-100 scale-100 shadow-[0_0_12px_rgba(0,229,255,0.4)]'
                   : 'bg-black/70 text-white/80 opacity-0 group-hover/sec:opacity-100 border border-white/10'
               }`}
             >
-              <span>✦</span>
+              <span className="text-xs">✦</span>
               <span>{customStyle.customName || sectionType}</span>
             </div>
             {customStyle.customCss && (

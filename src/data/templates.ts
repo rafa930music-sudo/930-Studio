@@ -1,28 +1,22 @@
 import { TemplateDefinition, SiteConfig } from '../types';
 import { SAAS_TEMPLATES } from './templates/saas';
-import { HARDWARE_TEMPLATES } from './templates/hardware';
-import { AGENCIES_TEMPLATES } from './templates/agencies';
-import { LUXURY_TEMPLATES } from './templates/luxury';
+import { HOSPITALITY_TEMPLATES } from './templates/hospitality';
+import { ECOMMERCE_TEMPLATES } from './templates/ecommerce';
 import { WELLNESS_TEMPLATES } from './templates/wellness';
 import { SERVICES_TEMPLATES } from './templates/services';
-import { HOSPITALITY_TEMPLATES } from './templates/hospitality';
 import { EDUCATION_TEMPLATES } from './templates/education';
-import { ECOMMERCE_TEMPLATES } from './templates/ecommerce';
 import { PORTFOLIO_TEMPLATES } from './templates/portfolio';
 import { COMMUNITY_TEMPLATES } from './templates/community';
 
 export const APPLE_TEMPLATES: TemplateDefinition[] = [
-  ...SAAS_TEMPLATES,
-  ...ECOMMERCE_TEMPLATES,
-  ...PORTFOLIO_TEMPLATES,
-  ...COMMUNITY_TEMPLATES,
-  ...HOSPITALITY_TEMPLATES,
-  ...WELLNESS_TEMPLATES,
-  ...SERVICES_TEMPLATES,
-  ...EDUCATION_TEMPLATES,
-  ...HARDWARE_TEMPLATES,
-  ...AGENCIES_TEMPLATES,
-  ...LUXURY_TEMPLATES
+  ...SAAS_TEMPLATES,         // 4 Plantillas SaaS & Software Cloud
+  ...HOSPITALITY_TEMPLATES,  // 4 Plantillas Hospitality & Restauración
+  ...ECOMMERCE_TEMPLATES,    // 4 Plantillas E-Commerce & Retail de Autor
+  ...WELLNESS_TEMPLATES,      // 4 Plantillas Salud & Bienestar
+  ...SERVICES_TEMPLATES,      // 4 Plantillas Servicios Profesionales & Consultoría
+  ...EDUCATION_TEMPLATES,     // 3 Plantillas Educación & Eventos
+  ...PORTFOLIO_TEMPLATES,     // 4 Plantillas Creativos & Portafolios
+  ...COMMUNITY_TEMPLATES      // 3 Plantillas Comunidad & ONG
 ];
 
 export const TEMPLATES = APPLE_TEMPLATES;
@@ -63,8 +57,8 @@ export function createSiteFromTemplate(
     templateId: template.id,
     theme: cfg.theme || template.theme || 'light',
     accentColor: effectiveAccent,
-    fontFamily: cfg.fontFamily || 'Inter, -apple-system, sans-serif',
-    borderRadius: cfg.borderRadius ?? 20,
+    fontFamily: cfg.fontFamily || "'Plus Jakarta Sans', sans-serif",
+    borderRadius: cfg.borderRadius ?? 16,
     published: false,
     publishedAt: undefined,
     createdAt: now,
@@ -85,7 +79,7 @@ export function createSiteFromTemplate(
     seo: {
       title: cfg.seo?.title || `${siteName} — Web Oficial`,
       description: cfg.seo?.description || template.description,
-      keywords: cfg.seo?.keywords || 'apple design, landing page, responsive',
+      keywords: cfg.seo?.keywords || 'diseno web, landing page, responsive, 930 studio',
       ogImage: cfg.seo?.ogImage || template.thumbnail
     },
     analytics: {

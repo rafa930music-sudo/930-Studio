@@ -63,6 +63,7 @@ interface DashboardProps {
   onOpenExport: (site: SiteConfig) => void;
   onPreviewSite: (site: SiteConfig) => void;
   onResetAllData?: () => void;
+  onTriggerSplash?: () => void;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({
@@ -75,7 +76,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onOpenDonation,
   onOpenExport,
   onPreviewSite,
-  onResetAllData
+  onResetAllData,
+  onTriggerSplash
 }) => {
   const isDark = true;
   // Navigation tabs: 'home' | 'templates' | 'sites' | 'donations' | 'guide' | 'settings'
@@ -237,7 +239,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
     });
     setHasTriggeredDonation(true);
     const amount = customDonationInput ? customDonationInput : selectedDonationTier;
-    const paypalUrl = `https://www.paypal.me/rafa930music/${amount}`;
+    const paypalUrl = `https://www.paypal.me/Rafa930paypal/${amount}`;
     window.open(paypalUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -1643,6 +1645,32 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-neutral-400">
                   930 Studio v1.0.0
                 </span>
+              </div>
+
+              {/* Pantalla de presentación (Splash Screen) */}
+              <div className="p-6 flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <h3 className="font-bold text-sm text-slate-900 dark:text-white">Pantalla de presentación (Splash Screen)</h3>
+                  <p className="text-xs text-slate-500 dark:text-neutral-400">
+                    Presentación minimalista con el logotipo neón al inicio.
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    try {
+                      localStorage.removeItem('splashSeen');
+                    } catch (e) {
+                      console.warn('Error clearing splashSeen:', e);
+                    }
+                    if (onTriggerSplash) {
+                      onTriggerSplash();
+                    }
+                  }}
+                  className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-[#00E5FF] hover:text-black border border-white/10 text-white text-xs font-bold transition-all cursor-pointer shadow-sm flex items-center gap-1.5"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Reactivar Splash Screen</span>
+                </button>
               </div>
 
               {/* Restablecer datos */}

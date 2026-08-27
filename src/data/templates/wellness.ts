@@ -1,24 +1,771 @@
 import { TemplateDefinition } from '../../types';
 
 export const WELLNESS_TEMPLATES: TemplateDefinition[] = [
-  // 10. VERDE — Salud Holística, Nutrición Consciente & Bienestar
+  // 1. PRANA SANCTUARY — Yoga, Meditación & Retiros Holísticos
   {
-    id: 'verde-wellness',
-    name: 'Verde',
-    tagline: 'Plataforma de bienestar holístico, suplementos orgánicos puros y planes nutricionales personalizados',
+    id: 'zen-yoga',
+    name: 'Prana Sanctuary',
+    tagline: 'Estudio de yoga tradicional, meditación guiada y retiros holísticos en entornos naturales protegidos',
     category: 'wellness',
-    thumbnail: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80',
-    description: 'Tonos naturales de hoja verde #10B981 y tierra suave, tipografía limpia y orgánica, sellos bio oficiales, cuadrícula bento de beneficios celulares, split de suplementación limpia, planes de suscripción y preguntas frecuentes.',
-    accentColor: '#10B981',
+    thumbnail: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en tonos salvia y tierra suave #2D5A27, tipografía Lora y Outfit, carrusel de retiros de fin de semana, cuadrícula de estilos de yoga, horarios semanales y reserva de clases.',
+    accentColor: '#2D5A27',
     theme: 'light',
     defaultConfig: {
-      templateId: 'verde-wellness',
-      name: 'Verde Botanical Health',
-      slug: 'verde-botanical',
-      domain: 'verdebotanical.com',
+      templateId: 'zen-yoga',
+      name: 'Prana Sanctuary Yoga & Retreats',
+      slug: 'prana-sanctuary',
+      domain: 'pranasanctuary.com',
       theme: 'light',
-      accentColor: '#10B981',
-      fontFamily: 'Inter, -apple-system, sans-serif',
+      accentColor: '#2D5A27',
+      fontFamily: "'Lora', Georgia, serif",
+      borderRadius: 18,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Prana Sanctuary — Yoga Consciente, Meditación & Retiros',
+        description: 'Encuentra el equilibrio físico y mental a través de la respiración consciente, el movimiento fluido y el silencio.',
+        keywords: 'estudio de yoga, hatha yoga, vinyasa flow, meditacion guiada, retiros holísticos, pranayama'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Prana Sanctuary',
+          logoText: 'PRANA SANCTUARY',
+          ctaText: 'Reservar Primera Clase',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Estilos de Yoga', href: '#features' },
+            { label: 'El Santuario', href: '#product' },
+            { label: 'Pases & Membresías', href: '#pricing' },
+            { label: 'Espacios', href: '#gallery' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Profesores Certificados Yoga Alliance 500h • Grupos Reducidos',
+          kicker: 'Cuerpo, Mente & Respiración',
+          title: 'Un refugio de paz para reconectar con',
+          highlightTitle: 'tu verdadera esencia.',
+          subtitle: 'Clases diarias de Hatha, Vinyasa y Yin Yoga en un espacio de madera natural bañado por luz suave, diseñado para cultivar la presencia y calmar el sistema nervioso.',
+          primaryCta: { text: 'Probar Clase de Bienvenida (15€)', link: '#pricing' },
+          secondaryCta: { text: 'Explorar Horarios y Estilos →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'AVALADO POR ASOCIACIONES INTERNACIONALES DE YOGA',
+          items: [
+            { id: 'l1', name: 'Yoga Alliance RYS 500', tagline: 'Certified School' },
+            { id: 'l2', name: 'Mindfulness Association', tagline: 'Accredited Center' },
+            { id: 'l3', name: 'Holistic Health Guild', tagline: 'Excellence in Wellness' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Nuestra Práctica',
+          title: 'Clases adaptadas a todos los niveles de experiencia.',
+          subtitle: 'Desde secuencias dinámicas vigorizantes hasta baños de sonido y relajación profunda.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Vinyasa Flow Dinámico & Alineación',
+              description: 'Secuencias fluidas que sincronizan respiración y movimiento para mejorar la flexibilidad, fuerza del core y concentración mental.',
+              icon: 'Activity',
+              tag: 'Fuerza & Fluidez',
+              colSpan: 2,
+              statNumber: '35+',
+              statLabel: 'Clases semanales presenciales y online'
+            },
+            {
+              id: 'f2',
+              title: 'Yin Yoga & Baños de Sonido con Cuencos',
+              description: 'Posturas pasivas mantenidas de 3 a 5 minutos sobre esterilla para relajar el tejido conectivo fascial y liberar tensión muscular profunda.',
+              icon: 'Moon',
+              tag: 'Calma Profunda',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Suelo Radiante de Bambú & Aire Purificado',
+              description: 'Instalaciones bioclimáticas con filtración HEPA continua y temperatura controlada para una práctica respiratoria sin impurezas.',
+              icon: 'Sparkles',
+              tag: 'Espacio Puro',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Máximo 12 Alumnos por Sesión',
+              description: 'Atención personalizada de los profesores con correcciones de postura manuales respetuosas y uso de accesorios ecológicos.',
+              icon: 'Users',
+              tag: 'Grupos Reducidos',
+              colSpan: 2,
+              statNumber: '12',
+              statLabel: 'Plazas máximas por sala para máxima comodidad'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'La Experiencia Inmersiva',
+          kicker: 'Retiro de Primavera en la Sierra',
+          title: 'Retiro de Silencio & Yoga Prana de 3 Días.',
+          subtitle: 'Desconexión digital, alimentación vegetariana orgánica y meditación en la naturaleza.',
+          description: 'Alojamiento en una finca ecológica rehabilitada en la sierra. Incluye 6 sesiones de yoga, talleres de respiración Pranayama al aire libre, paseos meditativos por el bosque y menús de autor elaborados con ingredientes de huerto propio.',
+          imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Fechas Próximas', value: '18 al 20 de Abril y 16 al 18 de Mayo 2026' },
+            { label: 'Incluye', value: 'Pensión completa vegetariana, habitación individual y todo el material' },
+            { label: 'Ubicación', value: 'Valle de Lozoya, Parque Nacional Sierra de Guadarrama' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'El Estudio y la Comunidad',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', caption: 'Sala principal con ventanales de madera y luz matutina' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80', caption: 'Zona de té caliente e infusiones botánicas de bienvenida' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '12 Max', label: 'Alumnos por Clase Presencial' },
+            { id: 's2', value: '500h', label: 'Certificación Yoga Alliance' },
+            { id: 's3', value: '4.9/5', label: 'Satisfacción de Nuestros Alumnos' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Testimonios de alumnos y practicantes habituales.',
+          items: [
+            {
+              id: 't1',
+              author: 'Laura Miralles',
+              name: 'Laura Miralles',
+              role: 'Arquitecta y Practicante desde 2023',
+              company: 'Prana Community',
+              quote: 'Prana Sanctuary es mi momento de calma indispensable de la semana. Los profesores guían con una sensibilidad exquisita y el espacio transmite paz desde el primer paso que das dentro.',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Planes de Práctica & Membresías',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Bono 5 Clases Presenciales',
+              priceMonthly: '65€',
+              priceAnnual: 'Sin cuota de matrícula (Validez 2 meses)',
+              description: 'Para personas con horarios variables que quieren practicar a su propio ritmo semanal.',
+              features: ['Acceso a cualquier horario y estilo', 'Reserva y cancelación fácil desde app', 'Esterilla Manduka y bloques incluidos', 'Infusión biológica de bienvenida'],
+              highlighted: false,
+              ctaText: 'Comprar Bono 5'
+            },
+            {
+              id: 'p2',
+              name: 'Membresía Prana Ilimitada',
+              priceMonthly: '95€',
+              priceAnnual: 'Sin permanencia mínima',
+              description: 'Acceso ilimitado a todas las clases presenciales, talleres mensuales y plataforma online.',
+              features: ['Clases presenciales ilimitadas', 'Descuento del 20% en retiros y talleres', 'Acceso a la videoteca de clases grabadas', 'Invita a un amigo gratis cada mes'],
+              highlighted: true,
+              ctaText: 'Unirse a la Membresía'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre las Clases',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Nunca he practicado yoga, puedo asistir a cualquier clase?',
+              answer: 'Recomendamos comenzar por nuestras clases de Hatha Suave o Yoga para Principiantes los martes y jueves, donde se explican con detenimiento las bases de alineación y respiración.'
+            },
+            {
+              id: 'q2',
+              question: '¿Es necesario llevar mi propia esterilla o material?',
+              answer: 'El estudio proporciona esterillas profesionales Manduka PRO, bloques de corcho ecológico, cinturones de algodón y mantas limpias sin coste adicional.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cómo funciona la cancelación o cambio de reserva de clase?',
+              answer: 'Puedes cancelar o reprogramar tu plaza hasta 2 horas antes del inicio de la sesión a través de nuestra aplicación sin perder el crédito de tu bono.'
+            },
+            {
+              id: 'q4',
+              question: '¿Disponen de vestuarios y duchas en el centro?',
+              answer: 'Contamos con vestuarios individuales equipados con duchas de agua caliente, secadores de pelo y productos de higiene botánicos biodegradables.'
+            },
+            {
+              id: 'q5',
+              question: '¿Tienen clases adaptadas para mujeres embarazadas?',
+              answer: 'Sí. Ofrecemos clases específicas de Yoga Prenatal impartidas por fisioterapeutas especializadas en suelo pélvico y preparación corporal al parto.'
+            },
+            {
+              id: 'q6',
+              question: '¿Puedo pausar mi membresía mensual durante las vacaciones?',
+              answer: 'Puedes solicitar la pausa temporal de tu cuota mensual durante un período de hasta 30 días al año con solo avisar a recepción con 7 días de antelación.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'Comienza tu viaje hacia el bienestar interior.',
+          subtitle: 'Reserva tu clase de prueba en nuestro santuario de calma.',
+          primaryCta: { text: 'Reservar Primera Clase', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Prana Sanctuary Yoga & Wellness S.L. Todos los derechos reservados.',
+          legalLinks: [
+            { label: 'Normas del Estudio', href: '#normas' },
+            { label: 'Política de Cancelaciones', href: '#cancelaciones' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 2. FORGE ATHLETICS — CrossFit & Alto Rendimiento
+  {
+    id: 'crossfit-forge',
+    name: 'Forge Performance & CrossFit',
+    tagline: 'Centro oficial de CrossFit, halterofilia y acondicionamiento metabólico con entrenadores certificados de élite',
+    category: 'wellness',
+    thumbnail: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en negro asfalto #12121A y acento llama naranja #FF6B35, tipografía Space Grotesk, WOD interactivo del día, equipamiento Eleiko y Rogue, zonas de halterofilia y reserva de clases.',
+    accentColor: '#FF6B35',
+    theme: 'dark',
+    defaultConfig: {
+      templateId: 'crossfit-forge',
+      name: 'Forge Performance CrossFit',
+      slug: 'forge-crossfit',
+      domain: 'forgecrossfit.com',
+      theme: 'dark',
+      accentColor: '#FF6B35',
+      fontFamily: "'Space Grotesk', sans-serif",
+      borderRadius: 12,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Forge Performance — Box Oficial de CrossFit & Alto Rendimiento',
+        description: 'Supera tus límites con entrenamientos funcionales de alta intensidad guiados por coaches certificados Level 3.',
+        keywords: 'crossfit oficial, box de crossfit, halterofilia, entrenamiento funcional, acondicionamiento fisico, hyrox'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Forge Box',
+          logoText: 'FORGE // PERFORMANCE',
+          ctaText: 'Clase de Prueba Gratis',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Programas', href: '#features' },
+            { label: 'Instalaciones', href: '#product' },
+            { label: 'Membresías', href: '#pricing' },
+            { label: 'El Box', href: '#gallery' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Box Oficial Afiliado CrossFit Inc. • 1.200 m² de Instalaciones',
+          kicker: 'Fuerza, Potencia & Disciplina',
+          title: 'Construye tu mejor versión física',
+          highlightTitle: 'en la arena de Forge.',
+          subtitle: 'Entrenamientos funcionales constantemente variados ejecutados a alta intensidad para forjar fuerza real, resistencia cardiovascular y una mentalidad inquebrantable.',
+          primaryCta: { text: 'Solicitar Clase de Prueba Gratis', link: '#pricing' },
+          secondaryCta: { text: 'Conoce a los Coaches →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'MARCAS OFICIALES DE EQUIPAMIENTO PROFESIONAL EN EL BOX',
+          items: [
+            { id: 'l1', name: 'Rogue Fitness', tagline: 'Official Rigs & Racks' },
+            { id: 'l2', name: 'Eleiko Sweden', tagline: 'Competition Barbells' },
+            { id: 'l3', name: 'Concept2', tagline: 'RowErg & SkiErg' },
+            { id: 'l4', name: 'CrossFit Affiliate', tagline: 'Official Box' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Metodología Probada',
+          title: 'Entrenamiento basado en ciencia deportiva y progresión segura.',
+          subtitle: 'Cada sesión está estructurada en calentamiento articular, trabajo de fuerza/técnica y WOD metabólico.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Coaches Certificados CrossFit Level 2 & 3',
+              description: 'Supervisión constante de la técnica de levantamiento olímpico y gimnasia para evitar lesiones y optimizar el progreso individual.',
+              icon: 'ShieldCheck',
+              tag: 'Supervisión Técnica',
+              colSpan: 2,
+              statNumber: '100%',
+              statLabel: 'De clases guiadas por entrenadores certificados'
+            },
+            {
+              id: 'f2',
+              title: '1.200 m² con Zona Open Box Ilimitada',
+              description: 'Plataformas de halterofilia de caucho macizo, 24 puestos de rack Rogue y zona de césped artificial para trineos.',
+              icon: 'Dumbbell',
+              tag: '1.200 m² Espacio',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Programación Escalable a Cualquier Nivel',
+              description: 'Desde atletas experimentados que preparan competiciones hasta personas que pisan un gimnasio por primera vez.',
+              icon: 'Layers',
+              tag: 'Todos los Niveles',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Comunidad Fuerte y Motivadora',
+              description: 'Entrena con compañeros que te animan a dar la última repetición en un ambiente de compañerismo absoluto.',
+              icon: 'Users',
+              tag: 'Comunidad Forge',
+              colSpan: 2,
+              statNumber: '15',
+              statLabel: 'Atletas máximos por hora de WOD'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'Programa Estrella',
+          kicker: 'Iniciación Segura',
+          title: 'Curso On-Ramp de Fundamentos Técnicos.',
+          subtitle: '4 sesiones individuales para aprender los 9 movimientos básicos del CrossFit.',
+          description: 'Aprende sentadilla libre, sentadilla frontal, overhead squat, press de hombros, push press, push jerk, peso muerto y cargada olímpica con barra de técnica ligera antes de incorporarte a las clases grupales regulares.',
+          imageUrl: 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Duración', value: '4 sesiones de 60 minutos con coach personal' },
+            { label: 'Evaluación', value: 'Test de movilidad articular y composición corporal con escáner InBody' },
+            { label: 'Garantía', value: 'Incluye 2 semanas de WODs ilimitados al finalizar el curso' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'El Box en Acción',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80', caption: 'Zona de barras Eleiko y jaula de dominadas Rogue' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&w=800&q=80', caption: 'Entrenamiento metabólico de alta intensidad en grupo' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '1.200 m²', label: 'Superficie de Entrenamiento' },
+            { id: 's2', value: '15 Max', label: 'Atletas por Clase de WOD' },
+            { id: 's3', value: '4.9/5', label: 'Valoración en Google Reviews' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Lo que dicen los atletas de Forge.',
+          items: [
+            {
+              id: 't1',
+              author: 'Javier Domínguez',
+              name: 'Javier Domínguez',
+              role: 'Atleta Máster y Miembro desde 2022',
+              company: 'Forge Community',
+              quote: 'Empecé con 42 años sin haber levantado una barra en mi vida. En Forge no solo me enseñaron a moverme sin dolor de espalda, sino que he ganado más fuerza y energía que nunca.',
+              avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Planes de Membresía del Box',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Membresía 3 Días/Semana',
+              priceMonthly: '85€',
+              priceAnnual: '12 clases al mes con acceso Open Box',
+              description: 'Ideal para personas que compaginan el CrossFit con running u otros deportes.',
+              features: ['3 clases guiadas de WOD a la semana', 'Acceso a zona Open Box en horas libres', 'Seguimiento de marcas en app móvil', 'Uso completo de vestuarios y duchas'],
+              highlighted: false,
+              ctaText: 'Elegir 3 Días'
+            },
+            {
+              id: 'p2',
+              name: 'Membresía Unlimited Pro',
+              priceMonthly: '115€',
+              priceAnnual: 'Acceso total sin límites',
+              description: 'Para atletas dedicados que quieren entrenar a diario y acceder a clases de halterofilia y gimnasia.',
+              features: ['Clases de WOD ilimitadas de lunes a sábado', 'Clases especializadas de Halterofilia y Gymnastics', 'Acceso Open Box en cualquier horario', '1 análisis de composición corporal InBody al mes'],
+              highlighted: true,
+              ctaText: 'Unirse a Forge Unlimited'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre el Box',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Qué necesito llevar para mi primera clase de prueba?',
+              answer: 'Ropa deportiva cómoda, zapatillas de suela plana o de entrenamiento funcional, una toalla pequeña y una botella de agua. Nosotros proporcionamos magnesio y todo el material necesario.'
+            },
+            {
+              id: 'q2',
+              question: '¿Tengo que estar en buena forma física antes de apuntarme?',
+              answer: 'Rotundamente no. El objetivo del CrossFit es ponerte en forma. Todos los ejercicios y cargas se adaptan individualmente por el coach al nivel y condición de cada persona.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cómo se reservan las clases diarias de WOD?',
+              answer: 'A través de nuestra aplicación móvil podrás ver los horarios disponibles desde las 07:00 hasta las 21:30 y reservar tu puesto con hasta 7 días de antelación.'
+            },
+            {
+              id: 'q4',
+              question: '¿Tienen aparcamiento privado para socios?',
+              answer: 'Disponemos de un amplio aparcamiento gratuito para más de 40 vehículos justo frente a la puerta del box.'
+            },
+            {
+              id: 'q5',
+              question: '¿Existe algún compromiso de permanencia en las cuotas?',
+              answer: 'No requerimos permanencias mínimas. Puedes pausar o darte de baja avisando antes del día 25 del mes en curso.'
+            },
+            {
+              id: 'q6',
+              question: '¿Qué es la zona Open Box y cuándo puedo usarla?',
+              answer: 'Es un área habilitada para realizar entrenamientos libres, practicar técnica o trabajo accesorio de fuerza de forma autónoma durante todo el horario de apertura del centro.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'El primer paso hacia tu nueva fuerza empieza hoy.',
+          subtitle: 'Ven a probar una clase gratis guiada por nuestros coaches.',
+          primaryCta: { text: 'Solicitar Clase Gratis Ahora', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Forge Performance CrossFit S.L. Afiliado Oficial.',
+          legalLinks: [
+            { label: 'Normativa del Box', href: '#normativa' },
+            { label: 'Aviso Legal', href: '#legal' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 3. LUMINA DENTAL — Odontología Digital Avanzada
+  {
+    id: 'dental-clinic',
+    name: 'Lumina Dental Studio',
+    tagline: 'Clínica odontológica de vanguardia especializada en ortodoncia invisible, diseño digital de sonrisas e implantes guiados 3D',
+    category: 'wellness',
+    thumbnail: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética clínica pulcra en blanco puro y azul cian médico #38BDF8, tipografía Montserrat, escáner intraoral 3D en vivo, tratamientos sin dolor con sedación consciente y financiación a medida.',
+    accentColor: '#38BDF8',
+    theme: 'light',
+    defaultConfig: {
+      templateId: 'dental-clinic',
+      name: 'Lumina Dental Studio Odontología',
+      slug: 'lumina-dental',
+      domain: 'luminadental.es',
+      theme: 'light',
+      accentColor: '#38BDF8',
+      fontFamily: "'Montserrat', sans-serif",
+      borderRadius: 16,
+      published: true,
+      sectionOrder: [
+        'navbar',
+        'hero',
+        'logos',
+        'bentoFeatures',
+        'productHighlight',
+        'gallery',
+        'stats',
+        'testimonials',
+        'pricing',
+        'faq',
+        'ctaFinal',
+        'footer'
+      ],
+      seo: {
+        title: 'Lumina Dental Studio — Odontología Digital & Estética Dental',
+        description: 'Ortodoncia invisible, carillas de porcelana e implantología guiada por ordenador con tecnología 3D sin dolor.',
+        keywords: 'clinica dental, ortodoncia invisible, carillas de porcelana, implantes dentales 3d, blanqueamiento dental'
+      },
+      sections: {
+        navbar: {
+          brandName: 'Lumina Dental',
+          logoText: 'LUMINA DENTAL STUDIO',
+          ctaText: 'Cita de Diagnóstico 3D',
+          ctaLink: '#pricing',
+          links: [
+            { label: 'Tratamientos', href: '#features' },
+            { label: 'Tecnología 3D', href: '#product' },
+            { label: 'Especialidades', href: '#pricing' },
+            { label: 'Instalaciones', href: '#gallery' }
+          ],
+          glassBlur: true,
+          sticky: true
+        },
+        hero: {
+          enabled: true,
+          badge: 'Primera Consulta y Escáner 3D Digital Incluidos sin Compromiso',
+          kicker: 'Odontología Digital de Precisión',
+          title: 'La sonrisa de tus sueños, diseñada con',
+          highlightTitle: 'tecnología 3D sin dolor.',
+          subtitle: 'Especialistas en ortodoncia invisible, carillas cerámicas de mínima invasión e implantología guiada por ordenador en un entorno relajante y sin estrés.',
+          primaryCta: { text: 'Pedir Cita Diagnóstica Gratuita', link: '#pricing' },
+          secondaryCta: { text: 'Conoce Nuestras Especialidades →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80',
+          style: 'centered'
+        },
+        logos: {
+          enabled: true,
+          title: 'ACREDITACIONES Y SOCIEDADES ODONTOLÓGICAS OFICIALES',
+          items: [
+            { id: 'l1', name: 'Invisalign Diamond Apex', tagline: 'Top 1% Providers' },
+            { id: 'l2', name: 'SEPA Periodoncia', tagline: 'Miembro Acreditado' },
+            { id: 'l3', name: 'SEPES Prótesis & Estética', tagline: 'Sociedad Española' }
+          ]
+        },
+        bentoFeatures: {
+          enabled: true,
+          kicker: 'Tratamientos Avanzados',
+          title: 'Máxima precisión con mínima invasión.',
+          subtitle: 'Sustituimos las pastas tradicionales de toma de moldes por escaneado óptico digital de alta velocidad.',
+          items: [
+            {
+              id: 'f1',
+              title: 'Escáner Intraoral 3D iTero Lumina',
+              description: 'Visualiza la simulación exacta del resultado final de tu sonrisa antes de comenzar el tratamiento de ortodoncia invisible.',
+              icon: 'Scan',
+              tag: 'Sin Pastas Molestas',
+              colSpan: 2,
+              statNumber: '60s',
+              statLabel: 'Tiempo de escaneado completo de la boca en 3D'
+            },
+            {
+              id: 'f2',
+              title: 'Carillas de Porcelana E-Max sin Tallado',
+              description: 'Láminas cerámicas ultrafinas de 0.3mm que mejoran forma, color y simetría dental preservando la estructura del diente natural.',
+              icon: 'Sparkles',
+              tag: 'Mínima Invasión',
+              colSpan: 1
+            },
+            {
+              id: 'f3',
+              title: 'Sedación Consciente Inhalatoria y Endovenosa',
+              description: 'Tratamientos completamente indoloros y libres de ansiedad guiados por un médico anestesiólogo colegiado.',
+              icon: 'Heart',
+              tag: 'Cero Ansiedad',
+              colSpan: 1
+            },
+            {
+              id: 'f4',
+              title: 'Implantes Guiados por Tomografía CBCT',
+              description: 'Planificación quirúrgica digital milimétrica que reduce el tiempo de intervención a la mitad y permite una recuperación rápida.',
+              icon: 'CheckCircle2',
+              tag: 'Cirugía Guiada',
+              colSpan: 2,
+              statNumber: '99.2%',
+              statLabel: 'Tasa de éxito comprobada en osteointegración'
+            }
+          ]
+        },
+        productHighlight: {
+          enabled: true,
+          badge: 'Simulación en Vivo',
+          kicker: 'Diseño Digital de Sonrisa',
+          title: 'Digital Smile Design (DSD) Personalizado.',
+          subtitle: 'Diseñamos la armonía facial analizando tus proporciones de labios y rostro.',
+          description: 'Mediante fotografía macro y análisis facial por ordenador realizamos una prueba estética (mock-up) directamente en tu boca para que te veas con tu nueva sonrisa antes de tocar una sola pieza dental.',
+          imageUrl: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1400&q=80',
+          specs: [
+            { label: 'Tiempo de Mock-Up', value: 'Prueba en boca en la segunda cita' },
+            { label: 'Materiales', value: 'Cerámica feldespática estratificada a mano' },
+            { label: 'Financiación', value: 'Hasta 36 meses sin intereses con aprobación inmediata' }
+          ]
+        },
+        gallery: {
+          enabled: true,
+          title: 'Nuestras Instalaciones Médicas',
+          images: [
+            { id: 'g1', url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80', caption: 'Gabinete dental con luz natural y pantalla táctil para explicaciones' },
+            { id: 'g2', url: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80', caption: 'Sala de radiología digital de baja radiación CBCT' }
+          ]
+        },
+        stats: {
+          enabled: true,
+          items: [
+            { id: 's1', value: '14.000+', label: 'Pacientes Satisfechos' },
+            { id: 's2', value: '15 Años', label: 'De Experiencia Clínica' },
+            { id: 's3', value: '4.9/5', label: 'Puntuación en Reseñas Médicas' }
+          ]
+        },
+        testimonials: {
+          enabled: true,
+          title: 'Opiniones de nuestros pacientes.',
+          items: [
+            {
+              id: 't1',
+              author: 'Patricia Salgado',
+              name: 'Patricia Salgado',
+              role: 'Paciente de Ortodoncia Invisible',
+              company: 'Lumina Patient',
+              quote: 'Tenía pánico al dentista desde niña y en Lumina el trato humano y la tecnología cambiaron por completo mi experiencia. En 10 meses conseguí la sonrisa recta y natural que siempre quise.',
+              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+              rating: 5
+            }
+          ]
+        },
+        pricing: {
+          enabled: true,
+          title: 'Especialidades Principales y Diagnóstico',
+          billingCycle: 'monthly',
+          plans: [
+            {
+              id: 'p1',
+              name: 'Primera Visita de Diagnóstico 3D',
+              priceMonthly: '0€',
+              priceAnnual: 'Incluido sin coste ni compromiso',
+              description: 'Revisión bucodental integral, escáner intraoral 3D en color y ortopantomografía digital.',
+              features: ['Escáner 3D con simulación de sonrisa', 'Ortopantomografía digital de baja radiación', 'Diagnóstico por doctor especialista', 'Plan de tratamiento y presupuesto detallado'],
+              highlighted: false,
+              ctaText: 'Solicitar Primera Cita'
+            },
+            {
+              id: 'p2',
+              name: 'Ortodoncia Invisible Todo Incluido',
+              priceMonthly: '98€/mes',
+              priceAnnual: 'Financiación hasta 36 meses sin intereses',
+              description: 'Tratamiento completo con alineadores transparentes, revisiones presenciales y retenedores finales.',
+              features: ['Todos los alineadores necesarios incluidos', 'Refinamientos adicionales sin coste', 'Kit de blanqueamiento dental de regalo', 'Juego de retenedores Vivera finales'],
+              highlighted: true,
+              ctaText: 'Pedir Valoración de Ortodoncia'
+            }
+          ]
+        },
+        faq: {
+          enabled: true,
+          title: 'Preguntas Frecuentes sobre Tratamientos',
+          items: [
+            {
+              id: 'q1',
+              question: '¿Qué ventajas ofrece la ortodoncia invisible frente a los brackets clásicos?',
+              answer: 'Los alineadores transparentes son prácticamente invisibles a la vista, se pueden retirar para comer y cepillarse los dientes cómodamente y no producen rozaduras ni llagas en la boca.'
+            },
+            {
+              id: 'q2',
+              question: '¿La primera consulta diagnóstica tiene algún coste?',
+              answer: 'No. La primera visita es totalmente gratuita e incluye el examen clínico completo, radiografía panorámica digital y escaneado 3D con simulación de resultados.'
+            },
+            {
+              id: 'q3',
+              question: '¿Cómo funciona la financiación de los tratamientos?',
+              answer: 'Ofrecemos financiación directa en la clínica de 6 a 36 meses sin comisiones de apertura ni intereses previa aprobación bancaria inmediata con solo presentar DNI y nómina.'
+            },
+            {
+              id: 'q4',
+              question: '¿Los tratamientos con implantes dentales son dolorosos?',
+              answer: 'Se realizan con anestesia local avanzada o sedación consciente. Durante la intervención no se siente ningún dolor y el postoperatorio se controla perfectamente con analgesia convencional.'
+            },
+            {
+              id: 'q5',
+              question: '¿Cuánto tiempo dura el blanqueamiento dental profesional?',
+              answer: 'Con una adecuada higiene bucodental y evitando excesos de café o tabaco, los resultados de nuestro blanqueamiento combinado en clínica y casa duran entre 2 y 4 años.'
+            },
+            {
+              id: 'q6',
+              question: '¿Atienden urgencias dentales en el mismo día?',
+              answer: 'Reservamos huecos diarios de agenda prioritarios para atender casos urgentes de dolor agudo, fracturas dentales o caídas de coronas.'
+            }
+          ]
+        },
+        ctaFinal: {
+          enabled: true,
+          title: 'Recupera la confianza al sonreír.',
+          subtitle: 'Pide tu cita diagnóstica con escáner 3D gratuito en Lumina Dental.',
+          primaryCta: { text: 'Agendar Cita Gratuita', link: '#pricing' }
+        },
+        footer: {
+          copyright: '© 2026 Lumina Dental Studio S.L. Registro Sanitario Oficial.',
+          legalLinks: [
+            { label: 'Cuadro Médico', href: '#medicos' },
+            { label: 'Aviso Legal Sanitario', href: '#sanidad' },
+            { label: 'Privacidad', href: '#privacy' }
+          ],
+          socialLinks: [
+            { platform: 'Instagram', url: 'https://instagram.com' }
+          ]
+        }
+      }
+    }
+  },
+
+  // 4. EQUILIBRIO PSICOLOGÍA — Salud Mental & Terapia Cognitiva
+  {
+    id: 'mental-health',
+    name: 'Equilibrio Psicología',
+    tagline: 'Centro de psicología clínica, terapia cognitivo-conductual, gestión de ansiedad y neurobienestar emocional',
+    category: 'wellness',
+    thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80',
+    description: 'Estética en lavanda suave y violeta sereno #8B5CF6, tipografía Nunito Sans, enfoque basado en evidencia científica, sesiones presenciales y online con confidencialidad absoluta.',
+    accentColor: '#8B5CF6',
+    theme: 'light',
+    defaultConfig: {
+      templateId: 'mental-health',
+      name: 'Equilibrio Psicología Clínica',
+      slug: 'equilibrio-psicologia',
+      domain: 'equilibriopsicologia.es',
+      theme: 'light',
+      accentColor: '#8B5CF6',
+      fontFamily: "'Nunito Sans', sans-serif",
       borderRadius: 18,
       published: true,
       sectionOrder: [
@@ -35,141 +782,123 @@ export const WELLNESS_TEMPLATES: TemplateDefinition[] = [
         'footer'
       ],
       seo: {
-        title: 'Verde Botanical — Suplementos Orgánicos & Nutrición Celular Basada en Evidencia',
-        description: 'Fórmulas limpias con adaptógenos, hongos medicinales y micronutrientes biodisponibles para restaurar tu vitalidad natural.',
-        keywords: 'salud holistica, suplementos organicos, adaptogenos, nutricion celular, longevidad, biohacking'
+        title: 'Equilibrio Psicología — Psicología Clínica & Terapia Basada en Evidencia',
+        description: 'Terapia para la ansiedad, estrés laboral, autoestima y relaciones con psicólogos sanitarios colegiados.',
+        keywords: 'psicologo clinico, terapia de ansiedad, terapia online, autoestima, mindfulness, psicoterapia sanitaria'
       },
       sections: {
         navbar: {
-          brandName: 'Verde',
-          logoText: 'VERDE BOTANICAL',
-          ctaText: 'Test Nutricional Gratuito',
+          brandName: 'Equilibrio',
+          logoText: 'EQUILIBRIO PSICOLOGÍA',
+          ctaText: 'Primera Sesión Orientativa',
           ctaLink: '#pricing',
           links: [
-            { label: 'Fórmulas', href: '#features' },
-            { label: 'Ingredientes', href: '#product' },
-            { label: 'Ciencia', href: '#stats' },
-            { label: 'Planes', href: '#pricing' },
-            { label: 'FAQ', href: '#faq' }
+            { label: 'Áreas de Ayuda', href: '#features' },
+            { label: 'Metodología', href: '#product' },
+            { label: 'Modalidades', href: '#pricing' },
+            { label: 'Preguntas', href: '#faq' }
           ],
           glassBlur: true,
           sticky: true
         },
         hero: {
           enabled: true,
-          badge: 'Certificado 100% Orgánico UE • Sin Aditivos ni Rellenos Sintéticos',
-          kicker: 'Nutrición Botánica & Longevidad',
-          title: 'Nutre tu cuerpo desde',
-          highlightTitle: 'la raíz celular.',
-          subtitle: 'Fórmulas adaptógenas desarrolladas por médicos y fitoterapeutas para optimizar tu energía diurna, claridad mental y descanso regenerativo nocturno.',
-          primaryCta: { text: 'Descubrir la Rutina Vital', link: '#pricing' },
-          secondaryCta: { text: 'Realizar Test Nutricional (2 min) →', link: '#product' },
-          imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1600&q=80',
+          badge: 'Psicólogos Sanitarios Colegiados • Más de 10 Años de Experiencia',
+          kicker: 'Salud Mental & Bienestar Emocional',
+          title: 'Un espacio seguro donde comprenderte y',
+          highlightTitle: 'recuperar tu bienestar.',
+          subtitle: 'Acompañamiento psicológico riguroso y humano basado en terapias de tercera generación para superar la ansiedad, el agotamiento emocional y reencontrar tu equilibrio interior.',
+          primaryCta: { text: 'Agendar Primera Sesión de Orientación', link: '#pricing' },
+          secondaryCta: { text: 'Conoce Nuestro Enfoque Terapéutico →', link: '#features' },
+          imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
           style: 'centered'
         },
         logos: {
           enabled: true,
-          title: 'SELLOS DE CALIDAD Y CERTIFICACIONES INDEPENDIENTES',
+          title: 'COLEGIOS PROFESIONALES Y SOCIEDADES CIENTÍFICAS',
           items: [
-            { id: 'l1', name: 'Agricultura Ecológica UE', tagline: '100% Bio' },
-            { id: 'l2', name: 'GMP Certified Lab', tagline: 'Farmacéutica' },
-            { id: 'l3', name: 'Non-GMO Project', tagline: 'Sin Transgénicos' },
-            { id: 'l4', name: 'Vegan Society', tagline: '100% Vegetal' },
-            { id: 'l5', name: 'Lab Test 3rd Party', tagline: 'Pureza Verificada' }
+            { id: 'l1', name: 'Colegio Oficial de la Psicología', tagline: 'Psicólogos Sanitarios' },
+            { id: 'l2', name: 'Asociación Española de Psicología Clínica', tagline: 'ASEPCO' },
+            { id: 'l3', name: 'Federación Europea de Psicología', tagline: 'EFPA EuroPsy' }
           ]
         },
         bentoFeatures: {
           enabled: true,
-          kicker: 'Los Tres Pilares de Verde',
-          title: 'Biodisponibilidad máxima sin químicos artificiales.',
-          subtitle: 'Combinamos extractos botánicos estandarizados con minerales quelados para una absorción celular óptima.',
+          kicker: 'Áreas de Especialización',
+          title: 'Herramientas prácticas para afrontar las dificultades de la vida.',
+          subtitle: 'Intervenciones personalizadas sin juicios, orientadas a dotarte de recursos autónomos duraderos.',
           items: [
             {
               id: 'f1',
-              title: 'Complejo de Adaptógenos & Hongos Medicinales',
-              description: 'Ashwagandha KSM-66, Melena de León y Reishi rojo orgánico que modulan la respuesta del sistema nervioso ante el estrés crónico.',
-              icon: 'BrainCircuit',
-              tag: 'Energía Sin Picos',
+              title: 'Gestión de la Ansiedad y Ataques de Pánico',
+              description: 'Técnicas de regulación fisiológica, reestructuración cognitiva y desensibilización sistemática para recuperar el control de tu día a día.',
+              icon: 'HeartHandshake',
+              tag: 'Terapia de Ansiedad',
               colSpan: 2,
-              statNumber: '100% Puro',
-              statLabel: 'Extractos estandarizados en principios activos'
+              statNumber: '88%',
+              statLabel: 'De mejoría clínica significativa en las primeras 8 sesiones'
             },
             {
               id: 'f2',
-              title: 'Cero Aglutinantes o Colorantes',
-              description: 'Cápsulas de celulosa vegetal sin dióxido de titanio, estearato de magnesio ni azúcares añadidos.',
-              icon: 'ShieldCheck',
-              tag: 'Clean Label',
+              title: 'Terapia de Aceptación y Compromiso (ACT)',
+              description: 'Aprende a relacionarte de forma saludable con tus pensamientos y emociones para actuar conforme a tus valores vitales.',
+              icon: 'Compass',
+              tag: 'Tercera Generación',
               colSpan: 1
             },
             {
               id: 'f3',
-              title: 'Envases de Cristal Violeta Miron',
-              description: 'Protege las moléculas fotosensibles de los fitonutrientes bloqueando el espectro de luz visible.',
-              icon: 'Layers',
-              tag: 'Cristal Biofotónico',
+              title: 'Modalidad Online y Presencial Flexible',
+              description: 'Sesiones por videoconferencia cifrada de alta seguridad desde tu hogar o en nuestras consultas tranquilas y luminosas.',
+              icon: 'Laptop',
+              tag: '100% Confidencial',
               colSpan: 1
             },
             {
               id: 'f4',
-              title: 'Pruebas de Laboratorio por Lote',
-              description: 'Análisis cromatográfico de metales pesados, pesticidas y microbiología accesible mediante código QR en cada frasco.',
-              icon: 'CheckCircle2',
-              tag: 'Trazabilidad Total',
+              title: 'Autoestima y Relaciones Saludables',
+              description: 'Establecimiento de límites asertivos, superación de la dependencia emocional y fortalecimiento de la seguridad personal.',
+              icon: 'Smile',
+              tag: 'Crecimiento Personal',
               colSpan: 2,
-              statNumber: '99.4%',
-              statLabel: 'Tasa de satisfacción reportada por clientes habituales'
+              statNumber: '100%',
+              statLabel: 'Garantía de confidencialidad y secreto profesional estricto'
             }
           ]
         },
         productHighlight: {
           enabled: true,
-          kicker: 'Fórmula Estrella',
-          title: 'El Pack Diario Vitality & Sleep.',
-          subtitle: 'Dos momentos clave: activación matutina y reparación profunda nocturna.',
-          description: 'Despierta con vitalidad sostenida sin necesidad de exceso de cafeína y concilia un sueño reparador con magnesio bisglicinato y pasiflora silvestre.',
-          imageUrl: 'https://images.unsplash.com/photo-1512290900672-1f41e176251b?auto=format&fit=crop&w=1600&q=80',
-          layout: 'image-left',
-          ctaText: 'Ver Ingredientes y Prospecto',
-          ctaLink: '#pricing',
+          badge: 'El Proceso Terapéutico',
+          kicker: 'Fases de Intervención',
+          title: 'Un camino estructurado hacia el cambio positivo.',
+          subtitle: 'Evaluación inicial, diseño conjunto de objetivos y dotación de herramientas prácticas.',
+          description: 'No creemos en terapias interminables sin rumbo. Establecemos metas claras desde el inicio, revisando periódicamente tus avances para que compruebes tu evolución de forma tangible semana a semana.',
+          imageUrl: 'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1400&q=80',
           specs: [
-            { label: 'Energía Diurna', value: 'Ashwagandha + B-Complex', detail: 'Modula el cortisol' },
-            { label: 'Descanso Nocturno', value: 'Magnesio + L-Teanina', detail: 'Fase REM profunda' },
-            { label: 'Formato', value: '60 Días de Suministro', detail: 'Recargas ecológicas' }
+            { label: 'Duración de Sesión', value: '55 minutos de atención individualizada' },
+            { label: 'Frecuencia', value: 'Semanal o quincenal según tus necesidades' },
+            { label: 'Material', value: 'Guías de ejercicios y registros de autorreflexión incluidos' }
           ]
         },
         stats: {
           enabled: true,
-          kicker: 'Impacto en la Salud',
-          title: 'Resultados clínicos respaldados por nuestros usuarios.',
-          subtitle: 'Estudio observacional realizado con más de 1,200 personas tras 60 días de rutina.',
           items: [
-            { id: 's1', value: '88%', label: 'Mayor Claridad Mental', description: 'Reducción del cansancio vespertino' },
-            { id: 's2', value: '92%', label: 'Mejor Calidad de Sueño', description: 'Menos despertares nocturnos' },
-            { id: 's3', value: '45,000+', label: 'Rutinas Entregadas', description: 'En España, Francia y Alemania' },
-            { id: 's4', value: '0 Aditivos', label: 'Química Sintética', description: '100% ingredientes limpios' }
+            { id: 's1', value: '3.200+', label: 'Procesos de Terapia Completados' },
+            { id: 's2', value: '10 Años', label: 'De Ejercicio Sanitario Colegiado' },
+            { id: 's3', value: '4.9/5', label: 'Satisfacción de Nuestros Pacientes' }
           ]
         },
         testimonials: {
           enabled: true,
-          title: 'Opiniones de personas que han recuperado su energía.',
-          subtitle: 'Historias reales de clientes que integraron Verde en su estilo de vida.',
+          title: 'Palabras de personas que han confiado en nuestro centro.',
           items: [
             {
               id: 't1',
-              name: 'Dra. Sandra Beltrán',
-              role: 'Médica de Familia & Nutricionista',
-              company: 'Centro Médico Integrativo',
-              quote: 'Recomiendo las fórmulas de Verde a mis pacientes porque la calidad y biodisponibilidad de sus materias primas es impecable. El complejo de adaptógenos es el más limpio del mercado europeo.',
-              avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
-              rating: 5
-            },
-            {
-              id: 't2',
-              name: 'Javier Doménech',
-              role: 'Empresario & Atleta Amateur',
-              company: 'Valencia',
-              quote: 'Llevaba dos años arrastrando fatiga mental por las tardes. A las tres semanas de empezar con el pack diario de Verde noté una estabilidad energética asombrosa.',
+              author: 'Guillermo Ramos',
+              name: 'Guillermo Ramos',
+              role: 'Paciente de Terapia para Ansiedad',
+              company: 'Equilibrio Paciente',
+              quote: 'Llegué a consulta sobrepasado por el estrés del trabajo y los ataques de pánico. Mi psicóloga me ayudó a entender lo que sentía y me dio herramientas que sigo usando a diario. Ha sido una de las mejores decisiones de mi vida.',
               avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
               rating: 5
             }
@@ -177,416 +906,82 @@ export const WELLNESS_TEMPLATES: TemplateDefinition[] = [
         },
         pricing: {
           enabled: true,
-          title: 'Elige tu Plan de Bienestar',
-          subtitle: 'Suscripción flexible con envíos automáticos cada mes y cancelación en un clic.',
+          title: 'Modalidades de Sesión Terapéutica',
           billingCycle: 'monthly',
-          discountNote: '15% de descuento permanente y gastos de envío gratuitos en suscripción mensual',
           plans: [
             {
-              id: 'w_essential',
-              name: 'Rutina Esencial (30 Días)',
-              tag: 'Compra Única',
-              priceMonthly: '45€',
-              priceAnnual: '39€',
-              description: 'Para quienes desean probar la fórmula antes de suscribirse.',
-              features: [
-                'Frasco de cristal Miron con 60 cápsulas',
-                'Guía nutricional de hábitos matutinos en PDF',
-                'Acceso al canal de consultas de fitoterapia',
-                'Envío asegurado en 24-48 horas'
-              ],
-              ctaText: 'Comprar Rutina Esencial',
-              ctaLink: '#buy-essential',
-              highlighted: false
+              id: 'p1',
+              name: 'Sesión Individual (Online / Presencial)',
+              priceMonthly: '65€',
+              priceAnnual: '55 minutos de sesión',
+              description: 'Consulta individualizada con tu psicólogo sanitario asignado según tu motivo de consulta.',
+              features: ['55 minutos de terapia especializada', 'Plataforma de videollamada médica cifrada', 'Material complementario y ejercicios de apoyo', 'Flexibilidad de cambios con 24h de aviso'],
+              highlighted: true,
+              ctaText: 'Reservar Sesión'
             },
             {
-              id: 'w_subscription',
-              name: 'Membresía Vitality Club',
-              tag: 'Más Popular',
-              priceMonthly: '38€',
-              priceAnnual: '32€',
-              description: 'Recargas automáticas en bolsa compostable sin interrupciones en tu rutina.',
-              features: [
-                '15% de descuento en todas las recargas mensuales',
-                'Frasco de cristal Miron de bienvenida gratuito',
-                'Bolsa de recarga 100% compostable cada 30 días',
-                'Consulta mensual 1 a 1 con nutricionista colegiado',
-                'Cancela o pausa cuando quieras sin permanencia'
-              ],
-              ctaText: 'Unirme a la Membresía',
-              ctaLink: '#join-membership',
-              highlighted: true
+              id: 'p2',
+              name: 'Bono Mensual (4 Sesiones)',
+              priceMonthly: '235€',
+              priceAnnual: 'Ahorro de 25€ en el bono',
+              description: 'Para personas comprometidas con un proceso continuo de trabajo personal y terapia semanal.',
+              features: ['4 sesiones de 55 minutos', 'Horario fijo reservado cada semana', 'Contacto directo por correo para dudas puntuales', 'Validez de 60 días naturales'],
+              highlighted: false,
+              ctaText: 'Comprar Bono 4 Sesiones'
             }
           ]
         },
         faq: {
           enabled: true,
-          title: 'Preguntas Frecuentes sobre Verde Botanical',
-          subtitle: 'Todo sobre tomas recomendadas, alérgenos y envíos.',
+          title: 'Preguntas Frecuentes sobre la Terapia',
           items: [
             {
-              id: 'wf_1',
-              question: '¿Cuándo empezaré a notar los efectos de los adaptógenos?',
-              answer: 'La mayoría de las personas percibe una mejora en la estabilidad energética y el descanso durante los primeros 7 a 14 días. Los beneficios a nivel de regulación de cortisol y concentración se consolidan a las 4-6 semanas de toma continuada.'
+              id: 'q1',
+              question: '¿Cómo sé si necesito acudir al psicólogo?',
+              answer: 'Si sientes que la ansiedad, el desánimo o los problemas en tus relaciones interfieren en tu calidad de vida y las estrategias que has intentado no son suficientes, la terapia te proporcionará nuevas perspectivas y herramientas.'
             },
             {
-              id: 'wf_2',
-              question: '¿Las cápsulas son aptas para celíacos y personas veganas?',
-              answer: 'Sí, todas nuestras fórmulas son 100% libres de gluten, lactosa, soja, huevo y están certificadas como veganas por The Vegan Society.'
+              id: 'q2',
+              question: '¿La terapia online es igual de eficaz que la presencial?',
+              answer: 'Numerosos estudios científicos demuestran que la psicoterapia online ofrece la misma eficacia clínica que la presencial, con la ventaja añadida de evitar desplazamientos y poder realizar la sesión en tu entorno seguro.'
             },
             {
-              id: 'wf_3',
-              question: '¿Cómo funciona la cancelación de la suscripción?',
-              answer: 'Puedes pausar, adelantar o cancelar tu suscripción con un solo clic desde tu panel de usuario sin tener que llamar por teléfono ni justificar ningún motivo.'
+              id: 'q3',
+              question: '¿Cuánto tiempo suele durar un proceso terapéutico completo?',
+              answer: 'Depende de la problemática y objetivos. En general, los tratamientos cognitivo-conductuales tienen una duración media de 12 a 20 sesiones semanales con espaciamiento progresivo hacia el final.'
+            },
+            {
+              id: 'q4',
+              question: '¿Qué titulación tienen los terapeutas del equipo?',
+              answer: 'Todos nuestros profesionales son graduados/licenciados en Psicología con Máster Oficial en Psicología General Sanitaria, colegiados en el Colegio Oficial de la Psicología y con formación continua acreditada.'
+            },
+            {
+              id: 'q5',
+              question: '¿Todo lo que hablemos en sesión es estrictamente confidencial?',
+              answer: 'Absolutamente. Toda la información tratada está protegida por el secreto profesional del Código Deontológico de la Psicología y la legislación europea de protección de datos de salud.'
+            },
+            {
+              id: 'q6',
+              question: '¿Cómo puedo pagar las sesiones online?',
+              answer: 'Puedes abonar las sesiones mediante tarjeta bancaria o transferencia a través de nuestra pasarela segura antes del inicio de la consulta.'
             }
           ]
         },
         ctaFinal: {
           enabled: true,
-          kicker: 'Empieza Hoy Mismo',
-          title: 'Tu cuerpo agradecerá cada decisión consciente.',
-          subtitle: 'Prueba la rutina durante 30 días. Si no sientes una diferencia real en tu energía, te devolvemos el 100% de tu dinero.',
-          primaryCta: { text: 'Iniciar mi Rutina Verde', link: '#pricing' },
-          secondaryCta: { text: 'Realizar el Test Nutricional', link: '#product' },
-          backgroundStyle: 'glow'
+          title: 'Dar el primer paso es cuidarte.',
+          subtitle: 'Estamos aquí para escucharte y acompañarte en tu proceso.',
+          primaryCta: { text: 'Agendar Consulta de Orientación', link: '#pricing' }
         },
         footer: {
-          copyright: '© 2026 Verde Botanical Health S.L. Madrid • Barcelona.',
+          copyright: '© 2026 Equilibrio Psicología Clínica S.L.P. Centro Sanitario Autorizado.',
           legalLinks: [
-            { label: 'Certificados de Laboratorio', href: '#lab' },
-            { label: 'Política de Envíos', href: '#shipping' },
-            { label: 'Privacidad', href: '#privacy' },
-            { label: 'Aviso Legal', href: '#legal' }
+            { label: 'Código Deontológico', href: '#deontologico' },
+            { label: 'Aviso Legal Sanitario', href: '#sanidad' },
+            { label: 'Privacidad', href: '#privacy' }
           ],
           socialLinks: [
-            { platform: 'Instagram', url: 'https://instagram.com' },
-            { platform: 'TikTok', url: 'https://tiktok.com' },
-            { platform: 'YouTube', url: 'https://youtube.com' }
-          ]
-        }
-      }
-    }
-  },
-
-  // 11. SERENITY — Spa Termal, Retiros Holísticos & Tratamientos de Autor
-  {
-    id: 'serenity-spa',
-    name: 'Serenity',
-    tagline: 'Centro termal de autor con aguas mineromedicinales, masajes holísticos, circuito hidrotermal y suites de desconexión',
-    category: 'wellness',
-    thumbnail: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
-    description: 'Blanco luminoso y azul celeste #06B6D4, tipografía relajante, carrusel de tratamientos sensoriales, pestañas de experiencias de día y fin de semana, formulario de reserva multi-paso, mapa de ubicación termal y testimonios.',
-    accentColor: '#06B6D4',
-    theme: 'light',
-    defaultConfig: {
-      templateId: 'serenity-spa',
-      name: 'Serenity Thermal Spa',
-      slug: 'serenity-spa',
-      domain: 'serenityspa.wellness',
-      theme: 'light',
-      accentColor: '#06B6D4',
-      fontFamily: 'Inter, -apple-system, sans-serif',
-      borderRadius: 20,
-      published: true,
-      sectionOrder: [
-        'navbar',
-        'hero',
-        'slider',
-        'bentoFeatures',
-        'tabs',
-        'stats',
-        'testimonials',
-        'leadForm',
-        'map',
-        'faq',
-        'ctaFinal',
-        'footer'
-      ],
-      seo: {
-        title: 'Serenity Thermal Spa — Circuito Hidrotermal, Masajes & Retiros de Bienestar',
-        description: 'Un oasis de paz y silencio en plena naturaleza para revitalizar cuerpo y mente con terapias termales y aromaterapia.',
-        keywords: 'spa termal, circuito hidrotermal, masajes relajantes, retiro de bienestar, escapada romantica, aguas termales'
-      },
-      sections: {
-        navbar: {
-          brandName: 'Serenity',
-          logoText: 'SERENITY SPA',
-          ctaText: 'Reservar Tratamiento',
-          ctaLink: '#booking',
-          links: [
-            { label: 'Tratamientos', href: '#slider' },
-            { label: 'Instalaciones', href: '#features' },
-            { label: 'Experiencias', href: '#tabs' },
-            { label: 'Reserva', href: '#booking' },
-            { label: 'Ubicación', href: '#map' }
-          ],
-          glassBlur: true,
-          sticky: true
-        },
-        hero: {
-          enabled: true,
-          badge: 'Mejor Spa de Destino España 2025 • World Luxury Spa Awards',
-          kicker: 'Santuario de Calma & Regeneración',
-          title: 'El lujo del silencio.',
-          highlightTitle: 'El poder del agua.',
-          subtitle: 'Sumérgete en nuestras piscinas termales a 36°C, desconecta del ruido del mundo y déjate cuidar por terapeutas expertos en un entorno de naturaleza virgen.',
-          primaryCta: { text: 'Ver Menú de Tratamientos', link: '#slider' },
-          secondaryCta: { text: 'Reservar Pase de Día →', link: '#booking' },
-          imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80',
-          style: 'centered'
-        },
-        slider: {
-          enabled: true,
-          kicker: 'Rituales de Autor',
-          title: 'Terapias creadas para despertar tus sentidos.',
-          subtitle: 'Elige el tratamiento ideal para tu momento vital.',
-          autoplay: true,
-          slides: [
-            {
-              id: 'sl_1',
-              title: 'Ritual Sensorial con Piedras Volcánicas & Lavanda',
-              subtitle: '90 minutos de masaje descontracturante y termoterapia que alivia tensiones musculares profundas.',
-              tag: 'Ritual Estrella',
-              imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
-              ctaText: 'Reservar Ritual Volcánico',
-              ctaLink: '#booking'
-            },
-            {
-              id: 'sl_2',
-              title: 'Circuito Hidrotermal Completo & Baño Turco',
-              subtitle: 'Piscina de chorros subacuáticos, sauna finlandesa de cedro, pozo de agua fría y sala de cromoterapia.',
-              tag: 'Acceso Termal',
-              imageUrl: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=1200&q=80',
-              ctaText: 'Reservar Circuito',
-              ctaLink: '#booking'
-            },
-            {
-              id: 'sl_3',
-              title: 'Facial Iluminador con Oro Coloidal & Rosa Mosqueta',
-              subtitle: 'Regeneración celular no invasiva con masaje linfático facial y mascarilla de colágeno marino puro.',
-              tag: 'Cuidado Facial',
-              imageUrl: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80',
-              ctaText: 'Reservar Facial',
-              ctaLink: '#booking'
-            }
-          ]
-        },
-        bentoFeatures: {
-          enabled: true,
-          kicker: 'Las Instalaciones Serenity',
-          title: 'Diseñado para inducir un estado de relajación profunda.',
-          subtitle: 'Arquitectura bioclimática en piedra natural, madera cálida y vistas panorámicas a los bosques.',
-          items: [
-            {
-              id: 'f1',
-              title: 'Aguas Mineromedicinales a 36°C',
-              description: 'Manantial termal propio rico en silicio, magnesio y sulfatos que revitalizan la dermis y desinflaman articulaciones.',
-              icon: 'Sparkles',
-              tag: 'Manantial Propio',
-              colSpan: 2,
-              statNumber: '36°C',
-              statLabel: 'Temperatura constante todo el año'
-            },
-            {
-              id: 'f2',
-              title: 'Aromaterapia con Aceites Botánicos Puros',
-              description: 'Destilación propia de eucalipto silvestre, lavanda y bergamota en salas climatizadas de inhalación.',
-              icon: 'Flame',
-              tag: 'Esencias 100% Bio',
-              colSpan: 1
-            },
-            {
-              id: 'f3',
-              title: 'Terapeutas Colegiados & Quiromasaje',
-              description: 'Equipo de terapeutas con formación internacional en técnicas tailandesas, ayurvédicas y osteopatía suave.',
-              icon: 'HeartHandshake',
-              tag: 'Manos Expertas',
-              colSpan: 1
-            },
-            {
-              id: 'f4',
-              title: 'Ambiente Libre de Dispositivos (Digital Detox)',
-              description: 'Política estricta de silencio y desconexión digital para garantizar una paz absoluta a todos los huéspedes.',
-              icon: 'ShieldCheck',
-              tag: 'Silencio Absoluto',
-              colSpan: 2,
-              statNumber: '100%',
-              statLabel: 'Privacidad y serenidad garantizada'
-            }
-          ]
-        },
-        tabs: {
-          enabled: true,
-          kicker: 'Experiencias a tu Medida',
-          title: 'Planes para disfrutar en solitario o en pareja.',
-          subtitle: 'Elige la escapada perfecta según tu tiempo disponible.',
-          tabs: [
-            {
-              id: 'tab_day',
-              label: 'Pase Day Spa (1 Día)',
-              icon: 'Sparkles',
-              title: 'Una jornada completa de desconexión',
-              description: 'Acceso ilimitado al circuito hidrotermal, masaje de autor de 60 minutos y almuerzo saludable en nuestro restaurante orgánico.',
-              imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
-              points: [
-                'Acceso al circuito de aguas termales de 10:00 a 20:00',
-                'Albornoz de algodón egipcio, toallas y zapatillas incluidas',
-                'Menú degustación de 3 pasos en el restaurante El Manantial'
-              ]
-            },
-            {
-              id: 'tab_getaway',
-              label: 'Escapada Romántica (Fin de Semana)',
-              icon: 'HeartHandshake',
-              title: 'Dos noches inolvidables en suite con jacuzzi termal',
-              description: 'Alojamiento en suite bioclimática, ritual para dos con cava ecológico y desayuno buffet servido en la terraza privada.',
-              imageUrl: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
-              points: [
-                '2 noches en Suite Junior con chimenea y cama king-size',
-                'Masaje sincronizado en cabina dúo con aromaterapia',
-                'Cena a la luz de las velas con maridaje de vinos locales'
-              ]
-            }
-          ]
-        },
-        stats: {
-          enabled: true,
-          kicker: 'Excelencia Premiada',
-          title: 'La preferencia de los viajeros más exigentes.',
-          subtitle: 'Reconocido unánimemente como el santuario de desconexión de referencia.',
-          items: [
-            { id: 's1', value: '4.95/5', label: 'Puntuación en Google', description: 'Más de 1,800 reseñas reales' },
-            { id: 's2', value: '36°C', label: 'Temperatura Termal', description: 'Aguas mineromedicinales puras' },
-            { id: 's3', value: '18 Cabinas', label: 'Espacios Privados', description: 'Con luz natural y vistas al bosque' },
-            { id: 's4', value: 'Nº 1', label: 'Spa de Destino', description: 'Premios Luxury Travel 2025' }
-          ]
-        },
-        testimonials: {
-          enabled: true,
-          title: 'Lo que dicen quienes han encontrado su refugio.',
-          subtitle: 'Sensaciones compartidas tras una jornada de relajación en Serenity.',
-          items: [
-            {
-              id: 't1',
-              name: 'Patricia & Alberto',
-              role: 'Huéspedes de Fin de Semana',
-              company: 'Madrid',
-              quote: 'Salimos sintiéndonos como personas completamente nuevas. La atención del personal, la temperatura del agua y el silencio de las instalaciones no tienen comparación.',
-              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
-              rating: 5
-            },
-            {
-              id: 't2',
-              name: 'Dr. Fernando Valls',
-              role: 'Cirujano & Huésped Frecuente',
-              company: 'Barcelona',
-              quote: 'El masaje con piedras volcánicas me quitó meses de sobrecarga en la espalda. Es el único lugar donde consigo desconectar al 100% de la rutina médica.',
-              avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
-              rating: 5
-            }
-          ]
-        },
-        leadForm: {
-          enabled: true,
-          kicker: 'Solicitud de Disponibilidad',
-          title: 'Reserva tu momento de serenidad.',
-          subtitle: 'Rellena este formulario y nuestro equipo de reservas te confirmará la cita en menos de 2 horas.',
-          submitButtonText: 'Confirmar Solicitud de Reserva',
-          successTitle: '¡Solicitud de Reserva Enviada!',
-          successMessage: 'Nos pondremos en contacto contigo por teléfono o correo electrónico para confirmar tu horario preferido y enviarte los detalles de acceso.',
-          steps: [
-            {
-              id: 'step_1',
-              stepNumber: 1,
-              title: 'Tus Datos Personales',
-              subtitle: 'Indícanos a quién irá dirigida la reserva.',
-              fields: [
-                { id: 'rf_name', label: 'Nombre y Apellidos', type: 'text', placeholder: 'Ej. Laura Martínez', required: true },
-                { id: 'rf_email', label: 'Correo Electrónico', type: 'email', placeholder: 'laura@email.com', required: true },
-                { id: 'rf_phone', label: 'Teléfono de Contacto', type: 'text', placeholder: '+34 600 000 000', required: true }
-              ]
-            },
-            {
-              id: 'step_2',
-              stepNumber: 2,
-              title: 'Detalles de la Experiencia',
-              subtitle: 'Tratamiento, fecha deseada y número de personas.',
-              fields: [
-                {
-                  id: 'rf_service',
-                  label: 'Experiencia Deseada',
-                  type: 'select',
-                  options: ['Pase Day Spa Completo', 'Ritual Volcánico de Autor (90 min)', 'Circuito Hidrotermal (2 horas)', 'Escapada Romántica Fin de Semana'],
-                  required: true
-                },
-                {
-                  id: 'rf_guests',
-                  label: 'Número de Personas',
-                  type: 'select',
-                  options: ['1 Persona (Individual)', '2 Personas (Pareja)', 'Grupo Reducido (3-5 personas)'],
-                  required: true
-                },
-                { id: 'rf_notes', label: 'Peticiones especiales o alergias', type: 'textarea', placeholder: 'Indícanos si es para un aniversario, regalo especial o tienes alguna condición...', required: false }
-              ]
-            }
-          ]
-        },
-        map: {
-          enabled: true,
-          kicker: 'En Plena Naturaleza',
-          title: 'Un entorno privilegiado a 45 minutos de la ciudad.',
-          subtitle: 'Fácil acceso en vehículo privado con aparcamiento cubierto gratuito con cargadores para coches eléctricos.',
-          address: 'Camino del Manantial, Km 4.2, Valle de la Calma',
-          city: '28410 Manzanares el Real, Madrid',
-          hours: 'Lunes a Domingo: 09:30 - 21:30 (Reserva previa requerida)',
-          phone: '+34 918 000 789',
-          email: 'reservas@serenityspa.wellness',
-          embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.7947781035293!2d-3.8647!3d40.7275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQzJzM5LjAiTiAzwrA1MSc1Mi45Ilc!5e0!3m2!1ses!2ses!4v1650000000000!5m2!1ses!2ses',
-          directionsUrl: 'https://maps.google.com'
-        },
-        faq: {
-          enabled: true,
-          title: 'Preguntas Frecuentes sobre Serenity Spa',
-          subtitle: 'Todo lo que necesitas saber antes de tu llegada.',
-          items: [
-            {
-              id: 'spf_1',
-              question: '¿Qué indumentaria debo traer para el circuito termal?',
-              answer: 'Solo necesitas traer tu traje de baño. A tu llegada te facilitaremos albornoz de rizo de algodón, toallas de felpa, zapatillas antideslizantes y taquilla privada con llave electrónica.'
-            },
-            {
-              id: 'spf_2',
-              question: '¿Puedo regalar una experiencia o comprar un bono regalo?',
-              answer: 'Sí, disponemos de elegantes cajas de regalo físicas o tarjetas digitales personalizables con validez de 12 meses para cualquiera de nuestros tratamientos.'
-            },
-            {
-              id: 'spf_3',
-              question: '¿Cuál es la política de cancelación de reservas?',
-              answer: 'Puedes cancelar o modificar la fecha de tu tratamiento sin coste alguno con hasta 24 horas de antelación comunicándolo por teléfono o correo electrónico.'
-            }
-          ]
-        },
-        ctaFinal: {
-          enabled: true,
-          kicker: 'Regálate un Respiro',
-          title: 'Tu cuerpo y tu mente te lo agradecerán.',
-          subtitle: 'Reserva hoy tu tratamiento y asegura tu horario preferido en nuestras cabinas de autor.',
-          primaryCta: { text: 'Reservar Tratamiento Ahora', link: '#booking' },
-          secondaryCta: { text: 'Comprar Bono Regalo', link: '#gift' },
-          backgroundStyle: 'glow'
-        },
-        footer: {
-          copyright: '© 2026 Serenity Thermal Spa S.L. Todos los derechos reservados.',
-          legalLinks: [
-            { label: 'Normas del Centro Termal', href: '#rules' },
-            { label: 'Bonos Regalo', href: '#gift' },
-            { label: 'Privacidad', href: '#privacy' },
-            { label: 'Aviso Legal', href: '#legal' }
-          ],
-          socialLinks: [
-            { platform: 'Instagram', url: 'https://instagram.com' },
-            { platform: 'Facebook', url: 'https://facebook.com' },
-            { platform: 'TripAdvisor', url: 'https://tripadvisor.com' }
+            { platform: 'LinkedIn', url: 'https://linkedin.com' }
           ]
         }
       }
